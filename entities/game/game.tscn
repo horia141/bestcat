@@ -13,3 +13,5 @@ script = ExtResource("1_23vru")
 z_index = 100
 position = Vector2(100, 100)
 scale = Vector2(2, 2)
+
+[connection signal="shoot" from="BestCat" to="." method="_on_best_cat_shoot"]
