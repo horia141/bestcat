@@ -1,0 +1,5557 @@
+{ "frames": {
+   "Meow_Knight (Bg) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 0, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 80, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 0.aseprite": {
+    "frame": { "x": 0, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 1.aseprite": {
+    "frame": { "x": 80, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 2.aseprite": {
+    "frame": { "x": 160, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 3.aseprite": {
+    "frame": { "x": 240, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 4.aseprite": {
+    "frame": { "x": 320, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 5.aseprite": {
+    "frame": { "x": 400, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 6.aseprite": {
+    "frame": { "x": 480, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Run 7.aseprite": {
+    "frame": { "x": 560, "y": 720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 0.aseprite": {
+    "frame": { "x": 0, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 1.aseprite": {
+    "frame": { "x": 80, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 2.aseprite": {
+    "frame": { "x": 160, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 3.aseprite": {
+    "frame": { "x": 240, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 4.aseprite": {
+    "frame": { "x": 320, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Idle 5.aseprite": {
+    "frame": { "x": 400, "y": 1520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 1600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 1680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 1760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 1840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 1920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 2000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 2080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 2160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 2240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 0.aseprite": {
+    "frame": { "x": 0, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 1.aseprite": {
+    "frame": { "x": 80, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 2.aseprite": {
+    "frame": { "x": 160, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 3.aseprite": {
+    "frame": { "x": 240, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 4.aseprite": {
+    "frame": { "x": 320, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 5.aseprite": {
+    "frame": { "x": 400, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 6.aseprite": {
+    "frame": { "x": 480, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 7.aseprite": {
+    "frame": { "x": 560, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 8.aseprite": {
+    "frame": { "x": 640, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 9.aseprite": {
+    "frame": { "x": 720, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 10.aseprite": {
+    "frame": { "x": 800, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Jump 11.aseprite": {
+    "frame": { "x": 880, "y": 2320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 2960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 3040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 0.aseprite": {
+    "frame": { "x": 0, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 1.aseprite": {
+    "frame": { "x": 80, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 2.aseprite": {
+    "frame": { "x": 160, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 3.aseprite": {
+    "frame": { "x": 240, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 4.aseprite": {
+    "frame": { "x": 320, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 5.aseprite": {
+    "frame": { "x": 400, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 6.aseprite": {
+    "frame": { "x": 480, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 7.aseprite": {
+    "frame": { "x": 560, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 8.aseprite": {
+    "frame": { "x": 640, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_1 9.aseprite": {
+    "frame": { "x": 720, "y": 3120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 0.aseprite": {
+    "frame": { "x": 0, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 1.aseprite": {
+    "frame": { "x": 80, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 2.aseprite": {
+    "frame": { "x": 160, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 3.aseprite": {
+    "frame": { "x": 240, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 4.aseprite": {
+    "frame": { "x": 320, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 5.aseprite": {
+    "frame": { "x": 400, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 6.aseprite": {
+    "frame": { "x": 480, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Dodge 7.aseprite": {
+    "frame": { "x": 560, "y": 3920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_2 0.aseprite": {
+    "frame": { "x": 0, "y": 4720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_2 1.aseprite": {
+    "frame": { "x": 80, "y": 4720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_2 2.aseprite": {
+    "frame": { "x": 160, "y": 4720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_2 3.aseprite": {
+    "frame": { "x": 240, "y": 4720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 4800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 4800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 4800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 4800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 4880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 4880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 4880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 4880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 4960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 4960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 4960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 4960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_3 0.aseprite": {
+    "frame": { "x": 0, "y": 5520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_3 1.aseprite": {
+    "frame": { "x": 80, "y": 5520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_3 2.aseprite": {
+    "frame": { "x": 160, "y": 5520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_3 3.aseprite": {
+    "frame": { "x": 240, "y": 5520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 5600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 5680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 5760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 5840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 5920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 6000, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 6080, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 6160, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 6240, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 0.aseprite": {
+    "frame": { "x": 0, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 1.aseprite": {
+    "frame": { "x": 80, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 2.aseprite": {
+    "frame": { "x": 160, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 3.aseprite": {
+    "frame": { "x": 240, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 4.aseprite": {
+    "frame": { "x": 320, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 5.aseprite": {
+    "frame": { "x": 400, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 6.aseprite": {
+    "frame": { "x": 480, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Attack_4 7.aseprite": {
+    "frame": { "x": 560, "y": 6320, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6400, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6480, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6560, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6640, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6720, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6800, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6880, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 6960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 6960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 6960, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 7040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 7040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 7040, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Take_Damage 0.aseprite": {
+    "frame": { "x": 0, "y": 7120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Take_Damage 1.aseprite": {
+    "frame": { "x": 80, "y": 7120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Take_Damage 2.aseprite": {
+    "frame": { "x": 160, "y": 7120, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Bg) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7200, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Tail) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7280, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Body) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7360, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Head) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7440, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Hands) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7520, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Weapon) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7600, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_1) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7680, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Effect_2) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7760, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Layer 1) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7840, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 0.aseprite": {
+    "frame": { "x": 0, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 1.aseprite": {
+    "frame": { "x": 80, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 2.aseprite": {
+    "frame": { "x": 160, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 3.aseprite": {
+    "frame": { "x": 240, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 4.aseprite": {
+    "frame": { "x": 320, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   },
+   "Meow_Knight (Text\\) #Death 5.aseprite": {
+    "frame": { "x": 400, "y": 7920, "w": 80, "h": 80 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 80 },
+    "sourceSize": { "w": 80, "h": 80 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.7-x64-trial",
+  "image": "Meow_Knight.png",
+  "format": "RGBA8888",
+  "size": { "w": 960, "h": 8000 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "Run", "from": 0, "to": 7, "direction": "forward", "color": "#99c2dbff" },
+   { "name": "Idle", "from": 8, "to": 13, "direction": "forward", "color": "#357985ff" },
+   { "name": "Jump", "from": 14, "to": 25, "direction": "forward", "color": "#9c4f41ff" },
+   { "name": "Attack_1", "from": 26, "to": 35, "direction": "forward", "color": "#911d55ff" },
+   { "name": "Dodge", "from": 36, "to": 43, "direction": "forward", "color": "#b3785dff" },
+   { "name": "Attack_2", "from": 44, "to": 47, "direction": "forward", "color": "#ff8766ff" },
+   { "name": "Attack_3", "from": 48, "to": 51, "direction": "forward", "color": "#bf2651ff" },
+   { "name": "Attack_4", "from": 52, "to": 59, "direction": "forward", "color": "#f54f4fff" },
+   { "name": "Take_Damage", "from": 60, "to": 62, "direction": "forward", "color": "#dfededff" },
+   { "name": "Death", "from": 63, "to": 68, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Bg", "opacity": 255, "blendMode": "normal" },
+   { "name": "Tail", "opacity": 255, "blendMode": "normal" },
+   { "name": "Body", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Hands", "opacity": 255, "blendMode": "normal" },
+   { "name": "Weapon", "opacity": 255, "blendMode": "normal" },
+   { "name": "Effect_1", "opacity": 150, "blendMode": "normal" },
+   { "name": "Effect_2", "opacity": 120, "blendMode": "normal" },
+   { "name": "Layer 1", "opacity": 105, "blendMode": "normal" },
+   { "name": "Text\\", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

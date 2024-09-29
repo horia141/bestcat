@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhwvixbfdo05r"]
+
+[ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/bestcat/Meow-Knight_Idle.png" id="1_ieoas"]
+[ext_resource type="Script" path="res://entities/bestcat/best_cat.gd" id="1_yy4w3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ler6"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwsbg"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4uva"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 26, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpifn"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 52, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbfds"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 78, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4j1u"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 104, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pwld"]
+atlas = ExtResource("1_ieoas")
+region = Rect2(0, 130, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s703"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwsbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4uva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpifn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbfds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4j1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pwld")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[node name="BestCat" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+motion_mode = 1
+script = ExtResource("1_yy4w3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4ler6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3s703")
+animation = &"run"
+autoplay = "run"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
