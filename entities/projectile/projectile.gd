@@ -1,17 +1,18 @@
 extends RigidBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+signal enemy_hit
 
 
 func _on_body_entered(body: Node) -> void:
+	if is_instance_of(body, TileMapLayer):
+		# Hitting terrain
+		pass
+	elif body.is_in_group("Enemies"):
+		# Hitting an enemy
+		enemy_hit.emit(body)
+	elif body.is_in_group("Projectile"):
+		return
+	
 	$AnimatedSprite2D.play("explosion")
 	set_deferred("freeze", true)
 

@@ -21,6 +21,15 @@ window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="/Users/horia/Work/bestcat/movie.avi"
+
+[global_group]
+
+Enemies="All enemies"
+Projectile=""
+
 [input]
 
 ui_accept={

@@ -18,3 +18,8 @@ func _on_best_cat_shoot() -> void:
 	projectile.position = $BestCat.position + 32 * input_direction
 	projectile.add_constant_central_force(1000 * input_direction)
 	add_child(projectile)
+	
+	projectile.enemy_hit.connect(_on_projectile_hit_enemy)
+	
+func _on_projectile_hit_enemy(enemy) -> void:
+	enemy.on_hit_by_projectile()
