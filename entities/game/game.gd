@@ -1,3 +1,4 @@
+class_name Game
 extends Node
 
 
@@ -16,17 +17,17 @@ func _ready() -> void:
 	$Jelly1.shoot.connect(_on_enemy_shoot)
 
 
-func _on_player_shoot(projectile) -> void:
+func _on_player_shoot(projectile: Projectile) -> void:
 	add_child(projectile)
 	projectile.enemy_hit.connect(_on_projectile_hit_enemy)
 	
-func _on_enemy_shoot(enemy_projectile) -> void:
+func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
 	enemy_projectile.player_hit.connect(_on_projectile_hit_player)
 	
-func _on_projectile_hit_enemy(enemy) -> void:
+func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	enemy.on_hit_by_projectile()
 	
-func _on_projectile_hit_player(player) -> void:
+func _on_projectile_hit_player(player: BestCat) -> void:
 	player.on_hit_by_projectile()
 	$HUD.update_life(player.life)

@@ -1,3 +1,4 @@
+class_name Projectile
 extends RigidBody2D
 
 signal enemy_hit

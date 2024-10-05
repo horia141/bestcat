@@ -1,4 +1,5 @@
-extends "res://entities/enemies/enemy.gd"
+class_name Ogre
+extends Enemy
 
 
 func _on_shoot_timer() -> void:

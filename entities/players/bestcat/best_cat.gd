@@ -1,3 +1,4 @@
+class_name BestCat
 extends CharacterBody2D
 
 signal shoot
