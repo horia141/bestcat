@@ -5,13 +5,14 @@ signal shoot (projectile: PlayerProjectile)
 
 const SPEED = 250.0
 
+const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
+
 var look_right = true
 var life = 5
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Shoot"):
-		var player_projectile_scn = preload("res://entities/player-projectile/player-projectile.tscn")
-		var player_projectile = player_projectile_scn.instantiate()
+		var player_projectile = PlayerProjectileScn.instantiate()
 		player_projectile.post_ready_prepare(
 			position, Vector2(1 if look_right else -1, 0).rotated(randf_range(-0.1, 0.1)))
 		shoot.emit(player_projectile)
