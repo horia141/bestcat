@@ -8,13 +8,12 @@ func _ready() -> void:
 	var level_size_in_px = level_size_in_cells * tile_size_in_px
 	
 	$BestCat.post_ready_prepare(level_size_in_px)
-	$BestCat.shoot.connect(_on_player_shoot)
 	
-	$Ogre1.shoot.connect(_on_enemy_shoot)
-	$Ogre2.shoot.connect(_on_enemy_shoot)
-	$Ogre3.shoot.connect(_on_enemy_shoot)
-	$Ogre4.shoot.connect(_on_enemy_shoot)
-	$Jelly1.shoot.connect(_on_enemy_shoot)
+	for player in get_tree().get_nodes_in_group("Players"):
+		(player as Player).shoot.connect(_on_player_shoot)
+		
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		(enemy as Enemy).shoot.connect(_on_enemy_shoot)
 
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:

@@ -1,8 +1,6 @@
 class_name BestCat
 extends Player
 
-signal shoot (projectile: PlayerProjectile)
-
 const SPEED = 250.0
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
