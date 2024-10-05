@@ -111,4 +111,4 @@ shape = SubResource("CircleShape2D_8lup2")
 [node name="ShootTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer"]
+[connection signal="timeout" from="ShootTimer" to="." method="_shoot"]

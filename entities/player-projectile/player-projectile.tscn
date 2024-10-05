@@ -22,4 +22,4 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_v8sva")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="__on_animated_sprite_2d_animation_finished"]

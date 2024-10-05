@@ -114,4 +114,4 @@ shape = SubResource("CircleShape2D_jho5w")
 wait_time = 2.0
 autostart = true
 
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer"]
+[connection signal="timeout" from="ShootTimer" to="." method="_shoot"]

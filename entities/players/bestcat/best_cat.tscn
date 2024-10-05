@@ -1,10 +1,47 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhwvixbfdo05r"]
+[gd_scene load_steps=21 format=3 uid="uid://dhwvixbfdo05r"]
 
 [ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/players/bestcat/Meow-Knight_Idle.png" id="1_ieoas"]
 [ext_resource type="Script" path="res://entities/players/bestcat/best_cat.gd" id="1_yy4w3"]
+[ext_resource type="Texture2D" uid="uid://ohrrmhy6ugof" path="res://common/projectile/explosion.png" id="2_opky4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ler6"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ulam"]
+atlas = ExtResource("2_opky4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0btqd"]
+atlas = ExtResource("2_opky4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xsnq"]
+atlas = ExtResource("2_opky4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f82k4"]
+atlas = ExtResource("2_opky4")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r06kf"]
+atlas = ExtResource("2_opky4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgfh7"]
+atlas = ExtResource("2_opky4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwwy3"]
+atlas = ExtResource("2_opky4")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icjju"]
+atlas = ExtResource("2_opky4")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ns7y"]
+atlas = ExtResource("2_opky4")
+region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rwsbg"]
 atlas = ExtResource("1_ieoas")
@@ -32,6 +69,38 @@ region = Rect2(0, 130, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3s703"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ulam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0btqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xsnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f82k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r06kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgfh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwwy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icjju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ns7y")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rwsbg")
@@ -67,10 +136,12 @@ shape = SubResource("CircleShape2D_4ler6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3s703")
-animation = &"run"
+animation = &"explosion"
 autoplay = "run"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="__on_animated_sprite_2d_animation_finished"]
