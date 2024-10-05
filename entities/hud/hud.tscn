@@ -1,23 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4kvoewf706nv"]
+[gd_scene load_steps=4 format=3 uid="uid://d4kvoewf706nv"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_b7ufk"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://entities/hud/heart.png" id="1_mw2ac"]
+[ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://entities/hud/projectiles-cnt.png" id="3_mfaf1"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_b7ufk")
 
-[node name="Life" type="HBoxContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 52.0
-offset_bottom = 44.0
+[node name="PlayerInfo" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="LifeIcon" type="TextureRect" parent="Life"]
+[node name="Life" type="HBoxContainer" parent="PlayerInfo"]
+layout_mode = 2
+
+[node name="LifeIcon" type="TextureRect" parent="PlayerInfo/Life"]
 layout_mode = 2
 texture = ExtResource("1_mw2ac")
 stretch_mode = 3
 
-[node name="LifeCnt" type="Label" parent="Life"]
+[node name="LifeCntText" type="Label" parent="PlayerInfo/Life"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
+
+[node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo"]
+layout_mode = 2
+
+[node name="ProjectilesCntIcon" type="TextureRect" parent="PlayerInfo/ProjectilesCnt"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_mfaf1")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="ProjectilesCntText" type="Label" parent="PlayerInfo/ProjectilesCnt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "5"
+
+[node name="ProjectilesCntRegenFactorText" type="Label" parent="PlayerInfo/ProjectilesCnt"]
+layout_mode = 2

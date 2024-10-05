@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal shoot (projectile: PlayerProjectile)
+signal state_change ()
 
 #region Game logic
 

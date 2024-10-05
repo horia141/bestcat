@@ -2,12 +2,17 @@ class_name BestCat
 extends Player
 
 const MAX_LIFE = 5
+const MAX_PROJECTILES_CNT = 5
+const PROJECTILES_CNT_REGEN_INCREMENT = 1
+const PROJECTILES_CNT_REGEN_CUTOFF = 10
 const SPEED = 250.0
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
 var look_right = true
 var life = MAX_LIFE
+var projectiles_cnt = MAX_PROJECTILES_CNT
+var projectiles_cnt_regen_factor = 0.0
 
 #region Construction
 
@@ -23,31 +28,52 @@ func post_ready_prepare(world_size_in_px: Vector2) -> void:
 #region Game logic
 
 func _shoot_projectile() -> void:
+	if projectiles_cnt == 0:
+		return
 	var player_projectile = PlayerProjectileScn.instantiate()
 	player_projectile.post_ready_prepare(
 		position, Vector2(1 if look_right else -1, 0).rotated(randf_range(-0.1, 0.1)))
 	shoot.emit(player_projectile)
+	projectiles_cnt -= 1
+	state_change.emit()
+	
+func _regen_projectile() -> void:
+	if projectiles_cnt == MAX_PROJECTILES_CNT:
+		return
+
+	projectiles_cnt_regen_factor += PROJECTILES_CNT_REGEN_INCREMENT
+	if projectiles_cnt_regen_factor > PROJECTILES_CNT_REGEN_CUTOFF:
+		projectiles_cnt = projectiles_cnt + 1
+		projectiles_cnt_regen_factor = 0.0
+	
+	state_change.emit()
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
 	life = life - 1
 	
 	if life == 0:
-		$AnimatedSprite2D.play("explosion")
-		$CollisionShape2D.set_deferred("disabled", true)
-		set_deferred("freeze", true)
+		projectiles_cnt = 0
+		_destroy()
 	
-func __on_animated_sprite_2d_animation_finished() -> void:
-	# If we've triggered this animation, we exploded! Let's remove this!
-	if $AnimatedSprite2D.animation == "explosion":
-		queue_free()
-		
+	state_change.emit()
+	
 func _look_at_right(new_look_right: bool) -> void:
 	look_right = new_look_right
 	$AnimatedSprite2D.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
 	velocity = new_velocity * SPEED
+		
+func _destroy() -> void:
+	$AnimatedSprite2D.play("explosion")
+	$CollisionShape2D.set_deferred("disabled", true)
+	set_deferred("freeze", true)
+	
+func __on_animated_sprite_2d_animation_finished() -> void:
+	# If we've triggered this animation, we exploded! Let's remove this!
+	if $AnimatedSprite2D.animation == "explosion":
+		queue_free()
 
 #endregion
 

@@ -9,6 +9,7 @@ func _ready() -> void:
 	var level_size_in_px = level_size_in_cells * tile_size_in_px
 	
 	$BestCat.post_ready_prepare(level_size_in_px)
+	$BestCat.state_change.connect(func (): $HUD.update($BestCat))
 	
 	for player in get_tree().get_nodes_in_group("Players"):
 		(player as Player).shoot.connect(_on_player_shoot)
@@ -36,6 +37,5 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
-	$HUD.update(player as BestCat)
 	
 #endregion
