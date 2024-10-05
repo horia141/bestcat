@@ -16,14 +16,11 @@ z_index = 100
 position = Vector2(100, 100)
 scale = Vector2(2, 2)
 
-[node name="Ogre" parent="." instance=ExtResource("4_11ffl")]
+[node name="Ogre1" parent="." instance=ExtResource("4_11ffl")]
 position = Vector2(184, 192)
 
 [node name="Ogre2" parent="." instance=ExtResource("4_11ffl")]
 position = Vector2(184, 248)
-
-[node name="Jelly" parent="." instance=ExtResource("5_whtgd")]
-position = Vector2(192, 307)
 
 [node name="Ogre3" parent="." instance=ExtResource("4_11ffl")]
 position = Vector2(512, 72)
@@ -31,4 +28,5 @@ position = Vector2(512, 72)
 [node name="Ogre4" parent="." instance=ExtResource("4_11ffl")]
 position = Vector2(400, 208)
 
-[connection signal="shoot" from="BestCat" to="." method="_on_best_cat_shoot"]
+[node name="Jelly1" parent="." instance=ExtResource("5_whtgd")]
+position = Vector2(192, 307)

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal shoot
+
 func _on_ready() -> void:
 	$AnimatedSprite2D.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	

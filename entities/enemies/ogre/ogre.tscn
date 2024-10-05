@@ -111,6 +111,7 @@ autoplay = "idle"
 shape = SubResource("CircleShape2D_jho5w")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer"]

@@ -8,4 +8,5 @@ func _on_shoot_timer() -> void:
 	var direction = Vector2(-1, 0).rotated(randf_range(0, TAU))
 	enemy_projectile.position = position + 32 * direction
 	enemy_projectile.add_constant_central_force(1000 * direction)
-	get_parent().add_child(enemy_projectile)
+	
+	shoot.emit(enemy_projectile)
