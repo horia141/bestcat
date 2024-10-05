@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhwvixbfdo05r"]
 
-[ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/bestcat/Meow-Knight_Idle.png" id="1_ieoas"]
-[ext_resource type="Script" path="res://entities/bestcat/best_cat.gd" id="1_yy4w3"]
+[ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/players/bestcat/Meow-Knight_Idle.png" id="1_ieoas"]
+[ext_resource type="Script" path="res://entities/players/bestcat/best_cat.gd" id="1_yy4w3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ler6"]
 radius = 8.0

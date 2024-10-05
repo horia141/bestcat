@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4kvoewf706nv"]
+
+[ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_b7ufk"]
+[ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://entities/hud/heart.png" id="1_mw2ac"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_b7ufk")
+
+[node name="Life" type="HBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 44.0
+
+[node name="LifeIcon" type="TextureRect" parent="Life"]
+layout_mode = 2
+texture = ExtResource("1_mw2ac")
+stretch_mode = 3
+
+[node name="LifeCnt" type="Label" parent="Life"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "5"

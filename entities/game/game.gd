@@ -29,3 +29,4 @@ func _on_projectile_hit_enemy(enemy) -> void:
 	
 func _on_projectile_hit_player(player) -> void:
 	player.on_hit_by_projectile()
+	$HUD.update_life(player.life)

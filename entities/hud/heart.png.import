@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jj8fd7s71yvr"
-path="res://.godot/imported/Meow-Knight_Dodge.png-41318c24c397b0dbbab5d7e03d651935.ctex"
+uid="uid://dhd0v6d5hova3"
+path="res://.godot/imported/heart.png-0ad7c8e9708f83252931bfd577570eb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bestcat/Meow-Knight_Dodge.png"
-dest_files=["res://.godot/imported/Meow-Knight_Dodge.png-41318c24c397b0dbbab5d7e03d651935.ctex"]
+source_file="res://entities/hud/heart.png"
+dest_files=["res://.godot/imported/heart.png-0ad7c8e9708f83252931bfd577570eb5.ctex"]
 
 [params]
 
