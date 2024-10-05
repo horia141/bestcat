@@ -1,103 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq1ego61eltl"]
+[gd_scene load_steps=4 format=3 uid="uid://cq1ego61eltl"]
 
 [ext_resource type="Script" path="res://entities/projectile/projectile.gd" id="1_e761v"]
-[ext_resource type="Texture2D" uid="uid://blfpwp0uu50ub" path="res://entities/projectile/explosion.png" id="1_hteyl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jch3"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_adwee"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pme1q"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lj4l7"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vwnj"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kdv3"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p22vu"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(288, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kviky"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(336, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwlhl"]
-atlas = ExtResource("1_hteyl")
-region = Rect2(384, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5c47w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jch3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adwee")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pme1q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lj4l7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4vwnj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7kdv3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p22vu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kviky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xwlhl")
-}],
-"loop": false,
-"name": &"explosion",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jch3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adwee")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 6.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://obbc21skj6hr" path="res://common/projectile/projectile.tres" id="2_g4msr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8sva"]
 radius = 8.0
 
-[node name="Projectile" type="RigidBody2D" groups=["Projectile"]]
+[node name="Projectile" type="RigidBody2D" groups=["Projectiles"]]
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_e761v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_5c47w")
-animation = &"explosion"
+sprite_frames = ExtResource("2_g4msr")
+animation = &"idle"
 autoplay = "idle"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v8sva")

@@ -4,6 +4,7 @@ func _on_ready() -> void:
 	$AnimatedSprite2D.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	
 func on_hit_by_projectile() -> void:
+	$ShootTimer.stop()
 	$AnimatedSprite2D.play("explosion")
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_deferred("freeze", true)

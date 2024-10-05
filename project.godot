@@ -28,7 +28,8 @@ movie_writer/movie_file="/Users/horia/Work/bestcat/movie.avi"
 [global_group]
 
 Enemies="All enemies"
-Projectile=""
+Players=""
+Projectiles=""
 
 [input]
 

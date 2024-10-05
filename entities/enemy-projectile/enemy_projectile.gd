@@ -1,15 +1,14 @@
 extends RigidBody2D
 
-signal enemy_hit
-
+signal player_hit
 
 func _on_body_entered(body: Node) -> void:
 	if is_instance_of(body, TileMapLayer):
 		pass
 	elif body.is_in_group("Players"):
-		return
+		player_hit.emit(body)
 	elif body.is_in_group("Enemies"):
-		enemy_hit.emit(body)
+		return
 	elif body.is_in_group("Projectiles"):
 		return
 	

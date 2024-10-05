@@ -8,7 +8,7 @@ const SPEED = 250.0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Shoot"):
-		emit_signal("shoot")
+		shoot.emit()
 		
 
 func _process(delta: float) -> void:
