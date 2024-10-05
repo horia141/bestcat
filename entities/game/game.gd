@@ -6,10 +6,10 @@ func _ready() -> void:
 	var level_size_in_cells = $Level/Terrain.get_used_rect().size
 	var tile_size_in_px = $Level/Terrain.tile_set.tile_size
 	var level_size_in_px = level_size_in_cells * tile_size_in_px
-	$BestCat/Camera2D.limit_right = level_size_in_px.x
-	$BestCat/Camera2D.limit_bottom = level_size_in_px.y
 	
+	$BestCat.post_ready_prepare(level_size_in_px)
 	$BestCat.shoot.connect(_on_player_shoot)
+	
 	$Ogre1.shoot.connect(_on_enemy_shoot)
 	$Ogre2.shoot.connect(_on_enemy_shoot)
 	$Ogre3.shoot.connect(_on_enemy_shoot)
