@@ -1,5 +1,9 @@
 class_name HUD
 extends CanvasLayer
 
-func update_life(new_life: int) -> void:
-	$Life/LifeCnt.text = str(new_life)
+#region Game logic
+
+func update(best_cat: BestCat) -> void:
+	$Life/LifeCnt.text = str(best_cat.life)
+	
+#endregion

@@ -3,6 +3,7 @@ extends Enemy
 
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
+#region Game events
 
 func _on_shoot_timer() -> void:
 	var enemy_projectile_left = EnemyProjectileScn.instantiate()
@@ -20,3 +21,5 @@ func _on_shoot_timer() -> void:
 	var enemy_projectile_down = EnemyProjectileScn.instantiate()
 	enemy_projectile_down.post_ready_prepare(position, Vector2(0, 1).rotated(randf_range(-0.2, 0.2)))
 	shoot.emit(enemy_projectile_down)
+	
+#endregion

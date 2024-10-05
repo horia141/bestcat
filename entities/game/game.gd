@@ -1,6 +1,7 @@
 class_name Game
 extends Node
 
+#region Construction
 
 func _ready() -> void:
 	var level_size_in_cells = $Level/Terrain.get_used_rect().size
@@ -14,7 +15,13 @@ func _ready() -> void:
 		
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		(enemy as Enemy).shoot.connect(_on_enemy_shoot)
+		
+func post_ready_prepare() -> void:
+	pass
+	
+#endregion
 
+#region Game logic
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
@@ -29,4 +36,6 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
-	$HUD.update_life(player.life)
+	$HUD.update(player as BestCat)
+	
+#endregion
