@@ -1,7 +1,7 @@
 class_name BestCat
-extends CharacterBody2D
+extends Player
 
-signal shoot
+signal shoot (projectile: PlayerProjectile)
 
 const SPEED = 250.0
 
@@ -39,6 +39,7 @@ func post_ready_prepare(world_size_in_px: Vector2) -> void:
 	
 
 func on_hit_by_projectile() -> void:
+	super.on_hit_by_projectile()
 	life = life - 1
 	
 	if life == 0:

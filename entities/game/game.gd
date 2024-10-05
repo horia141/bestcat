@@ -28,6 +28,6 @@ func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	enemy.on_hit_by_projectile()
 	
-func _on_projectile_hit_player(player: BestCat) -> void:
+func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
 	$HUD.update_life(player.life)

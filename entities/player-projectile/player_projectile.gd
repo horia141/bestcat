@@ -1,7 +1,7 @@
 class_name PlayerProjectile
 extends RigidBody2D
 
-signal enemy_hit
+signal enemy_hit (enemy: Enemy)
 
 const BUFFER = 32
 const SPEED = 1000
@@ -13,7 +13,7 @@ func _on_body_entered(body: Node) -> void:
 	elif body.is_in_group("Players"):
 		return
 	elif body.is_in_group("Enemies"):
-		enemy_hit.emit(body)
+		enemy_hit.emit(body as Enemy)
 	elif body.is_in_group("Projectiles"):
 		return
 	

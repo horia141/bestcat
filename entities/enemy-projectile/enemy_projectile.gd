@@ -1,7 +1,7 @@
 class_name EnemyProjectile
 extends RigidBody2D
 
-signal player_hit
+signal player_hit (player: Player)
 
 const BUFFER = 32
 const SPEED = 1000
@@ -10,7 +10,7 @@ func _on_body_entered(body: Node) -> void:
 	if is_instance_of(body, TileMapLayer):
 		pass
 	elif body.is_in_group("Players"):
-		player_hit.emit(body)
+		player_hit.emit(body as Player)
 	elif body.is_in_group("Enemies"):
 		return
 	elif body.is_in_group("Projectiles"):
