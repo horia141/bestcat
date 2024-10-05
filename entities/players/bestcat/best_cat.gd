@@ -13,11 +13,11 @@ func _input(event: InputEvent) -> void:
 		var input_direction_clean = Vector2(1 if look_right else -1, 0)
 		var input_direction_jitter = randf_range(-0.1, 0.1)
 		var input_direction = input_direction_clean.rotated(input_direction_jitter)
-		var projectile_scene = preload("res://entities/projectile/projectile.tscn")
-		var projectile = projectile_scene.instantiate()
-		projectile.position = position + 32 * input_direction
-		projectile.add_constant_central_force(1000 * input_direction)
-		shoot.emit(projectile)
+		var player_projectile_scn = preload("res://entities/player-projectile/player-projectile.tscn")
+		var player_projectile = player_projectile_scn.instantiate()
+		player_projectile.position = position + 32 * input_direction
+		player_projectile.add_constant_central_force(1000 * input_direction)
+		shoot.emit(player_projectile)
 		
 
 func _process(delta: float) -> void:

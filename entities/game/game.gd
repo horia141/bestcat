@@ -17,9 +17,9 @@ func _ready() -> void:
 	$Jelly1.shoot.connect(_on_enemy_shoot)
 
 
-func _on_player_shoot(projectile: Projectile) -> void:
-	add_child(projectile)
-	projectile.enemy_hit.connect(_on_projectile_hit_enemy)
+func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
+	add_child(player_projectile)
+	player_projectile.enemy_hit.connect(_on_projectile_hit_enemy)
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
