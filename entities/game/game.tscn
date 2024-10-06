@@ -39,8 +39,25 @@ position = Vector2(192, 307)
 [node name="LifePowerUp" parent="." instance=ExtResource("7_cdxqa")]
 position = Vector2(184, 88)
 
-[node name="DarkTower" parent="." instance=ExtResource("8_2xwt8")]
+[node name="DarkTower1" parent="." instance=ExtResource("8_2xwt8")]
 z_index = 1000
-z_as_relative = true
 y_sort_enabled = true
 position = Vector2(336, 400)
+
+[node name="DarkTower2" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(648, 272)
+
+[node name="DarkTower3" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(552, 592)
+
+[node name="DarkTower4" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(184, 792)
+
+[node name="DarkTower5" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(1008, 960)
+
+[node name="DarkTower6" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(1592, 88)
+
+[node name="DarkTower7" parent="." instance=ExtResource("8_2xwt8")]
+position = Vector2(1584, 928)

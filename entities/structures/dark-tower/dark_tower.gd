@@ -1,6 +1,8 @@
 class_name DarkTower
 extends Structure
 
+signal destroyed ()
+
 const MAX_LIFE = 3
 
 var life = MAX_LIFE
@@ -20,6 +22,8 @@ func on_hit_by_player_projectile() -> void:
 	
 	if life == 0:
 		operational = false
+		
+		destroyed.emit()
 		
 		$Explosion.visible = true
 		$Explosion.play("explosion")

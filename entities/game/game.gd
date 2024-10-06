@@ -4,6 +4,8 @@ extends Node
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
+var dark_towers_left_cnt = 0
+
 #region Construction
 
 func _ready() -> void:
@@ -12,7 +14,13 @@ func _ready() -> void:
 	var level_size_in_px = level_size_in_cells * tile_size_in_px
 	
 	$BestCat.post_ready_prepare(level_size_in_px)
-	$BestCat.state_change.connect(func (): $HUD.update($BestCat))
+	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
+	
+	for structure in get_tree().get_nodes_in_group("Structures"):
+		var the_structure = structure as Structure
+		if the_structure is DarkTower:
+			dark_towers_left_cnt += 1
+			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
 	for player in get_tree().get_nodes_in_group("Players"):
 		(player as Player).shoot.connect(_on_player_shoot)
@@ -25,6 +33,9 @@ func _ready() -> void:
 	for treasure in get_tree().get_nodes_in_group("Treasures"):
 		var the_treasure = treasure as Treasure
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
+		
+	$HUD.update_player($BestCat)
+	$HUD.update_mission(dark_towers_left_cnt)
 		
 func post_ready_prepare() -> void:
 	pass
@@ -66,4 +77,8 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
 	
+func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
+	dark_towers_left_cnt -= 1
+	$HUD.update_mission(dark_towers_left_cnt)
+
 #endregion
