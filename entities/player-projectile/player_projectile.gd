@@ -19,15 +19,18 @@ func post_ready_prepare(init_position: Vector2, init_direction: Vector2) -> void
 #endregion
 
 #region Game logic
+	
+func _hit_wall() -> void:
+	_destroy()
+	
+func _hit_structure(structure: Structure) -> void:
+	_destroy()
 
 func _hit_player(player: Player) -> void:
 	pass
 	
 func _hit_enemy(enemy: Enemy) -> void:
 	enemy_hit.emit(enemy)
-	_destroy()
-	
-func _hit_wall() -> void:
 	_destroy()
 	
 func _destroy() -> void:
@@ -46,6 +49,8 @@ func __on_animated_sprite_2d_animation_finished() -> void:
 func _on_body_entered(body: Node) -> void:
 	if is_instance_of(body, TileMapLayer):
 		_hit_wall()
+	elif body.is_in_group("Structures"):
+		_hit_structure(body as Structure)
 	elif body.is_in_group("Players"):
 		_hit_player(body as Player)
 	elif body.is_in_group("Enemies"):

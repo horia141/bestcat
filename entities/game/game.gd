@@ -1,8 +1,8 @@
 class_name Game
 extends Node
 
-const LifePowerUpScn = preload("res://entities/treasure/life-powerup.tscn")
-const ProjectilePowerUpScn = preload("res://entities/treasure/projectile-powerup.tscn")
+const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
+const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
 #region Construction
 

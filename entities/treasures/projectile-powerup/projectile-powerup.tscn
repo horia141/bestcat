@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg7cci6qbmvfq"]
 
 [ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="1_3l1an"]
-[ext_resource type="Script" path="res://entities/treasure/projectile_powerup.gd" id="1_kn72t"]
+[ext_resource type="Script" path="res://entities/treasures/projectile-powerup/projectile_powerup.gd" id="1_kn72t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcq3b"]
 

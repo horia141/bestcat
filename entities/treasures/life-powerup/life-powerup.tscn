@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmqgqmoq6rfgx"]
 
-[ext_resource type="Script" path="res://entities/treasure/life_powerup.gd" id="1_087ks"]
+[ext_resource type="Script" path="res://entities/treasures/life-powerup/life_powerup.gd" id="1_087ks"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="2_8t0bn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g254y"]
