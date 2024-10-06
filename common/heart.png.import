@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b85qivevh4gb3"
-path="res://.godot/imported/projectiles-cnt.png-689df62388220e000b53b44367cac7d7.ctex"
+uid="uid://dhd0v6d5hova3"
+path="res://.godot/imported/heart.png-21fba914fbd355b39cad8dc5ed968832.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/hud/projectiles-cnt.png"
-dest_files=["res://.godot/imported/projectiles-cnt.png-689df62388220e000b53b44367cac7d7.ctex"]
+source_file="res://common/heart.png"
+dest_files=["res://.godot/imported/heart.png-21fba914fbd355b39cad8dc5ed968832.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ const SPEED = 1000
 
 #region Construction
 
-func _on_ready() -> void:
+func _ready() -> void:
 	pass
 	
 func post_ready_prepare(init_position: Vector2, init_direction: Vector2) -> void:

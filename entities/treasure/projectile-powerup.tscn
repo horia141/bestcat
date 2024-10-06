@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg7cci6qbmvfq"]
+
+[ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="1_3l1an"]
+[ext_resource type="Script" path="res://entities/treasure/projectile_powerup.gd" id="1_kn72t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcq3b"]
+
+[node name="ProjectilePowerUp" type="Area2D" groups=["Treasures"]]
+script = ExtResource("1_kn72t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3l1an")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lcq3b")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4kvoewf706nv"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_b7ufk"]
-[ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://entities/hud/heart.png" id="1_mw2ac"]
-[ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://entities/hud/projectiles-cnt.png" id="3_mfaf1"]
+[ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="1_mw2ac"]
+[ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="3_mfaf1"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_b7ufk")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=8 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://entities/game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/level/level.tscn" id="1_sni2y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/ogre/ogre.tscn" id="4_11ffl"]
 [ext_resource type="PackedScene" uid="uid://dc30rmyd7dqwg" path="res://entities/enemies/jelly/jelly.tscn" id="5_whtgd"]
 [ext_resource type="PackedScene" uid="uid://d4kvoewf706nv" path="res://entities/hud/hud.tscn" id="6_7emao"]
+[ext_resource type="PackedScene" uid="uid://cmqgqmoq6rfgx" path="res://entities/treasure/life-powerup.tscn" id="7_cdxqa"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_23vru")
@@ -33,3 +34,6 @@ position = Vector2(400, 208)
 
 [node name="Jelly1" parent="." instance=ExtResource("5_whtgd")]
 position = Vector2(192, 307)
+
+[node name="LifePowerUp" parent="." instance=ExtResource("7_cdxqa")]
+position = Vector2(184, 88)

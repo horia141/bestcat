@@ -16,7 +16,7 @@ var projectiles_cnt_regen_factor = 0.0
 
 #region Construction
 
-func _on_ready() -> void:
+func _ready() -> void:
 	pass
 	
 func post_ready_prepare(world_size_in_px: Vector2) -> void:
@@ -56,6 +56,19 @@ func on_hit_by_projectile() -> void:
 		projectiles_cnt = 0
 		_destroy()
 	
+	state_change.emit()
+	
+func apply_treasure(treasure: Treasure) -> void:
+	super.apply_treasure(treasure)
+	
+	if treasure is LifePowerUp:
+		life = min(life + 1, MAX_LIFE)
+	elif treasure is ProjectilePowerUp:
+		projectiles_cnt = min(projectiles_cnt + 1, MAX_PROJECTILES_CNT)
+		projectiles_cnt_regen_factor = 0.0
+	else:
+		assert(0 == 1, "Invalid treasure: " + str(treasure))
+		
 	state_change.emit()
 	
 func _look_at_right(new_look_right: bool) -> void:

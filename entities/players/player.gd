@@ -9,4 +9,7 @@ signal state_change ()
 func on_hit_by_projectile() -> void:
 	pass
 	
+func apply_treasure(treasure: Treasure) -> void:
+	pass
+	
 #endregion
