@@ -7,7 +7,7 @@ const OgreScn = preload("res://entities/enemies/ogre/ogre.tscn")
 signal spawned_enemy (enemy: Enemy)
 signal destroyed ()
 
-const MAX_ENEMIES_TO_SPAWN = 10
+const MAX_ENEMIES_TO_SPAWN = 5
 const MAX_LIFE = 3
 
 var life = MAX_LIFE
@@ -30,10 +30,12 @@ func _spawn_enemy() -> void:
 		var jelly = JellyScn.instantiate()
 		jelly.post_ready_prepare(_random_position_in_disc(position))
 		spawned_enemy.emit(jelly)
+		my_enemies[jelly.get_instance_id()] = jelly
 	else:
 		var ogre = OgreScn.instantiate()
 		ogre.post_ready_prepare(_random_position_in_disc(position))
 		spawned_enemy.emit(ogre)
+		my_enemies[ogre.get_instance_id()] = ogre
 
 func on_own_spawn_destroyed(enemy: Enemy) -> void:
 	if not my_enemies.has(enemy.get_instance_id()):
