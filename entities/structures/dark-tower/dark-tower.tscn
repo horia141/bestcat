@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bl2kfjfbn2sie"]
+[gd_scene load_steps=30 format=3 uid="uid://bl2kfjfbn2sie"]
 
 [ext_resource type="Script" path="res://entities/structures/dark-tower/dark_tower.gd" id="1_0dqn5"]
 [ext_resource type="Texture2D" uid="uid://bwach4flogf1j" path="res://entities/structures/dark-tower/sheet.png" id="1_0gc8o"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="3_730m7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4psas"]
 atlas = ExtResource("1_0gc8o")
@@ -73,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4psas")
 }],
-"loop": true,
+"loop": false,
 "name": &"destroyed",
 "speed": 5.0
 }, {
@@ -133,17 +134,83 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpu68"]
+atlas = ExtResource("3_730m7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sifq4"]
+atlas = ExtResource("3_730m7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbyru"]
+atlas = ExtResource("3_730m7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrs0b"]
+atlas = ExtResource("3_730m7")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov2ht"]
+atlas = ExtResource("3_730m7")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcjfb"]
+atlas = ExtResource("3_730m7")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkkr1"]
+atlas = ExtResource("3_730m7")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e366"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpu68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sifq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbyru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrs0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov2ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcjfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkkr1")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exwa6"]
-height = 96.0
+radius = 16.0
+height = 40.0
 
 [node name="DarkTower" type="StaticBody2D" groups=["Structures"]]
 script = ExtResource("1_0dqn5")
-metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BaseSprite" type="AnimatedSprite2D" parent="."]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_1iefk")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5e366")
+animation = &"explosion"
+frame = 6
+frame_progress = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_exwa6")

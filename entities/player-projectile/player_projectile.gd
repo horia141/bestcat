@@ -2,6 +2,7 @@ class_name PlayerProjectile
 extends RigidBody2D
 
 signal enemy_hit (enemy: Enemy)
+signal structure_hit (structure: Structure)
 
 const BUFFER = 32
 const SPEED = 1000
@@ -24,6 +25,7 @@ func _hit_wall() -> void:
 	_destroy()
 	
 func _hit_structure(structure: Structure) -> void:
+	structure_hit.emit(structure)
 	_destroy()
 
 func _hit_player(player: Player) -> void:

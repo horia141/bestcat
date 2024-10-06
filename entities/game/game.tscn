@@ -40,4 +40,7 @@ position = Vector2(192, 307)
 position = Vector2(184, 88)
 
 [node name="DarkTower" parent="." instance=ExtResource("8_2xwt8")]
+z_index = 1000
+z_as_relative = true
+y_sort_enabled = true
 position = Vector2(336, 400)

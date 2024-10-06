@@ -36,6 +36,7 @@ func post_ready_prepare() -> void:
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
 	player_projectile.enemy_hit.connect(_on_projectile_hit_enemy)
+	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
@@ -55,6 +56,9 @@ func _on_enemy_destroyed(enemy: Enemy) -> void:
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
+	
+func _on_player_projectile_hit_structure(structure: Structure) -> void:
+	structure.on_hit_by_player_projectile()
 
 func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	enemy.on_hit_by_projectile()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bpojpiwt37r7o" path="res://entities/enemies/ogre/ogre.png" id="1_2c0mc"]
 [ext_resource type="Script" path="res://entities/enemies/ogre/ogre.gd" id="1_t6i1p"]
-[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://entities/enemies/enemies.explosion.png" id="1_xey12"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="1_xey12"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urvpd"]
 atlas = ExtResource("1_xey12")
