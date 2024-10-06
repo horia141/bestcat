@@ -7,8 +7,8 @@ signal destroyed ()
 #region Construction
 
 func _ready() -> void:
-	$AnimatedSprite2D.animation_finished.connect(__on_animated_sprite_2d_animation_finished)
-	
+	pass
+
 func post_ready_prepare() -> void:
 	pass
 	
@@ -22,10 +22,7 @@ func on_hit_by_projectile() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_deferred("freeze", true)
 	destroyed.emit()
-	
-func __on_animated_sprite_2d_animation_finished() -> void:
-	# If we've triggered this animation, we exploded! Let's remove this!
-	if $AnimatedSprite2D.animation == "explosion":
-		queue_free()
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
 		
 #endregion

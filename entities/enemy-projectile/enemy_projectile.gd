@@ -35,11 +35,8 @@ func _hit_structure(structure: Structure) -> void:
 func _destroy() -> void:
 	$AnimatedSprite2D.play("explosion")
 	set_deferred("freeze", true)
-	
-func __on_animated_sprite_2d_animation_finished() -> void:
-	# If we've triggered this animation, we exploded! Let's remove this!
-	if $AnimatedSprite2D.animation == "explosion":
-		queue_free()
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
 
 #endregion
 
