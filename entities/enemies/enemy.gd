@@ -9,8 +9,8 @@ signal destroyed ()
 func _ready() -> void:
 	pass
 
-func post_ready_prepare() -> void:
-	pass
+func post_ready_prepare(init_position: Vector2) -> void:
+	position = init_position
 	
 #endregion
 

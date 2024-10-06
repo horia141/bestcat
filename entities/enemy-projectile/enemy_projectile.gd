@@ -24,7 +24,7 @@ func _hit_player(player: Player) -> void:
 	_destroy()
 	
 func _hit_enemy(enemy: Enemy) -> void:
-	pass
+	_destroy()
 	
 func _hit_wall() -> void:
 	_destroy()

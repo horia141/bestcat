@@ -20,10 +20,12 @@ func _ready() -> void:
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
+			the_structure.spawned_enemy.connect(_on_dark_tower_spawns_enemy)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
 	for player in get_tree().get_nodes_in_group("Players"):
-		(player as Player).shoot.connect(_on_player_shoot)
+		var the_player = player as Player
+		the_player.shoot.connect(_on_player_shoot)
 		
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		var the_enemy = enemy as Enemy
@@ -65,6 +67,10 @@ func _on_enemy_destroyed(enemy: Enemy) -> void:
 		projectile_powerup.picked_up.connect(func (player): _on_treasure_picked(player, projectile_powerup))
 		add_child(projectile_powerup)
 		
+	for dark_tower in get_tree().get_nodes_in_group("Structures"):
+		if dark_tower is DarkTower:
+			dark_tower.on_own_spawn_destroyed(enemy)
+		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
 	
@@ -76,6 +82,11 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
+	
+func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
+	add_child(enemy)
+	enemy.shoot.connect(_on_enemy_shoot)
+	enemy.destroyed.connect(func (): _on_enemy_destroyed(enemy))
 	
 func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1

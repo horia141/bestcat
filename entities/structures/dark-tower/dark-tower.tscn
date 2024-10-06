@@ -211,6 +211,12 @@ animation = &"explosion"
 frame = 6
 frame_progress = 1.0
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_exwa6")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_spawn_enemy"]

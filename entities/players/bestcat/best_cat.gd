@@ -50,10 +50,11 @@ func _regen_projectile() -> void:
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
-	life = life - 1
+	life = max(life - 1, 0)
 	
 	if life == 0:
 		projectiles_cnt = 0
+		projectiles_cnt_regen_factor = 0.0
 		_destroy()
 	
 	state_change.emit()
