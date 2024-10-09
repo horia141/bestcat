@@ -7,6 +7,7 @@ const OgreScn = preload("res://entities/enemies/ogre/ogre.tscn")
 signal spawned_enemy (enemy: Enemy)
 signal destroyed ()
 
+const SPAWN_PERIOD_SEC = 5
 const MAX_ENEMIES_TO_SPAWN = 5
 const MAX_LIFE = 3
 
@@ -36,6 +37,10 @@ func _spawn_enemy() -> void:
 		ogre.post_ready_prepare(_random_position_in_disc(position))
 		spawned_enemy.emit(ogre)
 		my_enemies[ogre.get_instance_id()] = ogre
+		
+	$SpawnTimer.wait_time = SPAWN_PERIOD_SEC + randf_range(-0.5, 0.5)
+	$SpawnTimer.start()
+		
 
 func on_own_spawn_destroyed(enemy: Enemy) -> void:
 	if not my_enemies.has(enemy.get_instance_id()):
