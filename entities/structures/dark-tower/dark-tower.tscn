@@ -196,6 +196,7 @@ radius = 16.0
 height = 40.0
 
 [node name="DarkTower" type="StaticBody2D" groups=["Structures"]]
+z_index = 1000
 script = ExtResource("1_0dqn5")
 
 [node name="BaseSprite" type="AnimatedSprite2D" parent="."]
