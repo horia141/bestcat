@@ -35,6 +35,9 @@ func post_ready_prepare() -> void:
 #region Game logic
 
 func _shoot_projectile() -> void:
+	if state == PlayerState.Dead:
+		return
+
 	if projectiles_cnt == 0:
 		return
 	var player_projectile = PlayerProjectileScn.instantiate()
@@ -55,6 +58,9 @@ func _shoot_projectile() -> void:
 	state_change.emit()
 	
 func _regen_projectile() -> void:
+	if state == PlayerState.Dead:
+		return
+
 	if projectiles_cnt == MAX_PROJECTILES_CNT:
 		return
 
@@ -67,20 +73,32 @@ func _regen_projectile() -> void:
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
+	
+	if state == PlayerState.Dead:
+		return
+
 	life = max(life - 1, 0)
 	
 	if life == 0:
+		state = PlayerState.Dead
 		projectiles_cnt = 0
 		projectiles_cnt_regen_factor = 0.0
 	
 	state_change.emit()
 	
 	# Schedule these big operations at the end!
-	if life == 0:
-		_destroy()
+	if state == PlayerState.Dead:
+		$AnimatedSprite2D.play("explosion")
+		$CollisionShape2D.set_deferred("disabled", true)
+		set_deferred("freeze", true)
+		await $AnimatedSprite2D.animation_finished
+		queue_free()
 	
 func apply_treasure(treasure: Treasure) -> void:
 	super.apply_treasure(treasure)
+	
+	if state == PlayerState.Dead:
+		return
 	
 	if treasure is LifePowerUp:
 		life = min(life + 1, MAX_LIFE)
@@ -92,7 +110,10 @@ func apply_treasure(treasure: Treasure) -> void:
 		
 	state_change.emit()
 	
-func _look_at_right(new_look_axis: LookAxis) -> void:
+func _look_at(new_look_axis: LookAxis) -> void:
+	if state == PlayerState.Dead:
+		return
+		
 	look_axis = new_look_axis
 	match new_look_axis:
 		LookAxis.Right:
@@ -102,14 +123,10 @@ func _look_at_right(new_look_axis: LookAxis) -> void:
 	$AnimatedSprite2D.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
+	if state == PlayerState.Dead:
+		return
+
 	velocity = new_velocity * SPEED
-		
-func _destroy() -> void:
-	$AnimatedSprite2D.play("explosion")
-	$CollisionShape2D.set_deferred("disabled", true)
-	set_deferred("freeze", true)
-	await $AnimatedSprite2D.animation_finished
-	queue_free()
 
 #endregion
 
@@ -121,13 +138,13 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("Move Up"):
-		_look_at_right(LookAxis.Up)
+		_look_at(LookAxis.Up)
 	elif Input.is_action_pressed("Move Right"):
-		_look_at_right(LookAxis.Right)
+		_look_at(LookAxis.Right)
 	elif Input.is_action_pressed("Move Down"):
-		_look_at_right(LookAxis.Down)
+		_look_at(LookAxis.Down)
 	elif Input.is_action_pressed("Move Left"):
-		_look_at_right(LookAxis.Left)
+		_look_at(LookAxis.Left)
 
 func _physics_process(delta: float) -> void:
 	_move_with_velocity(Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down"))

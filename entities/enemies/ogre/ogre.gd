@@ -8,6 +8,9 @@ const SHOOT_PERIOD_SEC = 1.5
 #region Game logic
 
 func _shoot() -> void:
+	if state == EnemyState.Dead:
+		return
+
 	var enemy_projectile_left = EnemyProjectileScn.instantiate()
 	enemy_projectile_left.post_ready_prepare(position, Vector2(-1, 0).rotated(randf_range(-0.2, 0.2)))
 	shoot.emit(enemy_projectile_left)

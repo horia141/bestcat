@@ -1,6 +1,13 @@
 class_name Structure
 extends StaticBody2D
 
+enum StructureState {
+	Operational,
+	Destroyed
+}
+
+var state = StructureState.Operational
+
 #region Constructor
 
 func _ready() -> void:

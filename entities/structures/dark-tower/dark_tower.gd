@@ -12,7 +12,6 @@ const MAX_ENEMIES_TO_SPAWN = 5
 const MAX_LIFE = 3
 
 var life = MAX_LIFE
-var operational = true
 var my_enemies = {}
 
 #region Constructor
@@ -22,8 +21,9 @@ var my_enemies = {}
 #region Game logic
 
 func _spawn_enemy() -> void:
-	if not operational:
+	if state == StructureState.Destroyed:
 		return
+
 	if my_enemies.size() >= MAX_ENEMIES_TO_SPAWN:
 		return
 		
@@ -49,13 +49,13 @@ func on_own_spawn_destroyed(enemy: Enemy) -> void:
 	my_enemies.erase(enemy.get_instance_id())
 
 func on_hit_by_player_projectile() -> void:
-	if not operational:
+	if state == StructureState.Destroyed:
 		return
 		
 	life = max(life - 1, 0)
 	
 	if life == 0:
-		operational = false
+		state = StructureState.Destroyed
 		
 		destroyed.emit()
 		
