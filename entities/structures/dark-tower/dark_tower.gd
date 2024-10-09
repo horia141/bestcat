@@ -16,6 +16,12 @@ var my_enemies = {}
 
 #region Constructor
 
+func _ready() -> void:
+	pass
+	
+func post_ready_prepare() -> void:
+	pass
+
 #endregion
 
 #region Game logic
@@ -72,16 +78,16 @@ func on_hit_by_player_projectile() -> void:
 
 #region Helpers
 
-static func _random_position_in_disc(center: Vector2, min_radius: float = 32, max_radius: float = 200) -> Vector2:
+func _random_position_in_disc(center: Vector2, min_radius: float = 32, max_radius: float = 200) -> Vector2:
 	# Generate a random angle in radians (0 to 2 * PI)
 	var angle = randf() * TAU  # TAU is 2π (360 degrees)
-	
+		
 	# Generate a random radius with uniform distribution
 	var radius = sqrt(randf()) * (max_radius - min_radius) + min_radius
 
 	# Convert polar coordinates to Cartesian coordinates
 	var random_offset = Vector2(radius * cos(angle), radius * sin(angle))
-	
+		
 	# Return the random position within the disc
 	return center + random_offset
 

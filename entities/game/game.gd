@@ -9,13 +9,7 @@ var dark_towers_left_cnt = 0
 #region Construction
 
 func _ready() -> void:
-	var level_size_in_cells = $Level/Terrain.get_used_rect().size
-	var tile_size_in_px = $Level/Terrain.tile_set.tile_size
-	var level_size_in_px = level_size_in_cells * tile_size_in_px
-	
-	print(get_path())
-	
-	$GameCamera.post_ready_prepare($BestCat/Follow, level_size_in_px)
+	$GameCamera.post_ready_prepare($BestCat/Follow, $Level.size_in_px)
 	
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
 	
@@ -23,6 +17,7 @@ func _ready() -> void:
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
+			the_structure.post_ready_prepare()
 			the_structure.spawned_enemy.connect(_on_dark_tower_spawns_enemy)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
@@ -87,6 +82,10 @@ func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
 	
 func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
+	# We'll do some adjustments to the enemy position so it's not
+	# in an inaccessible place.
+	var new_position = $Level.get_appropriate_pos_for_enemy(enemy)
+	enemy.position = new_position
 	add_child(enemy)
 	enemy.shoot.connect(_on_enemy_shoot)
 	enemy.destroyed.connect(func (): _on_enemy_destroyed(enemy))

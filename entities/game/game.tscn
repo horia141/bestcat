@@ -63,4 +63,4 @@ position = Vector2(1008, 960)
 position = Vector2(1592, 88)
 
 [node name="DarkTower7" parent="." instance=ExtResource("8_2xwt8")]
-position = Vector2(1584, 928)
+position = Vector2(1664, 1088)
