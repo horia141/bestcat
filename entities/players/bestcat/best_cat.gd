@@ -9,7 +9,15 @@ const SPEED = 250.0
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
-var look_right = true
+enum LookAxis {
+	Up,
+	Right,
+	Down,
+	Left
+}
+
+var look_axis: LookAxis = LookAxis.Right
+var look_right: bool = true
 var life = MAX_LIFE
 var projectiles_cnt = MAX_PROJECTILES_CNT
 var projectiles_cnt_regen_factor = 0.0
@@ -30,8 +38,18 @@ func _shoot_projectile() -> void:
 	if projectiles_cnt == 0:
 		return
 	var player_projectile = PlayerProjectileScn.instantiate()
+	var look_direction = Vector2(1, 0)
+	match look_axis:
+		LookAxis.Up:
+			look_direction = Vector2(0, -1)
+		LookAxis.Right:
+			look_direction = Vector2(1, 0)
+		LookAxis.Down:
+			look_direction = Vector2(0, 1)
+		LookAxis.Left:
+			look_direction = Vector2(-1, 0)
 	player_projectile.post_ready_prepare(
-		position, Vector2(1 if look_right else -1, 0).rotated(randf_range(-0.1, 0.1)))
+		position, look_direction.rotated(randf_range(-0.1, 0.1)))
 	shoot.emit(player_projectile)
 	projectiles_cnt -= 1
 	state_change.emit()
@@ -74,8 +92,13 @@ func apply_treasure(treasure: Treasure) -> void:
 		
 	state_change.emit()
 	
-func _look_at_right(new_look_right: bool) -> void:
-	look_right = new_look_right
+func _look_at_right(new_look_axis: LookAxis) -> void:
+	look_axis = new_look_axis
+	match new_look_axis:
+		LookAxis.Right:
+			look_right = true
+		LookAxis.Left:
+			look_right = false
 	$AnimatedSprite2D.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
@@ -97,10 +120,14 @@ func _input(event: InputEvent) -> void:
 		_shoot_projectile()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("Move Left"):
-		_look_at_right(false)
+	if Input.is_action_pressed("Move Up"):
+		_look_at_right(LookAxis.Up)
 	elif Input.is_action_pressed("Move Right"):
-		_look_at_right(true)
+		_look_at_right(LookAxis.Right)
+	elif Input.is_action_pressed("Move Down"):
+		_look_at_right(LookAxis.Down)
+	elif Input.is_action_pressed("Move Left"):
+		_look_at_right(LookAxis.Left)
 
 func _physics_process(delta: float) -> void:
 	_move_with_velocity(Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down"))
