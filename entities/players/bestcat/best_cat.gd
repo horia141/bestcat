@@ -19,9 +19,8 @@ var projectiles_cnt_regen_factor = 0.0
 func _ready() -> void:
 	pass
 	
-func post_ready_prepare(world_size_in_px: Vector2) -> void:
-	$Camera2D.limit_right = world_size_in_px.x
-	$Camera2D.limit_bottom = world_size_in_px.y
+func post_ready_prepare() -> void:
+	pass
 
 #endregion
 
@@ -55,9 +54,12 @@ func on_hit_by_projectile() -> void:
 	if life == 0:
 		projectiles_cnt = 0
 		projectiles_cnt_regen_factor = 0.0
-		_destroy()
 	
 	state_change.emit()
+	
+	# Schedule these big operations at the end!
+	if life == 0:
+		_destroy()
 	
 func apply_treasure(treasure: Treasure) -> void:
 	super.apply_treasure(treasure)

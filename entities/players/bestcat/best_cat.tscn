@@ -139,13 +139,10 @@ sprite_frames = SubResource("SpriteFrames_3s703")
 animation = &"run"
 autoplay = "run"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_smoothed = true
-
 [node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
+
+[node name="Follow" type="RemoteTransform2D" parent="."]
 
 [connection signal="timeout" from="ProjectilesCntRegenTimer" to="." method="_regen_projectile"]

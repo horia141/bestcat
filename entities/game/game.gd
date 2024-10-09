@@ -13,7 +13,10 @@ func _ready() -> void:
 	var tile_size_in_px = $Level/Terrain.tile_set.tile_size
 	var level_size_in_px = level_size_in_cells * tile_size_in_px
 	
-	$BestCat.post_ready_prepare(level_size_in_px)
+	print(get_path())
+	
+	$GameCamera.post_ready_prepare($BestCat/Follow, level_size_in_px)
+	
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
 	
 	for structure in get_tree().get_nodes_in_group("Structures"):
@@ -60,12 +63,12 @@ func _on_enemy_destroyed(enemy: Enemy) -> void:
 		var life_powerup = LifePowerUpScn.instantiate()
 		life_powerup.post_ready_prepare(enemy.position)
 		life_powerup.picked_up.connect(func (player): _on_treasure_picked(player, life_powerup))
-		add_child(life_powerup)
+		call_deferred("add_child", life_powerup)
 	else:
 		var projectile_powerup = ProjectilePowerUpScn.instantiate()
 		projectile_powerup.post_ready_prepare(enemy.position)
 		projectile_powerup.picked_up.connect(func (player): _on_treasure_picked(player, projectile_powerup))
-		add_child(projectile_powerup)
+		call_deferred("add_child", projectile_powerup)
 		
 	for dark_tower in get_tree().get_nodes_in_group("Structures"):
 		if dark_tower is DarkTower:
