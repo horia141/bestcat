@@ -14,7 +14,7 @@ const MAX_LIFE = 3
 var life = MAX_LIFE
 var my_enemies = {}
 
-#region Constructor
+#region Construction
 
 func _ready() -> void:
 	pass

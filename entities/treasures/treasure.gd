@@ -3,7 +3,7 @@ extends Area2D
 
 signal picked_up (player: Player)
 
-#region Constructor
+#region Construction
 
 func _ready() -> void:
 	body_entered.connect(_treasure_picked_up)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BestCat"
-run/main_scene="res://entities/game/game.tscn"
+run/main_scene="res://game/main-menu/main-menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://common/icon.svg"
 
