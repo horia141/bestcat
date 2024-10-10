@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=11 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://entities/game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/level/level.tscn" id="1_sni2y"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
+[ext_resource type="PackedScene" uid="uid://j5ovdm6rehfn" path="res://game/pause-menu/pause-menu.tscn" id="2_wpyxo"]
 [ext_resource type="PackedScene" uid="uid://b86xik8lwmra7" path="res://entities/utils/game-camera/game-camera.tscn" id="3_hmsmv"]
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/ogre/ogre.tscn" id="4_11ffl"]
 [ext_resource type="PackedScene" uid="uid://dc30rmyd7dqwg" path="res://entities/enemies/jelly/jelly.tscn" id="5_whtgd"]
@@ -12,6 +13,8 @@
 
 [node name="Game" type="Node"]
 script = ExtResource("1_23vru")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_wpyxo")]
 
 [node name="HUD" parent="." instance=ExtResource("6_7emao")]
 
