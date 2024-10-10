@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://wx2bcejhq5n1"]
+
+[ext_resource type="PackedScene" uid="uid://dy4myhaffwc0t" path="res://entities/levels/tutorial/tutorial.tscn" id="1_f2tv8"]
+[ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="2_vvg6j"]
+[ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/ogre/ogre.tscn" id="3_uyguf"]
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_f2tv8")]
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
+position = Vector2(72, 112)
+
+[node name="DarkTower1" parent="." instance=ExtResource("2_vvg6j")]
+position = Vector2(280, 56)
+
+[node name="DarkTower2" parent="." instance=ExtResource("2_vvg6j")]
+position = Vector2(624, 80)
+
+[node name="Ogre1" parent="." instance=ExtResource("3_uyguf")]
+position = Vector2(184, 72)

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d05p74b6rv1yl"]
+
+[ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/levels/plain-of-koh/plain-of-koh.tscn" id="1_ipf7w"]
+[ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/ogre/ogre.tscn" id="2_oprjy"]
+[ext_resource type="PackedScene" uid="uid://dc30rmyd7dqwg" path="res://entities/enemies/jelly/jelly.tscn" id="3_e2u1h"]
+[ext_resource type="PackedScene" uid="uid://cmqgqmoq6rfgx" path="res://entities/treasures/life-powerup/life-powerup.tscn" id="4_hj7dd"]
+[ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="5_jvxba"]
+
+[node name="PlainOfKoh" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_ipf7w")]
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
+position = Vector2(75, 77)
+
+[node name="Ogre1" parent="." instance=ExtResource("2_oprjy")]
+position = Vector2(184, 192)
+
+[node name="Ogre2" parent="." instance=ExtResource("2_oprjy")]
+position = Vector2(184, 248)
+
+[node name="Ogre3" parent="." instance=ExtResource("2_oprjy")]
+position = Vector2(512, 72)
+
+[node name="Ogre4" parent="." instance=ExtResource("2_oprjy")]
+position = Vector2(400, 208)
+
+[node name="Jelly1" parent="." instance=ExtResource("3_e2u1h")]
+position = Vector2(192, 307)
+
+[node name="LifePowerUp" parent="." instance=ExtResource("4_hj7dd")]
+position = Vector2(184, 88)
+
+[node name="DarkTower1" parent="." instance=ExtResource("5_jvxba")]
+y_sort_enabled = true
+position = Vector2(336, 400)
+
+[node name="DarkTower2" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(648, 272)
+
+[node name="DarkTower3" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(552, 592)
+
+[node name="DarkTower4" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(184, 792)
+
+[node name="DarkTower5" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(1008, 960)
+
+[node name="DarkTower6" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(1592, 88)
+
+[node name="DarkTower7" parent="." instance=ExtResource("5_jvxba")]
+position = Vector2(1664, 1088)

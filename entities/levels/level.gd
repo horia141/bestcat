@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 func post_ready_prepare() -> void:
 	pass
-	
+
 #endregion
 
 #region Game logic
@@ -86,5 +86,4 @@ func _find_closest_cell_not_on_water_nor_an_obstacle(initial_pos: Vector2i, max_
 static func _is_water(cell: TileData) -> bool:
 	return cell.terrain_set == WATER_TERRAIN_SET and cell.terrain == WATER_TERRAIN
 	
-
 #endregion

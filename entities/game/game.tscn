@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://entities/game/game.gd" id="1_23vru"]
-[ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/level/level.tscn" id="1_sni2y"]
+[ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/levels/plain-of-koh/plain-of-koh.tscn" id="1_sni2y"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
 [ext_resource type="PackedScene" uid="uid://j5ovdm6rehfn" path="res://game/pause-menu/pause-menu.tscn" id="2_wpyxo"]
 [ext_resource type="PackedScene" uid="uid://b86xik8lwmra7" path="res://entities/utils/game-camera/game-camera.tscn" id="3_hmsmv"]
