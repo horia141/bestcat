@@ -1,2 +1,2 @@
-class_name Tutorial
+class_name TutorialLevel
 extends Level

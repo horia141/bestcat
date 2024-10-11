@@ -1,2 +1,2 @@
-class_name PlainOfKoh
+class_name PlainOfKohLevel
 extends Level

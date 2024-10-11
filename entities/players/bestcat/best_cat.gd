@@ -26,9 +26,6 @@ var projectiles_cnt_regen_factor = 0.0
 
 func _ready() -> void:
 	pass
-	
-func post_ready_prepare() -> void:
-	pass
 
 #endregion
 

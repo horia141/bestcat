@@ -1,6 +1,8 @@
 class_name PauseMenu
 extends CanvasLayer
 
+signal quit_mission ()
+
 #region Construction
 
 func _ready() -> void:
@@ -16,7 +18,7 @@ func _pause_game() -> void:
 
 func _quit_mission() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://game/main-menu/main-menu.tscn")
+	quit_mission.emit()
 	
 func _resume_mission() -> void:
 	get_tree().paused = false

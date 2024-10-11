@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d05p74b6rv1yl"]
+[gd_scene load_steps=7 format=3 uid="uid://d05p74b6rv1yl"]
 
+[ext_resource type="Script" path="res://entities/missions/plain-of-koh/plain_of_koh.gd" id="1_blk65"]
 [ext_resource type="PackedScene" uid="uid://cdebmq0c4lk8g" path="res://entities/levels/plain-of-koh/plain-of-koh.tscn" id="1_ipf7w"]
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/ogre/ogre.tscn" id="2_oprjy"]
 [ext_resource type="PackedScene" uid="uid://dc30rmyd7dqwg" path="res://entities/enemies/jelly/jelly.tscn" id="3_e2u1h"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="5_jvxba"]
 
 [node name="PlainOfKoh" type="Node2D"]
+script = ExtResource("1_blk65")
 
 [node name="Level" parent="." instance=ExtResource("1_ipf7w")]
 

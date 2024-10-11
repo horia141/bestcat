@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/levels/plain-of-koh/plain_of_koh.gd" id="1_1xy5l"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="1_x3aw7"]
 
-[node name="PlainOfKoh" type="Node2D"]
+[node name="PlainOfKohLevel" type="Node2D"]
 script = ExtResource("1_1xy5l")
 
 [node name="Terrain" type="TileMapLayer" parent="."]

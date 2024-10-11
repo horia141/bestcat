@@ -11,6 +11,16 @@ enum PlayerState {
 
 var state = PlayerState.Active
 
+#region Construction
+
+func _ready() -> void:
+	pass
+	
+func post_ready_prepare(init_position: Vector2) -> void:
+	position = init_position
+
+#endregion
+
 #region Game logic
 
 func on_hit_by_projectile() -> void:
