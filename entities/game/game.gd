@@ -19,6 +19,7 @@ var mission_desc: Application.MissionDesc = null
 var mission_state = MissionState.DestroyDarkTowers
 var dark_towers_left_cnt = 0
 var bosses_left_cnt = 0
+var score = 0
 
 #region Construction
 
@@ -35,6 +36,7 @@ func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
 		mission_state = MissionState.DestroyDarkTowers
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
+		score = 0
 		mission_desc = null
 		# Wait till the next frame so eerything is freed
 		await get_tree().process_frame
@@ -80,7 +82,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
 	$HUD.update_player($BestCat)
-	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
 #endregion
 
@@ -113,6 +115,9 @@ func _on_mob_destroyed(mob: Mob) -> void:
 		projectile_powerup.picked_up.connect(func (player): _on_treasure_picked(player, projectile_powerup))
 		call_deferred("add_child", projectile_powerup)
 		
+	score += 1
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+		
 	for dark_tower in get_tree().get_nodes_in_group("Structures"):
 		if dark_tower is DarkTower:
 			dark_tower.on_own_spawn_destroyed(mob)
@@ -122,7 +127,8 @@ func _on_boss_change_state(boss: Boss) -> void:
 	
 func _on_boss_destroyed(boss: Boss) -> void:
 	bosses_left_cnt -= 1
-	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
+	score += 10
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
 	if bosses_left_cnt == 0:
 		$PauseDialog.hide()
@@ -144,6 +150,8 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
+	score = max(0, score - 1)
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
 func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	# We'll do some adjustments to the enemy position so it's not
@@ -156,6 +164,7 @@ func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	
 func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1
+	score += 3
 	
 	if dark_towers_left_cnt == 0:
 		mission_state = MissionState.BossFight
@@ -164,7 +173,7 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 			the_boss.show()
 			the_boss.activate()
 		
-	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 		
 func _retry_mission() -> void:
 	get_tree().paused = false
@@ -173,5 +182,9 @@ func _retry_mission() -> void:
 func _quit_mission() -> void:
 	get_tree().paused = false
 	quit_mission.emit()
+	
+func _drain_score_periodically() -> void:
+	score = max(0, score - 1)
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 
 #endregion

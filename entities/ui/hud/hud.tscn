@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4kvoewf706nv"]
+[gd_scene load_steps=7 format=3 uid="uid://d4kvoewf706nv"]
 
 [ext_resource type="Script" path="res://entities/ui/hud/hud.gd" id="1_b7ufk"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="1_mw2ac"]
 [ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="3_mfaf1"]
+[ext_resource type="Texture2D" uid="uid://du2kiml820bsa" path="res://common/star.png" id="4_0yol5"]
 [ext_resource type="Texture2D" uid="uid://matxjg6inu1d" path="res://common/dark-tower.png" id="4_wsmsp"]
 [ext_resource type="Texture2D" uid="uid://cv2h34gxip1xv" path="res://common/boss.png" id="5_20l1a"]
 
@@ -18,12 +19,12 @@ offset_bottom = 50.0
 [node name="Life" type="HBoxContainer" parent="PlayerInfo"]
 layout_mode = 2
 
-[node name="LifeIcon" type="TextureRect" parent="PlayerInfo/Life"]
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Life"]
 layout_mode = 2
 texture = ExtResource("1_mw2ac")
-stretch_mode = 3
+expand_mode = 3
 
-[node name="LifeCntText" type="Label" parent="PlayerInfo/Life"]
+[node name="Text" type="Label" parent="PlayerInfo/Life"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
@@ -31,22 +32,41 @@ text = "5"
 [node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo"]
 layout_mode = 2
 
-[node name="ProjectilesCntIcon" type="TextureRect" parent="PlayerInfo/ProjectilesCnt"]
+[node name="Icon" type="TextureRect" parent="PlayerInfo/ProjectilesCnt"]
 clip_contents = true
 layout_mode = 2
 texture = ExtResource("3_mfaf1")
 expand_mode = 3
-stretch_mode = 3
 
-[node name="ProjectilesCntText" type="Label" parent="PlayerInfo/ProjectilesCnt"]
+[node name="Text" type="Label" parent="PlayerInfo/ProjectilesCnt"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="ProjectilesCntRegenFactorText" type="Label" parent="PlayerInfo/ProjectilesCnt"]
+[node name="RegenFactorText" type="Label" parent="PlayerInfo/ProjectilesCnt"]
 layout_mode = 2
 
-[node name="DarkTowersLeft" type="HBoxContainer" parent="."]
+[node name="Score" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 10.0
+offset_right = 72.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Score"]
+layout_mode = 2
+texture = ExtResource("4_0yol5")
+expand_mode = 3
+
+[node name="Text" type="Label" parent="Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="DarkTowersLeftCnt" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -56,21 +76,20 @@ offset_right = -6.0
 offset_bottom = 50.0
 grow_horizontal = 0
 
-[node name="CntIcon" type="TextureRect" parent="DarkTowersLeft"]
+[node name="Icon" type="TextureRect" parent="DarkTowersLeftCnt"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("4_wsmsp")
 expand_mode = 3
-stretch_mode = 4
 
-[node name="CntText" type="Label" parent="DarkTowersLeft"]
+[node name="Text" type="Label" parent="DarkTowersLeftCnt"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 24
 text = "5
 "
 
-[node name="BossesLeft" type="HBoxContainer" parent="."]
+[node name="BossesLeftCnt" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -80,13 +99,13 @@ offset_right = -10.0
 offset_bottom = 50.0
 grow_horizontal = 0
 
-[node name="CntIcon" type="TextureRect" parent="BossesLeft"]
+[node name="Icon" type="TextureRect" parent="BossesLeftCnt"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("5_20l1a")
 expand_mode = 3
 
-[node name="CntText" type="Label" parent="BossesLeft"]
+[node name="Text" type="Label" parent="BossesLeftCnt"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 24

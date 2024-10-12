@@ -33,7 +33,12 @@ scale = Vector2(2, 2)
 [node name="Mission" parent="." instance=ExtResource("6_jcgf0")]
 position = Vector2(1, 0)
 
+[node name="ScoreDrainTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]
 [connection signal="retry_mission" from="PauseDialog" to="." method="_retry_mission"]
 [connection signal="quit_mission" from="LoseDialog" to="." method="_quit_mission"]
 [connection signal="retry_mission" from="LoseDialog" to="." method="_retry_mission"]
+[connection signal="timeout" from="ScoreDrainTimer" to="." method="_drain_score_periodically"]
