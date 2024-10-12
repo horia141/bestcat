@@ -160,7 +160,9 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	if dark_towers_left_cnt == 0:
 		mission_state = MissionState.BossFight
 		for boss in get_tree().get_nodes_in_group("Bosses"):
-			boss.show()
+			var the_boss = boss as Boss
+			the_boss.show()
+			the_boss.activate()
 		
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
 		

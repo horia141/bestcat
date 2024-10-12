@@ -5,6 +5,7 @@ signal shoot (projectile: EnemyProjectile)
 signal destroyed ()
 
 enum EnemyState {
+	Hidden,
 	Active,
 	Dead
 }

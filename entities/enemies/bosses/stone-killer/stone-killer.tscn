@@ -260,7 +260,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wincu"]
-radius = 32.0
+radius = 16.0
 
 [node name="StoneKiller" type="CharacterBody2D" groups=["Bosses", "Enemies"]]
 script = ExtResource("1_yytkm")
@@ -274,6 +274,9 @@ autoplay = "idle"
 shape = SubResource("CircleShape2D_wincu")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
 
 [node name="HealthBar" parent="." instance=ExtResource("4_tjr5n")]
 position = Vector2(-28, 33)

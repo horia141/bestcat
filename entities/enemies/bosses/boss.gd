@@ -9,4 +9,7 @@ signal state_change ()
 
 #region Game logic
 
+func activate() -> void:
+	pass
+
 #endregion

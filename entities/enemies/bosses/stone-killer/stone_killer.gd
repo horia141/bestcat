@@ -3,7 +3,7 @@ extends Boss
 
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
-const SHOOT_PERIOD_SEC = 1.5
+const SHOOT_PERIOD_SEC = 2
 const MAX_LIFE = 10.0
 
 var life = MAX_LIFE
@@ -11,6 +11,9 @@ var life = MAX_LIFE
 #region Construction
 
 func _ready() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
+	set_deferred("freeze", true)
+	state = EnemyState.Hidden
 	$HealthBar.max_life = MAX_LIFE
 	$HealthBar.life = life
 
@@ -18,36 +21,49 @@ func _ready() -> void:
 
 #region Game logic
 
+func activate() -> void:
+	super.activate()
+	state = EnemyState.Active
+	$CollisionShape2D.set_deferred("disabled", false)
+	set_deferred("freeze", false)
+	$ShootTimer.wait_time = SHOOT_PERIOD_SEC + randf_range(-0.25, 0.25)
+	$ShootTimer.start()
+
 func _shoot() -> void:
-	if state == EnemyState.Dead:
+	if state != EnemyState.Active:
 		return
 		
 	$AnimatedSprite2D.play("attack")
 
-	var enemy_projectile_left = EnemyProjectileScn.instantiate()
-	enemy_projectile_left.post_ready_prepare(position, Vector2(-1, 0).rotated(randf_range(-0.2, 0.2)))
-	shoot.emit(enemy_projectile_left)
-	
-	var enemy_projectile_top = EnemyProjectileScn.instantiate()
-	enemy_projectile_top.post_ready_prepare(position, Vector2(0, -1).rotated(randf_range(-0.2, 0.2)))
-	shoot.emit(enemy_projectile_top)
-	
-	var enemy_projectile_right = EnemyProjectileScn.instantiate()
-	enemy_projectile_right.post_ready_prepare(position, Vector2(1, 0).rotated(randf_range(-0.2, 0.2)))
-	shoot.emit(enemy_projectile_right)
-	
-	var enemy_projectile_down = EnemyProjectileScn.instantiate()
-	enemy_projectile_down.post_ready_prepare(position, Vector2(0, 1).rotated(randf_range(-0.2, 0.2)))
-	shoot.emit(enemy_projectile_down)
-	
+	__shoot_one_round()
 	await $AnimatedSprite2D.animation_finished
+	__shoot_one_round()
+	
+	$AnimatedSprite2D.play("idle")
 	
 	$ShootTimer.wait_time = SHOOT_PERIOD_SEC + randf_range(-0.25, 0.25)
 	$ShootTimer.start()
+	
+func __shoot_one_round() -> void:
+	var enemy_projectile_left = EnemyProjectileScn.instantiate()
+	enemy_projectile_left.post_ready_prepare(position, Vector2(-1, 0).rotated(randf_range(-0.5, 0.5)))
+	shoot.emit(enemy_projectile_left)
+	
+	var enemy_projectile_top = EnemyProjectileScn.instantiate()
+	enemy_projectile_top.post_ready_prepare(position, Vector2(0, -1).rotated(randf_range(-0.5, 0.5)))
+	shoot.emit(enemy_projectile_top)
+	
+	var enemy_projectile_right = EnemyProjectileScn.instantiate()
+	enemy_projectile_right.post_ready_prepare(position, Vector2(1, 0).rotated(randf_range(-0.5, 0.5)))
+	shoot.emit(enemy_projectile_right)
+	
+	var enemy_projectile_down = EnemyProjectileScn.instantiate()
+	enemy_projectile_down.post_ready_prepare(position, Vector2(0, 1).rotated(randf_range(-0.5, 0.5)))
+	shoot.emit(enemy_projectile_down)
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
-	if state == EnemyState.Dead:
+	if state != EnemyState.Active:
 		return
 	
 	life = life - 1

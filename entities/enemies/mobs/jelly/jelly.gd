@@ -8,7 +8,7 @@ const SHOOT_PERIOD_SEC = 1
 #region Game logic
 
 func _shoot() -> void:
-	if state == EnemyState.Dead:
+	if state != EnemyState.Active:
 		return
 
 	var enemy_projectile = EnemyProjectileScn.instantiate()
