@@ -33,13 +33,19 @@ func new_game_with_mission(mission_desc: MissionDesc) -> void:
 	var new_game = GameScn.instantiate()
 	add_child(new_game)
 	new_game.post_ready_prepare(mission_desc)
+	new_game.won_mission.connect(_won_mission)
 	new_game.quit_mission.connect(_quit_mission)
 	current_game = new_game;
 	
+func _won_mission() -> void:
+	$MainMenu.show()
+	current_game.queue_free()
+	current_game = null
+	
 func _quit_mission() -> void:
 	$MainMenu.show()
-	current_game.queue_free();
-	current_game = null;
+	current_game.queue_free()
+	current_game = null
 	
 func quit_game() -> void:
 	get_tree().quit()

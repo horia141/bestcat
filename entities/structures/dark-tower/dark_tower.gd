@@ -63,8 +63,6 @@ func on_hit_by_player_projectile() -> void:
 	if life == 0:
 		state = StructureState.Destroyed
 		
-		destroyed.emit()
-		
 		$SpawnTimer.stop()
 		
 		$Explosion.visible = true
@@ -72,7 +70,8 @@ func on_hit_by_player_projectile() -> void:
 		
 		$BaseSprite.play("destroyed")
 		await $Explosion.animation_finished
-		await $BaseSprite.animation_finished
+		
+		destroyed.emit()
 
 #endregion
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4kvoewf706nv"]
 
-[ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_b7ufk"]
+[ext_resource type="Script" path="res://entities/ui/hud/hud.gd" id="1_b7ufk"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="1_mw2ac"]
 [ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="3_mfaf1"]
 [ext_resource type="Texture2D" uid="uid://matxjg6inu1d" path="res://common/dark-tower.png" id="4_wsmsp"]

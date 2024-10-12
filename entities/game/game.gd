@@ -1,6 +1,7 @@
 class_name Game
 extends Node2D
 
+signal won_mission ()
 signal quit_mission ()
 
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
@@ -111,6 +112,15 @@ func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
 func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1
 	$HUD.update_mission(dark_towers_left_cnt)
+	
+	if dark_towers_left_cnt == 0:
+		$PauseDialog.hide()
+		$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+		$WinDialog.show()
+		get_tree().paused = true
+		await $WinDialog.continue_after_winning
+		get_tree().paused = false
+		won_mission.emit()
 	
 func _quit_mission() -> void:
 	quit_mission.emit()
