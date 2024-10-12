@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal shoot (projectile: PlayerProjectile)
 signal state_change ()
+signal destroyed ()
 
 enum PlayerState {
 	Active,

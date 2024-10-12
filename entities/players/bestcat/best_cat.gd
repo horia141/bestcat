@@ -89,6 +89,7 @@ func on_hit_by_projectile() -> void:
 		$CollisionShape2D.set_deferred("disabled", true)
 		set_deferred("freeze", true)
 		await $AnimatedSprite2D.animation_finished
+		destroyed.emit()
 		queue_free()
 	
 func apply_treasure(treasure: Treasure) -> void:

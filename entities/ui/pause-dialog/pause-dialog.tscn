@@ -25,10 +25,16 @@ theme_override_font_sizes/font_size = 38
 text = "Quit
 "
 
+[node name="Retry" type="Button" parent="Controls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Retry"
+
 [node name="Resume" type="Button" parent="Controls"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Resume"
 
 [connection signal="button_up" from="Controls/Quit" to="." method="_quit_mission"]
+[connection signal="button_up" from="Controls/Retry" to="." method="_retry_mission"]
 [connection signal="button_up" from="Controls/Resume" to="." method="_resume_mission"]

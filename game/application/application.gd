@@ -15,7 +15,7 @@ var all_missions_desc = [
 	MissionDesc.new("Tutorial", preload("res://entities/missions/tutorial/tutorial.tscn")),
 	MissionDesc.new("Plain of Koh", preload("res://entities/missions/plain-of-koh/plain-of-koh.tscn"))
 ]
-var current_game = null
+var current_game: Game = null
 
 #region Construction
 
@@ -34,6 +34,7 @@ func new_game_with_mission(mission_desc: MissionDesc) -> void:
 	add_child(new_game)
 	new_game.post_ready_prepare(mission_desc)
 	new_game.won_mission.connect(_won_mission)
+	new_game.retry_mission.connect(_retry_mission)
 	new_game.quit_mission.connect(_quit_mission)
 	current_game = new_game;
 	
@@ -41,6 +42,11 @@ func _won_mission() -> void:
 	$MainMenu.show()
 	current_game.queue_free()
 	current_game = null
+	
+func _retry_mission() -> void:
+	$MainMenu.show()
+	current_game.queue_free()
+	new_game_with_mission(current_game.mission_desc)
 	
 func _quit_mission() -> void:
 	$MainMenu.show()

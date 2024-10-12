@@ -2,16 +2,17 @@ class_name Game
 extends Node2D
 
 signal won_mission ()
+signal retry_mission ()
 signal quit_mission ()
 
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
 var dark_towers_left_cnt = 0
+@onready var mission: Mission = $Mission
+var mission_desc: Application.MissionDesc = null
 
 #region Construction
-
-@onready var mission: Mission = $Mission
 
 func _ready() -> void:
 	# We want this thing to be runnable outside of the application,
@@ -19,13 +20,14 @@ func _ready() -> void:
 	# post_ready_prepare.
 	_wire_up_everything()
 		
-func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
+func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
 	if mission != null:
-		print("removing current mission")
 		remove_child(mission)
 		mission.queue_free()
 		dark_towers_left_cnt = 0
-	mission = mission_desc.scene.instantiate()
+		mission_desc = null
+	mission = new_mission_desc.scene.instantiate()
+	mission_desc = new_mission_desc
 	add_child(mission)
 	_wire_up_everything()
 	
@@ -46,6 +48,7 @@ func _wire_up_everything() -> void:
 	for player in get_tree().get_nodes_in_group("Players"):
 		var the_player = player as Player
 		the_player.shoot.connect(_on_player_shoot)
+		the_player.destroyed.connect(_on_player_destroyed)
 		
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		var the_enemy = enemy as Enemy
@@ -67,6 +70,12 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
 	player_projectile.enemy_hit.connect(_on_projectile_hit_enemy)
 	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
+	
+func _on_player_destroyed() -> void:
+	$PauseDialog.hide()
+	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	$LoseDialog.show()
+	get_tree().paused = true
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
@@ -121,8 +130,13 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 		await $WinDialog.continue_after_winning
 		get_tree().paused = false
 		won_mission.emit()
+		
+func _retry_mission() -> void:
+	get_tree().paused = false
+	retry_mission.emit()
 	
 func _quit_mission() -> void:
+	get_tree().paused = false
 	quit_mission.emit()
 
 #endregion

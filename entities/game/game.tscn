@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=9 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://entities/game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
 [ext_resource type="PackedScene" uid="uid://j5ovdm6rehfn" path="res://entities/ui/pause-dialog/pause-dialog.tscn" id="2_wpyxo"]
 [ext_resource type="PackedScene" uid="uid://bitbv43jrno26" path="res://entities/ui/win-dialog/win-dialog.tscn" id="3_ej4y6"]
 [ext_resource type="PackedScene" uid="uid://b86xik8lwmra7" path="res://entities/utils/game-camera/game-camera.tscn" id="3_hmsmv"]
+[ext_resource type="PackedScene" uid="uid://cjkd3jiw83hn2" path="res://entities/ui/lose-dialog/lose-dialog.tscn" id="4_uoff0"]
 [ext_resource type="PackedScene" uid="uid://d4kvoewf706nv" path="res://entities/ui/hud/hud.tscn" id="6_7emao"]
 [ext_resource type="PackedScene" uid="uid://wx2bcejhq5n1" path="res://entities/missions/tutorial/tutorial.tscn" id="6_jcgf0"]
 
@@ -15,6 +16,9 @@ script = ExtResource("1_23vru")
 visible = false
 
 [node name="WinDialog" parent="." instance=ExtResource("3_ej4y6")]
+visible = false
+
+[node name="LoseDialog" parent="." instance=ExtResource("4_uoff0")]
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("6_7emao")]
@@ -30,3 +34,6 @@ scale = Vector2(2, 2)
 position = Vector2(1, 0)
 
 [connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]
+[connection signal="retry_mission" from="PauseDialog" to="." method="_retry_mission"]
+[connection signal="quit_mission" from="LoseDialog" to="." method="_quit_mission"]
+[connection signal="retry_mission" from="LoseDialog" to="." method="_retry_mission"]
