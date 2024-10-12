@@ -13,46 +13,22 @@ var dark_towers_left_cnt = 0
 @onready var mission = $Mission
 
 func _ready() -> void:
-	$GameCamera.post_ready_prepare($BestCat/Follow, mission.get_node("Level").size_in_px)
-	 
-	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
-	$BestCat.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position)
-	
-	for structure in get_tree().get_nodes_in_group("Structures"):
-		var the_structure = structure as Structure
-		if the_structure is DarkTower:
-			dark_towers_left_cnt += 1
-			the_structure.post_ready_prepare()
-			the_structure.spawned_enemy.connect(_on_dark_tower_spawns_enemy)
-			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
-	
-	for player in get_tree().get_nodes_in_group("Players"):
-		var the_player = player as Player
-		the_player.shoot.connect(_on_player_shoot)
+	# We want this thing to be runnable outside of the application,
+	# so we wire it up like this. But the common path is in
+	# post_ready_prepare.
+	_wire_up_everything()
 		
-	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		var the_enemy = enemy as Enemy
-		the_enemy.shoot.connect(_on_enemy_shoot)
-		the_enemy.destroyed.connect(func (): _on_enemy_destroyed(the_enemy))
-		
-	for treasure in get_tree().get_nodes_in_group("Treasures"):
-		var the_treasure = treasure as Treasure
-		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
-		
-	$HUD.update_player($BestCat)
-	$HUD.update_mission(dark_towers_left_cnt)
-	
-	mission = $Mission
-		
-func post_ready_prepare(mission_path: String) -> void:
-	var mission_scn = load(mission_path)
+func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 	if mission != null:
-		print(mission)
+		print("removing current mission")
 		remove_child(mission)
 		mission.queue_free()
-	mission = mission_scn.instantiate()
+		dark_towers_left_cnt = 0
+	mission = mission_desc.scene.instantiate()
 	add_child(mission)
+	_wire_up_everything()
 	
+func _wire_up_everything() -> void:
 	$GameCamera.post_ready_prepare($BestCat/Follow, mission.get_node("Level").size_in_px)
 	 
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))

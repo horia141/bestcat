@@ -1,7 +1,7 @@
 class_name MainMenu
 extends CanvasLayer
 
-signal new_game (mission_path: String)
+signal new_game (mission_desc: Application.MissionDesc)
 signal quit_game ()
 
 enum View {
@@ -10,20 +10,20 @@ enum View {
 }
 
 var view = View.Main
-var all_missions_desc = [
-	["Tutorial", "res://entities/missions/tutorial/tutorial.tscn"],
-	["Plain Of Koh", "res://entities/missions/plain-of-koh/plain-of-koh.tscn"]
-]
 
 #region Construction
 
 func _ready() -> void:
-	for mission_desc in all_missions_desc:
-		var mission_button = Button.new()
-		mission_button.text = mission_desc[0]
-		mission_button.button_up.connect(func (): _new_game(mission_desc[1]))
-		$SelectMission.add_child(mission_button)
 	_show()
+	
+func post_ready_process(all_missions_desc: Array) -> void:
+	for mission_desc_r in all_missions_desc:
+		var mission_desc = mission_desc_r as Application.MissionDesc
+		var mission_button = Button.new()
+		mission_button.text = mission_desc.title
+		mission_button.button_up.connect(func (): _new_game(mission_desc))
+		$SelectMission.add_child(mission_button)
+	
 
 #region Game logic
 
@@ -35,8 +35,8 @@ func _select_mission_to_main() -> void:
 	view = View.Main
 	_show()
 	
-func _new_game(mission: String) -> void:
-	new_game.emit(mission)
+func _new_game(mission_desc: Application.MissionDesc) -> void:
+	new_game.emit(mission_desc)
 	view = View.Main
 	_show()
 
