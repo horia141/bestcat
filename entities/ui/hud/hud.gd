@@ -1,6 +1,13 @@
 class_name HUD
 extends CanvasLayer
 
+#region Construction
+
+func _ready() -> void:
+	update_mission(Game.MissionState.GetReady, 0, 0)
+
+#endregion
+
 #region Game logic
 
 func update_player(best_cat: BestCat) -> void:
@@ -11,8 +18,19 @@ func update_player(best_cat: BestCat) -> void:
 	else:
 		$PlayerInfo/ProjectilesCnt/ProjectilesCntRegenFactorText.text = ""
 		
-func update_mission(dark_towers_left_cnt: int) -> void:
-	$MissionInfo/DarkTowersLeftCntText.text = str(dark_towers_left_cnt)
+func update_mission(mission_state: Game.MissionState, dark_towers_left_cnt: int, bosses_left_cnt: int) -> void:
+	$DarkTowersLeft/CntText.text = str(dark_towers_left_cnt)
+	$BossesLeft/CntText.text = str(bosses_left_cnt)
+	
+	match mission_state:
+		Game.MissionState.GetReady:
+			$DarkTowersLeft.hide()
+			$BossesLeft.hide()
+		Game.MissionState.DestroyDarkTowers:
+			$DarkTowersLeft.show()
+			$BossesLeft.hide()
+		Game.MissionState.BossFight:
+			$DarkTowersLeft.hide()
+			$BossesLeft.show()
 	
 #endregion
- 

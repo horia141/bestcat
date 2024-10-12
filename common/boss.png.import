@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs6fpvph0ny5p"
-path="res://.godot/imported/jelly.idle.png-389669dc3dc53643cd14be74401b459b.ctex"
+uid="uid://cv2h34gxip1xv"
+path="res://.godot/imported/boss.png-1398bcc41a3a8cbf4f3fa6d9ed92b45d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/jelly/jelly.idle.png"
-dest_files=["res://.godot/imported/jelly.idle.png-389669dc3dc53643cd14be74401b459b.ctex"]
+source_file="res://common/boss.png"
+dest_files=["res://.godot/imported/boss.png-1398bcc41a3a8cbf4f3fa6d9ed92b45d.ctex"]
 
 [params]
 

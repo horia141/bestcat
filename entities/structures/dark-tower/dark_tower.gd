@@ -1,8 +1,8 @@
 class_name DarkTower
 extends Structure
 
-const JellyScn = preload("res://entities/enemies/jelly/jelly.tscn")
-const OgreScn = preload("res://entities/enemies/ogre/ogre.tscn")
+const JellyScn = preload("res://entities/enemies/mobs/jelly/jelly.tscn")
+const OgreScn = preload("res://entities/enemies/mobs/ogre/ogre.tscn")
 
 signal spawned_enemy (enemy: Enemy)
 signal destroyed ()

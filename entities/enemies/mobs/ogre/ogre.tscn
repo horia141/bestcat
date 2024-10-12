@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bcl7odhamp0v8"]
 
-[ext_resource type="Texture2D" uid="uid://bpojpiwt37r7o" path="res://entities/enemies/ogre/ogre.png" id="1_2c0mc"]
-[ext_resource type="Script" path="res://entities/enemies/ogre/ogre.gd" id="1_t6i1p"]
+[ext_resource type="Texture2D" uid="uid://bpojpiwt37r7o" path="res://entities/enemies/mobs/ogre/ogre.png" id="1_2c0mc"]
+[ext_resource type="Script" path="res://entities/enemies/mobs/ogre/ogre.gd" id="1_t6i1p"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="1_xey12"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urvpd"]
@@ -96,7 +96,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jho5w"]
 
-[node name="Ogre" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Ogre" type="CharacterBody2D" groups=["Enemies", "Mobs"]]
 texture_filter = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_t6i1p")

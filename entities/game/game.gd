@@ -5,12 +5,20 @@ signal won_mission ()
 signal retry_mission ()
 signal quit_mission ()
 
+enum MissionState {
+	GetReady,
+	DestroyDarkTowers,
+	BossFight
+}
+
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
-var dark_towers_left_cnt = 0
 @onready var mission: Mission = $Mission
 var mission_desc: Application.MissionDesc = null
+var mission_state = MissionState.DestroyDarkTowers
+var dark_towers_left_cnt = 0
+var bosses_left_cnt = 0
 
 #region Construction
 
@@ -18,20 +26,24 @@ func _ready() -> void:
 	# We want this thing to be runnable outside of the application,
 	# so we wire it up like this. But the common path is in
 	# post_ready_prepare.
-	_wire_up_everything()
+	_wire_up_everything(true)
 		
 func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
 	if mission != null:
 		remove_child(mission)
 		mission.queue_free()
+		mission_state = MissionState.DestroyDarkTowers
 		dark_towers_left_cnt = 0
+		bosses_left_cnt = 0
 		mission_desc = null
+		# Wait till the next frame so eerything is freed
+		await get_tree().process_frame
 	mission = new_mission_desc.scene.instantiate()
 	mission_desc = new_mission_desc
 	add_child(mission)
-	_wire_up_everything()
+	_wire_up_everything(false)
 	
-func _wire_up_everything() -> void:
+func _wire_up_everything(_in_ready: bool) -> void:
 	$GameCamera.post_ready_prepare($BestCat/Follow, mission.size_in_px)
 	 
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
@@ -50,17 +62,25 @@ func _wire_up_everything() -> void:
 		the_player.shoot.connect(_on_player_shoot)
 		the_player.destroyed.connect(_on_player_destroyed)
 		
-	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		var the_enemy = enemy as Enemy
-		the_enemy.shoot.connect(_on_enemy_shoot)
-		the_enemy.destroyed.connect(func (): _on_enemy_destroyed(the_enemy))
+	for mob in get_tree().get_nodes_in_group("Mobs"):
+		var the_mob = mob as Mob
+		the_mob.shoot.connect(_on_enemy_shoot)
+		the_mob.destroyed.connect(func (): _on_mob_destroyed(the_mob))
+		
+	for boss in get_tree().get_nodes_in_group("Bosses"):
+		var the_boss = boss as Boss
+		bosses_left_cnt += 1
+		the_boss.hide()
+		the_boss.shoot.connect(_on_enemy_shoot)
+		the_boss.state_change.connect(func (): _on_boss_change_state(the_boss))
+		the_boss.destroyed.connect(func (): _on_boss_destroyed(the_boss))
 		
 	for treasure in get_tree().get_nodes_in_group("Treasures"):
 		var the_treasure = treasure as Treasure
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
 	$HUD.update_player($BestCat)
-	$HUD.update_mission(dark_towers_left_cnt)
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
 	
 #endregion
 
@@ -81,21 +101,37 @@ func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
 	enemy_projectile.player_hit.connect(_on_projectile_hit_player)
 	
-func _on_enemy_destroyed(enemy: Enemy) -> void:
+func _on_mob_destroyed(mob: Mob) -> void:
 	if randf_range(0, 1) < 0.5:
 		var life_powerup = LifePowerUpScn.instantiate()
-		life_powerup.post_ready_prepare(enemy.position)
+		life_powerup.post_ready_prepare(mob.position)
 		life_powerup.picked_up.connect(func (player): _on_treasure_picked(player, life_powerup))
 		call_deferred("add_child", life_powerup)
 	else:
 		var projectile_powerup = ProjectilePowerUpScn.instantiate()
-		projectile_powerup.post_ready_prepare(enemy.position)
+		projectile_powerup.post_ready_prepare(mob.position)
 		projectile_powerup.picked_up.connect(func (player): _on_treasure_picked(player, projectile_powerup))
 		call_deferred("add_child", projectile_powerup)
 		
 	for dark_tower in get_tree().get_nodes_in_group("Structures"):
 		if dark_tower is DarkTower:
-			dark_tower.on_own_spawn_destroyed(enemy)
+			dark_tower.on_own_spawn_destroyed(mob)
+			
+func _on_boss_change_state(boss: Boss) -> void:
+	pass
+	
+func _on_boss_destroyed(boss: Boss) -> void:
+	bosses_left_cnt -= 1
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
+	
+	if bosses_left_cnt == 0:
+		$PauseDialog.hide()
+		$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+		$WinDialog.show()
+		get_tree().paused = true
+		await $WinDialog.continue_after_winning
+		get_tree().paused = false
+		won_mission.emit()
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
@@ -116,20 +152,17 @@ func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
 	enemy.position = new_position
 	add_child(enemy)
 	enemy.shoot.connect(_on_enemy_shoot)
-	enemy.destroyed.connect(func (): _on_enemy_destroyed(enemy))
+	enemy.destroyed.connect(func (): _on_mob_destroyed(enemy))
 	
 func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1
-	$HUD.update_mission(dark_towers_left_cnt)
 	
 	if dark_towers_left_cnt == 0:
-		$PauseDialog.hide()
-		$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
-		$WinDialog.show()
-		get_tree().paused = true
-		await $WinDialog.continue_after_winning
-		get_tree().paused = false
-		won_mission.emit()
+		mission_state = MissionState.BossFight
+		for boss in get_tree().get_nodes_in_group("Bosses"):
+			boss.show()
+		
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt)
 		
 func _retry_mission() -> void:
 	get_tree().paused = false

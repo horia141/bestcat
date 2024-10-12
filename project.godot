@@ -32,6 +32,8 @@ Players=""
 Projectiles=""
 Treasures=""
 Structures=""
+Bosses=""
+Mobs=""
 
 [input]
 

@@ -24,15 +24,6 @@ func post_ready_prepare(init_position: Vector2) -> void:
 #region Game logic
 
 func on_hit_by_projectile() -> void:
-	if state == EnemyState.Dead:
-		return
-	state = EnemyState.Dead
-	$ShootTimer.stop()
-	$AnimatedSprite2D.play("explosion")
-	$CollisionShape2D.set_deferred("disabled", true)
-	set_deferred("freeze", true)
-	destroyed.emit()
-	await $AnimatedSprite2D.animation_finished
-	queue_free()
-		
+	pass
+
 #endregion

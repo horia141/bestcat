@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpojpiwt37r7o"
-path="res://.godot/imported/ogre.png-40ada3ed000798b833b12ac3fde30ed1.ctex"
+uid="uid://bs6fpvph0ny5p"
+path="res://.godot/imported/jelly.idle.png-548e5f3f368bb645dafe6528ca0c202c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/ogre/ogre.png"
-dest_files=["res://.godot/imported/ogre.png-40ada3ed000798b833b12ac3fde30ed1.ctex"]
+source_file="res://entities/enemies/mobs/jelly/jelly.idle.png"
+dest_files=["res://.godot/imported/jelly.idle.png-548e5f3f368bb645dafe6528ca0c202c.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 class_name Jelly
-extends Enemy
+extends Mob
 
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
