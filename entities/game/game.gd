@@ -10,7 +10,7 @@ var dark_towers_left_cnt = 0
 
 #region Construction
 
-@onready var mission = $Mission
+@onready var mission: Mission = $Mission
 
 func _ready() -> void:
 	# We want this thing to be runnable outside of the application,
@@ -29,7 +29,7 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 	_wire_up_everything()
 	
 func _wire_up_everything() -> void:
-	$GameCamera.post_ready_prepare($BestCat/Follow, mission.get_node("Level").size_in_px)
+	$GameCamera.post_ready_prepare($BestCat/Follow, mission.size_in_px)
 	 
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
 	$BestCat.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position)
@@ -102,7 +102,7 @@ func _on_projectile_hit_player(player: Player) -> void:
 func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
 	# We'll do some adjustments to the enemy position so it's not
 	# in an inaccessible place.
-	var new_position = mission.get_node("Level").get_appropriate_pos_for_enemy(enemy)
+	var new_position = mission.get_appropriate_pos_for_enemy(enemy)
 	enemy.position = new_position
 	add_child(enemy)
 	enemy.shoot.connect(_on_enemy_shoot)

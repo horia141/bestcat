@@ -22,6 +22,7 @@ func post_ready_process(all_missions_desc: Array) -> void:
 		var mission_button = Button.new()
 		mission_button.text = mission_desc.title
 		mission_button.button_up.connect(func (): _new_game(mission_desc))
+		mission_button.add_theme_font_size_override("font_size", 36)
 		$SelectMission.add_child(mission_button)
 	
 
