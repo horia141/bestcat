@@ -54,7 +54,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
 			the_structure.post_ready_prepare()
-			the_structure.spawned_enemy.connect(_on_dark_tower_spawns_enemy)
+			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
 	for player in get_tree().get_nodes_in_group("Players"):
@@ -145,14 +145,14 @@ func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
 	
-func _on_dark_tower_spawns_enemy(enemy: Enemy) -> void:
+func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	# We'll do some adjustments to the enemy position so it's not
 	# in an inaccessible place.
-	var new_position = mission.get_appropriate_pos_for_enemy(enemy)
-	enemy.position = new_position
-	add_child(enemy)
-	enemy.shoot.connect(_on_enemy_shoot)
-	enemy.destroyed.connect(func (): _on_mob_destroyed(enemy))
+	var new_position = mission.get_appropriate_pos_for_enemy(mob)
+	mob.position = new_position
+	add_child(mob)
+	mob.shoot.connect(_on_enemy_shoot)
+	mob.destroyed.connect(func (): _on_mob_destroyed(mob))
 	
 func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1

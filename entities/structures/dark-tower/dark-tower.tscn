@@ -221,4 +221,4 @@ autostart = true
 position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_exwa6")
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_spawn_enemy"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_spawn_mob"]
