@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bl2kfjfbn2sie"]
+[gd_scene load_steps=31 format=3 uid="uid://bl2kfjfbn2sie"]
 
 [ext_resource type="Script" path="res://entities/structures/dark-tower/dark_tower.gd" id="1_0dqn5"]
 [ext_resource type="Texture2D" uid="uid://bwach4flogf1j" path="res://entities/structures/dark-tower/sheet.png" id="1_0gc8o"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="3_730m7"]
+[ext_resource type="PackedScene" uid="uid://b42o4ohq54i" path="res://entities/ui/health-bar/health-bar.tscn" id="4_iqpmt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4psas"]
 atlas = ExtResource("1_0gc8o")
@@ -220,5 +221,10 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_exwa6")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_iqpmt")]
+position = Vector2(-28, 53)
+max_life = 3
+life = 3
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_spawn_mob"]

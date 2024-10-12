@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://bi5ijeaflokvx"]
+[gd_scene load_steps=40 format=3 uid="uid://bi5ijeaflokvx"]
 
 [ext_resource type="Script" path="res://entities/enemies/bosses/stone-killer/stone_killer.gd" id="1_yytkm"]
 [ext_resource type="Texture2D" uid="uid://tk6ufaluvwbk" path="res://entities/enemies/bosses/stone-killer/sheet.png" id="2_v4b3a"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="3_nraqh"]
+[ext_resource type="PackedScene" uid="uid://b42o4ohq54i" path="res://entities/ui/health-bar/health-bar.tscn" id="4_tjr5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fe7xs"]
 atlas = ExtResource("2_v4b3a")
@@ -266,12 +267,16 @@ script = ExtResource("1_yytkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rxcq0")
-animation = &"explosion"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wincu")
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("4_tjr5n")]
+position = Vector2(-28, 33)
+life = 10
 
 [connection signal="timeout" from="ShootTimer" to="." method="_shoot"]

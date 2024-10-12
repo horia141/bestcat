@@ -17,7 +17,8 @@ var my_mobs = {}
 #region Construction
 
 func _ready() -> void:
-	pass
+	$HealthBar.max_life = MAX_LIFE
+	$HealthBar.life = life
 	
 func post_ready_prepare() -> void:
 	pass
@@ -59,6 +60,7 @@ func on_hit_by_player_projectile() -> void:
 		return
 		
 	life = max(life - 1, 0)
+	$HealthBar.life = life
 	
 	if life == 0:
 		state = StructureState.Destroyed

@@ -1,13 +1,18 @@
 class_name Golem
 extends Boss
 
-var life = 10
-
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
 const SHOOT_PERIOD_SEC = 1.5
+const MAX_LIFE = 10.0
+
+var life = MAX_LIFE
 
 #region Construction
+
+func _ready() -> void:
+	$HealthBar.max_life = MAX_LIFE
+	$HealthBar.life = life
 
 #endregion
 
@@ -47,6 +52,8 @@ func on_hit_by_projectile() -> void:
 	
 	life = life - 1
 	state_change.emit()
+	
+	$HealthBar.life = life
 	
 	if life == 0:
 		state = EnemyState.Dead
