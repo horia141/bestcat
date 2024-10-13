@@ -5,7 +5,9 @@ signal enemy_hit (enemy: Enemy)
 signal structure_hit (structure: Structure)
 
 const BUFFER = 32
-const SPEED = 1000
+static var SPEED = DifficultyValue.new(1000, 900, 800)
+
+var difficulty = Application.MissionDifficulty.Apprentice
 
 #region Construction
 
@@ -13,9 +15,10 @@ func _ready() -> void:
 	pass
 	
 
-func post_ready_prepare(init_position: Vector2, init_direction: Vector2) -> void:
+func post_ready_prepare(init_position: Vector2, init_direction: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	position = init_position + BUFFER * init_direction
-	add_constant_central_force(SPEED * init_direction)
+	self.difficulty = difficulty
+	add_constant_central_force(SPEED.get_for(difficulty) * init_direction)
 
 #endregion
 

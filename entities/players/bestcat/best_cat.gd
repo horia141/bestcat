@@ -2,10 +2,10 @@ class_name BestCat
 extends Player
 
 static var MAX_LIFE = DifficultyValue.new(7, 5, 3)
-const MAX_PROJECTILES_CNT = 5
+static var MAX_PROJECTILES_CNT = DifficultyValue.new(7, 5, 3)
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
-const PROJECTILES_CNT_REGEN_CUTOFF = 10
-const SPEED = 250.0
+static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
+static var SPEED = DifficultyValue.new(300.0, 250.0, 200.0)
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
@@ -19,7 +19,7 @@ enum LookAxis {
 var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
 var life = MAX_LIFE.get_for(difficulty)
-var projectiles_cnt = MAX_PROJECTILES_CNT
+var projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
 var projectiles_cnt_regen_factor = 0.0
 
 #region Construction
@@ -30,6 +30,7 @@ func _ready() -> void:
 func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	super.post_ready_prepare(init_position, difficulty)
 	life = MAX_LIFE.get_for(difficulty)
+	projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
 
 #endregion
 
@@ -53,7 +54,7 @@ func _shoot_projectile() -> void:
 		LookAxis.Left:
 			look_direction = Vector2(-1, 0)
 	player_projectile.post_ready_prepare(
-		position, look_direction.rotated(randf_range(-0.1, 0.1)))
+		position, look_direction.rotated(randf_range(-0.1, 0.1)), difficulty)
 	shoot.emit(player_projectile)
 	projectiles_cnt -= 1
 	state_change.emit()
@@ -62,11 +63,11 @@ func _regen_projectile() -> void:
 	if state == PlayerState.Dead:
 		return
 
-	if projectiles_cnt == MAX_PROJECTILES_CNT:
+	if projectiles_cnt == MAX_PROJECTILES_CNT.get_for(difficulty):
 		return
 
 	projectiles_cnt_regen_factor += PROJECTILES_CNT_REGEN_INCREMENT
-	if projectiles_cnt_regen_factor > PROJECTILES_CNT_REGEN_CUTOFF:
+	if projectiles_cnt_regen_factor > PROJECTILES_CNT_REGEN_CUTOFF.get_for(difficulty):
 		projectiles_cnt = projectiles_cnt + 1
 		projectiles_cnt_regen_factor = 0.0
 	
@@ -105,7 +106,7 @@ func apply_treasure(treasure: Treasure) -> void:
 	if treasure is LifePowerUp:
 		life = min(life + 1, MAX_LIFE.get_for(difficulty))
 	elif treasure is ProjectilePowerUp:
-		projectiles_cnt = min(projectiles_cnt + 1, MAX_PROJECTILES_CNT)
+		projectiles_cnt = min(projectiles_cnt + 1, MAX_PROJECTILES_CNT.get_for(difficulty))
 		projectiles_cnt_regen_factor = 0.0
 	else:
 		assert(0 == 1, "Invalid treasure: " + str(treasure))
@@ -128,7 +129,7 @@ func _move_with_velocity(new_velocity: Vector2) -> void:
 	if state == PlayerState.Dead:
 		return
 
-	velocity = new_velocity * SPEED
+	velocity = new_velocity * SPEED.get_for(difficulty)
 
 #endregion
 
