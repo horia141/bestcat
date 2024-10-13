@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=3 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://game/main-menu/main_menu.gd" id="1_ilhsy"]
+[ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://entities/ui/help-dialog/help-dialog.tscn" id="2_87g0v"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
@@ -22,6 +23,11 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "New Game"
+
+[node name="Controls" type="Button" parent="Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Controls"
 
 [node name="Quit" type="Button" parent="Main"]
 layout_mode = 2
@@ -46,6 +52,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Return"
 
+[node name="HelpDialog" parent="." instance=ExtResource("2_87g0v")]
+
 [connection signal="button_up" from="Main/New Game" to="." method="_new_game_go_to_select_mission"]
+[connection signal="button_up" from="Main/Controls" to="." method="_show_controls"]
 [connection signal="button_up" from="Main/Quit" to="." method="_quit_game"]
 [connection signal="button_up" from="SelectMission/Return" to="." method="_select_mission_to_main"]
+[connection signal="done" from="HelpDialog" to="." method="_controls_to_main"]

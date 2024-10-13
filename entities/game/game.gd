@@ -87,6 +87,8 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	# Start paused
 	$PauseDialog.hide()
 	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	$HelpDialog.hide()
+	$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = true
 	
 #endregion
@@ -99,6 +101,7 @@ func _got_ready() -> void:
 	$StartCountdown.queue_free()
 	get_tree().paused = false
 	$PauseDialog.process_mode = Node.PROCESS_MODE_ALWAYS
+	$HelpDialog.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
@@ -108,6 +111,8 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 func _on_player_destroyed() -> void:
 	$PauseDialog.hide()
 	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	$HelpDialog.hide()
+	$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
 	$LoseDialog.show()
 	get_tree().paused = true
 	
@@ -145,6 +150,8 @@ func _on_boss_destroyed(boss: Boss) -> void:
 	if bosses_left_cnt == 0:
 		$PauseDialog.hide()
 		$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+		$HelpDialog.hide()
+		$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
 		$WinDialog.show()
 		get_tree().paused = true
 		await $WinDialog.continue_after_winning
@@ -198,5 +205,20 @@ func _quit_mission() -> void:
 func _drain_score_periodically() -> void:
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+	
+func _show_help_dialog() -> void:
+	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	$HelpDialog.show()
+	get_tree().paused = true
+	await $HelpDialog.done
+	get_tree().paused = false
+	$HelpDialog.hide()
+	$PauseDialog.process_mode = Node.PROCESS_MODE_ALWAYS
 
 #endregion
+
+#region Game events
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Help With Controls"):
+		_show_help_dialog()

@@ -6,7 +6,8 @@ signal quit_game ()
 
 enum View {
 	Main,
-	SelectMission
+	SelectMission,
+	Controls
 }
 
 var view = View.Main
@@ -32,6 +33,14 @@ func _new_game_go_to_select_mission() -> void:
 	view = View.SelectMission
 	_show()
 	
+func _show_controls() -> void:
+	view = View.Controls
+	_show()
+	
+func _controls_to_main() -> void:
+	view = View.Main
+	_show()
+	
 func _select_mission_to_main() -> void:
 	view = View.Main
 	_show()
@@ -49,9 +58,15 @@ func _show() -> void:
 		View.Main:
 			$Main.show()
 			$SelectMission.hide()
+			$HelpDialog.hide()
 		View.SelectMission:
 			$Main.hide()
 			$SelectMission.show()
+			$HelpDialog.hide()
+		View.Controls:
+			$Main.hide()
+			$SelectMission.hide()
+			$HelpDialog.show()
 			
 			
 #endregion
