@@ -1,7 +1,7 @@
 class_name BestCat
 extends Player
 
-const MAX_LIFE = 5
+static var MAX_LIFE = DifficultyValue.new(7, 5, 3)
 const MAX_PROJECTILES_CNT = 5
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
 const PROJECTILES_CNT_REGEN_CUTOFF = 10
@@ -18,7 +18,7 @@ enum LookAxis {
 
 var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
-var life = MAX_LIFE
+var life = MAX_LIFE.get_for(difficulty)
 var projectiles_cnt = MAX_PROJECTILES_CNT
 var projectiles_cnt_regen_factor = 0.0
 
@@ -26,6 +26,10 @@ var projectiles_cnt_regen_factor = 0.0
 
 func _ready() -> void:
 	pass
+	
+func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(init_position, difficulty)
+	life = MAX_LIFE.get_for(difficulty)
 
 #endregion
 
@@ -99,7 +103,7 @@ func apply_treasure(treasure: Treasure) -> void:
 		return
 	
 	if treasure is LifePowerUp:
-		life = min(life + 1, MAX_LIFE)
+		life = min(life + 1, MAX_LIFE.get_for(difficulty))
 	elif treasure is ProjectilePowerUp:
 		projectiles_cnt = min(projectiles_cnt + 1, MAX_PROJECTILES_CNT)
 		projectiles_cnt_regen_factor = 0.0

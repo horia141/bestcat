@@ -7,6 +7,14 @@ enum StructureState {
 }
 
 var state = StructureState.Operational
+var difficulty = Application.MissionDifficulty.Apprentice
+
+#region Constructors
+
+func post_ready_prepare(difficulty: Application.MissionDifficulty) -> void:
+	self.difficulty = difficulty
+
+#endregion
 
 #region Game logic
 

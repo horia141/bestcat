@@ -19,9 +19,6 @@ var my_mobs = {}
 func _ready() -> void:
 	$HealthBar.max_life = MAX_LIFE
 	$HealthBar.life = life
-	
-func post_ready_prepare() -> void:
-	pass
 
 #endregion
 
@@ -36,12 +33,12 @@ func _spawn_mob() -> void:
 		
 	if randf_range(0, 1) < 0.5:
 		var jelly = JellyScn.instantiate()
-		jelly.post_ready_prepare(_random_position_in_disc(position))
+		jelly.post_ready_prepare(_random_position_in_disc(position), difficulty)
 		spawned_mob.emit(jelly)
 		my_mobs[jelly.get_instance_id()] = jelly
 	else:
 		var ogre = OgreScn.instantiate()
-		ogre.post_ready_prepare(_random_position_in_disc(position))
+		ogre.post_ready_prepare(_random_position_in_disc(position), difficulty)
 		spawned_mob.emit(ogre)
 		my_mobs[ogre.get_instance_id()] = ogre
 		

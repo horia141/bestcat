@@ -8,13 +8,14 @@ enum MissionDifficulty {
 	Apprentice,
 	Expert
 }
+			
 
 class MissionDesc:
 	var title: String
-	var allowed_difficulties: Array
+	var allowed_difficulties: Array[MissionDifficulty]
 	var scene: PackedScene
 	
-	func _init(title: String, allowed_difficulties: Array, scene: PackedScene) -> void:
+	func _init(title: String, allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
 		self.title = title
 		self.allowed_difficulties = allowed_difficulties
 		self.scene = scene

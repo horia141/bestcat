@@ -14,6 +14,8 @@ enum MissionState {
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
+const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
+
 @onready var mission: Mission = $Mission
 var mission_config: Application.MissionConfig = null
 var mission_state = MissionState.GetReady
@@ -49,13 +51,13 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$GameCamera.post_ready_prepare($BestCat/Follow, mission.size_in_px)
 	 
 	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
-	$BestCat.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position)
+	$BestCat.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
 	
 	for structure in get_tree().get_nodes_in_group("Structures"):
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
-			the_structure.post_ready_prepare()
+			the_structure.post_ready_prepare(mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
@@ -66,6 +68,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		
 	for mob in get_tree().get_nodes_in_group("Mobs"):
 		var the_mob = mob as Mob
+		the_mob.post_ready_prepare(the_mob.position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
 		the_mob.shoot.connect(_on_enemy_shoot)
 		the_mob.destroyed.connect(func (): _on_mob_destroyed(the_mob))
 		
@@ -73,6 +76,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_boss = boss as Boss
 		bosses_left_cnt += 1
 		the_boss.hide()
+		the_boss.post_ready_prepare(the_boss.position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
 		the_boss.shoot.connect(_on_enemy_shoot)
 		the_boss.state_change.connect(func (): _on_boss_change_state(the_boss))
 		the_boss.destroyed.connect(func (): _on_boss_destroyed(the_boss))

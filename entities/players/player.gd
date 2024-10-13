@@ -11,14 +11,16 @@ enum PlayerState {
 }
 
 var state = PlayerState.Active
+var difficulty = Application.MissionDifficulty.Apprentice
 
 #region Construction
 
 func _ready() -> void:
 	pass
 	
-func post_ready_prepare(init_position: Vector2) -> void:
-	position = init_position
+func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	self.position = init_position
+	self.difficulty = difficulty
 
 #endregion
 
