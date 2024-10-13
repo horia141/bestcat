@@ -3,10 +3,10 @@ extends Boss
 
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
-const SHOOT_PERIOD_SEC = 2
-const MAX_LIFE = 10.0
+static var SHOOT_PERIOD_SEC = DifficultyValue.new(3, 2, 1.5)
+static var MAX_LIFE = DifficultyValue.new(5, 10, 15)
 
-var life = MAX_LIFE
+var life = MAX_LIFE.get_for(difficulty)
 
 #region Construction
 
@@ -14,8 +14,15 @@ func _ready() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_deferred("freeze", true)
 	state = EnemyState.Hidden
-	$HealthBar.max_life = MAX_LIFE
+	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
+	
+func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(init_position, difficulty)
+	life = MAX_LIFE.get_for(difficulty)
+	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
+	$HealthBar.life = life
+	
 
 #endregion
 
@@ -26,7 +33,7 @@ func activate() -> void:
 	state = EnemyState.Active
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_deferred("freeze", false)
-	$ShootTimer.wait_time = SHOOT_PERIOD_SEC + randf_range(-0.25, 0.25)
+	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
 	$ShootTimer.start()
 
 func _shoot() -> void:
@@ -41,7 +48,7 @@ func _shoot() -> void:
 	
 	$AnimatedSprite2D.play("idle")
 	
-	$ShootTimer.wait_time = SHOOT_PERIOD_SEC + randf_range(-0.25, 0.25)
+	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
 	$ShootTimer.start()
 	
 func __shoot_one_round() -> void:

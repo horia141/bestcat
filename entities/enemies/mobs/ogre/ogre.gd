@@ -3,7 +3,7 @@ extends Mob
 
 const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
 
-const SHOOT_PERIOD_SEC = 1.5
+static var SHOOT_PERIOD_SEC = DifficultyValue.new(1.5, 1.25, 1.00)
 
 #region Game logic
 
@@ -27,7 +27,7 @@ func _shoot() -> void:
 	enemy_projectile_down.post_ready_prepare(position, Vector2(0, 1).rotated(randf_range(-0.2, 0.2)), difficulty)
 	shoot.emit(enemy_projectile_down)
 	
-	$ShootTimer.wait_time = SHOOT_PERIOD_SEC + randf_range(-0.25, 0.25)
+	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
 	$ShootTimer.start()
 
 #endregion

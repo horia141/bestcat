@@ -7,17 +7,23 @@ const OgreScn = preload("res://entities/enemies/mobs/ogre/ogre.tscn")
 signal spawned_mob (mob: Mob)
 signal destroyed ()
 
-const SPAWN_PERIOD_SEC = 5
-const MAX_MOBS_TO_SPAWN = 5
-const MAX_LIFE = 3
+static var SPAWN_PERIOD_SEC = DifficultyValue.new(5, 4, 3)
+static var MAX_MOBS_TO_SPAWN = DifficultyValue.new(3, 5, 7)
+static var MAX_LIFE = DifficultyValue.new(2, 3, 5)
 
-var life = MAX_LIFE
+var life = MAX_LIFE.get_for(difficulty)
 var my_mobs = {}
 
 #region Construction
 
 func _ready() -> void:
-	$HealthBar.max_life = MAX_LIFE
+	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
+	$HealthBar.life = life
+	
+func post_ready_prepare(difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(difficulty)
+	life = MAX_LIFE.get_for(difficulty)
+	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
 
 #endregion
@@ -28,7 +34,7 @@ func _spawn_mob() -> void:
 	if state == StructureState.Destroyed:
 		return
 
-	if my_mobs.size() >= MAX_MOBS_TO_SPAWN:
+	if my_mobs.size() >= MAX_MOBS_TO_SPAWN.get_for(difficulty):
 		return
 		
 	if randf_range(0, 1) < 0.5:
@@ -42,7 +48,7 @@ func _spawn_mob() -> void:
 		spawned_mob.emit(ogre)
 		my_mobs[ogre.get_instance_id()] = ogre
 		
-	$SpawnTimer.wait_time = SPAWN_PERIOD_SEC + randf_range(-0.5, 0.5)
+	$SpawnTimer.wait_time = SPAWN_PERIOD_SEC.get_for(difficulty) + randf_range(-0.5, 0.5)
 	$SpawnTimer.start()
 		
 
