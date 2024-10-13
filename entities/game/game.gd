@@ -15,7 +15,7 @@ const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-power
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
 @onready var mission: Mission = $Mission
-var mission_desc: Application.MissionDesc = null
+var mission_config: Application.MissionConfig = null
 var mission_state = MissionState.GetReady
 var dark_towers_left_cnt = 0
 var bosses_left_cnt = 0
@@ -29,7 +29,7 @@ func _ready() -> void:
 	# post_ready_prepare.
 	_wire_up_everything(true)
 		
-func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
+func post_ready_prepare(new_mission_config: Application.MissionConfig) -> void:
 	if mission != null:
 		remove_child(mission)
 		mission.queue_free()
@@ -37,11 +37,11 @@ func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
 		score = 0
-		mission_desc = null
+		mission_config = null
 		# Wait till the next frame so eerything is freed
 		await get_tree().process_frame
-	mission = new_mission_desc.scene.instantiate()
-	mission_desc = new_mission_desc
+	mission = new_mission_config.desc.scene.instantiate()
+	mission_config = new_mission_config
 	add_child(mission)
 	_wire_up_everything(false)
 	

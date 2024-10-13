@@ -3,17 +3,42 @@ extends Node2D
 
 const GameScn = preload("res://entities/game/game.tscn")
 
+enum MissionDifficulty {
+	Novice,
+	Apprentice,
+	Expert
+}
+
 class MissionDesc:
 	var title: String
+	var allowed_difficulties: Array
 	var scene: PackedScene
 	
-	func _init(title: String, scene: PackedScene) -> void:
+	func _init(title: String, allowed_difficulties: Array, scene: PackedScene) -> void:
 		self.title = title
+		self.allowed_difficulties = allowed_difficulties
 		self.scene = scene
+		
+	func allows_difficulty(difficulty: MissionDifficulty) -> bool:
+		return self.allowed_difficulties.find(difficulty) >= 0
+
+class MissionConfig:
+	var desc: MissionDesc
+	var difficulty: MissionDifficulty
+	
+	func _init(desc: MissionDesc, difficulty: MissionDifficulty) -> void:
+		self.desc = desc
+		self.difficulty = difficulty
 
 var all_missions_desc = [
-	MissionDesc.new("Tutorial", preload("res://entities/missions/tutorial/tutorial.tscn")),
-	MissionDesc.new("Plain of Koh", preload("res://entities/missions/plain-of-koh/plain-of-koh.tscn"))
+	MissionDesc.new(
+		"Tutorial", 
+		[MissionDifficulty.Novice],
+		preload("res://entities/missions/tutorial/tutorial.tscn")),
+	MissionDesc.new(
+		"Plain of Koh",
+		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
+		preload("res://entities/missions/plain-of-koh/plain-of-koh.tscn"))
 ]
 var current_game: Game = null
 
@@ -26,13 +51,14 @@ func _ready() -> void:
 
 #region Game logic
 
-func new_game_with_mission(mission_desc: MissionDesc) -> void:
+func new_game_with_mission(mission_config: MissionConfig) -> void:
 	$MainMenu.hide()
 	if current_game != null:
 		current_game.queue_free()
+		await get_tree().process_frame
 	var new_game = GameScn.instantiate()
 	add_child(new_game)
-	new_game.post_ready_prepare(mission_desc)
+	new_game.post_ready_prepare(mission_config)
 	new_game.won_mission.connect(_won_mission)
 	new_game.retry_mission.connect(_retry_mission)
 	new_game.quit_mission.connect(_quit_mission)
@@ -46,7 +72,7 @@ func _won_mission() -> void:
 func _retry_mission() -> void:
 	$MainMenu.show()
 	current_game.queue_free()
-	new_game_with_mission(current_game.mission_desc)
+	new_game_with_mission(current_game.mission_config)
 	
 func _quit_mission() -> void:
 	$MainMenu.show()
