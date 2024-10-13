@@ -16,7 +16,7 @@ const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-poweru
 
 @onready var mission: Mission = $Mission
 var mission_desc: Application.MissionDesc = null
-var mission_state = MissionState.DestroyDarkTowers
+var mission_state = MissionState.GetReady
 var dark_towers_left_cnt = 0
 var bosses_left_cnt = 0
 var score = 0
@@ -33,7 +33,7 @@ func post_ready_prepare(new_mission_desc: Application.MissionDesc) -> void:
 	if mission != null:
 		remove_child(mission)
 		mission.queue_free()
-		mission_state = MissionState.DestroyDarkTowers
+		mission_state = MissionState.GetReady
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
 		score = 0
@@ -84,9 +84,21 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player($BestCat)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
+	# Start paused
+	$PauseDialog.hide()
+	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
+	
 #endregion
 
 #region Game logic
+
+func _got_ready() -> void:
+	mission_state = MissionState.DestroyDarkTowers
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+	$StartCountdown.queue_free()
+	get_tree().paused = false
+	$PauseDialog.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
