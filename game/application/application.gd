@@ -33,9 +33,9 @@ class MissionConfig:
 
 var all_missions_desc = [
 	MissionDesc.new(
-		"Tutorial", 
-		[MissionDifficulty.Novice],
-		preload("res://entities/missions/tutorial/tutorial.tscn")),
+		"Hunt for Zorn", 
+		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
+		preload("res://entities/missions/hunt-for-zorn/hunt-for-zorn.tscn")),
 	MissionDesc.new(
 		"Plain of Koh",
 		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
