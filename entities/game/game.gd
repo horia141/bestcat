@@ -197,22 +197,29 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 			the_boss.activate()
 		
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
-		
-func _retry_mission() -> void:
-	get_tree().paused = false
-	retry_mission.emit()
-	
-func _quit_mission() -> void:
-	get_tree().paused = false
-	quit_mission.emit()
 	
 func _drain_score_periodically() -> void:
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
+func _retry_mission() -> void:
+	get_tree().paused = false
+	$PauseDialog.hide()
+	$LoseDialog.hide()
+	retry_mission.emit()
+	
+func _quit_mission() -> void:
+	get_tree().paused = false
+	$PauseDialog.hide()
+	$LoseDialog.hide()
+	quit_mission.emit()
+	
 func _show_pause_dialog() -> void:
 	$PauseDialog.show()
-	$PauseDialog._pause_game()
+	get_tree().paused = true
+	await $PauseDialog.resume_mission
+	get_tree().paused = false
+	$PauseDialog.hide()
 	
 func _show_help_dialog() -> void:
 	$HelpDialog.show()
