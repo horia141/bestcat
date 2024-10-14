@@ -2,6 +2,7 @@ class_name EnemyProjectile
 extends RigidBody2D
 
 signal player_hit (player: Player)
+signal otherwise_destroyed ()
 
 const BUFFER = 32
 static var SPEED = DifficultyValue.new(500, 750, 1000)
@@ -39,7 +40,7 @@ func _destroy() -> void:
 	$AnimatedSprite2D.play("explosion")
 	set_deferred("freeze", true)
 	await $AnimatedSprite2D.animation_finished
-	queue_free()
+	otherwise_destroyed.emit()
 
 #endregion
 

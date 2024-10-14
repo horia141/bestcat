@@ -117,8 +117,10 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
 	player_projectile.enemy_hit.connect(_on_projectile_hit_enemy)
 	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
+	player_projectile.otherwise_destroyed.connect(func (): _on_player_projectile_destroyed(player_projectile))
 	
 func _on_player_destroyed() -> void:
+	$BestCat.queue_free()
 	get_tree().paused = true
 	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndFailure)
 	await mission.story_checkpoint_processed
@@ -128,8 +130,11 @@ func _on_player_destroyed() -> void:
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
 	enemy_projectile.player_hit.connect(_on_projectile_hit_player)
+	enemy_projectile.otherwise_destroyed.connect(func (): _on_enemy_projectile_destroyed(enemy_projectile))
 	
 func _on_mob_destroyed(mob: Mob) -> void:
+	mob.queue_free()
+	
 	if randf_range(0, 1) < 0.5:
 		var life_powerup = LifePowerUpScn.instantiate()
 		life_powerup.post_ready_prepare(mob.position)
@@ -152,6 +157,8 @@ func _on_boss_change_state(boss: Boss) -> void:
 	pass
 	
 func _on_boss_destroyed(boss: Boss) -> void:
+	boss.queue_free()
+
 	bosses_left_cnt -= 1
 	score += 10
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
@@ -170,9 +177,13 @@ func _on_boss_destroyed(boss: Boss) -> void:
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
+	treasure.queue_free()
 	
 func _on_player_projectile_hit_structure(structure: Structure) -> void:
 	structure.on_hit_by_player_projectile()
+	
+func _on_player_projectile_destroyed(player_projectile: PlayerProjectile) -> void:
+	player_projectile.queue_free()
 
 func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	enemy.on_hit_by_projectile()
@@ -181,6 +192,9 @@ func _on_projectile_hit_player(player: Player) -> void:
 	player.on_hit_by_projectile()
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+	
+func _on_enemy_projectile_destroyed(enemy_projectile: EnemyProjectile) -> void:
+	enemy_projectile.queue_free()
 	
 func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	# We'll do some adjustments to the enemy position so it's not

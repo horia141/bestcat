@@ -19,6 +19,5 @@ func _treasure_picked_up(body: Node) -> void:
 	if body.is_in_group("Players"):
 		picked_up.emit(body as Player)
 		set_deferred("freeze", true)
-		queue_free()
 
 #endregion

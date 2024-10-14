@@ -90,6 +90,5 @@ func on_hit_by_projectile() -> void:
 		$AnimatedSprite2D.play("explosion")
 		await $AnimatedSprite2D.animation_finished
 		destroyed.emit()
-		queue_free()
 
 #endregion

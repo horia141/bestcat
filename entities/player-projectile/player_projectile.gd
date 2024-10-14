@@ -3,6 +3,7 @@ extends RigidBody2D
 
 signal enemy_hit (enemy: Enemy)
 signal structure_hit (structure: Structure)
+signal otherwise_destroyed ()
 
 const BUFFER = 32
 static var SPEED = DifficultyValue.new(1000, 900, 800)
@@ -42,7 +43,7 @@ func _destroy() -> void:
 	$AnimatedSprite2D.play("explosion")
 	set_deferred("freeze", true)
 	await $AnimatedSprite2D.animation_finished
-	queue_free()
+	otherwise_destroyed.emit()
 
 #endregion
 

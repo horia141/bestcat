@@ -95,7 +95,6 @@ func on_hit_by_projectile() -> void:
 		set_deferred("freeze", true)
 		await $AnimatedSprite2D.animation_finished
 		destroyed.emit()
-		queue_free()
 	
 func apply_treasure(treasure: Treasure) -> void:
 	super.apply_treasure(treasure)

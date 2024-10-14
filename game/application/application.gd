@@ -61,7 +61,6 @@ func new_game_with_mission(mission_config: MissionConfig) -> void:
 	$MainMenu.hide()
 	if current_game != null:
 		current_game.queue_free()
-		await get_tree().process_frame
 	var new_game = GameScn.instantiate()
 	add_child(new_game)
 	new_game.post_ready_prepare(mission_config)
