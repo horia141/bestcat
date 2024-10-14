@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/ui/lose-dialog/lose_dialog.gd" id="1_08h7g"]
 
-[node name="LoseDialog" type="CanvasLayer"]
+[node name="LoseDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_08h7g")
 

@@ -72,7 +72,6 @@ func _won_mission() -> void:
 	
 func _retry_mission() -> void:
 	$MainMenu.show()
-	current_game.queue_free()
 	new_game_with_mission(current_game.mission_config)
 	
 func _quit_mission() -> void:

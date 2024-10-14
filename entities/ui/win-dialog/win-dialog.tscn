@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/ui/win-dialog/win_dialog.gd" id="1_yfw0g"]
 
-[node name="WinDialog" type="CanvasLayer"]
+[node name="WinDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_yfw0g")
 

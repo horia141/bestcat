@@ -88,11 +88,8 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player($BestCat)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-	# Start paused
-	$PauseDialog.hide()
-	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
-	$HelpDialog.hide()
-	$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	# Start paused because we're in MissionState.GetReady
+	__hide_dialogs()
 	get_tree().paused = true
 	
 #endregion
@@ -104,8 +101,6 @@ func _got_ready() -> void:
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	$StartCountdown.queue_free()
 	get_tree().paused = false
-	$PauseDialog.process_mode = Node.PROCESS_MODE_ALWAYS
-	$HelpDialog.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
@@ -113,10 +108,7 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
 	
 func _on_player_destroyed() -> void:
-	$PauseDialog.hide()
-	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
-	$HelpDialog.hide()
-	$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
+	__hide_dialogs()
 	$LoseDialog.show()
 	get_tree().paused = true
 	
@@ -152,15 +144,9 @@ func _on_boss_destroyed(boss: Boss) -> void:
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
 	if bosses_left_cnt == 0:
-		$PauseDialog.hide()
-		$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
-		$HelpDialog.hide()
-		$HelpDialog.process_mode = Node.PROCESS_MODE_DISABLED
+		__hide_dialogs()
 		$WinDialog.show()
 		get_tree().paused = true
-		await $WinDialog.continue_after_winning
-		get_tree().paused = false
-		won_mission.emit()
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
@@ -202,31 +188,42 @@ func _drain_score_periodically() -> void:
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-func _retry_mission() -> void:
+#region Lifecycle events (many controlled through dialogs)
+
+func _show_pause_dialog() -> void:
+	__hide_dialogs()
+	$PauseDialog.show()
+	get_tree().paused = true
+	
+func _show_help_dialog() -> void:
+	__hide_dialogs()
+	$HelpDialog.show()
+	get_tree().paused = true
+	
+func _resume_mission() -> void:
+	__hide_dialogs()
 	get_tree().paused = false
-	$PauseDialog.hide()
-	$LoseDialog.hide()
+	
+func _retry_mission() -> void:
+	__hide_dialogs()
+	get_tree().paused = false
 	retry_mission.emit()
 	
 func _quit_mission() -> void:
+	__hide_dialogs()
 	get_tree().paused = false
-	$PauseDialog.hide()
-	$LoseDialog.hide()
 	quit_mission.emit()
 	
-func _show_pause_dialog() -> void:
-	$PauseDialog.show()
-	get_tree().paused = true
-	await $PauseDialog.resume_mission
+func _won_mission() -> void:
+	__hide_dialogs()
 	get_tree().paused = false
-	$PauseDialog.hide()
+	won_mission.emit()
 	
-func _show_help_dialog() -> void:
-	$HelpDialog.show()
-	get_tree().paused = true
-	await $HelpDialog.done
-	get_tree().paused = false
-	$HelpDialog.hide()
+func __hide_dialogs() -> void:
+	for dialog in get_tree().get_nodes_in_group("Dialogs"):
+		dialog.hide()
+		
+#endregion
 
 #endregion
 

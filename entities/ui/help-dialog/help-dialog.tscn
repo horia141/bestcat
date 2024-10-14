@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/ui/help-dialog/help_dialog.gd" id="1_uhlio"]
 
-[node name="HelpDialog" type="CanvasLayer"]
+[node name="HelpDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_uhlio")
 
