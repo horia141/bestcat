@@ -32,7 +32,7 @@ mission_beat_dark_towers_messages = Array[String](["Zorn's minions have failed!
 
 This has enraged him to no end. Beware, he is a dangerous foe!"])
 mission_end_failure_messages = Array[String](["Zorn and his minions got the best of you!"])
-mission_end_success_messages = Array[String](["Many have tried to slay Zorn, and many have fialed - until now!
+mission_end_success_messages = Array[String](["Many have tried to slay Zorn, and many have failed - until now!
 
 The island is safe once more."])
 
