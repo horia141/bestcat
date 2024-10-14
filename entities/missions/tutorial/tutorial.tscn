@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://wx2bcejhq5n1"]
+[gd_scene load_steps=8 format=4 uid="uid://wx2bcejhq5n1"]
 
 [ext_resource type="Script" path="res://entities/missions/tutorial/tutorial.gd" id="1_bpltr"]
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="2_vvg6j"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="2_y5wxo"]
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/mobs/ogre/ogre.tscn" id="3_uyguf"]
+[ext_resource type="PackedScene" uid="uid://dm4s7150bs4so" path="res://entities/story/story-trigger-area/story-trigger-area.tscn" id="4_3w6nv"]
 [ext_resource type="PackedScene" uid="uid://bi5ijeaflokvx" path="res://entities/enemies/bosses/stone-killer/stone-killer.tscn" id="5_poikr"]
 [ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://entities/story/story.tscn" id="7_o1ofs"]
 
@@ -27,6 +28,8 @@ tile_map_data = PackedByteArray("AAAEAAoAAAAHAAAAAAAHAAMAAAAHAAAAAAAOAAQAAAAHAAA
 tile_set = ExtResource("2_y5wxo")
 
 [node name="Story" parent="." instance=ExtResource("7_o1ofs")]
+player_enters_region_messages = Array[String](["Watch out! Things will get tricky quick!"])
+player_enters_region_nodes = Array[NodePath]([NodePath("EnterIntoRegion")])
 mission_start_messages = Array[String](["Welcome to the island of Zorn. Destroy the dark towers and beat Zorn the stone killer to claim success!", "Get ready now!"])
 mission_beat_dark_towers_messages = Array[String](["Zorn's minions have failed!
 
@@ -35,6 +38,10 @@ mission_end_failure_messages = Array[String](["Zorn and his minions got the best
 mission_end_success_messages = Array[String](["Many have tried to slay Zorn, and many have failed - until now!
 
 The island is safe once more."])
+
+[node name="EnterIntoRegion" parent="Story" instance=ExtResource("4_3w6nv")]
+position = Vector2(176, 144)
+scale = Vector2(2, 2)
 
 [node name="PlayerStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 112)

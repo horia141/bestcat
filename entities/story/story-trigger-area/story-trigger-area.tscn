@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm4s7150bs4so"]
+
+[ext_resource type="Script" path="res://entities/story/story-trigger-area/story_trigger_area.gd" id="1_syel1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2cmm"]
+height = 48.0
+
+[node name="StoryTriggerArea" type="Area2D"]
+script = ExtResource("1_syel1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_a2cmm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
