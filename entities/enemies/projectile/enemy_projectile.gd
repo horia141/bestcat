@@ -13,8 +13,8 @@ var difficulty = Application.MissionDifficulty.Apprentice
 func _ready() -> void:
 	pass
 	
-func post_ready_prepare(init_position: Vector2, init_direction: Vector2, difficulty: Application.MissionDifficulty) -> void:
-	position = init_position + BUFFER * init_direction
+func post_ready_prepare(init_position: Vector2, init_scale: Vector2, init_direction: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	position = init_position + BUFFER * init_scale * init_direction
 	self.difficulty = difficulty
 	add_constant_central_force(SPEED.get_for(difficulty) * init_direction)
 

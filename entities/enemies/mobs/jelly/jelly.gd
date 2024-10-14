@@ -12,7 +12,7 @@ func _shoot() -> void:
 		return
 
 	var enemy_projectile = EnemyProjectileScn.instantiate()
-	enemy_projectile.post_ready_prepare(position, Vector2(-1, 0).rotated(randf_range(0, TAU)), difficulty)
+	enemy_projectile.post_ready_prepare(position, scale, Vector2(-1, 0).rotated(randf_range(0, TAU)), difficulty)
 	shoot.emit(enemy_projectile)
 	
 	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
