@@ -33,6 +33,11 @@ class MissionConfig:
 
 var all_missions_desc = [
 	MissionDesc.new(
+		"Tutorial",
+		[MissionDifficulty.Novice],
+		preload("res://entities/missions/tutorial/tutorial.tscn")
+	),
+	MissionDesc.new(
 		"Hunt for Zorn", 
 		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
 		preload("res://entities/missions/hunt-for-zorn/hunt-for-zorn.tscn")),

@@ -43,7 +43,7 @@ custom_minimum_size = Vector2(448, 0)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.264166, 0.337885, 0.125038, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="Content"]
