@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ddbka38v8dw6y"]
+[gd_scene load_steps=12 format=4 uid="uid://ddbka38v8dw6y"]
 
 [ext_resource type="Script" path="res://entities/missions/tutorial/tutorial.gd" id="1_bpltr"]
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="2_vvg6j"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dm4s7150bs4so" path="res://entities/story/story-trigger-area/story-trigger-area.tscn" id="4_3w6nv"]
 [ext_resource type="PackedScene" uid="uid://dc30rmyd7dqwg" path="res://entities/enemies/mobs/jelly/jelly.tscn" id="4_niysg"]
 [ext_resource type="PackedScene" uid="uid://bi5ijeaflokvx" path="res://entities/enemies/bosses/stone-killer/stone-killer.tscn" id="5_poikr"]
+[ext_resource type="PackedScene" uid="uid://b2lnb1ahqf46g" path="res://entities/enemies/activation-area/enemy-activation-area.tscn" id="6_i0t5j"]
 [ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://entities/story/story.tscn" id="7_o1ofs"]
 [ext_resource type="PackedScene" uid="uid://cmqgqmoq6rfgx" path="res://entities/treasures/life-powerup/life-powerup.tscn" id="9_lwbny"]
 [ext_resource type="PackedScene" uid="uid://dg7cci6qbmvfq" path="res://entities/treasures/projectile-powerup/projectile-powerup.tscn" id="10_yc88l"]
@@ -108,8 +109,14 @@ position = Vector2(128, 304)
 [node name="Jelly" parent="." instance=ExtResource("4_niysg")]
 position = Vector2(496, 304)
 
+[node name="ActivationArea" parent="Jelly" instance=ExtResource("6_i0t5j")]
+scale = Vector2(3, 3)
+
 [node name="Ogre" parent="." instance=ExtResource("3_uyguf")]
 position = Vector2(808, 304)
+
+[node name="ActivationArea" parent="Ogre" instance=ExtResource("6_i0t5j")]
+scale = Vector2(2, 2)
 
 [node name="DarkTower" parent="." instance=ExtResource("2_vvg6j")]
 position = Vector2(1032, 264)

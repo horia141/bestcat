@@ -45,13 +45,13 @@ A great celebration will start in your honour"])
 position = Vector2(75, 77)
 
 [node name="Ogre1" parent="." instance=ExtResource("2_oprjy")]
-position = Vector2(184, 192)
+position = Vector2(592, 392)
 
 [node name="Ogre2" parent="." instance=ExtResource("2_oprjy")]
-position = Vector2(184, 248)
+position = Vector2(192, 408)
 
 [node name="Ogre3" parent="." instance=ExtResource("2_oprjy")]
-position = Vector2(512, 72)
+position = Vector2(576, 120)
 
 [node name="Ogre4" parent="." instance=ExtResource("2_oprjy")]
 position = Vector2(400, 208)

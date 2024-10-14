@@ -1,7 +1,7 @@
 class_name Golem
 extends Boss
 
-const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
+const EnemyProjectileScn = preload("res://entities/enemies/projectile/enemy-projectile.tscn")
 
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(3, 2, 1.5)
 static var MAX_LIFE = DifficultyValue.new(5, 10, 15)
@@ -70,7 +70,7 @@ func __shoot_one_round() -> void:
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
-	if state != EnemyState.Active:
+	if state == EnemyState.Hidden or state == EnemyState.Dead:
 		return
 	
 	life = life - 1

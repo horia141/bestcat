@@ -1,7 +1,7 @@
 class_name Ogre
 extends Mob
 
-const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
+const EnemyProjectileScn = preload("res://entities/enemies/projectile/enemy-projectile.tscn")
 
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(1.5, 1.25, 1.00)
 

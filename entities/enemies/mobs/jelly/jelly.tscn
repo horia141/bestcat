@@ -105,7 +105,7 @@ sprite_frames = SubResource("SpriteFrames_riel7")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8lup2")
 
 [node name="ShootTimer" type="Timer" parent="."]

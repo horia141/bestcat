@@ -1,7 +1,7 @@
 class_name Jelly
 extends Mob
 
-const EnemyProjectileScn = preload("res://entities/enemy-projectile/enemy-projectile.tscn")
+const EnemyProjectileScn = preload("res://entities/enemies/projectile/enemy-projectile.tscn")
 
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(1, 0.9, 0.8)
 

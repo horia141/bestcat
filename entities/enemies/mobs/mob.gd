@@ -9,15 +9,15 @@ extends Enemy
 
 func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
-	if state == EnemyState.Dead:
+	if state == EnemyState.Hidden or state == EnemyState.Dead:
 		return
 	state = EnemyState.Dead
 	$ShootTimer.stop()
 	$AnimatedSprite2D.play("explosion")
-	$CollisionShape2D.set_deferred("disabled", true)
+	$Collision.set_deferred("disabled", true)
 	set_deferred("freeze", true)
-	destroyed.emit()
 	await $AnimatedSprite2D.animation_finished
+	destroyed.emit()
 	queue_free()
 
 #endregion
