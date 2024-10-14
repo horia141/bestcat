@@ -24,13 +24,24 @@ func update_mission(mission_state: Game.MissionState, dark_towers_left_cnt: int,
 	$Score/Text.text = str(score)
 	
 	match mission_state:
+		Game.MissionState.Start:
+			$PlayerInfo.hide()
+			$Score.hide()
+			$DarkTowersLeftCnt.hide()
+			$BossesLeftCnt.hide()
 		Game.MissionState.GetReady:
+			$PlayerInfo.show()
+			$Score.hide()
 			$DarkTowersLeftCnt.hide()
 			$BossesLeftCnt.hide()
 		Game.MissionState.DestroyDarkTowers:
+			$PlayerInfo.show()
+			$Score.show()
 			$DarkTowersLeftCnt.show()
 			$BossesLeftCnt.hide()
 		Game.MissionState.BossFight:
+			$PlayerInfo.show()
+			$Score.show()
 			$DarkTowersLeftCnt.hide()
 			$BossesLeftCnt.show()
 	

@@ -6,6 +6,7 @@ signal retry_mission ()
 signal quit_mission ()
 
 enum MissionState {
+	Start,
 	GetReady,
 	DestroyDarkTowers,
 	BossFight
@@ -18,7 +19,7 @@ const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
 
 @onready var mission: Mission = $Mission
 var mission_config: Application.MissionConfig = null
-var mission_state = MissionState.GetReady
+var mission_state = MissionState.Start
 var dark_towers_left_cnt = 0
 var bosses_left_cnt = 0
 var score = 0
@@ -35,12 +36,12 @@ func post_ready_prepare(new_mission_config: Application.MissionConfig) -> void:
 	if mission != null:
 		remove_child(mission)
 		mission.queue_free()
-		mission_state = MissionState.GetReady
+		mission_state = MissionState.Start
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
 		score = 0
 		mission_config = null
-		# Wait till the next frame so eerything is freed
+		# Wait till the next frame so everything is freed
 		await get_tree().process_frame
 	mission = new_mission_config.desc.scene.instantiate()
 	mission_config = new_mission_config
@@ -88,9 +89,20 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player($BestCat)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-	# Start paused because we're in MissionState.GetReady
-	__hide_dialogs()
+	$StoryManager.post_ready_prepare()
+	__hide_dialogs() # TODO: this should be some big interaction manager
+	
 	get_tree().paused = true
+	
+	$StoryManager.advance_to_story_checkpoint(StoryDialog.StoryCheckpoint.MissionStart)
+	await $StoryManager.story_checkpoint_processed
+	
+	mission_state = MissionState.GetReady
+	
+	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+	
+	$StartCountdown.show()
+	$StartCountdown.begin()
 	
 #endregion
 
@@ -109,8 +121,10 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	
 func _on_player_destroyed() -> void:
 	__hide_dialogs()
-	$LoseDialog.show()
 	get_tree().paused = true
+	$StoryManager.advance_to_story_checkpoint(StoryDialog.StoryCheckpoint.MissionEndFailure)
+	await $StoryManager.story_checkpoint_processed
+	$LoseDialog.show()
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)

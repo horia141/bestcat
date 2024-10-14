@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://wx2bcejhq5n1"]
+[gd_scene load_steps=7 format=4 uid="uid://wx2bcejhq5n1"]
 
 [ext_resource type="Script" path="res://entities/missions/tutorial/tutorial.gd" id="1_bpltr"]
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="2_vvg6j"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="2_y5wxo"]
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/mobs/ogre/ogre.tscn" id="3_uyguf"]
 [ext_resource type="PackedScene" uid="uid://bi5ijeaflokvx" path="res://entities/enemies/bosses/stone-killer/stone-killer.tscn" id="5_poikr"]
+[ext_resource type="PackedScene" uid="uid://ck5uyfpaqb8ic" path="res://entities/ui/story-dialog/story-dialog.tscn" id="6_ymc6q"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_bpltr")
@@ -42,3 +43,12 @@ position = Vector2(184, 72)
 
 [node name="Boss" parent="." instance=ExtResource("5_poikr")]
 position = Vector2(440, 96)
+
+[node name="Story" type="Node" parent="."]
+
+[node name="Intro" parent="Story" instance=ExtResource("6_ymc6q")]
+message = "Something new here seems to work for what I want it to!"
+
+[node name="MissionEndFailure" parent="Story" instance=ExtResource("6_ymc6q")]
+message = "You did not manage to beat this level. Alas, all is not lost. You can try again!"
+trigger = 4

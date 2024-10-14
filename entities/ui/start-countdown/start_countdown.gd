@@ -11,13 +11,14 @@ var current: int = 3
 func _ready() -> void:
 	current = from
 	$Counter.text = str(current)
-	
-	$Timer.wait_time = 1
-	$Timer.start()
 
 #endregion
 
 #region Game logic
+
+func begin() -> void:
+	$Timer.wait_time = 1
+	$Timer.start()
 
 func _trigger() -> void:
 	current = current - 1
