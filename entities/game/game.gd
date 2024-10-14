@@ -210,19 +210,23 @@ func _drain_score_periodically() -> void:
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
+func _show_pause_dialog() -> void:
+	$PauseDialog.show()
+	$PauseDialog._pause_game()
+	
 func _show_help_dialog() -> void:
-	$PauseDialog.process_mode = Node.PROCESS_MODE_DISABLED
 	$HelpDialog.show()
 	get_tree().paused = true
 	await $HelpDialog.done
 	get_tree().paused = false
 	$HelpDialog.hide()
-	$PauseDialog.process_mode = Node.PROCESS_MODE_ALWAYS
 
 #endregion
 
 #region Game events
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Help With Controls"):
+	if event.is_action_pressed("Mission Pause"):
+		_show_pause_dialog()
+	elif event.is_action_pressed("Help With Controls"):
 		_show_help_dialog()
