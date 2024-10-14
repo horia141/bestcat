@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="2_y5wxo"]
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/mobs/ogre/ogre.tscn" id="3_uyguf"]
 [ext_resource type="PackedScene" uid="uid://bi5ijeaflokvx" path="res://entities/enemies/bosses/stone-killer/stone-killer.tscn" id="5_poikr"]
-[ext_resource type="PackedScene" uid="uid://ck5uyfpaqb8ic" path="res://entities/ui/story-dialog/story-dialog.tscn" id="6_ymc6q"]
+[ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://entities/story/story.tscn" id="7_o1ofs"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_bpltr")
@@ -26,6 +26,16 @@ position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AAAEAAoAAAAHAAAAAAAHAAMAAAAHAAAAAAAOAAQAAAAHAAAAAAAaAAIAAAAHAAAAAAAeAAgAAAAHAAAAAAAqAAEAAAAHAAAAAAAUAAUAAAAZAAoAAAAiAAUAAAADAAwAAAAiAAgAAAADAAwAAAAZAAUAAAAUAAAAAAAaAAUAAAAUAAAAAAAbAAUAAAAUAAAAAAAcAAUAAAAUAAAAAAAdAAUAAAAVAAAAAAAdAAYAAAAVAAEAAAAdAAcAAAATAAIAAAAGAAsAAAAHAAMAAAACAAEAAAAHAAMAAAACAAwAAAAJAAQAAAAPAAEAAAAHAAMAAAAUAAoAAAAHAAMAAAAEAAUAAAAIAAMAAAAJAAQAAAAIAAMAAAASAAkAAAAIAAMAAAAUAAkAAAAIAAMAAAAWAAYAAAAIAAMAAAAWAAwAAAAIAAMAAAAbAAwAAAAIAAMAAAAhAAEAAAAIAAMAAAAiAAQAAAAIAAMAAAAlAAoAAAAIAAMAAAAqAAcAAAAIAAMAAAALAAcAAAAIAAQAAAAOAAUAAAAIAAQAAAAXAAkAAAAIAAQAAAAgAAQAAAAIAAQAAAAQAAcAAAAJAAQAAAAVAAcAAAAJAAQAAAAHAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAJAAoAAAAFAAIAAAAQAAMAAAAFAAIAAAAcAAIAAAAFAAIAAAAjAAcAAAAUAAIAAAAiAAcAAAAUAAIAAAAhAAcAAAAUAAIAAAAgAAcAAAAUAAIAAAAfAAcAAAAUAAIAAAAeAAcAAAAUAAIAAAAkAAcAAAAVAAIAAAAkAAYAAAAVAAEAAAAdABgAAAAHAAAAAAApABYAAAAHAAAAAAAnAB8AAAAHAAAAAAAbAB0AAAAZAAoAAAAoABsAAAADAAwAAAAhABcAAAAHAAMAAAAlABkAAAAHAAMAAAAnABoAAAAHAAMAAAAgAB0AAAAGAAkAAAAbABYAAAATAAwAAAAnABUAAAATAAwAAAAkAB4AAAATAAwAAAAeABUAAAAIAAQAAAAbABgAAAAIAAQAAAApAB4AAAAIAAQAAAAqABoAAAAIAAQAAAAbAB8AAAAIAAQAAAAeAB4AAAAGAAMAAAAkAAUAAAATAAUAAAA=")
 tile_set = ExtResource("2_y5wxo")
 
+[node name="Story" parent="." instance=ExtResource("7_o1ofs")]
+mission_start_messages = Array[String](["Welcome to the island of Zorn. Destroy the dark towers and beat Zorn the stone killer to claim success!", "Get ready now!"])
+mission_beat_dark_towers_messages = Array[String](["Zorn's minions have failed!
+
+This has enraged him to no end. Beware, he is a dangerous foe!"])
+mission_end_failure_messages = Array[String](["Zorn and his minions got the best of you!"])
+mission_end_success_messages = Array[String](["Many have tried to slay Zorn, and many have fialed - until now!
+
+The island is safe once more."])
+
 [node name="PlayerStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 112)
 
@@ -43,12 +53,3 @@ position = Vector2(184, 72)
 
 [node name="Boss" parent="." instance=ExtResource("5_poikr")]
 position = Vector2(440, 96)
-
-[node name="Story" type="Node" parent="."]
-
-[node name="Intro" parent="Story" instance=ExtResource("6_ymc6q")]
-message = "Something new here seems to work for what I want it to!"
-
-[node name="MissionEndFailure" parent="Story" instance=ExtResource("6_ymc6q")]
-message = "You did not manage to beat this level. Alas, all is not lost. You can try again!"
-trigger = 4

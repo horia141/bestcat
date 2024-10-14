@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=11 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://entities/game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
@@ -10,13 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://d4kvoewf706nv" path="res://entities/ui/hud/hud.tscn" id="6_7emao"]
 [ext_resource type="PackedScene" uid="uid://wx2bcejhq5n1" path="res://entities/missions/tutorial/tutorial.tscn" id="6_jcgf0"]
 [ext_resource type="PackedScene" uid="uid://buprk1jqqnl8k" path="res://entities/ui/start-countdown/start-countdown.tscn" id="9_lq6f7"]
-[ext_resource type="Script" path="res://entities/game/story_manager.gd" id="11_t37wa"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_23vru")
-
-[node name="StoryManager" type="Node" parent="."]
-script = ExtResource("11_t37wa")
 
 [node name="HelpDialog" parent="." instance=ExtResource("2_terr6")]
 visible = false

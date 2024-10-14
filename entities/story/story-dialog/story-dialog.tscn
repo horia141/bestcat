@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck5uyfpaqb8ic"]
 
-[ext_resource type="Texture2D" uid="uid://biuvxr3dnnj4w" path="res://entities/ui/story-dialog/patch.png" id="1_gn5fi"]
-[ext_resource type="Script" path="res://entities/ui/story-dialog/story_dialog.gd" id="1_rtb8t"]
+[ext_resource type="Texture2D" uid="uid://biuvxr3dnnj4w" path="res://entities/story/story-dialog/patch.png" id="1_gn5fi"]
+[ext_resource type="Script" path="res://entities/story/story-dialog/story_dialog.gd" id="1_rtb8t"]
 
-[node name="StoryDialog" type="CanvasLayer" groups=["Dialogs", "Story Dialogs"]]
-process_mode = 3
+[node name="StoryDialog" type="CanvasLayer"]
 script = ExtResource("1_rtb8t")
 
 [node name="Background" type="NinePatchRect" parent="."]
@@ -45,8 +44,6 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.264166, 0.337885, 0.125038, 1)
 theme_override_font_sizes/font_size = 28
-text = "This is the message.
-It is a very long message, so that you can get a feeling for how it oprates like this."
 autowrap_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="Content"]

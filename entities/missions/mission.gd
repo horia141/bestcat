@@ -1,6 +1,8 @@
 class_name Mission
 extends Node2D
 
+signal story_checkpoint_processed(checkpoint: Story.StoryCheckpoint)
+
 const WATER_TERRAIN_SET = 0
 const WATER_TERRAIN = 4
 
@@ -12,6 +14,7 @@ func _ready() -> void:
 	var level_size_in_cells = $Level/Terrain.get_used_rect().size
 	var tile_size_in_px = $Level/Terrain.tile_set.tile_size
 	size_in_px = level_size_in_cells * tile_size_in_px
+	$Story.story_checkpoint_processed.connect(_story_checkpoint_processed)
 	
 func post_ready_prepare() -> void:
 	pass
@@ -19,6 +22,12 @@ func post_ready_prepare() -> void:
 #endregion
 
 #region Game logic
+
+func advance_to_story_checkpoint(checkpoint: Story.StoryCheckpoint) -> void:
+	$Story.advance_to_story_checkpoint(checkpoint)
+	
+func _story_checkpoint_processed(checkpoint: Story.StoryCheckpoint) -> void:
+	story_checkpoint_processed.emit(checkpoint)
 
 func get_appropriate_pos_for_enemy(enemy: Enemy) -> Vector2:
 	# Look at the current position for an enemy and slighly adjust

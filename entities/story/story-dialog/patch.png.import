@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://biuvxr3dnnj4w"
-path="res://.godot/imported/patch.png-dab93392435d32637672b08570684c36.ctex"
+path="res://.godot/imported/patch.png-acc5e9d15dc58c0d43b6907b1a845ec2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/ui/story-dialog/patch.png"
-dest_files=["res://.godot/imported/patch.png-dab93392435d32637672b08570684c36.ctex"]
+source_file="res://entities/story/story-dialog/patch.png"
+dest_files=["res://.godot/imported/patch.png-acc5e9d15dc58c0d43b6907b1a845ec2.ctex"]
 
 [params]
 

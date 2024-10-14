@@ -89,14 +89,13 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player($BestCat)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-	$StoryManager.post_ready_prepare()
 	__hide_dialogs() # TODO: this should be some big interaction manager
 	
 	get_tree().paused = true
 	
-	$StoryManager.advance_to_story_checkpoint(StoryDialog.StoryCheckpoint.MissionStart)
-	await $StoryManager.story_checkpoint_processed
-	
+	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionStart)
+	await mission.story_checkpoint_processed
+
 	mission_state = MissionState.GetReady
 	
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
@@ -120,10 +119,10 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
 	
 func _on_player_destroyed() -> void:
-	__hide_dialogs()
 	get_tree().paused = true
-	$StoryManager.advance_to_story_checkpoint(StoryDialog.StoryCheckpoint.MissionEndFailure)
-	await $StoryManager.story_checkpoint_processed
+	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndFailure)
+	await mission.story_checkpoint_processed
+	__hide_dialogs()
 	$LoseDialog.show()
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
@@ -157,10 +156,17 @@ func _on_boss_destroyed(boss: Boss) -> void:
 	score += 10
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
+	get_tree().paused = true
+	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionBeatBoss)
+	await mission.story_checkpoint_processed
+	get_tree().paused = true
+	
 	if bosses_left_cnt == 0:
+		get_tree().paused = true
+		mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndSuccess)
+		await mission.story_checkpoint_processed
 		__hide_dialogs()
 		$WinDialog.show()
-		get_tree().paused = true
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
@@ -190,6 +196,11 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	score += 3
 	
 	if dark_towers_left_cnt == 0:
+		get_tree().paused = true
+		mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionBeatDarkTowers)
+		await mission.story_checkpoint_processed
+		get_tree().paused = false
+		
 		mission_state = MissionState.BossFight
 		for boss in get_tree().get_nodes_in_group("Bosses"):
 			var the_boss = boss as Boss

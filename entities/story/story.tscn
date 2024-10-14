@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c85v65pucek1o"]
+
+[ext_resource type="Script" path="res://entities/story/story.gd" id="1_tlw4h"]
+[ext_resource type="PackedScene" uid="uid://ck5uyfpaqb8ic" path="res://entities/story/story-dialog/story-dialog.tscn" id="2_u5j47"]
+
+[node name="Story" type="Node"]
+process_mode = 3
+script = ExtResource("1_tlw4h")
+
+[node name="StoryDialog" parent="." instance=ExtResource("2_u5j47")]
