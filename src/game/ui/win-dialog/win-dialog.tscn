@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bitbv43jrno26"]
+
+[ext_resource type="Script" path="res://ui/win-dialog/win_dialog.gd" id="1_yfw0g"]
+
+[node name="WinDialog" type="CanvasLayer" groups=["Dialogs"]]
+process_mode = 3
+script = ExtResource("1_yfw0g")
+
+[node name="Contents" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -95.0
+offset_right = 223.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="Label" parent="Contents"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "You won! Congrats!"
+
+[node name="Controls" type="HBoxContainer" parent="Contents"]
+layout_mode = 2
+alignment = 1
+
+[node name="Continue" type="Button" parent="Contents/Controls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Continue"
+
+[connection signal="button_up" from="Contents/Controls/Continue" to="." method="_continue"]

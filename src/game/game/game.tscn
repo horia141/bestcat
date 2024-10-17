@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://h7pvg8ftvk3y"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_23vru"]
+[ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
+[ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://ui/help-dialog/help-dialog.tscn" id="2_terr6"]
+[ext_resource type="PackedScene" uid="uid://j5ovdm6rehfn" path="res://ui/pause-dialog/pause-dialog.tscn" id="2_wpyxo"]
+[ext_resource type="PackedScene" uid="uid://bitbv43jrno26" path="res://ui/win-dialog/win-dialog.tscn" id="3_ej4y6"]
+[ext_resource type="PackedScene" uid="uid://b86xik8lwmra7" path="res://utils/game-camera/game-camera.tscn" id="3_hmsmv"]
+[ext_resource type="PackedScene" uid="uid://cjkd3jiw83hn2" path="res://ui/lose-dialog/lose-dialog.tscn" id="4_uoff0"]
+[ext_resource type="PackedScene" uid="uid://d4kvoewf706nv" path="res://ui/hud/hud.tscn" id="6_7emao"]
+[ext_resource type="PackedScene" uid="uid://wx2bcejhq5n1" path="res://missions/hunt-for-zorn/hunt-for-zorn.tscn" id="6_jcgf0"]
+[ext_resource type="PackedScene" uid="uid://buprk1jqqnl8k" path="res://ui/start-countdown/start-countdown.tscn" id="9_lq6f7"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_23vru")
+
+[node name="HelpDialog" parent="." instance=ExtResource("2_terr6")]
+visible = false
+
+[node name="PauseDialog" parent="." instance=ExtResource("2_wpyxo")]
+visible = false
+
+[node name="WinDialog" parent="." instance=ExtResource("3_ej4y6")]
+visible = false
+
+[node name="LoseDialog" parent="." instance=ExtResource("4_uoff0")]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource("6_7emao")]
+
+[node name="GameCamera" parent="." instance=ExtResource("3_hmsmv")]
+
+[node name="BestCat" parent="." instance=ExtResource("1_tgonu")]
+z_index = 100
+position = Vector2(100, 100)
+scale = Vector2(2, 2)
+
+[node name="Mission" parent="." instance=ExtResource("6_jcgf0")]
+position = Vector2(1, 0)
+
+[node name="ScoreDrainTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="StartCountdown" parent="." instance=ExtResource("9_lq6f7")]
+visible = false
+
+[connection signal="done" from="HelpDialog" to="." method="_resume_mission"]
+[connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]
+[connection signal="resume_mission" from="PauseDialog" to="." method="_resume_mission"]
+[connection signal="retry_mission" from="PauseDialog" to="." method="_retry_mission"]
+[connection signal="continue_after_winning" from="WinDialog" to="." method="_won_mission"]
+[connection signal="quit_mission" from="LoseDialog" to="." method="_quit_mission"]
+[connection signal="retry_mission" from="LoseDialog" to="." method="_retry_mission"]
+[connection signal="timeout" from="ScoreDrainTimer" to="." method="_drain_score_periodically"]
+[connection signal="done" from="StartCountdown" to="." method="_got_ready"]
