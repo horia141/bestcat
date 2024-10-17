@@ -1,6 +1,6 @@
 # BestCat - The Game
 
-BestCat the game is an action RPG featuring BestCat and his friends from the comic books on an epic adventure.
+BestCat - The Game is an action RPG featuring BestCat and his friends from the comic books on an epic adventure.
 
 They will fight monsters, destroy evil towers, defeat terrible
 bosses, and develop their skills and abilities along the way.
