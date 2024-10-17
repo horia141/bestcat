@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bestcat-server"
+name = "local-serve-wbe"
 version = "0.1.0"
 description = ""
 authors = ["Horia Coman <horia141@gmail.com>"]
