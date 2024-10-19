@@ -19,9 +19,10 @@ offset_bottom = 116.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="New Game" type="Button" parent="Main"]
+[node name="NewGame" type="Button" parent="Main"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+action_mode = 0
 text = "New Game"
 
 [node name="Controls" type="Button" parent="Main"]
@@ -87,7 +88,7 @@ text = "Expert"
 
 [node name="HelpDialog" parent="." instance=ExtResource("2_87g0v")]
 
-[connection signal="button_up" from="Main/New Game" to="." method="_main_go_to_select_mission"]
+[connection signal="button_up" from="Main/NewGame" to="." method="_main_go_to_select_mission"]
 [connection signal="button_up" from="Main/Controls" to="." method="_main_to_controls"]
 [connection signal="button_up" from="Main/Quit" to="." method="_quit_game"]
 [connection signal="button_up" from="SelectMission/Return" to="." method="_select_mission_to_main"]

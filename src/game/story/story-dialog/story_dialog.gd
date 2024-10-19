@@ -1,5 +1,5 @@
 class_name StoryDialog
-extends CanvasLayer
+extends Dialog
 
 signal done ()
 
@@ -9,17 +9,11 @@ signal done ()
 	set(value):
 		$Content/Message.text = value
 
-#region Construction
-
-func _init() -> void:
-	pass
-
-func _ready() -> void:
-	pass
-
-#endregion
-
 #region Game logic
+
+func activate() -> void:
+	super.activate()
+	$Content/Controls/OK.grab_focus()
 
 func _done() -> void:
 	done.emit()

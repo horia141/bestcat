@@ -1,17 +1,14 @@
 class_name LoseDialog
-extends CanvasLayer
+extends Dialog
 
 signal retry_mission ()
 signal quit_mission ()
 
-#region Construction
-
-func _ready() -> void:
-	pass
-	
-#endregion
-
 #region Game logic
+
+func activate() -> void:
+	super.activate()
+	$Content/Controls/Retry.grab_focus()
 
 func _retry() -> void:
 	retry_mission.emit()

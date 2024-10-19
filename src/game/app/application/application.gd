@@ -70,16 +70,16 @@ func new_game_with_mission(mission_config: MissionConfig) -> void:
 	current_game = new_game;
 	
 func _won_mission() -> void:
-	$MainMenu.show()
+	$MainMenu.activate()
 	current_game.queue_free()
 	current_game = null
 	
 func _retry_mission() -> void:
-	$MainMenu.show()
+	$MainMenu.activate()
 	new_game_with_mission(current_game.mission_config)
 	
 func _quit_mission() -> void:
-	$MainMenu.show()
+	$MainMenu.activate()
 	current_game.queue_free()
 	current_game = null
 	

@@ -26,9 +26,14 @@ func post_ready_process(all_missions_desc: Array) -> void:
 		mission_button.button_up.connect(func (): _select_mission_go_to_select_difficulty(mission_desc))
 		mission_button.add_theme_font_size_override("font_size", 36)
 		$SelectMission.add_child(mission_button)
+	_show()
 	
 
 #region Game logic
+
+func activate() -> void:
+	show()
+	_show()
 
 func _main_go_to_select_mission() -> void:
 	view = View.SelectMission
@@ -40,6 +45,7 @@ func _select_mission_to_main() -> void:
 	
 func _select_mission_go_to_select_difficulty(mission_desc: Application.MissionDesc) -> void:
 	view = View.SelectDifficulty
+	
 	$SelectDifficulty/Novice.disabled = !mission_desc.allows_difficulty(Application.MissionDifficulty.Novice)
 	$SelectDifficulty/Novice.button_up.connect(func (): _new_game(mission_desc, Application.MissionDifficulty.Novice))
 	$SelectDifficulty/Apprentice.disabled = !mission_desc.allows_difficulty(Application.MissionDifficulty.Apprentice)
@@ -82,21 +88,24 @@ func _show() -> void:
 			$SelectMission.hide()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
+			$Main/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
 			$SelectMission.show()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
+			$SelectMission/Return.grab_focus()
 		View.SelectDifficulty:
 			$Main.hide()
 			$SelectMission.hide()
 			$SelectDifficulty.show()
 			$HelpDialog.hide()
+			$SelectDifficulty/Return.grab_focus()
 		View.Controls:
 			$Main.hide()
 			$SelectMission.hide()
 			$SelectDifficulty.hide()
-			$HelpDialog.show()
+			$HelpDialog.activate()
 			
 			
 #endregion

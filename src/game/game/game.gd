@@ -125,7 +125,7 @@ func _on_player_destroyed() -> void:
 	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndFailure)
 	await mission.story_checkpoint_processed
 	__hide_dialogs()
-	$LoseDialog.show()
+	$LoseDialog.activate()
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
@@ -173,7 +173,7 @@ func _on_boss_destroyed(boss: Boss) -> void:
 		mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndSuccess)
 		await mission.story_checkpoint_processed
 		__hide_dialogs()
-		$WinDialog.show()
+		$WinDialog.activate()
 		
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
@@ -231,12 +231,12 @@ func _drain_score_periodically() -> void:
 
 func _show_pause_dialog() -> void:
 	__hide_dialogs()
-	$PauseDialog.show()
+	$PauseDialog.activate()
 	get_tree().paused = true
 	
 func _show_help_dialog() -> void:
 	__hide_dialogs()
-	$HelpDialog.show()
+	$HelpDialog.activate()
 	get_tree().paused = true
 	
 func _resume_mission() -> void:

@@ -1,18 +1,15 @@
 class_name PauseMenu
-extends CanvasLayer
+extends Dialog
 
 signal quit_mission ()
 signal retry_mission ()
 signal resume_mission ()
 
-#region Construction
-
-func _ready() -> void:
-	pass
-
-#endregion
-
 #region Game logic
+
+func activate() -> void:
+	super.activate()
+	$Controls/Resume.grab_focus()
 
 func _quit_mission() -> void:
 	quit_mission.emit()

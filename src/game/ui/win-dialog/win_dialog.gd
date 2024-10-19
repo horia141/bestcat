@@ -1,16 +1,13 @@
 class_name WinDialog
-extends CanvasLayer
+extends Dialog
 
 signal continue_after_winning ()
 
-#region Construction
-
-func _ready() -> void:
-	pass
-	
-#endregion
-
 #region Game logic
+
+func activate() -> void:
+	super.activate()
+	$Contents/Controls/Continue.grab_focus()
 
 func _continue() -> void:
 	continue_after_winning.emit()

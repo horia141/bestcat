@@ -69,35 +69,35 @@ func advance_to_story_checkpoint(checkpoint: StoryCheckpoint) -> void:
 	match checkpoint:
 		StoryCheckpoint.MissionStart:
 			for message in mission_start_messages:
-				$StoryDialog.show()
+				$StoryDialog.activate()
 				$StoryDialog.message = message
 				await $StoryDialog.done
 				$StoryDialog.hide()
 				processed_message = true
 		StoryCheckpoint.MissionBeatDarkTowers:
 			for message in mission_beat_dark_towers_messages:
-				$StoryDialog.show()
+				$StoryDialog.activate()
 				$StoryDialog.message = message
 				await $StoryDialog.done
 				$StoryDialog.hide()
 				processed_message = true
 		StoryCheckpoint.MissionBeatBoss:
 			for message in mission_beat_boss_messages:
-				$StoryDialog.show()
+				$StoryDialog.activate()
 				$StoryDialog.message = message
 				await $StoryDialog.done
 				$StoryDialog.hide()
 				processed_message = true
 		StoryCheckpoint.MissionEndFailure:
 			for message in mission_end_failure_messages:
-				$StoryDialog.show()
+				$StoryDialog.activate()
 				$StoryDialog.message = message
 				await $StoryDialog.done
 				$StoryDialog.hide()
 				processed_message = true
 		StoryCheckpoint.MissionEndSuccess:
 			for message in mission_end_success_messages:
-				$StoryDialog.show()
+				$StoryDialog.activate()
 				$StoryDialog.message = message
 				await $StoryDialog.done
 				$StoryDialog.hide()
@@ -116,7 +116,7 @@ func advance_to_story_checkpoint(checkpoint: StoryCheckpoint) -> void:
 	
 func _trigger_enemy_destroyed_story_checkpoint(enemy: Enemy, message: String) -> void:
 	get_tree().paused = true
-	$StoryDialog.show()
+	$StoryDialog.activate()
 	$StoryDialog.message = message
 	await $StoryDialog.done
 	$StoryDialog.hide()
@@ -126,7 +126,7 @@ func _trigger_enemy_destroyed_story_checkpoint(enemy: Enemy, message: String) ->
 	
 func _trigger_player_enters_region_checkpoint(message: String) -> void:
 	get_tree().paused = true
-	$StoryDialog.show()
+	$StoryDialog.activate()
 	$StoryDialog.message = message
 	await $StoryDialog.done
 	$StoryDialog.hide()
