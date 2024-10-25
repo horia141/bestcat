@@ -76,6 +76,12 @@ func on_hit_by_player_projectile() -> void:
 		$BaseSprite.play("destroyed")
 		await $Explosion.animation_finished
 		
+		# Destroy some of our active mobs
+		for mob in my_mobs.values():
+			if not mob.is_bound_to_dark_tower():
+				continue
+			mob.on_hit_by_projectile()
+		
 		destroyed.emit()
 
 #endregion

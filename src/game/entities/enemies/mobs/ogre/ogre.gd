@@ -29,5 +29,8 @@ func _shoot() -> void:
 	
 	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
 	$ShootTimer.start()
+	
+func is_bound_to_dark_tower() -> bool:
+	return false
 
 #endregion

@@ -44,5 +44,8 @@ func on_hit_by_projectile() -> void:
 	set_deferred("freeze", true)
 	await $AnimatedSprite2D.animation_finished
 	destroyed.emit()
+	
+func is_bound_to_dark_tower() -> bool:
+	return true
 
 #endregion
