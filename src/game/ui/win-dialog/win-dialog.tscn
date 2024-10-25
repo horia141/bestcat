@@ -29,9 +29,15 @@ text = "You won! Congrats!"
 layout_mode = 2
 alignment = 1
 
+[node name="Retry" type="Button" parent="Contents/Controls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Retry"
+
 [node name="Continue" type="Button" parent="Contents/Controls"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Continue"
 
+[connection signal="button_up" from="Contents/Controls/Retry" to="." method="_retry"]
 [connection signal="button_up" from="Contents/Controls/Continue" to="." method="_continue"]

@@ -54,6 +54,7 @@ visible = false
 [connection signal="resume_mission" from="PauseDialog" to="." method="_resume_mission"]
 [connection signal="retry_mission" from="PauseDialog" to="." method="_retry_mission"]
 [connection signal="continue_after_winning" from="WinDialog" to="." method="_won_mission"]
+[connection signal="retry_mission" from="WinDialog" to="." method="_retry_mission"]
 [connection signal="quit_mission" from="LoseDialog" to="." method="_quit_mission"]
 [connection signal="retry_mission" from="LoseDialog" to="." method="_retry_mission"]
 [connection signal="timeout" from="ScoreDrainTimer" to="." method="_drain_score_periodically"]
