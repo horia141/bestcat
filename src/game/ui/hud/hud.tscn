@@ -50,9 +50,9 @@ layout_mode = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -37.0
+offset_left = 219.0
 offset_top = 10.0
-offset_right = 72.0
+offset_right = 328.0
 offset_bottom = 50.0
 grow_horizontal = 2
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://buj5n3syk56dv"]
+
+[ext_resource type="Script" path="res://ui/game-time-left-timer/game_time_left_timer.gd" id="1_qcx2v"]
+
+[node name="GameTimeLeftTimer" type="CanvasLayer"]
+script = ExtResource("1_qcx2v")
+
+[node name="Text" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 10.0
+offset_right = 28.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "3:14"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

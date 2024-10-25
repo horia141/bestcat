@@ -36,11 +36,11 @@ func post_ready_prepare(new_mission_config: Application.MissionConfig) -> void:
 	if mission != null:
 		remove_child(mission)
 		mission.queue_free()
+		mission_config = null
 		mission_state = MissionState.Start
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
 		score = 0
-		mission_config = null
 		# Wait till the next frame so everything is freed
 		await get_tree().process_frame
 	mission = new_mission_config.desc.scene.instantiate()
@@ -89,6 +89,8 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player($BestCat)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
+	$GameTimeLeftTimer.post_ready_prepare(mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+	
 	__hide_dialogs() # TODO: this should be some big interaction manager
 	
 	get_tree().paused = true
@@ -112,6 +114,7 @@ func _got_ready() -> void:
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	$StartCountdown.queue_free()
 	get_tree().paused = false
+	$GameTimeLeftTimer.begin()
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
@@ -209,6 +212,8 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 	dark_towers_left_cnt -= 1
 	score += 3
 	
+	$GameTimeLeftTimer.mark_dark_tower_destroyed()
+	
 	if dark_towers_left_cnt == 0:
 		get_tree().paused = true
 		mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionBeatDarkTowers)
@@ -226,6 +231,9 @@ func _on_dark_tower_destroyed(dark_tower: DarkTower) -> void:
 func _drain_score_periodically() -> void:
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
+	
+func _on_game_time_expired() -> void:
+	_on_player_destroyed()
 	
 #region Lifecycle events (many controlled through dialogs)
 

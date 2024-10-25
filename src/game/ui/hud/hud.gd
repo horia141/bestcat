@@ -44,5 +44,5 @@ func update_mission(mission_state: Game.MissionState, dark_towers_left_cnt: int,
 			$Score.show()
 			$DarkTowersLeftCnt.hide()
 			$BossesLeftCnt.show()
-	
+
 #endregion

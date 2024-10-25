@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=12 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d4kvoewf706nv" path="res://ui/hud/hud.tscn" id="6_7emao"]
 [ext_resource type="PackedScene" uid="uid://wx2bcejhq5n1" path="res://missions/hunt-for-zorn/hunt-for-zorn.tscn" id="6_jcgf0"]
 [ext_resource type="PackedScene" uid="uid://buprk1jqqnl8k" path="res://ui/start-countdown/start-countdown.tscn" id="9_lq6f7"]
+[ext_resource type="PackedScene" uid="uid://buj5n3syk56dv" path="res://ui/game-time-left-timer/game-time-left-timer.tscn" id="11_iwd7n"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_23vru")
@@ -45,6 +46,9 @@ autostart = true
 [node name="StartCountdown" parent="." instance=ExtResource("9_lq6f7")]
 visible = false
 
+[node name="GameTimeLeftTimer" parent="." instance=ExtResource("11_iwd7n")]
+visible = false
+
 [connection signal="done" from="HelpDialog" to="." method="_resume_mission"]
 [connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]
 [connection signal="resume_mission" from="PauseDialog" to="." method="_resume_mission"]
@@ -54,3 +58,4 @@ visible = false
 [connection signal="retry_mission" from="LoseDialog" to="." method="_retry_mission"]
 [connection signal="timeout" from="ScoreDrainTimer" to="." method="_drain_score_periodically"]
 [connection signal="done" from="StartCountdown" to="." method="_got_ready"]
+[connection signal="game_time_expired" from="GameTimeLeftTimer" to="." method="_on_game_time_expired"]
