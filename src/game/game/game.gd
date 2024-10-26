@@ -17,8 +17,9 @@ const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-poweru
 
 const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
 
+@onready var player: Player = $Player
 @onready var mission: Mission = $Mission
-var mission_config: Application.MissionConfig = null
+var mission_attempt: Application.MissionAttempt = null
 var mission_state = MissionState.Start
 var dark_towers_left_cnt = 0
 var bosses_left_cnt = 0
@@ -32,44 +33,54 @@ func _ready() -> void:
 	# post_ready_prepare.
 	_wire_up_everything(true)
 		
-func post_ready_prepare(new_mission_config: Application.MissionConfig) -> void:
-	if mission != null:
+func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void:
+	if player != null or mission != null:
+		remove_child(player)
+		player.queue_free()
 		remove_child(mission)
 		mission.queue_free()
-		mission_config = null
+		mission_attempt = null
 		mission_state = MissionState.Start
 		dark_towers_left_cnt = 0
 		bosses_left_cnt = 0
 		score = 0
 		# Wait till the next frame so everything is freed
 		await get_tree().process_frame
-	mission = new_mission_config.desc.scene.instantiate()
-	mission_config = new_mission_config
+	player = new_mission_attempt.player.scene.instantiate()
+	mission = new_mission_attempt.mission.scene.instantiate()
+	mission_attempt = new_mission_attempt
+	
+	add_child(player)
 	add_child(mission)
 	_wire_up_everything(false)
 	
 func _wire_up_everything(_in_ready: bool) -> void:
-	$GameCamera.post_ready_prepare($BestCat/Follow, mission.size_in_px)
+	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	 
-	$BestCat.state_change.connect(func (): $HUD.update_player($BestCat))
-	$BestCat.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+	# Here we just initialise the one player!
+	player.state_change.connect(func (): $HUD.update_player(player))
+	player.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+	
+	print(player.visible)
+	
+	
+	# And all the other players now.
+	for player in get_tree().get_nodes_in_group("Players"):
+		var the_player = player as Player
+		the_player.shoot.connect(_on_player_shoot)
+		the_player.destroyed.connect(_on_player_destroyed)
 	
 	for structure in get_tree().get_nodes_in_group("Structures"):
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
-			the_structure.post_ready_prepare(mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+			the_structure.post_ready_prepare(mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
-	for player in get_tree().get_nodes_in_group("Players"):
-		var the_player = player as Player
-		the_player.shoot.connect(_on_player_shoot)
-		the_player.destroyed.connect(_on_player_destroyed)
-		
 	for mob in get_tree().get_nodes_in_group("Mobs"):
 		var the_mob = mob as Mob
-		the_mob.post_ready_prepare(the_mob.position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+		the_mob.post_ready_prepare(the_mob.position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 		the_mob.shoot.connect(_on_enemy_shoot)
 		the_mob.destroyed.connect(func (): _on_mob_destroyed(the_mob))
 		
@@ -77,7 +88,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_boss = boss as Boss
 		bosses_left_cnt += 1
 		the_boss.hide()
-		the_boss.post_ready_prepare(the_boss.position, mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+		the_boss.post_ready_prepare(the_boss.position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 		the_boss.shoot.connect(_on_enemy_shoot)
 		the_boss.state_change.connect(func (): _on_boss_change_state(the_boss))
 		the_boss.destroyed.connect(func (): _on_boss_destroyed(the_boss))
@@ -86,10 +97,12 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_treasure = treasure as Treasure
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
-	$HUD.update_player($BestCat)
+	# Now we properly start the game
+		
+	$HUD.update_player(player)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-	$GameTimeLeftTimer.post_ready_prepare(mission_config.difficulty if mission_config else DEFAULT_DIFFICULTY)
+	$GameTimeLeftTimer.post_ready_prepare(mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 	
 	__hide_dialogs() # TODO: this should be some big interaction manager
 	
@@ -123,7 +136,7 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	player_projectile.otherwise_destroyed.connect(func (): _on_player_projectile_destroyed(player_projectile))
 	
 func _on_player_destroyed() -> void:
-	$BestCat.queue_free()
+	player.queue_free()
 	get_tree().paused = true
 	mission.advance_to_story_checkpoint(Story.StoryCheckpoint.MissionEndFailure)
 	await mission.story_checkpoint_processed

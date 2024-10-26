@@ -1,0 +1,159 @@
+[gd_scene load_steps=23 format=3 uid="uid://cctodc007u6sr"]
+
+[ext_resource type="Script" path="res://entities/players/ducky/ducky.gd" id="1_gkq1v"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="2_0utyj"]
+[ext_resource type="Texture2D" uid="uid://d0s65a238v1oo" path="res://entities/players/ducky/idle.png" id="2_iq4mk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_culjm"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsvhl"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d3r8"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evpr1"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0oyd"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4maf0"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xico"]
+atlas = ExtResource("2_0utyj")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpx0o"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyrln"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c36xh"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gygm"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjevc"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnr1f"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxegi"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(216, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci0wr"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(252, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj7ib"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(288, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5h71"]
+atlas = ExtResource("2_iq4mk")
+region = Rect2(324, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rc18h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_culjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsvhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evpr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0oyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4maf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xico")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpx0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyrln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c36xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gygm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjevc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnr1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxegi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci0wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj7ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5h71")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85qui"]
+radius = 17.0294
+
+[node name="Ducky" type="CharacterBody2D" groups=["Players"]]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_gkq1v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rc18h")
+animation = &"explosion"
+autoplay = "run"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_85qui")
+
+[node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="Follow" type="RemoteTransform2D" parent="."]

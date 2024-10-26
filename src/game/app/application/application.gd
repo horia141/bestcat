@@ -8,6 +8,14 @@ enum MissionDifficulty {
 	Apprentice,
 	Expert
 }
+
+class PlayerDesc:
+	var name: String
+	var scene: PackedScene
+	
+	func _init(name: String, scene: PackedScene) -> void:
+		self.name = name
+		self.scene = scene
 			
 
 class MissionDesc:
@@ -23,15 +31,28 @@ class MissionDesc:
 	func allows_difficulty(difficulty: MissionDifficulty) -> bool:
 		return self.allowed_difficulties.find(difficulty) >= 0
 
-class MissionConfig:
-	var desc: MissionDesc
+class MissionAttempt:
+	var player: PlayerDesc
+	var mission: MissionDesc
 	var difficulty: MissionDifficulty
 	
-	func _init(desc: MissionDesc, difficulty: MissionDifficulty) -> void:
-		self.desc = desc
+	func _init(player: PlayerDesc, mission: MissionDesc, difficulty: MissionDifficulty) -> void:
+		self.player = player
+		self.mission = mission
 		self.difficulty = difficulty
+		
+var all_players_desc: Array[PlayerDesc] = [
+	PlayerDesc.new(
+		"BestCat",
+		preload("res://entities/players/bestcat/best_cat.tscn")
+	),
+	PlayerDesc.new(
+		"Ducky",
+		preload("res://entities/players/ducky/ducky.tscn")
+	)
+]
 
-var all_missions_desc = [
+var all_missions_desc: Array[MissionDesc] = [
 	MissionDesc.new(
 		"Tutorial",
 		[MissionDifficulty.Novice],
@@ -51,19 +72,19 @@ var current_game: Game = null
 #region Construction
 
 func _ready() -> void:
-	$MainMenu.post_ready_process(all_missions_desc)
+	$MainMenu.post_ready_process(all_players_desc, all_missions_desc)
 	
 #endregion
 
 #region Game logic
 
-func new_game_with_mission(mission_config: MissionConfig) -> void:
+func new_game_with_mission_attempt(mission_attempt: MissionAttempt) -> void:
 	$MainMenu.hide()
 	if current_game != null:
 		current_game.queue_free()
 	var new_game = GameScn.instantiate()
 	add_child(new_game)
-	new_game.post_ready_prepare(mission_config)
+	new_game.post_ready_prepare(mission_attempt)
 	new_game.won_mission.connect(_won_mission)
 	new_game.retry_mission.connect(_retry_mission)
 	new_game.quit_mission.connect(_quit_mission)
@@ -76,7 +97,7 @@ func _won_mission() -> void:
 	
 func _retry_mission() -> void:
 	$MainMenu.activate()
-	new_game_with_mission(current_game.mission_config)
+	new_game_with_mission_attempt(current_game.mission_attempt)
 	
 func _quit_mission() -> void:
 	$MainMenu.activate()

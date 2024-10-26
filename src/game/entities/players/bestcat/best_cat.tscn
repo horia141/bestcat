@@ -4,9 +4,6 @@
 [ext_resource type="Script" path="res://entities/players/bestcat/best_cat.gd" id="1_yy4w3"]
 [ext_resource type="Texture2D" uid="uid://ohrrmhy6ugof" path="res://common/projectile/explosion.png" id="2_opky4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ler6"]
-radius = 8.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ulam"]
 atlas = ExtResource("2_opky4")
 region = Rect2(0, 0, 48, 48)
@@ -67,7 +64,7 @@ region = Rect2(0, 104, 16, 16)
 atlas = ExtResource("1_ieoas")
 region = Rect2(0, 130, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3s703"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtuvx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -122,22 +119,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 6.0
+"speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ler6"]
+radius = 8.0
+
 [node name="BestCat" type="CharacterBody2D" groups=["Players"]]
-scale = Vector2(4, 4)
 motion_mode = 1
 script = ExtResource("1_yy4w3")
+in_game_scale = 2
 metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rtuvx")
+animation = &"explosion"
+autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4ler6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_3s703")
-animation = &"run"
-autoplay = "run"
 
 [node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
 wait_time = 0.15

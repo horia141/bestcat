@@ -35,7 +35,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="SelectMission" type="VBoxContainer" parent="."]
+[node name="SelectPlayer" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,12 +49,42 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="SelectPlayer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Choose Your Player"
+
+[node name="Return" type="Button" parent="SelectPlayer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Return"
+
+[node name="SelectMission" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -29.0
+offset_right = 63.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SelectMission"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Choose The Mission"
+
 [node name="Return" type="Button" parent="SelectMission"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Return"
 
 [node name="SelectDifficulty" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -65,6 +96,11 @@ offset_right = 118.0
 offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="SelectDifficulty"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Choose The Difficulty"
 
 [node name="Return" type="Button" parent="SelectDifficulty"]
 layout_mode = 2
@@ -87,10 +123,12 @@ theme_override_font_sizes/font_size = 36
 text = "Expert"
 
 [node name="HelpDialog" parent="." instance=ExtResource("2_87g0v")]
+visible = false
 
-[connection signal="button_up" from="Main/NewGame" to="." method="_main_go_to_select_mission"]
+[connection signal="button_up" from="Main/NewGame" to="." method="_main_go_to_select_player"]
 [connection signal="button_up" from="Main/Controls" to="." method="_main_to_controls"]
-[connection signal="button_up" from="Main/Quit" to="." method="_quit_game"]
-[connection signal="button_up" from="SelectMission/Return" to="." method="_select_mission_to_main"]
+[connection signal="button_up" from="Main/Quit" to="." method="_main_go_to_quit_game"]
+[connection signal="button_up" from="SelectPlayer/Return" to="." method="_select_player_go_to_main"]
+[connection signal="button_up" from="SelectMission/Return" to="." method="_select_mission_to_select_player"]
 [connection signal="button_up" from="SelectDifficulty/Return" to="." method="_select_difficulty_go_to_select_mission"]
 [connection signal="done" from="HelpDialog" to="." method="_controls_to_main"]

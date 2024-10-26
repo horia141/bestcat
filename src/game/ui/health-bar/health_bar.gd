@@ -8,5 +8,5 @@ var _life: int = 5
 		return _life
 	set(value):
 		_life = value
-		if $TextureProgressBar != null:
+		if has_node("TextureProgressBar"):
 			$TextureProgressBar.value = float(value) / max_life * $TextureProgressBar.max_value

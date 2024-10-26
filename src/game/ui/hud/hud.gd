@@ -10,11 +10,11 @@ func _ready() -> void:
 
 #region Game logic
 
-func update_player(best_cat: BestCat) -> void:
-	$PlayerInfo/Life/Text.text = str(best_cat.life)
-	$PlayerInfo/ProjectilesCnt/Text.text = str(best_cat.projectiles_cnt)
-	if best_cat.projectiles_cnt_regen_factor > 0:
-		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = "." + str(best_cat.projectiles_cnt_regen_factor)
+func update_player(player: Player) -> void:
+	$PlayerInfo/Life/Text.text = str(player.life)
+	$PlayerInfo/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
+	if player.projectiles_cnt_regen_factor > 0:
+		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = "." + str(player.projectiles_cnt_regen_factor)
 	else:
 		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = ""
 		
