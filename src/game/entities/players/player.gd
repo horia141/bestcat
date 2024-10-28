@@ -19,10 +19,11 @@ enum LookAxis {
 }
 
 static var MAX_LIFE = DifficultyValue.new(7, 5, 3)
+static var MAX_SPEED = DifficultyValue.new(6, 5, 4)
+const SPEED_MULTIPLIER = 50.0
 static var MAX_PROJECTILES_CNT = DifficultyValue.new(7, 5, 3)
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
 static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
-static var SPEED = DifficultyValue.new(300.0, 250.0, 200.0)
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
@@ -33,6 +34,7 @@ var difficulty = Application.MissionDifficulty.Apprentice
 var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
 var life = MAX_LIFE.get_for(difficulty)
+var speed = MAX_SPEED.get_for(difficulty)
 var projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
 var projectiles_cnt_regen_factor = 0.0
 
@@ -49,6 +51,7 @@ func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionD
 	self.position = init_position
 	self.difficulty = difficulty
 	self.life = MAX_LIFE.get_for(difficulty)
+	self.speed = MAX_SPEED.get_for(difficulty)
 	self.projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
 
 #endregion
@@ -143,7 +146,7 @@ func _move_with_velocity(new_velocity: Vector2) -> void:
 	if state == PlayerState.Dead:
 		return
 
-	velocity = new_velocity * SPEED.get_for(difficulty)
+	velocity = new_velocity * speed * SPEED_MULTIPLIER
 
 #endregion
 
