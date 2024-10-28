@@ -2,6 +2,7 @@ class_name DarkTower
 extends Structure
 
 const JellyScn = preload("res://entities/enemies/mobs/jelly/jelly.tscn")
+const SnailScn = preload("res://entities/enemies/mobs/snail/snail.tscn")
 const OgreScn = preload("res://entities/enemies/mobs/ogre/ogre.tscn")
 
 signal spawned_mob (mob: Mob)
@@ -37,11 +38,16 @@ func _spawn_mob() -> void:
 	if my_mobs.size() >= MAX_MOBS_TO_SPAWN.get_for(difficulty):
 		return
 		
-	if randf_range(0, 1) < 0.5:
+	if randf_range(0, 1) < 0.33:
 		var jelly = JellyScn.instantiate()
 		jelly.post_ready_prepare(_random_position_in_disc(position), difficulty)
 		spawned_mob.emit(jelly)
 		my_mobs[jelly.get_instance_id()] = jelly
+	elif randf_range(0, 1) < 0.66:
+		var snail = SnailScn.instantiate()
+		snail.post_ready_prepare(_random_position_in_disc(position), difficulty)
+		spawned_mob.emit(snail)
+		my_mobs[snail.get_instance_id()] = snail
 	else:
 		var ogre = OgreScn.instantiate()
 		ogre.post_ready_prepare(_random_position_in_disc(position), difficulty)
