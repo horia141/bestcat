@@ -41,8 +41,8 @@ var projectiles_cnt_regen_factor = 0.0
 #region Construction
 
 func _ready() -> void:
-	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
-	pass
+	if not $ProjectilesCntRegenTimer.timeout.is_connected(_regen_projectile):
+		$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
 	
 func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	self.z_index = 100
@@ -95,11 +95,11 @@ func _regen_projectile() -> void:
 	
 	state_change.emit()
 
-func on_hit_by_projectile() -> void:
+func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	if state == PlayerState.Dead:
 		return
 
-	life = max(life - 1, 0)
+	enemy_projectile.apply_effect_to_player(self)
 	
 	if life == 0:
 		state = PlayerState.Dead

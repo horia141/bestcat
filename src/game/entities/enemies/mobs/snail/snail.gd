@@ -1,7 +1,7 @@
 class_name Snail
 extends Mob
 
-const EnemyProjectileScn = preload("res://entities/enemies/projectile/enemy-projectile.tscn")
+const TranquilizerScn = preload("res://entities/enemies/projectile/tranquilizer/tranqulizer.tscn")
 
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(1, 0.9, 0.8)
 
@@ -11,7 +11,7 @@ func _shoot() -> void:
 	if state != EnemyState.Active:
 		return
 
-	var enemy_projectile = EnemyProjectileScn.instantiate()
+	var enemy_projectile = TranquilizerScn .instantiate()
 	enemy_projectile.post_ready_prepare(position, scale, Vector2(-1, 0).rotated(randf_range(0, TAU)), difficulty)
 	shoot.emit(enemy_projectile)
 	

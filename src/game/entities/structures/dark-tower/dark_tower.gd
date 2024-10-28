@@ -10,7 +10,7 @@ signal destroyed ()
 
 static var SPAWN_PERIOD_SEC = DifficultyValue.new(5, 4, 3)
 static var MAX_MOBS_TO_SPAWN = DifficultyValue.new(3, 5, 7)
-static var MAX_LIFE = DifficultyValue.new(2, 3, 5)
+static var MAX_LIFE = DifficultyValue.new(2, 3, 4)
 
 var life = MAX_LIFE.get_for(difficulty)
 var my_mobs = {}

@@ -1,7 +1,7 @@
 class_name Golem
 extends Boss
 
-const EnemyProjectileScn = preload("res://entities/enemies/projectile/enemy-projectile.tscn")
+const BulletScn = preload("res://entities/enemies/projectile/bullet/bullet.tscn")
 
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(3, 2, 1.5)
 static var MAX_LIFE = DifficultyValue.new(5, 10, 15)
@@ -52,19 +52,19 @@ func _shoot() -> void:
 	$ShootTimer.start()
 	
 func __shoot_one_round() -> void:
-	var enemy_projectile_left = EnemyProjectileScn.instantiate()
+	var enemy_projectile_left = BulletScn.instantiate()
 	enemy_projectile_left.post_ready_prepare(position, scale, Vector2(-1, 0).rotated(randf_range(-0.5, 0.5)), difficulty)
 	shoot.emit(enemy_projectile_left)
 	
-	var enemy_projectile_top = EnemyProjectileScn.instantiate()
+	var enemy_projectile_top = BulletScn.instantiate()
 	enemy_projectile_top.post_ready_prepare(position, scale, Vector2(0, -1).rotated(randf_range(-0.5, 0.5)), difficulty)
 	shoot.emit(enemy_projectile_top)
 	
-	var enemy_projectile_right = EnemyProjectileScn.instantiate()
+	var enemy_projectile_right = BulletScn.instantiate()
 	enemy_projectile_right.post_ready_prepare(position, scale, Vector2(1, 0).rotated(randf_range(-0.5, 0.5)), difficulty)
 	shoot.emit(enemy_projectile_right)
 	
-	var enemy_projectile_down = EnemyProjectileScn.instantiate()
+	var enemy_projectile_down = BulletScn.instantiate()
 	enemy_projectile_down.post_ready_prepare(position, scale, Vector2(0, 1).rotated(randf_range(-0.5, 0.5)), difficulty)
 	shoot.emit(enemy_projectile_down)
 

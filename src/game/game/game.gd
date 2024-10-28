@@ -61,9 +61,6 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	player.state_change.connect(func (): $HUD.update_player(player))
 	player.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 	
-	print(player.visible)
-	
-	
 	# And all the other players now.
 	for player in get_tree().get_nodes_in_group("Players"):
 		var the_player = player as Player
@@ -145,7 +142,7 @@ func _on_player_destroyed() -> void:
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
-	enemy_projectile.player_hit.connect(_on_projectile_hit_player)
+	enemy_projectile.player_hit.connect(func (player): _on_projectile_hit_player(player, enemy_projectile))
 	enemy_projectile.otherwise_destroyed.connect(func (): _on_enemy_projectile_destroyed(enemy_projectile))
 	
 func _on_mob_destroyed(mob: Mob) -> void:
@@ -204,8 +201,8 @@ func _on_player_projectile_destroyed(player_projectile: PlayerProjectile) -> voi
 func _on_projectile_hit_enemy(enemy: Enemy) -> void:
 	enemy.on_hit_by_projectile()
 	
-func _on_projectile_hit_player(player: Player) -> void:
-	player.on_hit_by_projectile()
+func _on_projectile_hit_player(player: Player, enemy_projectile: EnemyProjectile) -> void:
+	player.on_hit_by_projectile(enemy_projectile)
 	score = max(0, score - 1)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	

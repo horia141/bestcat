@@ -12,7 +12,7 @@ var difficulty = Application.MissionDifficulty.Apprentice
 #region Construction
 
 func _ready() -> void:
-	pass
+	body_entered.connect(_on_body_entered)
 	
 func post_ready_prepare(init_position: Vector2, init_scale: Vector2, init_direction: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	position = init_position + BUFFER * init_scale * init_direction
@@ -24,8 +24,16 @@ func post_ready_prepare(init_position: Vector2, init_scale: Vector2, init_direct
 #region Game logic
 
 func _hit_player(player: Player) -> void:
+	# _hit_player works in tandem with apply_effect_to_player
+	# The logic is projectile hits player and emits an event
+	# Player handles being hit, and decides if the hit should occur
+	# The player asks the projectile to compute its effect
 	player_hit.emit(player)
 	_destroy()
+
+func apply_effect_to_player(player: Player) -> void:
+	# See above!
+	pass
 	
 func _hit_enemy(enemy: Enemy) -> void:
 	_destroy()
