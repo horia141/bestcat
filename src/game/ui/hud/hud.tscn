@@ -42,6 +42,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "4"
 
+[node name="RegenFactorText" type="Label" parent="PlayerInfo/Speed"]
+layout_mode = 2
+
 [node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo"]
 layout_mode = 2
 

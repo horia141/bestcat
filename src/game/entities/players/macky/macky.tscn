@@ -152,6 +152,8 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_85qui")
 
+[node name="SpeedRegenTimer" type="Timer" parent="."]
+
 [node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true

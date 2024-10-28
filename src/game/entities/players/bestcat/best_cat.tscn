@@ -139,10 +139,12 @@ autoplay = "run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4ler6")
 
+[node name="SpeedRegenTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
 [node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
 
 [node name="Follow" type="RemoteTransform2D" parent="."]
-
-[connection signal="timeout" from="ProjectilesCntRegenTimer" to="." method="_regen_projectile"]

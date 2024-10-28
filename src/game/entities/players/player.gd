@@ -21,6 +21,8 @@ enum LookAxis {
 static var MAX_LIFE = DifficultyValue.new(7, 5, 3)
 static var MAX_SPEED = DifficultyValue.new(6, 5, 4)
 const SPEED_MULTIPLIER = 50.0
+const SPEED_REGEN_INCREMENT = 1
+static var SPEED_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
 static var MAX_PROJECTILES_CNT = DifficultyValue.new(7, 5, 3)
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
 static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
@@ -35,14 +37,16 @@ var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
 var life = MAX_LIFE.get_for(difficulty)
 var speed = MAX_SPEED.get_for(difficulty)
+var speed_regen_factor = 0.0
 var projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
 var projectiles_cnt_regen_factor = 0.0
 
 #region Construction
 
 func _ready() -> void:
-	if not $ProjectilesCntRegenTimer.timeout.is_connected(_regen_projectile):
-		$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
+	$SpeedRegenTimer.timeout.connect(_regen_speed)
+	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
+	
 	
 func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	self.z_index = 100
@@ -52,7 +56,9 @@ func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionD
 	self.difficulty = difficulty
 	self.life = MAX_LIFE.get_for(difficulty)
 	self.speed = MAX_SPEED.get_for(difficulty)
+	self.speed_regen_factor = 0
 	self.projectiles_cnt = MAX_PROJECTILES_CNT.get_for(difficulty)
+	self.projectiles_cnt_regen_factor = 0
 
 #endregion
 
@@ -79,6 +85,20 @@ func _shoot_projectile() -> void:
 		position, look_direction.rotated(randf_range(-0.1, 0.1)), difficulty)
 	shoot.emit(player_projectile)
 	projectiles_cnt -= 1
+	state_change.emit()
+	
+func _regen_speed() -> void:
+	if state == PlayerState.Dead:
+		return
+		
+	if speed == MAX_SPEED.get_for(difficulty):
+		return
+		
+	speed_regen_factor += SPEED_REGEN_INCREMENT
+	if speed_regen_factor > SPEED_REGEN_CUTOFF.get_for(difficulty):
+		speed = speed + 1
+		speed_regen_factor = 0.0
+		
 	state_change.emit()
 	
 func _regen_projectile() -> void:
