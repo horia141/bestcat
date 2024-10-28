@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func update_player(player: Player) -> void:
 	$PlayerInfo/Life/Text.text = str(player.life)
+	$PlayerInfo/Speed/Text.text = str(player.speed)
 	$PlayerInfo/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
 	if player.projectiles_cnt_regen_factor > 0:
 		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = "." + str(player.projectiles_cnt_regen_factor)

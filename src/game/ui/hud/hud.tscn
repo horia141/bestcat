@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4kvoewf706nv"]
+[gd_scene load_steps=8 format=3 uid="uid://d4kvoewf706nv"]
 
 [ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_b7ufk"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="1_mw2ac"]
 [ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="3_mfaf1"]
+[ext_resource type="Texture2D" uid="uid://dpb5hgb7elfl8" path="res://common/speed.png" id="3_tp814"]
 [ext_resource type="Texture2D" uid="uid://du2kiml820bsa" path="res://common/star.png" id="4_0yol5"]
 [ext_resource type="Texture2D" uid="uid://matxjg6inu1d" path="res://common/dark-tower.png" id="4_wsmsp"]
 [ext_resource type="Texture2D" uid="uid://cv2h34gxip1xv" path="res://common/boss.png" id="5_20l1a"]
@@ -28,6 +29,18 @@ expand_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
+
+[node name="Speed" type="HBoxContainer" parent="PlayerInfo"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Speed"]
+layout_mode = 2
+texture = ExtResource("3_tp814")
+
+[node name="Text" type="Label" parent="PlayerInfo/Speed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
 
 [node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo"]
 layout_mode = 2
