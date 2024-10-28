@@ -37,13 +37,14 @@ func _spawn_mob() -> void:
 
 	if my_mobs.size() >= MAX_MOBS_TO_SPAWN.get_for(difficulty):
 		return
-		
-	if randf_range(0, 1) < 0.33:
+	
+	var choice = randf_range(0, 1)
+	if choice < 0.33:
 		var jelly = JellyScn.instantiate()
 		jelly.post_ready_prepare(_random_position_in_disc(position), difficulty)
 		spawned_mob.emit(jelly)
 		my_mobs[jelly.get_instance_id()] = jelly
-	elif randf_range(0, 1) < 0.66:
+	elif choice < 0.66:
 		var snail = SnailScn.instantiate()
 		snail.post_ready_prepare(_random_position_in_disc(position), difficulty)
 		spawned_mob.emit(snail)

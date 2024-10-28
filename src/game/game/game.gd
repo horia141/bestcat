@@ -13,6 +13,7 @@ enum MissionState {
 }
 
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
+const SpeedPowerUpScn = preload("res://entities/treasures/speed-powerup/speed-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
 
 const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
@@ -148,11 +149,17 @@ func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 func _on_mob_destroyed(mob: Mob) -> void:
 	mob.queue_free()
 	
-	if randf_range(0, 1) < 0.5:
+	var choice = randf_range(0, 1)
+	if choice < 0.33:
 		var life_powerup = LifePowerUpScn.instantiate()
 		life_powerup.post_ready_prepare(mob.position)
 		life_powerup.picked_up.connect(func (player): _on_treasure_picked(player, life_powerup))
 		call_deferred("add_child", life_powerup)
+	elif choice < 0.66:
+		var speed_powerup = SpeedPowerUpScn.instantiate()
+		speed_powerup.post_ready_prepare(mob.position)
+		speed_powerup.picked_up.connect(func (player): _on_treasure_picked(player, speed_powerup))
+		call_deferred("add_child", speed_powerup)
 	else:
 		var projectile_powerup = ProjectilePowerUpScn.instantiate()
 		projectile_powerup.post_ready_prepare(mob.position)

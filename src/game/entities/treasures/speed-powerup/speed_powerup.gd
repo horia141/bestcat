@@ -1,10 +1,10 @@
-class_name ProjectilePowerUp
+class_name SpeedPowerUp
 extends Treasure
 
 
 #region Game logic
 
 func apply_effect_to_player(player: Player) -> void:
-	player.projectiles_cnt = player.projectiles_cnt + 1
+	player.speed = player.speed + 1
 	
 #endregion
