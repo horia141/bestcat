@@ -120,6 +120,8 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 		return
 
 	enemy_projectile.apply_effect_to_player(self)
+	life = clamp(life, 0, MAX_LIFE.get_for(difficulty))
+	speed = clamp(speed, 1, MAX_SPEED.get_for(difficulty))
 	
 	if life == 0:
 		state = PlayerState.Dead

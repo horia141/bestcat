@@ -14,14 +14,14 @@ func update_player(player: Player) -> void:
 	$PlayerInfo/Life/Text.text = str(player.life)
 	$PlayerInfo/Speed/Text.text = str(player.speed)
 	if player.speed_regen_factor > 0:
-		$PlayerInfo/Speed/RegenFactorText.text = "." + str(player.speed_regen_factor)
+		$PlayerInfo/Speed/Regen/Factor.value = player.speed_regen_factor / player.SPEED_REGEN_CUTOFF.get_for(player.difficulty) * 100
 	else:
-		$PlayerInfo/Speed/RegenFactorText.text = ""
+		$PlayerInfo/Speed/Regen/Factor.value = 0
 	$PlayerInfo/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
 	if player.projectiles_cnt_regen_factor > 0:
-		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = "." + str(player.projectiles_cnt_regen_factor)
+		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF.get_for(player.difficulty) * 100
 	else:
-		$PlayerInfo/ProjectilesCnt/RegenFactorText.text = ""
+		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = 0
 		
 func update_mission(mission_state: Game.MissionState, dark_towers_left_cnt: int, bosses_left_cnt: int, score: int) -> void:
 	$DarkTowersLeftCnt/Text.text = str(dark_towers_left_cnt)
