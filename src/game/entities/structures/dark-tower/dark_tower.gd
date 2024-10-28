@@ -21,8 +21,8 @@ func _ready() -> void:
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
 	
-func post_ready_prepare(difficulty: Application.MissionDifficulty) -> void:
-	super.post_ready_prepare(difficulty)
+func post_ready_prepare(player: Game.PlayerProxy, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(player, difficulty)
 	life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
@@ -41,17 +41,17 @@ func _spawn_mob() -> void:
 	var choice = randf_range(0, 1)
 	if choice < 0.33:
 		var jelly = JellyScn.instantiate()
-		jelly.post_ready_prepare(_random_position_in_disc(position), difficulty)
+		jelly.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(jelly)
 		my_mobs[jelly.get_instance_id()] = jelly
 	elif choice < 0.66:
 		var snail = SnailScn.instantiate()
-		snail.post_ready_prepare(_random_position_in_disc(position), difficulty)
+		snail.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(snail)
 		my_mobs[snail.get_instance_id()] = snail
 	else:
 		var ogre = OgreScn.instantiate()
-		ogre.post_ready_prepare(_random_position_in_disc(position), difficulty)
+		ogre.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(ogre)
 		my_mobs[ogre.get_instance_id()] = ogre
 		

@@ -6,12 +6,14 @@ enum StructureState {
 	Destroyed
 }
 
+var player: Game.PlayerProxy = null
 var state = StructureState.Operational
 var difficulty = Application.MissionDifficulty.Apprentice
 
 #region Constructors
 
-func post_ready_prepare(difficulty: Application.MissionDifficulty) -> void:
+func post_ready_prepare(player: Game.PlayerProxy, difficulty: Application.MissionDifficulty) -> void:
+	self.player = player
 	self.difficulty = difficulty
 
 #endregion

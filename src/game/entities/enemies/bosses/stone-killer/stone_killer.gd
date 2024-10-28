@@ -17,8 +17,8 @@ func _ready() -> void:
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
 	
-func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
-	super.post_ready_prepare(init_position, difficulty)
+func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(player, init_position, difficulty)
 	life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life

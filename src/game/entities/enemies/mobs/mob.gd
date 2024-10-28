@@ -3,8 +3,8 @@ extends Enemy
 
 #region Construction
 
-func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
-	super.post_ready_prepare(init_position, difficulty)
+func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(player, init_position, difficulty)
 	
 	var immediate_activation = true
 	for child in get_children():

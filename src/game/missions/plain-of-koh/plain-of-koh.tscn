@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d05p74b6rv1yl"]
+[gd_scene load_steps=10 format=4 uid="uid://d05p74b6rv1yl"]
 
 [ext_resource type="Script" path="res://missions/plain-of-koh/plain_of_koh.gd" id="1_blk65"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="2_18411"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmqgqmoq6rfgx" path="res://entities/treasures/life-powerup/life-powerup.tscn" id="4_hj7dd"]
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="5_jvxba"]
 [ext_resource type="PackedScene" uid="uid://bi5ijeaflokvx" path="res://entities/enemies/bosses/stone-killer/stone-killer.tscn" id="7_lv4bv"]
+[ext_resource type="PackedScene" uid="uid://btfd6swkb4dx5" path="res://entities/enemies/mobs/snail/snail.tscn" id="9_3btt7"]
 
 [node name="PlainOfKoh" type="Node2D"]
 script = ExtResource("1_blk65")
@@ -48,7 +49,7 @@ position = Vector2(75, 77)
 position = Vector2(592, 392)
 
 [node name="Ogre2" parent="." instance=ExtResource("2_oprjy")]
-position = Vector2(192, 408)
+position = Vector2(448, 384)
 
 [node name="Ogre3" parent="." instance=ExtResource("2_oprjy")]
 position = Vector2(576, 120)
@@ -87,3 +88,6 @@ position = Vector2(1664, 1088)
 [node name="Boss" parent="." instance=ExtResource("7_lv4bv")]
 position = Vector2(1360, 704)
 scale = Vector2(2.5, 2.5)
+
+[node name="Snail" parent="." instance=ExtResource("9_3btt7")]
+position = Vector2(119, 298)

@@ -11,6 +11,7 @@ enum EnemyState {
 	Dead
 }
 
+var player: Game.PlayerProxy = null
 var state = EnemyState.Inactive
 var difficulty = Application.MissionDifficulty.Apprentice
 
@@ -19,7 +20,8 @@ var difficulty = Application.MissionDifficulty.Apprentice
 func _ready() -> void:
 	pass
 
-func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	self.player = player
 	self.position = init_position
 	self.difficulty = difficulty
 	
