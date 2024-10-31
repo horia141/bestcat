@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal shoot (projectile: PlayerProjectile)
-signal state_change ()
+signal state_change (effect: PlayerEffect)
 signal destroyed ()
 
 
@@ -10,6 +10,14 @@ enum PlayerState {
 	Active,
 	Dead
 }
+
+class PlayerEffect extends RefCounted:
+	var message: String
+	
+	static var NONE = PlayerEffect.new("")
+	
+	func _init(message: String) -> void:
+		self.message = message
 
 enum LookAxis {
 	Up,
@@ -85,7 +93,7 @@ func _shoot_projectile() -> void:
 		position, look_direction.rotated(randf_range(-0.1, 0.1)), difficulty)
 	shoot.emit(player_projectile)
 	projectiles_cnt -= 1
-	state_change.emit()
+	state_change.emit(PlayerEffect.NONE)
 	
 func _regen_speed() -> void:
 	if state == PlayerState.Dead:
@@ -99,7 +107,7 @@ func _regen_speed() -> void:
 		speed = speed + 1
 		speed_regen_factor = 0.0
 		
-	state_change.emit()
+	state_change.emit(PlayerEffect.NONE)
 	
 func _regen_projectile() -> void:
 	if state == PlayerState.Dead:
@@ -113,7 +121,7 @@ func _regen_projectile() -> void:
 		projectiles_cnt = projectiles_cnt + 1
 		projectiles_cnt_regen_factor = 0.0
 	
-	state_change.emit()
+	state_change.emit(PlayerEffect.NONE)
 
 func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	if state == PlayerState.Dead:
@@ -129,7 +137,7 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 		projectiles_cnt = 0
 		projectiles_cnt_regen_factor = 0.0
 	
-	state_change.emit()
+	state_change.emit(PlayerEffect.NONE)
 	
 	# Schedule these big operations at the end!
 	if state == PlayerState.Dead:
@@ -143,12 +151,12 @@ func apply_treasure(treasure: Treasure) -> void:
 	if state == PlayerState.Dead:
 		return
 		
-	treasure.apply_effect_to_player(self)
+	var effect = treasure.apply_effect_to_player(self)
 	life = clamp(life, 0, MAX_LIFE.get_for(difficulty))
 	speed = clamp(speed, 1, MAX_SPEED.get_for(difficulty))
 	projectiles_cnt = clamp(projectiles_cnt, 0, MAX_PROJECTILES_CNT.get_for(difficulty))
 
-	state_change.emit()
+	state_change.emit(PlayerEffect.new(effect))
 	
 func _look_at(new_look_axis: LookAxis) -> void:
 	if state == PlayerState.Dead:

@@ -20,7 +20,7 @@ func _treasure_picked_up(body: Node) -> void:
 		picked_up.emit(body as Player)
 		set_deferred("freeze", true)
 		
-func apply_effect_to_player(player: Player) -> void:
-	pass
+func apply_effect_to_player(player: Player) -> String:
+	return ""
 
 #endregion

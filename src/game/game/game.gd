@@ -69,7 +69,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	 
 	# Here we just initialise the one player!
-	player.state_change.connect(func (): $HUD.update_player(player))
+	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
 	player.post_ready_prepare(mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 	
 	# And all the other players now.
@@ -107,7 +107,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		
 	# Now we properly start the game
 		
-	$HUD.update_player(player)
+	$HUD.update_player(player, Player.PlayerEffect.NONE)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
 	$GameTimeLeftTimer.post_ready_prepare(mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)

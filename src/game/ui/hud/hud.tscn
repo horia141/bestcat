@@ -154,3 +154,32 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 24
 text = "1"
+
+[node name="EffectsLog" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -43.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="One" type="Label" parent="EffectsLog"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Message"
+
+[node name="Two" type="Label" parent="EffectsLog"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Message"
+
+[node name="Clear" type="Timer" parent="EffectsLog"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="EffectsLog/Clear" to="." method="_process_effects_log"]

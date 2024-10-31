@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctfd1db6sdb6t"]
+
+[ext_resource type="Script" path="res://entities/treasures/powerup-chest/powerup_chest.gd" id="1_dd8dj"]
+[ext_resource type="Texture2D" uid="uid://bgubeyt44suti" path="res://entities/treasures/powerup-chest/idle.png" id="1_e4153"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq6he"]
+size = Vector2(26, 26)
+
+[node name="PowerUpChest" type="Area2D" groups=["Treasures"]]
+script = ExtResource("1_dd8dj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e4153")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_tq6he")
