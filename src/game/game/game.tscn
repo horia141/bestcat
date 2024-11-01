@@ -35,6 +35,7 @@ visible = false
 z_index = 100
 position = Vector2(100, 100)
 scale = Vector2(2, 2)
+in_game_scale = 1.0
 
 [node name="Mission" parent="." instance=ExtResource("6_jcgf0")]
 position = Vector2(1, 0)

@@ -128,7 +128,6 @@ radius = 8.0
 [node name="BestCat" type="CharacterBody2D" groups=["Players"]]
 motion_mode = 1
 script = ExtResource("1_yy4w3")
-in_game_scale = 2
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

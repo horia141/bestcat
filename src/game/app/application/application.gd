@@ -47,6 +47,10 @@ var all_players_desc: Array[PlayerDesc] = [
 		preload("res://entities/players/bestcat/best_cat.tscn")
 	),
 	PlayerDesc.new(
+		"Kenny",
+		preload("res://entities/players/kenny/kenny.tscn")
+	),
+	PlayerDesc.new(
 		"Macky",
 		preload("res://entities/players/macky/macky.tscn")
 	)

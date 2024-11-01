@@ -37,7 +37,7 @@ static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
 
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
-@export var in_game_scale = 1
+@export var in_game_scale: float = 1
 
 var state = PlayerState.Active
 var difficulty = Application.MissionDifficulty.Apprentice

@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://br63623tfy5it"]
+
+[ext_resource type="Script" path="res://entities/players/kenny/kenny.gd" id="1_kcpw2"]
+[ext_resource type="Texture2D" uid="uid://cg8kfji2yf4if" path="res://entities/players/kenny/kenny.png" id="2_87560"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="2_aps1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt77y"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwbc4"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa3ci"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qckjx"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v2sf"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyxck"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkb61"]
+atlas = ExtResource("2_aps1j")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4hgl"]
+atlas = ExtResource("2_87560")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip1at"]
+atlas = ExtResource("2_87560")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31xac"]
+atlas = ExtResource("2_87560")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd8su"]
+atlas = ExtResource("2_87560")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiqkd"]
+atlas = ExtResource("2_87560")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6au58"]
+atlas = ExtResource("2_87560")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap45o"]
+atlas = ExtResource("2_87560")
+region = Rect2(600, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx0mc"]
+atlas = ExtResource("2_87560")
+region = Rect2(700, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjfvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt77y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwbc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa3ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qckjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v2sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyxck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkb61")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4hgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip1at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31xac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd8su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiqkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6au58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap45o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx0mc")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvbpw"]
+
+[node name="Kenny" type="CharacterBody2D" groups=["Players"]]
+script = ExtResource("1_kcpw2")
+in_game_scale = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wjfvk")
+animation = &"run"
+autoplay = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rvbpw")
+
+[node name="SpeedRegenTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="ProjectilesCntRegenTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="Follow" type="RemoteTransform2D" parent="."]
