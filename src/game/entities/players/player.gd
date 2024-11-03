@@ -38,7 +38,6 @@ static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
 @export var in_game_scale: float = 1
-@export var ui_name: String = "Player"
 
 var mode = Application.ConceptMode.InGame
 var state = PlayerState.Active

@@ -18,8 +18,8 @@ func post_ready_prepare(all_players_desc: Array[Application.PlayerDesc]) -> void
 	all_players = []
 	self.all_players_desc = all_players_desc
 	
-	var vp_x = $Selector/SubViewportContainer/SubViewport.size.x
-	var vp_y = $Selector/SubViewportContainer/SubViewport.size.y
+	var vp_x = $Selector/PlayerDetails/View/SubViewport.size.x
+	var vp_y = $Selector/PlayerDetails/View/SubViewport.size.y
 	
 	for player_desc in all_players_desc:
 		var player = player_desc.scene.instantiate() as Player
@@ -29,11 +29,11 @@ func post_ready_prepare(all_players_desc: Array[Application.PlayerDesc]) -> void
 		player.scale.x = scale
 		player.scale.y = scale
 		player.hide()
-		$Selector/SubViewportContainer/SubViewport.add_child(player)
+		$Selector/PlayerDetails/View/SubViewport.add_child(player)
 		all_players.append(player)
 		
 		var player_button = Button.new()
-		player_button.text = player.ui_name
+		player_button.text = player_desc.ui_name
 		player_button.button_up.connect(func (): _select_player(player, player_desc))
 		player_button.focus_entered.connect(func (): _select_player(player, player_desc))
 		player_button.gui_input.connect(func (event): _continue_to_explicit(event, player, player_desc))
@@ -57,7 +57,11 @@ func _select_player(player: Player, player_desc: Application.PlayerDesc) -> void
 		other_player.hide()
 	player.show()
 	selected_player = player_desc
-	$Controls/Continue.text = "Continue with %s" % player.ui_name
+	$Selector/PlayerDetails/Description.text = player_desc.ui_description
+	$Selector/PlayerDetails/Stats/Life/Value.text = str(player_desc.max_life)
+	$Selector/PlayerDetails/Stats/Speed/Value.text = str(player_desc.max_speed)
+	$Selector/PlayerDetails/Stats/ProjectilesCnt/Value.text = str(player_desc.max_projectiles_cnt)
+	$Controls/Continue.text = "Continue with %s" % player_desc.ui_name
 	
 func _continue_to_explicit(event: InputEvent, player: Player, player_desc: Application.PlayerDesc) -> void:
 	if not event.is_action_released("ui_accept"):

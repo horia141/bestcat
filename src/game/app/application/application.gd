@@ -15,10 +15,26 @@ enum MissionDifficulty {
 }
 
 class PlayerDesc:
+	var ui_name: String
+	var ui_description: String
 	var scene: PackedScene
+	var max_life: int
+	var max_speed: int
+	var max_projectiles_cnt: int
 	
-	func _init(scene: PackedScene) -> void:
+	func _init(
+			ui_name: String, 
+			ui_description: String,
+			scene: PackedScene,
+			max_life: int,
+			max_speed: int,
+			max_projectiles_cnt: int) -> void:
+		self.ui_name = ui_name
+		self.ui_description = Application.__clean_ui_description(ui_description)
 		self.scene = scene
+		self.max_life = max_life
+		self.max_speed = max_speed
+		self.max_projectiles_cnt = max_projectiles_cnt
 			
 
 class MissionDesc:
@@ -42,14 +58,7 @@ class MissionDifficultyDesc:
 	func _init(difficulty: MissionDifficulty, ui_name: String, ui_description: String) -> void:
 		self.difficulty = difficulty
 		self.ui_name = ui_name
-		self.ui_description = __clean_ui_description(ui_description)
-		
-	static func __clean_ui_description(desc: String) -> String:
-		var elements = desc.split("\n")
-		var new_elements: Array[String] = []
-		for element in elements:
-			new_elements.append(element.strip_edges())
-		return "\n".join(new_elements)
+		self.ui_description = Application.__clean_ui_description(ui_description)
 			
 
 class MissionAttempt:
@@ -64,16 +73,52 @@ class MissionAttempt:
 		
 var all_players_desc: Array[PlayerDesc] = [
 	PlayerDesc.new(
-		preload("res://entities/players/bestcat/bestcat.tscn")
+		"BestCat",
+		"""
+			BestCat is the main character in the game and in some comics that will appear.
+			
+			He is an all around fighter.
+		""",
+		preload("res://entities/players/bestcat/bestcat.tscn"),
+		5,
+		5,
+		5
 	),
 	PlayerDesc.new(
-		preload("res://entities/players/kenny/kenny.tscn")
+		"Kenny",
+		"""
+			Kenny is BestCat's human.
+			
+			He's slower than the other players, but packs a punch.
+		""",
+		preload("res://entities/players/kenny/kenny.tscn"),
+		5,
+		3,
+		7
 	),
 	PlayerDesc.new(
-		preload("res://entities/players/bestdog/bestdog.tscn")
+		"BestDog",
+		"""
+			BestDog is BestCat's competitor for Kenny's affection (and food)!
+			
+			BestDog is fast, but he's all bark no bite!
+		""",
+		preload("res://entities/players/bestdog/bestdog.tscn"),
+		4,
+		7,
+		4
 	),
 	PlayerDesc.new(
-		preload("res://entities/players/macky/macky.tscn")
+		"Macky",
+		"""
+			Macky was bought by Kenny when he started farming.
+			
+			Macky is a bit tougher, but can't do as much damage.
+		""",
+		preload("res://entities/players/macky/macky.tscn"),
+		6,
+		5,
+		4
 	)
 ]
 
@@ -174,5 +219,12 @@ func _quit_mission() -> void:
 	
 func quit_game() -> void:
 	get_tree().quit()
+	
+static func __clean_ui_description(desc: String) -> String:
+		var elements = desc.split("\n")
+		var new_elements: Array[String] = []
+		for element in elements:
+			new_elements.append(element.strip_edges())
+		return "\n".join(new_elements).strip_edges()
 
 #endregion
