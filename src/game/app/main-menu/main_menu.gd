@@ -16,20 +16,20 @@ var view = View.Main
 
 var selected_player: Application.PlayerDesc = null
 var selected_mission: Application.MissionDesc = null
-var selected_difficulty: Application.MissionDifficulty = Application.MissionDifficulty.Apprentice
+var selected_difficulty: Application.MissionDifficultyDesc = null
 
 #region Construction
 
 func _ready() -> void:
 	_show()
 	
-func post_ready_process(all_players_desc: Array[Application.PlayerDesc], all_missions_desc: Array[Application.MissionDesc]) -> void:
+func post_ready_process(
+		all_players_desc: Array[Application.PlayerDesc],
+		all_missions_desc: Array[Application.MissionDesc],
+		all_mission_difficulties_desc: Array[Application.MissionDifficultyDesc]) -> void:
 	$SelectMission.post_ready_prepare(all_missions_desc)
 	$SelectPlayer.post_ready_prepare(all_players_desc)
-
-	$SelectDifficulty/Novice.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Novice))
-	$SelectDifficulty/Apprentice.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Apprentice))
-	$SelectDifficulty/Expert.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Expert))
+	$SelectDifficulty.post_ready_prepare(all_mission_difficulties_desc)
 	
 	_show()
 
@@ -58,16 +58,13 @@ func _select_mission_to_main() -> void:
 func _select_player_go_to_select_difficulty(player_desc: Application.PlayerDesc) -> void:
 	selected_player = player_desc
 	view = View.SelectDifficulty	
-	$SelectDifficulty/Novice.disabled = !selected_mission.allows_difficulty(Application.MissionDifficulty.Novice)
-	$SelectDifficulty/Apprentice.disabled = !selected_mission.allows_difficulty(Application.MissionDifficulty.Apprentice)
-	$SelectDifficulty/Expert.disabled = !selected_mission.allows_difficulty(Application.MissionDifficulty.Expert)
 	_show()
 	
 func _select_player_go_to_select_mission() -> void:
 	view = View.SelectMission
 	_show()
 	
-func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficulty) -> void:
+func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficultyDesc) -> void:
 	var mission_attempt = Application.MissionAttempt.new(selected_player, selected_mission, difficulty)
 	new_game.emit(mission_attempt)
 	view = View.Main
@@ -91,28 +88,27 @@ func _show() -> void:
 			$Main.show()
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
-			$SelectDifficulty.hide()
-			$HelpDialog.hide()
+			$SelectDifficulty.deactivate()
+			$HelpDialog.deactivate()
 			$Main/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
 			$SelectMission.activate()
 			$SelectPlayer.deactivate()
-			$SelectDifficulty.hide()
-			$HelpDialog.hide()
+			$SelectDifficulty.deactivate()
+			$HelpDialog.deactivate()
 		View.SelectPlayer:
 			$Main.hide()
 			$SelectMission.deactivate()
 			$SelectPlayer.activate()
-			$SelectDifficulty.hide()
-			$HelpDialog.hide()
+			$SelectDifficulty.deactivate()
+			$HelpDialog.deactivate()
 		View.SelectDifficulty:
 			$Main.hide()
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
-			$SelectDifficulty.show()
-			$HelpDialog.hide()
-			$SelectDifficulty/Return.grab_focus()
+			$SelectDifficulty.activate(selected_mission)
+			$HelpDialog.deactivate()
 		View.Controls:
 			$Main.hide()
 			$SelectMission.deactivate()

@@ -33,13 +33,31 @@ class MissionDesc:
 		
 	func allows_difficulty(difficulty: MissionDifficulty) -> bool:
 		return self.allowed_difficulties.find(difficulty) >= 0
+		
+class MissionDifficultyDesc:
+	var difficulty: MissionDifficulty
+	var ui_name: String
+	var ui_description: String
+	
+	func _init(difficulty: MissionDifficulty, ui_name: String, ui_description: String) -> void:
+		self.difficulty = difficulty
+		self.ui_name = ui_name
+		self.ui_description = __clean_ui_description(ui_description)
+		
+	static func __clean_ui_description(desc: String) -> String:
+		var elements = desc.split("\n")
+		var new_elements: Array[String] = []
+		for element in elements:
+			new_elements.append(element.strip_edges())
+		return "\n".join(new_elements)
+			
 
 class MissionAttempt:
 	var player: PlayerDesc
 	var mission: MissionDesc
-	var difficulty: MissionDifficulty
+	var difficulty: MissionDifficultyDesc
 	
-	func _init(player: PlayerDesc, mission: MissionDesc, difficulty: MissionDifficulty) -> void:
+	func _init(player: PlayerDesc, mission: MissionDesc, difficulty: MissionDifficultyDesc) -> void:
 		self.player = player
 		self.mission = mission
 		self.difficulty = difficulty
@@ -74,12 +92,55 @@ var all_missions_desc: Array[MissionDesc] = [
 		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
 		preload("res://missions/plain-of-koh/plain-of-koh.tscn"))
 ]
+
+var all_mission_difficulties_desc: Array[MissionDifficultyDesc] = [
+	MissionDifficultyDesc.new(
+		MissionDifficulty.Novice,
+		"Novice",
+		"""
+			Novice difficulty is for new players to the game.
+			
+			Try this for a relaxing approach to the game.
+			
+			* Dark towers generate few enemies.
+			* Mobs shoot infrequently.
+			* Final bosses are approachable.
+		"""
+	),
+	MissionDifficultyDesc.new(
+		MissionDifficulty.Apprentice,
+		"Apprentice",
+		"""
+			Apprentice difficulty is for those that have spent some time with the game.
+			
+			Try this for a balanced approach to the game.
+			
+			* Dark towers generate a good amount of enemies.
+			* Mobs shoot frequently.
+			* Final bosses are tough.
+		"""
+	),
+	MissionDifficultyDesc.new(
+		MissionDifficulty.Expert,
+		"Expert",
+		"""
+			Expert difficulty is for those that want a real challange.
+			
+			Try this for an uphill battle against the game.
+			
+			* Dark towers generate many enemies.
+			* Mobs shoot frequently.
+			* Final bosses are legendary.
+		"""
+	)
+]
+
 var current_game: Game = null
 
 #region Construction
 
 func _ready() -> void:
-	$MainMenu.post_ready_process(all_players_desc, all_missions_desc)
+	$MainMenu.post_ready_process(all_players_desc, all_missions_desc, all_mission_difficulties_desc)
 	
 #endregion
 

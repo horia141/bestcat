@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://lpuqutgh2h0y"]
+
+[ext_resource type="Script" path="res://app/main-menu/select-difficulty/select_difficulty.gd" id="1_pomqh"]
+
+[node name="MainMenuSelectDifficulty" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -143.5
+offset_right = 143.0
+offset_bottom = 143.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pomqh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = "Choose The Difficulty"
+
+[node name="Selector" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Selector"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="DifficultyAbout" type="RichTextLabel" parent="Selector"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+text = "Here is some description of the difficulty
+
+* In rich text
+* So rich text"
+
+[node name="Controls" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Return" type="Button" parent="Controls"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Return"
+
+[node name="Continue" type="Button" parent="Controls"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continue"
+
+[connection signal="button_up" from="Controls/Return" to="." method="_return_from"]
+[connection signal="button_up" from="Controls/Continue" to="." method="_continue_to"]

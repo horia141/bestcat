@@ -8,6 +8,9 @@ signal done ()
 func activate() -> void:
 	super.activate()
 	$Content/Controls/Continue.grab_focus()
+	
+func deactivate() -> void:
+	hide()
 
 func _continue() -> void:
 	done.emit()
