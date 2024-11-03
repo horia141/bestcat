@@ -42,7 +42,7 @@ func _ready() -> void:
 	# We want this thing to be runnable outside of the application,
 	# so we wire it up like this. But the common path is in
 	# post_ready_prepare.
-	_wire_up_everything(true)
+	pass
 		
 func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void:
 	if player != null or mission != null:
@@ -73,7 +73,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	 
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
-	player.post_ready_prepare(Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+	player.post_ready_prepare(mission_attempt.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 	
 	# And all the other players now.
 	for player in get_tree().get_nodes_in_group("Players"):

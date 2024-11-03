@@ -21,12 +21,12 @@ func update_player(player: Player, effect: Player.PlayerEffect) -> void:
 	$PlayerInfo/Life/Text.text = str(player.life)
 	$PlayerInfo/Speed/Text.text = str(player.speed)
 	if player.speed_regen_factor > 0:
-		$PlayerInfo/Speed/Regen/Factor.value = player.speed_regen_factor / player.SPEED_REGEN_CUTOFF.get_for(player.difficulty) * 100
+		$PlayerInfo/Speed/Regen/Factor.value = player.speed_regen_factor / player.SPEED_REGEN_CUTOFF * 100
 	else:
 		$PlayerInfo/Speed/Regen/Factor.value = 0
 	$PlayerInfo/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
 	if player.projectiles_cnt_regen_factor > 0:
-		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF.get_for(player.difficulty) * 100
+		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF * 100
 	else:
 		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = 0
 		
