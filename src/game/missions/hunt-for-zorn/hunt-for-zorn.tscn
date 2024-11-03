@@ -52,7 +52,7 @@ position = Vector2(624, 80)
 position = Vector2(544, 400)
 
 [node name="Ogre1" parent="." instance=ExtResource("6_w41jo")]
-position = Vector2(296, 168)
+position = Vector2(303, 158)
 
 [node name="ActivationArea" parent="Ogre1" instance=ExtResource("7_wm6c0")]
 

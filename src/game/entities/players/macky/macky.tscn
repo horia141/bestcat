@@ -143,7 +143,6 @@ radius = 17.0294
 texture_filter = 2
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_pggu4")
-ui_name = "Macky"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rc18h")

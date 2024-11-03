@@ -4,6 +4,7 @@ extends Structure
 const JellyScn = preload("res://entities/enemies/mobs/jelly/jelly.tscn")
 const SnailScn = preload("res://entities/enemies/mobs/snail/snail.tscn")
 const OgreScn = preload("res://entities/enemies/mobs/ogre/ogre.tscn")
+const ActivationAreaScn = preload("res://entities/enemies/activation-area/enemy-activation-area.tscn")
 
 signal spawned_mob (mob: Mob)
 signal destroyed ()
@@ -37,20 +38,26 @@ func _spawn_mob() -> void:
 
 	if my_mobs.size() >= MAX_MOBS_TO_SPAWN.get_for(difficulty):
 		return
+		
+	var activation_area = ActivationAreaScn.instantiate()
+	activation_area.scale = Vector2(2, 2)
 	
 	var choice = randf_range(0, 1)
 	if choice < 0.33:
 		var jelly = JellyScn.instantiate()
+		jelly.add_child(activation_area)
 		jelly.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(jelly)
 		my_mobs[jelly.get_instance_id()] = jelly
 	elif choice < 0.66:
 		var snail = SnailScn.instantiate()
+		snail.add_child(activation_area)
 		snail.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(snail)
 		my_mobs[snail.get_instance_id()] = snail
 	else:
 		var ogre = OgreScn.instantiate()
+		ogre.add_child(activation_area)
 		ogre.post_ready_prepare(player, _random_position_in_disc(position), difficulty)
 		spawned_mob.emit(ogre)
 		my_mobs[ogre.get_instance_id()] = ogre
