@@ -6,27 +6,36 @@ signal story_checkpoint_processed(checkpoint: Story.StoryCheckpoint)
 const WATER_TERRAIN_SET = 0
 const WATER_TERRAIN = 4
 
-var size_in_px = Vector2(100, 100)
+var mode = Application.ConceptMode.InGame
+
+var size_in_px: Vector2:
+	get:
+		var level_size_in_cells = $Level/Terrain.get_used_rect().size
+		var tile_size_in_px = $Level/Terrain.tile_set.tile_size
+		return level_size_in_cells * tile_size_in_px
 
 #region Construction
 
 func _ready() -> void:
-	var level_size_in_cells = $Level/Terrain.get_used_rect().size
-	var tile_size_in_px = $Level/Terrain.tile_set.tile_size
-	size_in_px = level_size_in_cells * tile_size_in_px
 	$Story.story_checkpoint_processed.connect(_story_checkpoint_processed)
 	
-func post_ready_prepare() -> void:
-	pass
+func post_ready_prepare(mode: Application.ConceptMode) -> void:
+	self.mode = mode
+	if mode == Application.ConceptMode.InMainMenu:
+		$Boss.hide()
 
 #endregion
 
 #region Game logic
 
 func advance_to_story_checkpoint(checkpoint: Story.StoryCheckpoint) -> void:
+	if mode != Application.ConceptMode.InGame:
+		return
 	$Story.advance_to_story_checkpoint(checkpoint)
 	
 func _story_checkpoint_processed(checkpoint: Story.StoryCheckpoint) -> void:
+	if mode != Application.ConceptMode.InGame:
+		return
 	story_checkpoint_processed.emit(checkpoint)
 
 func get_appropriate_pos_for_enemy(enemy: Enemy) -> Vector2:

@@ -67,10 +67,13 @@ func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void
 	
 func _wire_up_everything(_in_ready: bool) -> void:
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
+	
+	# Here we just initialise the player!
+	mission.post_ready_prepare(Application.ConceptMode.InGame)
 	 
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
-	player.post_ready_prepare(Entity.Mode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+	player.post_ready_prepare(Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
 	
 	# And all the other players now.
 	for player in get_tree().get_nodes_in_group("Players"):

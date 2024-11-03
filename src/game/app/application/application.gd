@@ -3,6 +3,11 @@ extends Node2D
 
 const GameScn = preload("res://game/game.tscn")
 
+enum ConceptMode {
+	InGame,
+	InMainMenu
+}
+
 enum MissionDifficulty {
 	Novice,
 	Apprentice,

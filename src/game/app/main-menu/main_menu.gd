@@ -24,22 +24,14 @@ func _ready() -> void:
 	_show()
 	
 func post_ready_process(all_players_desc: Array[Application.PlayerDesc], all_missions_desc: Array[Application.MissionDesc]) -> void:
+	$SelectMission.post_ready_prepare(all_missions_desc)
 	$SelectPlayer.post_ready_prepare(all_players_desc)
 
-	for mission_desc in all_missions_desc:
-		var mission_button = Button.new()
-		mission_button.text = mission_desc.title
-		mission_button.button_up.connect(func (): _select_mission_go_to_select_player(mission_desc))
-		mission_button.add_theme_font_size_override("font_size", 36)
-		$SelectMission.add_child(mission_button)
-		
 	$SelectDifficulty/Novice.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Novice))
 	$SelectDifficulty/Apprentice.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Apprentice))
 	$SelectDifficulty/Expert.button_up.connect(func (): _select_difficulty_go_to_new_game(Application.MissionDifficulty.Expert))
 	
-
 	_show()
-	
 
 #region Game logic
 
@@ -97,35 +89,34 @@ func _show() -> void:
 	match view:
 		View.Main:
 			$Main.show()
-			$SelectMission.hide()
-			$SelectPlayer.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
 			$Main/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
-			$SelectMission.show()
-			$SelectPlayer.hide()
+			$SelectMission.activate()
+			$SelectPlayer.deactivate()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
-			$SelectMission/Return.grab_focus()
 		View.SelectPlayer:
 			$Main.hide()
-			$SelectMission.hide()
+			$SelectMission.deactivate()
 			$SelectPlayer.activate()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
 		View.SelectDifficulty:
 			$Main.hide()
-			$SelectMission.hide()
-			$SelectPlayer.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
 			$SelectDifficulty.show()
 			$HelpDialog.hide()
 			$SelectDifficulty/Return.grab_focus()
 		View.Controls:
 			$Main.hide()
-			$SelectMission.hide()
-			$SelectPlayer.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
 			$SelectDifficulty.hide()
 			$HelpDialog.activate()
 

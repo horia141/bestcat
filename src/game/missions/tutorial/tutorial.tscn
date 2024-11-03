@@ -124,7 +124,7 @@ scale = Vector2(2, 2)
 [node name="DarkTower" parent="." instance=ExtResource("2_vvg6j")]
 position = Vector2(1032, 264)
 
-[node name="StoneKiller" parent="." instance=ExtResource("5_poikr")]
+[node name="Boss" parent="." instance=ExtResource("5_poikr")]
 position = Vector2(1352, 296)
 
 [node name="LifePowerUp1" parent="." instance=ExtResource("9_lwbny")]
