@@ -31,9 +31,6 @@ func _hit_wall() -> void:
 func _hit_structure(structure: Structure) -> void:
 	structure_hit.emit(structure)
 	_destroy()
-
-func _hit_player(player: Player) -> void:
-	pass
 	
 func _hit_enemy(enemy: Enemy) -> void:
 	enemy_hit.emit(enemy)
@@ -54,8 +51,6 @@ func _on_body_entered(body: Node) -> void:
 		_hit_wall()
 	elif body.is_in_group("Structures"):
 		_hit_structure(body as Structure)
-	elif body.is_in_group("Players"):
-		_hit_player(body as Player)
 	elif body.is_in_group("Enemies"):
 		_hit_enemy(body as Enemy)
 

@@ -35,9 +35,6 @@ func apply_effect_to_player(player: Player) -> void:
 	# See above!
 	pass
 	
-func _hit_enemy(enemy: Enemy) -> void:
-	_destroy()
-	
 func _hit_wall() -> void:
 	_destroy()
 	
@@ -61,7 +58,5 @@ func _on_body_entered(body: Node) -> void:
 		_hit_structure(body as Structure)
 	elif body.is_in_group("Players"):
 		_hit_player(body as Player)
-	elif body.is_in_group("Enemies"):
-		_hit_enemy(body as Enemy)
 
 #endregion

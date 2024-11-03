@@ -263,6 +263,8 @@ animations = [{
 radius = 16.0
 
 [node name="StoneKiller" type="CharacterBody2D" groups=["Bosses", "Enemies"]]
+collision_layer = 16
+collision_mask = 31
 script = ExtResource("1_yytkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

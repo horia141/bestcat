@@ -6,6 +6,7 @@
 height = 48.0
 
 [node name="StoryTriggerArea" type="Area2D"]
+collision_mask = 4
 script = ExtResource("1_syel1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
