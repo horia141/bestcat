@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://missions/infra/select-player/select_player.gd" id="1_wpnhv"]
 [ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://story/story.tscn" id="3_punft"]
 
-[node name="SeletPlayer" type="Node2D"]
+[node name="InfraSelectPlayer" type="Node2D"]
 script = ExtResource("1_wpnhv")
 
 [node name="Level" type="Node2D" parent="."]

@@ -1,2 +1,2 @@
-class_name SelectPlayer
+class_name InfraSelectPlayer
 extends Mission
