@@ -1,67 +1,67 @@
 [gd_scene load_steps=21 format=3 uid="uid://dhwvixbfdo05r"]
 
-[ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/players/bestcat/Meow-Knight_Idle.png" id="1_ieoas"]
-[ext_resource type="Script" path="res://entities/players/bestcat/best_cat.gd" id="1_yy4w3"]
-[ext_resource type="Texture2D" uid="uid://ohrrmhy6ugof" path="res://common/projectile/explosion.png" id="2_opky4"]
+[ext_resource type="Script" path="res://entities/players/bestcat/bestcat.gd" id="1_u377p"]
+[ext_resource type="Texture2D" uid="uid://ohrrmhy6ugof" path="res://common/projectile/explosion.png" id="2_hfuiy"]
+[ext_resource type="Texture2D" uid="uid://b1m8tbtwj6ekt" path="res://entities/players/bestcat/Meow-Knight_Idle.png" id="3_e2thy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ulam"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0btqd"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xsnq"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f82k4"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r06kf"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgfh7"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwwy3"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icjju"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ns7y"]
-atlas = ExtResource("2_opky4")
+atlas = ExtResource("2_hfuiy")
 region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rwsbg"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4uva"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 26, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpifn"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 52, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbfds"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 78, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4j1u"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 104, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pwld"]
-atlas = ExtResource("1_ieoas")
+atlas = ExtResource("3_e2thy")
 region = Rect2(0, 130, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rtuvx"]
@@ -126,13 +126,15 @@ animations = [{
 radius = 8.0
 
 [node name="BestCat" type="CharacterBody2D" groups=["Players"]]
+texture_filter = 1
 motion_mode = 1
-script = ExtResource("1_yy4w3")
+script = ExtResource("1_u377p")
+ui_name = "BestCat"
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rtuvx")
-animation = &"explosion"
+animation = &"run"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

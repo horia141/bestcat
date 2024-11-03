@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_23vru"]
-[ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/best_cat.tscn" id="1_tgonu"]
+[ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/bestcat.tscn" id="1_tgonu"]
 [ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://ui/help-dialog/help-dialog.tscn" id="2_terr6"]
 [ext_resource type="PackedScene" uid="uid://j5ovdm6rehfn" path="res://ui/pause-dialog/pause-dialog.tscn" id="2_wpyxo"]
 [ext_resource type="PackedScene" uid="uid://bitbv43jrno26" path="res://ui/win-dialog/win-dialog.tscn" id="3_ej4y6"]
@@ -35,7 +35,6 @@ visible = false
 z_index = 100
 position = Vector2(100, 100)
 scale = Vector2(2, 2)
-in_game_scale = 1.0
 
 [node name="Mission" parent="." instance=ExtResource("6_jcgf0")]
 position = Vector2(1, 0)

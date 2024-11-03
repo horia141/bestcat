@@ -38,7 +38,9 @@ static var PROJECTILES_CNT_REGEN_CUTOFF = DifficultyValue.new(5, 10, 15)
 const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
 
 @export var in_game_scale: float = 1
+@export var ui_name: String = "Player"
 
+var mode = Entity.Mode.InGame
 var state = PlayerState.Active
 var difficulty = Application.MissionDifficulty.Apprentice
 var look_axis: LookAxis = LookAxis.Right
@@ -56,11 +58,13 @@ func _ready() -> void:
 	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
 	
 	
-func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+func post_ready_prepare(mode: Entity.Mode, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	self.z_index = 100
 	self.z_as_relative = true
 	self.scale = Vector2(in_game_scale, in_game_scale)
 	self.position = init_position
+	self.mode = mode
+	self.state = PlayerState.Active
 	self.difficulty = difficulty
 	self.life = MAX_LIFE.get_for(difficulty)
 	self.speed = MAX_SPEED.get_for(difficulty)
@@ -73,6 +77,8 @@ func post_ready_prepare(init_position: Vector2, difficulty: Application.MissionD
 #region Game logic
 
 func _shoot_projectile() -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 
@@ -96,6 +102,8 @@ func _shoot_projectile() -> void:
 	state_change.emit(PlayerEffect.NONE)
 	
 func _regen_speed() -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 		
@@ -110,6 +118,8 @@ func _regen_speed() -> void:
 	state_change.emit(PlayerEffect.NONE)
 	
 func _regen_projectile() -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 
@@ -124,6 +134,8 @@ func _regen_projectile() -> void:
 	state_change.emit(PlayerEffect.NONE)
 
 func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 
@@ -148,6 +160,8 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 		destroyed.emit()
 	
 func apply_treasure(treasure: Treasure) -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 		
@@ -159,6 +173,8 @@ func apply_treasure(treasure: Treasure) -> void:
 	state_change.emit(PlayerEffect.new(effect))
 	
 func _look_at(new_look_axis: LookAxis) -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 		
@@ -171,20 +187,32 @@ func _look_at(new_look_axis: LookAxis) -> void:
 	$AnimatedSprite2D.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
+	if mode != Entity.Mode.InGame:
+		return
 	if state == PlayerState.Dead:
 		return
 
 	velocity = new_velocity * speed * SPEED_MULTIPLIER
+	
+var size_px: Vector2:
+	get:
+		return $CollisionShape2D.shape.get_rect().size
 
 #endregion
 
 #region Game events
 
 func _input(event: InputEvent) -> void:
+	if mode != Entity.Mode.InGame:
+		return
+	
 	if event.is_action_pressed("Shoot"):
 		_shoot_projectile()
 
 func _process(delta: float) -> void:
+	if mode != Entity.Mode.InGame:
+		return
+	
 	if Input.is_action_pressed("Move Up"):
 		_look_at(LookAxis.Up)
 	elif Input.is_action_pressed("Move Right"):
@@ -195,6 +223,9 @@ func _process(delta: float) -> void:
 		_look_at(LookAxis.Left)
 
 func _physics_process(delta: float) -> void:
+	if mode != Entity.Mode.InGame:
+		return
+	
 	_move_with_velocity(Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down"))
 	move_and_slide()
 

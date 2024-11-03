@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=4 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
 [ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://ui/help-dialog/help-dialog.tscn" id="2_87g0v"]
+[ext_resource type="PackedScene" uid="uid://d0mwa7opmiho0" path="res://app/main-menu/select-player/select-player.tscn" id="2_eo256"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
 
 [node name="Main" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,29 +37,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="SelectPlayer" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -29.0
-offset_right = 63.5
-offset_bottom = 29.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SelectPlayer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Choose Your Player"
-
-[node name="Return" type="Button" parent="SelectPlayer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Return"
+[node name="SelectPlayer" parent="." instance=ExtResource("2_eo256")]
+offset_top = -100.0
+offset_bottom = 100.0
 
 [node name="SelectMission" type="VBoxContainer" parent="."]
 visible = false
@@ -128,7 +110,8 @@ visible = false
 [connection signal="button_up" from="Main/NewGame" to="." method="_main_go_to_select_player"]
 [connection signal="button_up" from="Main/Controls" to="." method="_main_to_controls"]
 [connection signal="button_up" from="Main/Quit" to="." method="_main_go_to_quit_game"]
-[connection signal="button_up" from="SelectPlayer/Return" to="." method="_select_player_go_to_main"]
+[connection signal="player_selected" from="SelectPlayer" to="." method="_select_player_go_to_select_mission"]
+[connection signal="return_from" from="SelectPlayer" to="." method="_select_player_go_to_main"]
 [connection signal="button_up" from="SelectMission/Return" to="." method="_select_mission_to_select_player"]
 [connection signal="button_up" from="SelectDifficulty/Return" to="." method="_select_difficulty_go_to_select_mission"]
 [connection signal="done" from="HelpDialog" to="." method="_controls_to_main"]

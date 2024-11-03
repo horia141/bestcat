@@ -125,8 +125,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvbpw"]
 
 [node name="Kenny" type="CharacterBody2D" groups=["Players"]]
+texture_filter = 1
 script = ExtResource("1_kcpw2")
 in_game_scale = 1.5
+ui_name = "Kenny"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wjfvk")

@@ -139,9 +139,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_85qui"]
 radius = 17.0294
 
-[node name="Ducky" type="CharacterBody2D" groups=["Players"]]
+[node name="Macky" type="CharacterBody2D" groups=["Players"]]
+texture_filter = 2
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_pggu4")
+ui_name = "Macky"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rc18h")

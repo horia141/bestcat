@@ -10,11 +10,9 @@ enum MissionDifficulty {
 }
 
 class PlayerDesc:
-	var name: String
 	var scene: PackedScene
 	
-	func _init(name: String, scene: PackedScene) -> void:
-		self.name = name
+	func _init(scene: PackedScene) -> void:
 		self.scene = scene
 			
 
@@ -43,19 +41,15 @@ class MissionAttempt:
 		
 var all_players_desc: Array[PlayerDesc] = [
 	PlayerDesc.new(
-		"BestCat",
-		preload("res://entities/players/bestcat/best_cat.tscn")
+		preload("res://entities/players/bestcat/bestcat.tscn")
 	),
 	PlayerDesc.new(
-		"Kenny",
 		preload("res://entities/players/kenny/kenny.tscn")
 	),
 	PlayerDesc.new(
-		"BestDog",
 		preload("res://entities/players/bestdog/bestdog.tscn")
 	),
 	PlayerDesc.new(
-		"Macky",
 		preload("res://entities/players/macky/macky.tscn")
 	)
 ]

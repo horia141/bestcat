@@ -32,23 +32,23 @@ region = Rect2(240, 0, 48, 48)
 atlas = ExtResource("2_6kw8u")
 region = Rect2(288, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_01we7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqnp8"]
 atlas = ExtResource("3_fa1hr")
 region = Rect2(0, 38, 25, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucrbn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcngl"]
 atlas = ExtResource("3_fa1hr")
 region = Rect2(25, 38, 25, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynnmf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ekh"]
 atlas = ExtResource("3_fa1hr")
 region = Rect2(50, 38, 25, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0uwa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oek68"]
 atlas = ExtResource("3_fa1hr")
 region = Rect2(75, 38, 25, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7u04"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aufbt"]
 atlas = ExtResource("3_fa1hr")
 region = Rect2(100, 38, 25, 19)
 
@@ -82,19 +82,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_01we7")
+"texture": SubResource("AtlasTexture_fqnp8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ucrbn")
+"texture": SubResource("AtlasTexture_hcngl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ynnmf")
+"texture": SubResource("AtlasTexture_a3ekh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x0uwa")
+"texture": SubResource("AtlasTexture_oek68")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c7u04")
+"texture": SubResource("AtlasTexture_aufbt")
 }],
 "loop": true,
 "name": &"run",
@@ -104,14 +104,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m10l"]
 
 [node name="BestDog" type="CharacterBody2D" groups=["Players"]]
+texture_filter = 1
 script = ExtResource("1_txdnw")
 in_game_scale = 1.5
+ui_name = "BestDog"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3cch3")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.712557
+frame_progress = 0.724465
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2m10l")

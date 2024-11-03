@@ -24,13 +24,8 @@ func _ready() -> void:
 	_show()
 	
 func post_ready_process(all_players_desc: Array[Application.PlayerDesc], all_missions_desc: Array[Application.MissionDesc]) -> void:
-	for player_desc in all_players_desc:
-		var player_button = Button.new()
-		player_button.text = player_desc.name
-		player_button.button_up.connect(func (): _select_player_go_to_select_mission(player_desc))
-		player_button.add_theme_font_size_override("font_size", 36)
-		$SelectPlayer.add_child(player_button)
-		
+	$SelectPlayer.post_ready_prepare(all_players_desc)
+
 	for mission_desc in all_missions_desc:
 		var mission_button = Button.new()
 		mission_button.text = mission_desc.title
@@ -109,11 +104,10 @@ func _show() -> void:
 			$Main/NewGame.grab_focus()
 		View.SelectPlayer:
 			$Main.hide()
-			$SelectPlayer.show()
+			$SelectPlayer.activate()
 			$SelectMission.hide()
 			$SelectDifficulty.hide()
 			$HelpDialog.hide()
-			$SelectPlayer/Return.grab_focus()
 		View.SelectMission:
 			$Main.hide()
 			$SelectPlayer.hide()
