@@ -3,7 +3,7 @@ extends CanvasLayer
 
 signal game_time_expired ()
 
-static var INITIAL_GAME_TIME = DifficultyValue.new(180, 120, 90)
+static var INITIAL_GAME_TIME = DifficultyValue.new(180, 150, 120)
 
 var game_time_left_sec = INITIAL_GAME_TIME.get_for(Application.MissionDifficulty.Apprentice)
 
