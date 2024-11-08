@@ -37,6 +37,10 @@ func on_hit_by_projectile() -> void:
 	super.on_hit_by_projectile()
 	if state == EnemyState.Hidden or state == EnemyState.Dead:
 		return
+	destroy()
+	
+func destroy() -> void:
+	super.destroy()
 	state = EnemyState.Dead
 	$ShootTimer.stop()
 	$AnimatedSprite2D.play("explosion")

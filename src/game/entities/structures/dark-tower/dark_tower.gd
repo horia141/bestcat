@@ -73,6 +73,8 @@ func on_own_spawn_destroyed(mob: Mob) -> void:
 	my_mobs.erase(mob.get_instance_id())
 
 func on_hit_by_player_projectile() -> void:
+	super.on_hit_by_player_projectile()
+
 	if state == StructureState.Destroyed:
 		return
 		
@@ -80,23 +82,28 @@ func on_hit_by_player_projectile() -> void:
 	$HealthBar.life = life
 	
 	if life == 0:
-		state = StructureState.Destroyed
+		destroy()
 		
-		$SpawnTimer.stop()
 		
-		$Explosion.visible = true
-		$Explosion.play("explosion")
+func destroy():
+	super.destroy()
+	state = StructureState.Destroyed
 		
-		$BaseSprite.play("destroyed")
-		await $Explosion.animation_finished
+	$SpawnTimer.stop()
 		
-		# Destroy some of our active mobs
-		for mob in my_mobs.values():
-			if not mob.is_bound_to_dark_tower():
-				continue
-			mob.on_hit_by_projectile()
+	$Explosion.visible = true
+	$Explosion.play("explosion")
 		
-		destroyed.emit()
+	$BaseSprite.play("destroyed")
+	await $Explosion.animation_finished
+		
+	# Destroy some of our active mobs
+	for mob in my_mobs.values():
+		if not mob.is_bound_to_dark_tower():
+			continue
+		mob.on_hit_by_projectile()
+		
+	destroyed.emit()
 
 #endregion
 

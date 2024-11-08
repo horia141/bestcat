@@ -47,6 +47,8 @@ var speed = 5
 var speed_regen_factor = 0.0
 var projectiles_cnt = 5
 var projectiles_cnt_regen_factor = 0.0
+var powerup_tween: Tween = null
+var destroy_tween: Tween = null
 
 #region Construction
 
@@ -135,6 +137,10 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 		return
 	if state == PlayerState.Dead:
 		return
+		
+	destroy_tween = create_tween()
+	destroy_tween.tween_property(self, "modulate", Color.RED, 0.2)
+	destroy_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
 
 	enemy_projectile.apply_effect_to_player(self)
 	life = clamp(life, 0, desc.max_life)
@@ -150,11 +156,7 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	
 	# Schedule these big operations at the end!
 	if state == PlayerState.Dead:
-		$AnimatedSprite2D.play("explosion")
-		$CollisionShape2D.set_deferred("disabled", true)
-		set_deferred("freeze", true)
-		await $AnimatedSprite2D.animation_finished
-		destroyed.emit()
+		destroy()
 	
 func apply_treasure(treasure: Treasure) -> void:
 	if mode != Application.ConceptMode.InGame:
@@ -162,12 +164,28 @@ func apply_treasure(treasure: Treasure) -> void:
 	if state == PlayerState.Dead:
 		return
 		
+	powerup_tween = create_tween()
+	powerup_tween.tween_property(self, "modulate", Color.GOLD, 0.2)
+	powerup_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
+		
 	var effect = treasure.apply_effect_to_player(self)
 	life = clamp(life, 0, desc.max_life)
 	speed = clamp(speed, 1, desc.max_speed)
 	projectiles_cnt = clamp(projectiles_cnt, 0, desc.max_projectiles_cnt)
 
 	state_change.emit(PlayerEffect.new(effect))
+	
+func destroy() -> void:
+	if powerup_tween != null:
+		powerup_tween.kill()
+	if destroy_tween != null:
+		destroy_tween.kill()
+	self.modulate = Color.WHITE
+	$AnimatedSprite2D.play("explosion")
+	$CollisionShape2D.set_deferred("disabled", true)
+	set_deferred("freeze", true)
+	await $AnimatedSprite2D.animation_finished
+	destroyed.emit()
 	
 func _look_at(new_look_axis: LookAxis) -> void:
 	if mode != Application.ConceptMode.InGame:
