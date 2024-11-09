@@ -79,16 +79,20 @@ func on_hit_by_projectile() -> void:
 	$HealthBar.life = life
 	
 	if life == 0:
-		state = EnemyState.Dead
-		$CollisionShape2D.set_deferred("disabled", true)
-		set_deferred("freeze", true)
-		$ShootTimer.stop()
-		$AnimatedSprite2D.play("death")
-		await $AnimatedSprite2D.animation_finished
-		scale.x = 2
-		scale.y = 2
-		$AnimatedSprite2D.play("explosion")
-		await $AnimatedSprite2D.animation_finished
-		destroyed.emit()
+		destroy()
+		
+func destroy() -> void:
+	super.destroy()
+	state = EnemyState.Dead
+	$CollisionShape2D.set_deferred("disabled", true)
+	set_deferred("freeze", true)
+	$ShootTimer.stop()
+	$Sprite.play("death")
+	await $Sprite.animation_finished
+	scale.x = 2
+	scale.y = 2
+	$Sprite.play("explosion")
+	await $Sprite.animation_finished
+	destroyed.emit()
 
 #endregion

@@ -163,10 +163,15 @@ func apply_treasure(treasure: Treasure) -> void:
 		return
 	if state == PlayerState.Dead:
 		return
-		
-	powerup_tween = create_tween()
-	powerup_tween.tween_property(self, "modulate", Color.GOLD, 0.2)
-	powerup_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
+	
+	if powerup_tween == null or not powerup_tween.is_running():
+		powerup_tween = create_tween()
+		powerup_tween.tween_property(self, "modulate", Color.GOLD, 0.15)
+		powerup_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.15)
+		var powerup_scale_tween = powerup_tween.parallel()
+		var initial_scale = self.scale
+		powerup_scale_tween.tween_property(self, "scale", initial_scale * 1.2, 0.15).set_trans(Tween.TRANS_QUART)
+		powerup_scale_tween.chain().tween_property(self, "scale", initial_scale, 0.15).set_trans(Tween.TRANS_SINE)
 		
 	var effect = treasure.apply_effect_to_player(self)
 	life = clamp(life, 0, desc.max_life)
