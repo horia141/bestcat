@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://btfd6swkb4dx5"]
+[gd_scene load_steps=30 format=3 uid="uid://btfd6swkb4dx5"]
 
 [ext_resource type="Script" path="res://entities/enemies/mobs/snail/snail.gd" id="1_7251s"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="2_krsk4"]
@@ -178,6 +178,8 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_uncwo"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xj0qu"]
 radius = 12.0
 height = 34.0
@@ -187,10 +189,17 @@ collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_7251s")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 sprite_frames = SubResource("SpriteFrames_ys0ef")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="WhiteMask" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1, 0.5)
+scale = Vector2(36, 29)
+texture = SubResource("CanvasTexture_uncwo")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708

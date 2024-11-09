@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcl7odhamp0v8"]
+[gd_scene load_steps=18 format=3 uid="uid://bcl7odhamp0v8"]
 
 [ext_resource type="Texture2D" uid="uid://bpojpiwt37r7o" path="res://entities/enemies/mobs/ogre/ogre.png" id="1_2c0mc"]
 [ext_resource type="Script" path="res://entities/enemies/mobs/ogre/ogre.gd" id="1_t6i1p"]
@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -94,6 +94,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_t5ss2"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jho5w"]
 
 [node name="Ogre" type="CharacterBody2D" groups=["Enemies", "Mobs"]]
@@ -104,10 +106,17 @@ collision_mask = 31
 script = ExtResource("1_t6i1p")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 sprite_frames = SubResource("SpriteFrames_ux2hi")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.347969
+
+[node name="WhiteMask" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(25.51, 25)
+texture = SubResource("CanvasTexture_t5ss2")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jho5w")

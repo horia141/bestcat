@@ -37,8 +37,14 @@ func _spawn_mob() -> void:
 		return
 
 	if my_mobs.size() >= MAX_MOBS_TO_SPAWN.get_for(difficulty):
+		$SpawnTimer.wait_time = SPAWN_PERIOD_SEC.get_for(difficulty) + randf_range(-0.5, 0.5)
+		$SpawnTimer.start()
 		return
 		
+	$BaseSprite.play("generate")
+	await $BaseSprite.animation_finished
+	$BaseSprite.play("idle")
+
 	var activation_area = ActivationAreaScn.instantiate()
 	activation_area.scale = Vector2(2, 2)
 	

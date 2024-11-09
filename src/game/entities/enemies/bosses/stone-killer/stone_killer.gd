@@ -40,13 +40,13 @@ func _shoot() -> void:
 	if state != EnemyState.Active:
 		return
 		
-	$AnimatedSprite2D.play("attack")
+	$Sprite.play("attack")
 
 	__shoot_one_round()
-	await $AnimatedSprite2D.animation_finished
+	await $Sprite.animation_finished
 	__shoot_one_round()
 	
-	$AnimatedSprite2D.play("idle")
+	$Sprite.play("idle")
 	
 	$ShootTimer.wait_time = SHOOT_PERIOD_SEC.get_for(difficulty) + randf_range(-0.25, 0.25)
 	$ShootTimer.start()

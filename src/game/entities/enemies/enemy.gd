@@ -14,6 +14,7 @@ enum EnemyState {
 var player: Game.PlayerProxy = null
 var state = EnemyState.Inactive
 var difficulty = Application.MissionDifficulty.Apprentice
+var init_tween: Tween = null
 var damage_tween: Tween = null
 
 #region Construction
@@ -25,6 +26,12 @@ func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, diffic
 	self.player = player
 	self.position = init_position
 	self.difficulty = difficulty
+	self.init_tween = create_tween()
+	self.modulate = Color.TRANSPARENT
+	$Sprite.modulate = Color.WHITE
+	$Sprite/WhiteMask.modulate = Color.WHITE
+	init_tween.tween_property(self, "modulate", Color.WHITE, 0.5)
+	init_tween.chain().tween_property($Sprite/WhiteMask, "modulate", Color.TRANSPARENT, 0.5)
 	
 #endregion
 
@@ -36,6 +43,8 @@ func on_hit_by_projectile() -> void:
 	damage_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
 	
 func destroy() -> void:
+	if init_tween != null:
+		init_tween.kill()
 	if damage_tween != null:
 		damage_tween.kill()
 	self.modulate = Color.WHITE

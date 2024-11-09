@@ -43,10 +43,10 @@ func destroy() -> void:
 	super.destroy()
 	state = EnemyState.Dead
 	$ShootTimer.stop()
-	$AnimatedSprite2D.play("explosion")
+	$Sprite.play("explosion")
 	$Collision.set_deferred("disabled", true)
 	set_deferred("freeze", true)
-	await $AnimatedSprite2D.animation_finished
+	await $Sprite.animation_finished
 	destroyed.emit()
 	
 func is_bound_to_dark_tower() -> bool:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bi5ijeaflokvx"]
+[gd_scene load_steps=41 format=3 uid="uid://bi5ijeaflokvx"]
 
 [ext_resource type="Script" path="res://entities/enemies/bosses/stone-killer/stone_killer.gd" id="1_yytkm"]
 [ext_resource type="Texture2D" uid="uid://tk6ufaluvwbk" path="res://entities/enemies/bosses/stone-killer/sheet.png" id="2_v4b3a"]
@@ -259,6 +259,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_fscqk"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_wincu"]
 radius = 16.0
 
@@ -267,10 +269,17 @@ collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_yytkm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 sprite_frames = SubResource("SpriteFrames_rxcq0")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="WhiteMask" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-8.9407e-07, -1.78814e-06)
+scale = Vector2(58, 62)
+texture = SubResource("CanvasTexture_fscqk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wincu")
