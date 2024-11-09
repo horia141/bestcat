@@ -44,6 +44,9 @@ func _shoot() -> void:
 
 	__shoot_one_round()
 	await $Sprite.animation_finished
+	if state != EnemyState.Active:
+		# Got destroyed in the meanwhile!
+		return
 	__shoot_one_round()
 	
 	$Sprite.play("idle")

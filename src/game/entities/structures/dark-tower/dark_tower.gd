@@ -43,6 +43,9 @@ func _spawn_mob() -> void:
 		
 	$BaseSprite.play("generate")
 	await $BaseSprite.animation_finished
+	if state == StructureState.Destroyed:
+		# Was destroyed in the meanwhile
+		return
 	$BaseSprite.play("idle")
 
 	var activation_area = ActivationAreaScn.instantiate()
@@ -99,7 +102,7 @@ func destroy():
 		
 	$Explosion.visible = true
 	$Explosion.play("explosion")
-		
+
 	$BaseSprite.play("destroyed")
 	await $Explosion.animation_finished
 		
