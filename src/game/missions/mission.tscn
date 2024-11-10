@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clebuc3qdlgjv"]
+
+[ext_resource type="Script" path="res://missions/mission.gd" id="1_xm3n4"]
+[ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://story/story.tscn" id="2_u6box"]
+
+[node name="Mission" type="Node2D"]
+script = ExtResource("1_xm3n4")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="Level"]
+
+[node name="Obstacles" type="TileMapLayer" parent="Level"]
+
+[node name="Decorations" type="TileMapLayer" parent="Level"]
+
+[node name="Story" parent="." instance=ExtResource("2_u6box")]
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]

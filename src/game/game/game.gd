@@ -85,7 +85,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
-			the_structure.post_ready_prepare(PlayerProxy.new(player), mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+			the_structure.post_ready_prepare(PlayerProxy.new(player), mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY, mission.terrain_map)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
@@ -232,8 +232,6 @@ func _on_enemy_projectile_destroyed(enemy_projectile: EnemyProjectile) -> void:
 func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	# We'll do some adjustments to the enemy position so it's not
 	# in an inaccessible place.
-	var new_position = mission.get_appropriate_pos_for_enemy(mob)
-	mob.position = new_position
 	add_child(mob)
 	mob.shoot.connect(_on_enemy_shoot)
 	mob.destroyed.connect(func (): _on_mob_destroyed(mob))

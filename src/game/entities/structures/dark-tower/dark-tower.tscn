@@ -229,4 +229,7 @@ position = Vector2(-28, 53)
 max_life = 3
 life = 3
 
+[node name="GenCenter" type="Marker2D" parent="."]
+position = Vector2(0, 33)
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_spawn_mob"]
