@@ -26,14 +26,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Header" parent="Main" instance=ExtResource("2_ej781")]
-custom_minimum_size = Vector2(500, 100)
+custom_minimum_size = Vector2(500, 110)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Main/Header"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 45
 text = "BestCat - The Game"
 
 [node name="Commands" parent="Main" instance=ExtResource("6_7kr4e")]

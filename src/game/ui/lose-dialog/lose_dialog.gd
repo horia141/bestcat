@@ -8,7 +8,7 @@ signal quit_mission ()
 
 func activate() -> void:
 	super.activate()
-	$Content/Controls/Retry.grab_focus()
+	$Frame/Margin/Layout/Layout/Retry.grab_focus()
 
 func _retry() -> void:
 	retry_mission.emit()

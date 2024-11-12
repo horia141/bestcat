@@ -8,7 +8,7 @@ signal continue_after_winning()
 
 func activate() -> void:
 	super.activate()
-	$Contents/Controls/Continue.grab_focus()
+	$Frame/Margin/Contents/Controls/Continue.grab_focus()
 	
 func _retry() -> void:
 	retry_mission.emit()

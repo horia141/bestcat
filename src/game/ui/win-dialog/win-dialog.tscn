@@ -1,43 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://bitbv43jrno26"]
+[gd_scene load_steps=5 format=3 uid="uid://bitbv43jrno26"]
 
 [ext_resource type="Script" path="res://ui/win-dialog/win_dialog.gd" id="1_yfw0g"]
+[ext_resource type="PackedScene" uid="uid://b17w7xxeofyxd" path="res://ui/game-ui/game-dialog-frame.tscn" id="2_pqd2g"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="3_s5leu"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_uyurt"]
 
 [node name="WinDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_yfw0g")
 
-[node name="Contents" type="VBoxContainer" parent="."]
+[node name="Frame" parent="." instance=ExtResource("2_pqd2g")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.0
-offset_top = -95.0
-offset_right = 223.0
-offset_bottom = 105.0
+offset_left = -324.0
+offset_top = -94.0
+offset_right = 96.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" type="Label" parent="Contents"]
+[node name="Margin" type="MarginContainer" parent="Frame"]
 layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Contents" type="VBoxContainer" parent="Frame/Margin"]
+layout_mode = 2
+
+[node name="Message" parent="Frame/Margin/Contents" instance=ExtResource("3_s5leu")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Frame/Margin/Contents/Message"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Frame/Margin/Contents/Message/Margin"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "You won! Congrats!"
 
-[node name="Controls" type="HBoxContainer" parent="Contents"]
+[node name="Controls" type="HBoxContainer" parent="Frame/Margin/Contents"]
 layout_mode = 2
 alignment = 1
 
-[node name="Retry" type="Button" parent="Contents/Controls"]
+[node name="Retry" parent="Frame/Margin/Contents/Controls" instance=ExtResource("4_uyurt")]
+custom_minimum_size = Vector2(72, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Retry"
+label = "Retry"
+font_size = 20
 
-[node name="Continue" type="Button" parent="Contents/Controls"]
+[node name="Continue" parent="Frame/Margin/Contents/Controls" instance=ExtResource("4_uyurt")]
+custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Continue"
+label = "Continue"
+font_size = 20
 
-[connection signal="button_up" from="Contents/Controls/Retry" to="." method="_retry"]
-[connection signal="button_up" from="Contents/Controls/Continue" to="." method="_continue"]
+[connection signal="button_up" from="Frame/Margin/Contents/Controls/Retry" to="." method="_retry"]
+[connection signal="button_up" from="Frame/Margin/Contents/Controls/Continue" to="." method="_continue"]

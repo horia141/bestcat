@@ -1,40 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://j5ovdm6rehfn"]
+[gd_scene load_steps=5 format=3 uid="uid://j5ovdm6rehfn"]
 
 [ext_resource type="Script" path="res://ui/pause-dialog/pause_dialog.gd" id="1_wo1o4"]
+[ext_resource type="PackedScene" uid="uid://b17w7xxeofyxd" path="res://ui/game-ui/game-dialog-frame.tscn" id="2_xwg48"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="3_bmh8q"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_4wstx"]
 
 [node name="PauseMenu" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_wo1o4")
 
-[node name="Controls" type="HBoxContainer" parent="."]
+[node name="Frame" parent="." instance=ExtResource("2_xwg48")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -20.0
-offset_right = 58.0
-offset_bottom = 20.0
+offset_left = -214.5
+offset_top = -79.5
+offset_right = 214.5
+offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Quit" type="Button" parent="Controls"]
+[node name="Margin" type="MarginContainer" parent="Frame"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Quit
-"
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Retry" type="Button" parent="Controls"]
+[node name="Layout" type="VBoxContainer" parent="Frame/Margin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Retry"
+theme_override_constants/separation = 8
 
-[node name="Resume" type="Button" parent="Controls"]
+[node name="Message" parent="Frame/Margin/Layout" instance=ExtResource("3_bmh8q")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Resume"
 
-[connection signal="button_up" from="Controls/Quit" to="." method="_quit_mission"]
-[connection signal="button_up" from="Controls/Retry" to="." method="_retry_mission"]
-[connection signal="button_up" from="Controls/Resume" to="." method="_resume_mission"]
+[node name="Margin" type="MarginContainer" parent="Frame/Margin/Layout/Message"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Frame/Margin/Layout/Message/Margin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "The game is paused"
+
+[node name="Controls" type="HBoxContainer" parent="Frame/Margin/Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="Retry" parent="Frame/Margin/Layout/Controls" instance=ExtResource("4_4wstx")]
+custom_minimum_size = Vector2(72, 48)
+layout_mode = 2
+label = "Retry"
+font_size = 20
+
+[node name="Quit" parent="Frame/Margin/Layout/Controls" instance=ExtResource("4_4wstx")]
+custom_minimum_size = Vector2(62, 48)
+layout_mode = 2
+label = "Quit"
+font_size = 20
+
+[node name="Resume" parent="Frame/Margin/Layout/Controls" instance=ExtResource("4_4wstx")]
+custom_minimum_size = Vector2(98, 48)
+layout_mode = 2
+label = "Resume"
+font_size = 20
+
+[connection signal="button_up" from="Frame/Margin/Layout/Controls/Retry" to="." method="_retry_mission"]
+[connection signal="button_up" from="Frame/Margin/Layout/Controls/Quit" to="." method="_quit_mission"]
+[connection signal="button_up" from="Frame/Margin/Layout/Controls/Resume" to="." method="_resume_mission"]

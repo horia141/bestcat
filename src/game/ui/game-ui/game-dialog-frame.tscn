@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b17w7xxeofyxd"]
+
+[ext_resource type="Texture2D" uid="uid://ct3db03wm57tu" path="res://common/ui.tres" id="1_usc1k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei817"]
+atlas = ExtResource("1_usc1k")
+region = Rect2(1728, 512, 96, 32)
+
+[node name="GameDialogFrame" type="MarginContainer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 5
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ei817")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4

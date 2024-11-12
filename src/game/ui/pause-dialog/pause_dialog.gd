@@ -9,7 +9,7 @@ signal resume_mission ()
 
 func activate() -> void:
 	super.activate()
-	$Controls/Resume.grab_focus()
+	$Frame/Margin/Layout/Controls/Resume.grab_focus()
 
 func _quit_mission() -> void:
 	quit_mission.emit()
