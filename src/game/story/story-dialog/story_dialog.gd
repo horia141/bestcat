@@ -5,15 +5,15 @@ signal done ()
 
 @export var message: String = "":
 	get:
-		return $Content/Message.text
+		return $Frame/Margin/Layout/Content/Margin/Message.text
 	set(value):
-		$Content/Message.text = value
+		$Frame/Margin/Layout/Content/Margin/Message.text = value
 
 #region Game logic
 
 func activate() -> void:
 	super.activate()
-	$Content/Controls/OK.grab_focus()
+	$Frame/Margin/Layout/OK.grab_focus()
 
 func _done() -> void:
 	done.emit()

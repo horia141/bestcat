@@ -1,59 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck5uyfpaqb8ic"]
+[gd_scene load_steps=5 format=3 uid="uid://ck5uyfpaqb8ic"]
 
-[ext_resource type="Texture2D" uid="uid://biuvxr3dnnj4w" path="res://story/story-dialog/patch.png" id="1_gn5fi"]
 [ext_resource type="Script" path="res://story/story-dialog/story_dialog.gd" id="1_rtb8t"]
+[ext_resource type="PackedScene" uid="uid://b17w7xxeofyxd" path="res://ui/game-ui/game-dialog-frame.tscn" id="3_5alt8"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="4_745rr"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="5_q2dvp"]
 
 [node name="StoryDialog" type="CanvasLayer"]
 script = ExtResource("1_rtb8t")
 
-[node name="Background" type="NinePatchRect" parent="."]
+[node name="Frame" parent="." instance=ExtResource("3_5alt8")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -226.0
-offset_top = -212.0
-offset_right = 224.0
-offset_bottom = 212.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_gn5fi")
-region_rect = Rect2(0, 0, 624, 624)
-patch_margin_left = 76
-patch_margin_top = 76
-patch_margin_right = 76
-patch_margin_bottom = 76
-
-[node name="Content" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -132.0
-offset_right = 215.0
-offset_bottom = 205.0
+offset_left = -48.0
+offset_top = -55.5
+offset_right = 48.0
+offset_bottom = 55.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" type="Label" parent="Content"]
+[node name="Margin" type="MarginContainer" parent="Frame"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Frame/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Content" parent="Frame/Margin/Layout" instance=ExtResource("4_745rr")]
+custom_minimum_size = Vector2(450, 340)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Frame/Margin/Layout/Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Message" type="Label" parent="Frame/Margin/Layout/Content/Margin"]
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0.264166, 0.337885, 0.125038, 1)
 theme_override_font_sizes/font_size = 18
 autowrap_mode = 2
 
-[node name="Controls" type="VBoxContainer" parent="Content"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="OK" type="Button" parent="Content/Controls"]
+[node name="OK" parent="Frame/Margin/Layout" instance=ExtResource("5_q2dvp")]
+custom_minimum_size = Vector2(49, 48)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 38
-text = "  OK   "
+label = "OK"
+font_size = 20
 
-[connection signal="button_up" from="Content/Controls/OK" to="." method="_done"]
+[connection signal="button_up" from="Frame/Margin/Layout/OK" to="." method="_done"]
