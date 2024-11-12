@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://orct8s27lqjl"]
+[gd_scene load_steps=4 format=3 uid="uid://orct8s27lqjl"]
 
 [ext_resource type="Script" path="res://ui/help-dialog/help_dialog.gd" id="1_uhlio"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_l1p5k"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="3_28c38"]
 
 [node name="HelpDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
@@ -18,38 +20,59 @@ offset_right = 229.0
 offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
-[node name="Messages" type="VBoxContainer" parent="Content"]
+[node name="Content" parent="Content" instance=ExtResource("2_l1p5k")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Content/Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Content/Content/Margin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Move" type="Label" parent="Content/Messages"]
+[node name="Move" type="Label" parent="Content/Content/Margin/Layout"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Arrows: Move and orient shooting"
 
-[node name="Shoot" type="Label" parent="Content/Messages"]
+[node name="Shoot" type="Label" parent="Content/Content/Margin/Layout"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Space: Shoot"
 
-[node name="Escape" type="Label" parent="Content/Messages"]
+[node name="Escape" type="Label" parent="Content/Content/Margin/Layout"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Escape: In game menu"
 
-[node name="Slash" type="Label" parent="Content/Messages"]
+[node name="Slash" type="Label" parent="Content/Content/Margin/Layout"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Slash (/): Help"
 
-[node name="Controls" type="HBoxContainer" parent="Content"]
+[node name="Controls" parent="Content" instance=ExtResource("2_l1p5k")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Content/Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="HBoxContainer" parent="Content/Controls/Margin"]
 layout_mode = 2
 alignment = 1
 
-[node name="Continue" type="Button" parent="Content/Controls"]
+[node name="Continue" parent="Content/Controls/Margin/Layout" instance=ExtResource("3_28c38")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-text = "Continue"
+label = "Continue"
+font_size = 20
 
-[connection signal="button_up" from="Content/Controls/Continue" to="." method="_continue"]
+[connection signal="button_up" from="Content/Controls/Margin/Layout/Continue" to="." method="_continue"]

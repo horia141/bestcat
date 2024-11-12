@@ -7,7 +7,7 @@ signal done ()
 
 func activate() -> void:
 	super.activate()
-	$Content/Controls/Continue.grab_focus()
+	$Content/Controls/Margin/Layout/Continue.grab_focus()
 	
 func deactivate() -> void:
 	hide()
