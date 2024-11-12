@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=9 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
 [ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://ui/help-dialog/help-dialog.tscn" id="2_87g0v"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_ej781"]
 [ext_resource type="PackedScene" uid="uid://d0mwa7opmiho0" path="res://app/main-menu/select-player/select-player.tscn" id="2_eo256"]
 [ext_resource type="PackedScene" uid="uid://d1exnpsw62d4q" path="res://app/main-menu/select-mission/select-mission.tscn" id="2_w05gh"]
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="3_u8p1n"]
@@ -11,7 +12,7 @@
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
 
-[node name="Main" parent="." instance=ExtResource("6_7kr4e")]
+[node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -24,29 +25,43 @@ offset_bottom = 199.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="Main"]
+[node name="Header" parent="Main" instance=ExtResource("2_ej781")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 38
+text = "BestCat - The Game"
+
+[node name="Commands" parent="Main" instance=ExtResource("6_7kr4e")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Main/Commands"]
 layout_mode = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="Layout" type="VBoxContainer" parent="Main/Margin"]
+[node name="Layout" type="VBoxContainer" parent="Main/Commands/Margin"]
 layout_mode = 2
 
-[node name="NewGame" parent="Main/Margin/Layout" instance=ExtResource("3_u8p1n")]
+[node name="NewGame" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
 custom_minimum_size = Vector2(238, 91)
 layout_mode = 2
 label = "New Game"
 font_size = 38
 
-[node name="Controls" parent="Main/Margin/Layout" instance=ExtResource("3_u8p1n")]
+[node name="Controls" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
 custom_minimum_size = Vector2(193, 91)
 layout_mode = 2
 label = "Controls"
 font_size = 38
 
-[node name="Quit" parent="Main/Margin/Layout" instance=ExtResource("3_u8p1n")]
+[node name="Quit" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
 custom_minimum_size = Vector2(105, 81)
 layout_mode = 2
 label = "Quit"
@@ -73,9 +88,9 @@ offset_bottom = 169.5
 [node name="HelpDialog" parent="." instance=ExtResource("2_87g0v")]
 visible = false
 
-[connection signal="button_up" from="Main/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]
-[connection signal="button_up" from="Main/Margin/Layout/Controls" to="." method="_main_to_controls"]
-[connection signal="button_up" from="Main/Margin/Layout/Quit" to="." method="_main_go_to_quit_game"]
+[connection signal="button_up" from="Main/Commands/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]
+[connection signal="button_up" from="Main/Commands/Margin/Layout/Controls" to="." method="_main_to_controls"]
+[connection signal="button_up" from="Main/Commands/Margin/Layout/Quit" to="." method="_main_go_to_quit_game"]
 [connection signal="mission_selected" from="SelectMission" to="." method="_select_mission_go_to_select_player"]
 [connection signal="return_from" from="SelectMission" to="." method="_select_mission_to_main"]
 [connection signal="player_selected" from="SelectPlayer" to="." method="_select_player_go_to_select_difficulty"]

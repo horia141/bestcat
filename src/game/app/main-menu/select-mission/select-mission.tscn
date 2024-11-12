@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1exnpsw62d4q"]
+[gd_scene load_steps=6 format=3 uid="uid://d1exnpsw62d4q"]
 
 [ext_resource type="Script" path="res://app/main-menu/select-mission/select_mission.gd" id="1_fhncj"]
 [ext_resource type="Texture2D" uid="uid://cpcey5vrxd20" path="res://common/scroll.jpg" id="2_rtqcv"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_vmjyh"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="3_qqy1o"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_4r0x3"]
 
 [node name="MainMenuSelectMission" type="VBoxContainer"]
 anchors_preset = 8
@@ -13,47 +16,83 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fhncj")
 
-[node name="Label" type="Label" parent="."]
+[node name="Header" parent="." instance=ExtResource("2_vmjyh")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Header"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 28
 text = "Choose A Mission"
 
 [node name="Selector" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="List" type="VBoxContainer" parent="Selector"]
+[node name="List" parent="Selector" instance=ExtResource("3_qqy1o")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/List"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Selector/List/Margin"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Selector"]
+[node name="View" parent="Selector" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Selector/SubViewportContainer"]
+[node name="Margin" type="MarginContainer" parent="Selector/View"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Layout" type="SubViewportContainer" parent="Selector/View/Margin"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Selector/View/Margin/Layout"]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(256, 256)
 render_target_update_mode = 4
 
-[node name="Background" type="Sprite2D" parent="Selector/SubViewportContainer/SubViewport"]
+[node name="Background" type="Sprite2D" parent="Selector/View/Margin/Layout/SubViewport"]
 position = Vector2(128, 128)
 texture = ExtResource("2_rtqcv")
 
-[node name="Controls" type="HBoxContainer" parent="."]
+[node name="Controls" parent="." instance=ExtResource("3_qqy1o")]
 layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="HBoxContainer" parent="Controls/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Return" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Return" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
+custom_minimum_size = Vector2(87, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Return"
+label = "Return"
+font_size = 20
 
-[node name="Continue" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Continue" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
+custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Continue"
+label = "Continue"
+font_size = 20
 
-[connection signal="button_up" from="Controls/Return" to="." method="_return_from"]
-[connection signal="button_up" from="Controls/Continue" to="." method="_continue_to"]
+[connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
+[connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]

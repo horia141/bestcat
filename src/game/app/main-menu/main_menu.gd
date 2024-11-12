@@ -90,7 +90,7 @@ func _show() -> void:
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.deactivate()
 			$HelpDialog.deactivate()
-			$Main/Margin/Layout/NewGame.grab_focus()
+			$Main/Commands/Margin/Layout/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
 			$SelectMission.activate()
