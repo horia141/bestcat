@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0mwa7opmiho0"]
+[gd_scene load_steps=6 format=3 uid="uid://d0mwa7opmiho0"]
 
 [ext_resource type="Script" path="res://app/main-menu/select-player/select_player.gd" id="1_5kpjb"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_gd0ou"]
 [ext_resource type="Texture2D" uid="uid://cpcey5vrxd20" path="res://common/scroll.jpg" id="2_oju24"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="3_878nn"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_aqm1a"]
 
 [node name="MainMenuSelectPlayer" type="VBoxContainer"]
 anchors_preset = 8
@@ -17,36 +20,74 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5kpjb")
 
-[node name="Label" type="Label" parent="."]
+[node name="GameHeader" parent="." instance=ExtResource("2_gd0ou")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameHeader"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 28
 text = "Choose Your Player"
 
 [node name="Selector" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="List" type="VBoxContainer" parent="Selector"]
+[node name="List" parent="Selector" instance=ExtResource("3_878nn")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/List"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Selector/List/Margin"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
 [node name="PlayerDetails" type="VBoxContainer" parent="Selector"]
 layout_mode = 2
 
-[node name="View" type="SubViewportContainer" parent="Selector/PlayerDetails"]
+[node name="View" parent="Selector/PlayerDetails" instance=ExtResource("3_878nn")]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Selector/PlayerDetails/View"]
+[node name="Margin" type="MarginContainer" parent="Selector/PlayerDetails/View"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="View" type="SubViewportContainer" parent="Selector/PlayerDetails/View/Margin"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Selector/PlayerDetails/View/Margin/View"]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(256, 256)
 render_target_update_mode = 4
 
-[node name="Background" type="Sprite2D" parent="Selector/PlayerDetails/View/SubViewport"]
+[node name="Background" type="Sprite2D" parent="Selector/PlayerDetails/View/Margin/View/SubViewport"]
 position = Vector2(128, 128)
 texture = ExtResource("2_oju24")
 
-[node name="Description" type="RichTextLabel" parent="Selector/PlayerDetails"]
+[node name="Stats" parent="Selector/PlayerDetails" instance=ExtResource("3_878nn")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/PlayerDetails/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Selector/PlayerDetails/Stats/Margin"]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="Selector/PlayerDetails/Stats/Margin/Layout"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 14
@@ -57,70 +98,81 @@ theme_override_font_sizes/bold_font_size = 14
 text = "This is just some player details"
 fit_content = true
 
-[node name="Stats" type="GridContainer" parent="Selector/PlayerDetails"]
+[node name="Stats" type="GridContainer" parent="Selector/PlayerDetails/Stats/Margin/Layout"]
 layout_mode = 2
 columns = 2
 
-[node name="Life" type="HBoxContainer" parent="Selector/PlayerDetails/Stats"]
+[node name="Life" type="HBoxContainer" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/Life"]
+[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/Life"]
 layout_mode = 2
 text = "Life"
 
-[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/Life"]
+[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/Life"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "5"
 horizontal_alignment = 1
 
-[node name="Speed" type="HBoxContainer" parent="Selector/PlayerDetails/Stats"]
+[node name="Speed" type="HBoxContainer" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/Speed"]
+[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/Speed"]
 layout_mode = 2
 text = "Speed"
 
-[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/Speed"]
+[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/Speed"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "5"
 horizontal_alignment = 1
 
-[node name="ProjectilesCnt" type="HBoxContainer" parent="Selector/PlayerDetails/Stats"]
+[node name="ProjectilesCnt" type="HBoxContainer" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/ProjectilesCnt"]
+[node name="Label" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/ProjectilesCnt"]
 layout_mode = 2
 text = "Projectiles"
 
-[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/ProjectilesCnt"]
+[node name="Value" type="Label" parent="Selector/PlayerDetails/Stats/Margin/Layout/Stats/ProjectilesCnt"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "5"
 horizontal_alignment = 1
 
-[node name="Controls" type="HBoxContainer" parent="."]
+[node name="Controls" parent="." instance=ExtResource("3_878nn")]
 layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="HBoxContainer" parent="Controls/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Return" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Return" parent="Controls/Margin/Layout" instance=ExtResource("4_aqm1a")]
+custom_minimum_size = Vector2(87, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Return"
+label = "Return"
+font_size = 20
 
-[node name="Continue" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Continue" parent="Controls/Margin/Layout" instance=ExtResource("4_aqm1a")]
+custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Continue"
+label = "Continue"
+font_size = 20
 
-[connection signal="button_up" from="Controls/Return" to="." method="_return_from"]
-[connection signal="button_up" from="Controls/Continue" to="." method="_continue_to"]
+[connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
+[connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]

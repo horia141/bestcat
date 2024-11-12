@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://lpuqutgh2h0y"]
+[gd_scene load_steps=5 format=3 uid="uid://lpuqutgh2h0y"]
 
 [ext_resource type="Script" path="res://app/main-menu/select-difficulty/select_difficulty.gd" id="1_pomqh"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_8ovqq"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="2_52mp2"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_qb813"]
 
 [node name="MainMenuSelectDifficulty" type="VBoxContainer"]
 anchors_preset = 8
@@ -14,22 +17,49 @@ offset_right = 143.0
 offset_bottom = 143.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 script = ExtResource("1_pomqh")
 
-[node name="Label" type="Label" parent="."]
+[node name="Header" parent="." instance=ExtResource("2_8ovqq")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Header"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 28
 text = "Choose The Difficulty"
 
 [node name="Selector" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="List" type="VBoxContainer" parent="Selector"]
+[node name="List" parent="Selector" instance=ExtResource("2_qb813")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/List"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="List" type="VBoxContainer" parent="Selector/List/Margin"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
-[node name="DifficultyAbout" type="RichTextLabel" parent="Selector"]
+[node name="Difficulty" parent="Selector" instance=ExtResource("2_qb813")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/Difficulty"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="RichTextLabel" parent="Selector/Difficulty/Margin"]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 14
@@ -42,21 +72,30 @@ text = "Here is some description of the difficulty
 * In rich text
 * So rich text"
 
-[node name="Controls" type="HBoxContainer" parent="."]
+[node name="Controls" parent="." instance=ExtResource("2_qb813")]
 layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="HBoxContainer" parent="Controls/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Return" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Return" parent="Controls/Margin/Layout" instance=ExtResource("2_52mp2")]
+custom_minimum_size = Vector2(87, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Return"
+label = "Return"
+font_size = 20
 
-[node name="Continue" type="Button" parent="Controls"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Continue" parent="Controls/Margin/Layout" instance=ExtResource("2_52mp2")]
+custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Continue"
+label = "Continue"
+font_size = 20
 
-[connection signal="button_up" from="Controls/Return" to="." method="_return_from"]
-[connection signal="button_up" from="Controls/Continue" to="." method="_continue_to"]
+[connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
+[connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]
