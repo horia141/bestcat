@@ -20,18 +20,9 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 	all_missions = []
 	self.all_missions_desc = all_missions_desc
 	
-	var vp_x = $Selector/View/Margin/Layout/SubViewport.size.x
-	var vp_y = $Selector/View/Margin/Layout/SubViewport.size.y
-	
 	for mission_desc in all_missions_desc:
 		var mission = mission_desc.scene.instantiate() as Mission
-		var scale = min(vp_x / mission.size_in_px.x, vp_y / mission.size_in_px.y) * 0.75
-		var init_position = Vector2((vp_x - mission.size_in_px.x * scale) / 2, (vp_y - mission.size_in_px.y * scale) / 2)
 		mission.post_ready_prepare(Application.ConceptMode.InMainMenu)
-		mission.position.x = init_position.x
-		mission.position.y = init_position.y
-		mission.scale.x = scale
-		mission.scale.y = scale
 		all_missions.append(mission)
 		
 		var mission_button = GameButtonScn.instantiate()
@@ -57,7 +48,38 @@ func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) ->
 	if $Selector/View/Margin/Layout/SubViewport.get_child_count() > 1:
 		var last_mission = $Selector/View/Margin/Layout/SubViewport.get_child(1)
 		$Selector/View/Margin/Layout/SubViewport.remove_child(last_mission)
-	$Selector/View/Margin/Layout/SubViewport.add_child(mission)
+		
+	var vp_x = $Selector/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Selector/View/Margin/Layout/SubViewport.size.y
+		
+	var terrain_map = mission.terrain_map
+	var root_node = Node2D.new()
+	var size_in_px = Vector2(terrain_map.cols_cnt * 4, terrain_map.rows_cnt * 4)
+	var scale = min(vp_x / size_in_px.x, vp_y / size_in_px.y) * 0.75
+	root_node.position = Vector2((vp_x - size_in_px.x * scale) / 2, (vp_y - size_in_px.y * scale) / 2)
+	root_node.scale = Vector2(scale, scale)
+		
+	$Selector/View/Margin/Layout/SubViewport.add_child(root_node)
+	
+	for row_idx in range(0, terrain_map.rows_cnt):
+		for col_idx in range(0, terrain_map.cols_cnt):
+			var new_disp = TextureRect.new()
+			new_disp.texture = CanvasTexture.new()
+			match terrain_map.get_cell(row_idx, col_idx).type:
+				Mission.TerrainType.Water:
+					new_disp.modulate = Color.CADET_BLUE
+				Mission.TerrainType.Land:
+					new_disp.modulate = Color.SEA_GREEN
+				Mission.TerrainType.LandObstacle:
+					new_disp.modulate = Color.SANDY_BROWN
+				Mission.TerrainType.LandDecoration:
+					new_disp.modulate = Color.DIM_GRAY
+			new_disp.position.x = col_idx * 4
+			new_disp.position.y = row_idx * 4
+			new_disp.size.x = 4
+			new_disp.size.y = 4
+			new_disp.z_index = 10
+			root_node.add_child(new_disp)		
 	selected_mission = mission_desc
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
 	

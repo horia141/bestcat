@@ -8,7 +8,9 @@ const WATER_TERRAIN = 4
 
 enum TerrainType {
 	Water,
-	Land
+	Land,
+	LandObstacle,
+	LandDecoration
 }
 
 class TerrainCell:
@@ -51,8 +53,10 @@ class TerrainMap:
 					type = TerrainType.Water
 					is_blocked = true
 				elif obstacle_cell != null:
+					type = TerrainType.LandObstacle
 					is_blocked = true
 				elif decoration_cell != null && decoration_cell.get_collision_polygons_count(0) > 0:
+					type = TerrainType.LandDecoration
 					is_blocked = true
 					
 				cells.push_back(TerrainCell.new(type, is_blocked))
