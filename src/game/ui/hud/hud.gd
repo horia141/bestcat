@@ -18,46 +18,50 @@ func _ready() -> void:
 #region Game logic
 
 func update_player(player: Player, effect: Player.PlayerEffect) -> void:
-	$PlayerInfo/Life/Text.text = str(player.life)
-	$PlayerInfo/Speed/Text.text = str(player.speed)
+	$PlayerInfo/Layout/Life/Text.text = str(player.life)
+	$PlayerInfo/Layout/Speed/Text.text = str(player.speed)
 	if player.speed_regen_factor > 0:
-		$PlayerInfo/Speed/Regen/Factor.value = player.speed_regen_factor / player.SPEED_REGEN_CUTOFF * 100
+		$PlayerInfo/Layout/Speed/Regen/Factor.value = player.speed_regen_factor / player.SPEED_REGEN_CUTOFF * 100
 	else:
-		$PlayerInfo/Speed/Regen/Factor.value = 0
-	$PlayerInfo/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
+		$PlayerInfo/Layout/Speed/Regen/Factor.value = 0
+	$PlayerInfo/Layout/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
 	if player.projectiles_cnt_regen_factor > 0:
-		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF * 100
+		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF * 100
 	else:
-		$PlayerInfo/ProjectilesCnt/Regen/Factor.value = 0
+		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = 0
 		
 	_enqueue_effect_log(effect)
 		
 func update_mission(mission_state: Game.MissionState, dark_towers_left_cnt: int, bosses_left_cnt: int, score: int) -> void:
-	$DarkTowersLeftCnt/Text.text = str(dark_towers_left_cnt)
-	$BossesLeftCnt/Text.text = str(bosses_left_cnt)
-	$Score/Text.text = str(score)
+	$MissionInfo/Right/DarkTowersLeftCnt/Text.text = str(dark_towers_left_cnt)
+	$MissionInfo/Right/BossesLeftCnt/Text.text = str(bosses_left_cnt)
+	$MissionInfo/Score/Text.text = str(score)
 	
 	match mission_state:
 		Game.MissionState.Start:
 			$PlayerInfo.hide()
-			$Score.hide()
-			$DarkTowersLeftCnt.hide()
-			$BossesLeftCnt.hide()
+			$MissionInfo.hide()
+			$MissionInfo/Score.hide()
+			$MissionInfo/Right/DarkTowersLeftCnt.hide()
+			$MissionInfo/Right/BossesLeftCnt.hide()
 		Game.MissionState.GetReady:
 			$PlayerInfo.show()
-			$Score.hide()
-			$DarkTowersLeftCnt.hide()
-			$BossesLeftCnt.hide()
+			$MissionInfo.show()
+			$MissionInfo/Score.hide()
+			$MissionInfo/Right/DarkTowersLeftCnt.hide()
+			$MissionInfo/Right/BossesLeftCnt.hide()
 		Game.MissionState.DestroyDarkTowers:
 			$PlayerInfo.show()
-			$Score.show()
-			$DarkTowersLeftCnt.show()
-			$BossesLeftCnt.hide()
+			$MissionInfo.show()
+			$MissionInfo/Score.show()
+			$MissionInfo/Right/DarkTowersLeftCnt.show()
+			$MissionInfo/Right/BossesLeftCnt.hide()
 		Game.MissionState.BossFight:
 			$PlayerInfo.show()
-			$Score.show()
-			$DarkTowersLeftCnt.hide()
-			$BossesLeftCnt.show()
+			$MissionInfo.show()
+			$MissionInfo/Score.show()
+			$MissionInfo/Right/DarkTowersLeftCnt.hide()
+			$MissionInfo/Right/BossesLeftCnt.show()
 			
 			
 func _enqueue_effect_log(effect: Player.PlayerEffect) -> void:

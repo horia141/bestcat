@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4kvoewf706nv"]
+[gd_scene load_steps=11 format=3 uid="uid://d4kvoewf706nv"]
 
 [ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_b7ufk"]
 [ext_resource type="Texture2D" uid="uid://dhd0v6d5hova3" path="res://common/heart.png" id="1_mw2ac"]
+[ext_resource type="Texture2D" uid="uid://ct3db03wm57tu" path="res://common/ui.tres" id="2_lox6s"]
 [ext_resource type="Texture2D" uid="uid://b85qivevh4gb3" path="res://common/projetile.png" id="3_mfaf1"]
 [ext_resource type="Texture2D" uid="uid://dpb5hgb7elfl8" path="res://common/speed.png" id="3_tp814"]
 [ext_resource type="Texture2D" uid="uid://du2kiml820bsa" path="res://common/star.png" id="4_0yol5"]
@@ -9,53 +10,75 @@
 [ext_resource type="Texture2D" uid="uid://matxjg6inu1d" path="res://common/dark-tower.png" id="4_wsmsp"]
 [ext_resource type="Texture2D" uid="uid://cv2h34gxip1xv" path="res://common/boss.png" id="5_20l1a"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e8ww"]
+atlas = ExtResource("2_lox6s")
+region = Rect2(1056, 1376, 128, 28)
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_b7ufk")
 
-[node name="PlayerInfo" type="HBoxContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 257.0
-offset_bottom = 57.0
+[node name="PlayerInfo" type="MarginContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 198.0
+offset_bottom = 42.0
 
-[node name="Life" type="HBoxContainer" parent="PlayerInfo"]
+[node name="Background" type="TextureRect" parent="PlayerInfo"]
+modulate = Color(1, 1, 1, 0.501961)
+texture_filter = 5
+clip_contents = true
+custom_minimum_size = Vector2(232, 40)
 layout_mode = 2
+texture = SubResource("AtlasTexture_0e8ww")
 
-[node name="Icon" type="TextureRect" parent="PlayerInfo/Life"]
+[node name="Layout" type="HBoxContainer" parent="PlayerInfo"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Life" type="HBoxContainer" parent="PlayerInfo/Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Layout/Life"]
 layout_mode = 2
 texture = ExtResource("1_mw2ac")
 expand_mode = 3
 
-[node name="Text" type="Label" parent="PlayerInfo/Life"]
+[node name="Text" type="Label" parent="PlayerInfo/Layout/Life"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="Buffer" type="Control" parent="PlayerInfo/Life"]
+[node name="Buffer" type="Control" parent="PlayerInfo/Layout/Life"]
 custom_minimum_size = Vector2(4.7, 0)
 layout_mode = 2
 
-[node name="Speed" type="HBoxContainer" parent="PlayerInfo"]
+[node name="Speed" type="HBoxContainer" parent="PlayerInfo/Layout"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Icon" type="TextureRect" parent="PlayerInfo/Speed"]
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Layout/Speed"]
 layout_mode = 2
 texture = ExtResource("3_tp814")
 
-[node name="Text" type="Label" parent="PlayerInfo/Speed"]
+[node name="Text" type="Label" parent="PlayerInfo/Layout/Speed"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "4"
 
-[node name="Regen" type="Control" parent="PlayerInfo/Speed"]
+[node name="Regen" type="Control" parent="PlayerInfo/Layout/Speed"]
 custom_minimum_size = Vector2(4.7, 0)
 layout_mode = 2
 
-[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/Speed/Regen"]
+[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/Layout/Speed/Regen"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 0
+offset_top = 2.0
 offset_right = 41.0
-offset_bottom = 47.0
-scale = Vector2(0.1, 1)
+offset_bottom = 49.0
+scale = Vector2(0.1, 0.65)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.1
@@ -63,97 +86,112 @@ value = 50.0
 fill_mode = 3
 texture_progress = ExtResource("4_45y3y")
 
-[node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo"]
+[node name="ProjectilesCnt" type="HBoxContainer" parent="PlayerInfo/Layout"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Icon" type="TextureRect" parent="PlayerInfo/ProjectilesCnt"]
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Layout/ProjectilesCnt"]
 clip_contents = true
 layout_mode = 2
 texture = ExtResource("3_mfaf1")
 expand_mode = 3
 
-[node name="Text" type="Label" parent="PlayerInfo/ProjectilesCnt"]
+[node name="Text" type="Label" parent="PlayerInfo/Layout/ProjectilesCnt"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="Regen" type="Control" parent="PlayerInfo/ProjectilesCnt"]
+[node name="Regen" type="Control" parent="PlayerInfo/Layout/ProjectilesCnt"]
 custom_minimum_size = Vector2(4.7, 0)
 layout_mode = 2
 
-[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/ProjectilesCnt/Regen"]
+[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/Layout/ProjectilesCnt/Regen"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.1, 1)
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 49.0
+scale = Vector2(0.1, 0.65)
 value = 50.0
 fill_mode = 3
 texture_progress = ExtResource("4_45y3y")
 
-[node name="Score" type="HBoxContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 219.0
-offset_top = 10.0
-offset_right = 328.0
-offset_bottom = 50.0
-grow_horizontal = 2
+[node name="MissionInfo" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 48.0
+grow_horizontal = 0
 
-[node name="Icon" type="TextureRect" parent="Score"]
+[node name="Background" type="TextureRect" parent="MissionInfo"]
+modulate = Color(1, 1, 1, 0.501961)
+texture_filter = 5
+clip_contents = true
+custom_minimum_size = Vector2(232, 40)
 layout_mode = 2
+texture = SubResource("AtlasTexture_0e8ww")
+
+[node name="Score" type="HBoxContainer" parent="MissionInfo"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Icon" type="TextureRect" parent="MissionInfo/Score"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
 texture = ExtResource("4_0yol5")
 expand_mode = 3
 
-[node name="Text" type="Label" parent="Score"]
+[node name="Text" type="Label" parent="MissionInfo/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0"
 
-[node name="DarkTowersLeftCnt" type="HBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -52.0
-offset_top = 10.0
-offset_right = -6.0
-offset_bottom = 50.0
-grow_horizontal = 0
-
-[node name="Icon" type="TextureRect" parent="DarkTowersLeftCnt"]
+[node name="Right" type="MarginContainer" parent="MissionInfo"]
 layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="BossesLeftCnt" type="HBoxContainer" parent="MissionInfo/Right"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Icon" type="TextureRect" parent="MissionInfo/Right/BossesLeftCnt"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("5_20l1a")
+expand_mode = 3
+
+[node name="Text" type="Label" parent="MissionInfo/Right/BossesLeftCnt"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="DarkTowersLeftCnt" type="HBoxContainer" parent="MissionInfo/Right"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Icon" type="TextureRect" parent="MissionInfo/Right/DarkTowersLeftCnt"]
+custom_minimum_size = Vector2(16, 34)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("4_wsmsp")
 expand_mode = 3
 
-[node name="Text" type="Label" parent="DarkTowersLeftCnt"]
+[node name="Text" type="Label" parent="MissionInfo/Right/DarkTowersLeftCnt"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 24
 text = "5
 "
-
-[node name="BossesLeftCnt" type="HBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -68.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 50.0
-grow_horizontal = 0
-
-[node name="Icon" type="TextureRect" parent="BossesLeftCnt"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("5_20l1a")
-expand_mode = 3
-
-[node name="Text" type="Label" parent="BossesLeftCnt"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 24
-text = "1"
 
 [node name="EffectsLog" type="VBoxContainer" parent="."]
 visible = false
