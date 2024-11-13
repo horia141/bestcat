@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://erw42kb14y0"]
+
+[node name="HelpContent" type="VBoxContainer"]
+
+[node name="Move" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Arrows: Move and orient shooting"
+
+[node name="Shoot" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Space: Shoot"
+
+[node name="Escape" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Escape: In game menu"
+
+[node name="Slash" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Slash (/): Help"

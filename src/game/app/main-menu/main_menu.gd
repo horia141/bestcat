@@ -89,31 +89,31 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.deactivate()
-			$HelpDialog.deactivate()
+			$ShowControls.deactivate()
 			$Main/Commands/Margin/Layout/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
 			$SelectMission.activate()
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.deactivate()
-			$HelpDialog.deactivate()
+			$ShowControls.deactivate()
 		View.SelectPlayer:
 			$Main.hide()
 			$SelectMission.deactivate()
 			$SelectPlayer.activate()
 			$SelectDifficulty.deactivate()
-			$HelpDialog.deactivate()
+			$ShowControls.deactivate()
 		View.SelectDifficulty:
 			$Main.hide()
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.activate(selected_mission)
-			$HelpDialog.deactivate()
+			$ShowControls.deactivate()
 		View.Controls:
 			$Main.hide()
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.hide()
-			$HelpDialog.activate()
+			$ShowControls.activate()
 
 #endregion

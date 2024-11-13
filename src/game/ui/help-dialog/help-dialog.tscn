@@ -1,79 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://orct8s27lqjl"]
+[gd_scene load_steps=6 format=3 uid="uid://orct8s27lqjl"]
 
 [ext_resource type="Script" path="res://ui/help-dialog/help_dialog.gd" id="1_uhlio"]
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_l1p5k"]
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="3_28c38"]
+[ext_resource type="PackedScene" uid="uid://b17w7xxeofyxd" path="res://ui/game-ui/game-dialog-frame.tscn" id="4_gsirt"]
+[ext_resource type="PackedScene" uid="uid://erw42kb14y0" path="res://ui/help-content/help-content.tscn" id="4_xhpro"]
 
 [node name="HelpDialog" type="CanvasLayer" groups=["Dialogs"]]
 process_mode = 3
 script = ExtResource("1_uhlio")
 
-[node name="Content" type="VBoxContainer" parent="."]
+[node name="Frame" parent="." instance=ExtResource("4_gsirt")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = -136.0
-offset_right = 229.0
-offset_bottom = 136.0
+offset_left = -253.0
+offset_top = -144.0
+offset_right = 253.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Frame"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Frame/Margin"]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Content" parent="Content" instance=ExtResource("2_l1p5k")]
+[node name="Content" parent="Frame/Margin/Layout" instance=ExtResource("2_l1p5k")]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Content/Content"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Layout" type="VBoxContainer" parent="Content/Content/Margin"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Move" type="Label" parent="Content/Content/Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Arrows: Move and orient shooting"
-
-[node name="Shoot" type="Label" parent="Content/Content/Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Space: Shoot"
-
-[node name="Escape" type="Label" parent="Content/Content/Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Escape: In game menu"
-
-[node name="Slash" type="Label" parent="Content/Content/Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Slash (/): Help"
-
-[node name="Controls" parent="Content" instance=ExtResource("2_l1p5k")]
-layout_mode = 2
-
-[node name="Margin" type="MarginContainer" parent="Content/Controls"]
+[node name="Margin" type="MarginContainer" parent="Frame/Margin/Layout/Content"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Layout" type="HBoxContainer" parent="Content/Controls/Margin"]
+[node name="HelpContent" parent="Frame/Margin/Layout/Content/Margin" instance=ExtResource("4_xhpro")]
 layout_mode = 2
-alignment = 1
 
-[node name="Continue" parent="Content/Controls/Margin/Layout" instance=ExtResource("3_28c38")]
+[node name="Continue" parent="Frame/Margin/Layout" instance=ExtResource("3_28c38")]
 custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
+size_flags_horizontal = 4
 label = "Continue"
 font_size = 20
 
-[connection signal="button_up" from="Content/Controls/Margin/Layout/Continue" to="." method="_continue"]
+[connection signal="button_up" from="Frame/Margin/Layout/Continue" to="." method="_continue"]

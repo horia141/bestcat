@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
-[ext_resource type="PackedScene" uid="uid://orct8s27lqjl" path="res://ui/help-dialog/help-dialog.tscn" id="2_87g0v"]
 [ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_ej781"]
 [ext_resource type="PackedScene" uid="uid://d0mwa7opmiho0" path="res://app/main-menu/select-player/select-player.tscn" id="2_eo256"]
 [ext_resource type="PackedScene" uid="uid://d1exnpsw62d4q" path="res://app/main-menu/select-mission/select-mission.tscn" id="2_w05gh"]
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="3_u8p1n"]
 [ext_resource type="PackedScene" uid="uid://lpuqutgh2h0y" path="res://app/main-menu/select-difficulty/select-difficulty.tscn" id="4_qcdqa"]
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="6_7kr4e"]
+[ext_resource type="PackedScene" uid="uid://bnxude3glaqa5" path="res://app/main-menu/show-controls/show-controls.tscn" id="8_olo7c"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
@@ -85,8 +85,10 @@ offset_top = -169.5
 offset_right = 258.0
 offset_bottom = 169.5
 
-[node name="HelpDialog" parent="." instance=ExtResource("2_87g0v")]
+[node name="ShowControls" parent="." instance=ExtResource("8_olo7c")]
 visible = false
+offset_left = -250.0
+offset_right = 250.0
 
 [connection signal="button_up" from="Main/Commands/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Controls" to="." method="_main_to_controls"]
@@ -97,4 +99,4 @@ visible = false
 [connection signal="return_from" from="SelectPlayer" to="." method="_select_player_go_to_select_mission"]
 [connection signal="difficulty_selected" from="SelectDifficulty" to="." method="_select_difficulty_go_to_new_game"]
 [connection signal="return_from" from="SelectDifficulty" to="." method="_select_difficulty_go_to_select_player"]
-[connection signal="done" from="HelpDialog" to="." method="_controls_to_main"]
+[connection signal="return_from" from="ShowControls" to="." method="_controls_to_main"]

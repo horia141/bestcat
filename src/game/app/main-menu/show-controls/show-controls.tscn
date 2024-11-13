@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnxude3glaqa5"]
+
+[ext_resource type="Script" path="res://app/main-menu/show-controls/show_controls.gd" id="1_asb3i"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="1_wc2wj"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_ddjhj"]
+[ext_resource type="PackedScene" uid="uid://erw42kb14y0" path="res://ui/help-content/help-content.tscn" id="3_mgnt6"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_v4dpi"]
+
+[node name="MainMenuShowControls" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -183.5
+offset_right = 237.0
+offset_bottom = 183.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+script = ExtResource("1_asb3i")
+
+[node name="Header" parent="." instance=ExtResource("1_wc2wj")]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+
+[node name="Content" parent="." instance=ExtResource("2_ddjhj")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HelpContent" parent="Content/Margin" instance=ExtResource("3_mgnt6")]
+layout_mode = 2
+
+[node name="Controls" parent="." instance=ExtResource("2_ddjhj")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Return" parent="Controls/Margin" instance=ExtResource("4_v4dpi")]
+custom_minimum_size = Vector2(100, 81)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+label = "Return"
+font_size = 20
+
+[connection signal="button_up" from="Controls/Margin/Return" to="." method="_return_from"]
