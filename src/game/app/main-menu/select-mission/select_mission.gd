@@ -53,33 +53,32 @@ func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) ->
 	var vp_y = $Selector/View/Margin/Layout/SubViewport.size.y
 		
 	var terrain_map = mission.terrain_map
-	var root_node = Node2D.new()
-	var size_in_px = Vector2(terrain_map.cols_cnt * 4, terrain_map.rows_cnt * 4)
-	var scale = min(vp_x / size_in_px.x, vp_y / size_in_px.y) * 0.75
-	root_node.position = Vector2((vp_x - size_in_px.x * scale) / 2, (vp_y - size_in_px.y * scale) / 2)
-	root_node.scale = Vector2(scale, scale)
-		
-	$Selector/View/Margin/Layout/SubViewport.add_child(root_node)
+	
+	var map_image = Image.create_empty(terrain_map.cols_cnt * 4, terrain_map.rows_cnt * 4, false, Image.Format.FORMAT_RGB8)
 	
 	for row_idx in range(0, terrain_map.rows_cnt):
 		for col_idx in range(0, terrain_map.cols_cnt):
-			var new_disp = TextureRect.new()
-			new_disp.texture = CanvasTexture.new()
+			var color = Color.GRAY
 			match terrain_map.get_cell(row_idx, col_idx).type:
 				Mission.TerrainType.Water:
-					new_disp.modulate = Color.CADET_BLUE
+					color = Color.CADET_BLUE
 				Mission.TerrainType.Land:
-					new_disp.modulate = Color.SEA_GREEN
+					color = Color.SEA_GREEN
 				Mission.TerrainType.LandObstacle:
-					new_disp.modulate = Color.SANDY_BROWN
+					color = Color.SANDY_BROWN
 				Mission.TerrainType.LandDecoration:
-					new_disp.modulate = Color.DIM_GRAY
-			new_disp.position.x = col_idx * 4
-			new_disp.position.y = row_idx * 4
-			new_disp.size.x = 4
-			new_disp.size.y = 4
-			new_disp.z_index = 10
-			root_node.add_child(new_disp)		
+					color = Color.DIM_GRAY
+			map_image.fill_rect(Rect2i(col_idx * 4, row_idx * 4, 4, 4), color)
+	
+	var map_texture = ImageTexture.create_from_image(map_image)
+	var map_node = TextureRect.new()
+	map_node.texture = map_texture
+	var size_in_px = Vector2(terrain_map.cols_cnt * 4, terrain_map.rows_cnt * 4)
+	var scale = min(vp_x / size_in_px.x, vp_y / size_in_px.y) * 0.75
+	map_node.position = Vector2((vp_x - size_in_px.x * scale) / 2, (vp_y - size_in_px.y * scale) / 2)
+	map_node.scale = Vector2(scale, scale)
+		
+	$Selector/View/Margin/Layout/SubViewport.add_child(map_node)		
 	selected_mission = mission_desc
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
 	
