@@ -24,7 +24,7 @@ point_count = 7
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
 
-[node name="Background" type="Node" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
 [node name="Image" type="TextureRect" parent="Background"]
 texture_filter = 6
