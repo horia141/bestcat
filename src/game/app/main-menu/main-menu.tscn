@@ -1,16 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=13 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
 [ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_ej781"]
 [ext_resource type="PackedScene" uid="uid://d0mwa7opmiho0" path="res://app/main-menu/select-player/select-player.tscn" id="2_eo256"]
+[ext_resource type="Texture2D" uid="uid://c1y4vo4v811qp" path="res://app/main-menu/background.png" id="2_sh3lm"]
 [ext_resource type="PackedScene" uid="uid://d1exnpsw62d4q" path="res://app/main-menu/select-mission/select-mission.tscn" id="2_w05gh"]
+[ext_resource type="Shader" path="res://app/main-menu/main-menu.gdshader" id="2_xpbev"]
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="3_u8p1n"]
 [ext_resource type="PackedScene" uid="uid://lpuqutgh2h0y" path="res://app/main-menu/select-difficulty/select-difficulty.tscn" id="4_qcdqa"]
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="6_7kr4e"]
 [ext_resource type="PackedScene" uid="uid://bnxude3glaqa5" path="res://app/main-menu/show-controls/show-controls.tscn" id="8_olo7c"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atguf"]
+shader = ExtResource("2_xpbev")
+shader_parameter/radius = 4.0
+
+[sub_resource type="Curve2D" id="Curve2D_6g3qa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -235, -82, 0, 0, 0, 0, -536, -156, 0, 0, 0, 0, -455, -387, 0, 0, 0, 0, -184, -419, 0, 0, 0, 0, -77, -282, 0, 0, 0, 0, -13, -108, 0, 0, 0, 0, -235, -82)
+}
+point_count = 7
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ilhsy")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Image" type="TextureRect" parent="Background"]
+texture_filter = 6
+material = SubResource("ShaderMaterial_atguf")
+offset_right = 1730.0
+offset_bottom = 1174.0
+texture = ExtResource("2_sh3lm")
+
+[node name="Path" type="Path2D" parent="Background"]
+curve = SubResource("Curve2D_6g3qa")
+
+[node name="Follow" type="PathFollow2D" parent="Background/Path"]
+position = Vector2(-235, -82)
+rotation = -2.90053
+
+[node name="MoveBackground" type="Timer" parent="Background"]
+wait_time = 0.1
+autostart = true
 
 [node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -91,6 +123,7 @@ visible = false
 offset_left = -250.0
 offset_right = 250.0
 
+[connection signal="timeout" from="Background/MoveBackground" to="." method="_background_move"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Controls" to="." method="_main_to_controls"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Quit" to="." method="_main_go_to_quit_game"]

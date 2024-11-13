@@ -115,5 +115,9 @@ func _show() -> void:
 			$SelectPlayer.deactivate()
 			$SelectDifficulty.hide()
 			$ShowControls.activate()
+			
+func _background_move() -> void:
+	$Background/Path/Follow.progress += 5
+	$Background/Image.position = $Background/Path/Follow.position
 
 #endregion

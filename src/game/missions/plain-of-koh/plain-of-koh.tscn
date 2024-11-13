@@ -69,7 +69,7 @@ y_sort_enabled = true
 position = Vector2(336, 400)
 
 [node name="DarkTower2" parent="." instance=ExtResource("5_jvxba")]
-position = Vector2(648, 272)
+position = Vector2(648, 273)
 
 [node name="DarkTower3" parent="." instance=ExtResource("5_jvxba")]
 position = Vector2(552, 592)
