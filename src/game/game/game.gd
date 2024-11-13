@@ -163,21 +163,21 @@ func _on_mob_destroyed(mob: Mob) -> void:
 	mob.queue_free()
 	
 	var choice = randf_range(0, 1)
+	var powerup = null
 	if choice < 0.33:
-		var life_powerup = LifePowerUpScn.instantiate()
-		life_powerup.post_ready_prepare(mob.position)
-		life_powerup.picked_up.connect(func (player): _on_treasure_picked(player, life_powerup))
-		call_deferred("add_child", life_powerup)
+		powerup = LifePowerUpScn.instantiate()
 	elif choice < 0.66:
-		var speed_powerup = SpeedPowerUpScn.instantiate()
-		speed_powerup.post_ready_prepare(mob.position)
-		speed_powerup.picked_up.connect(func (player): _on_treasure_picked(player, speed_powerup))
-		call_deferred("add_child", speed_powerup)
+		powerup = SpeedPowerUpScn.instantiate()
 	else:
-		var projectile_powerup = ProjectilePowerUpScn.instantiate()
-		projectile_powerup.post_ready_prepare(mob.position)
-		projectile_powerup.picked_up.connect(func (player): _on_treasure_picked(player, projectile_powerup))
-		call_deferred("add_child", projectile_powerup)
+		powerup = ProjectilePowerUpScn.instantiate()
+	
+	powerup.modulate = Color.TRANSPARENT
+	powerup.post_ready_prepare(mob.position)
+	powerup.picked_up.connect(func (player): _on_treasure_picked(player, powerup))
+	add_child(powerup)
+	
+	var tween = powerup.create_tween()
+	tween.tween_property(powerup, "modulate", Color.WHITE, 0.2)
 		
 	score += 1
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
