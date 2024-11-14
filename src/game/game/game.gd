@@ -106,6 +106,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		
 	for treasure in get_tree().get_nodes_in_group("Treasures"):
 		var the_treasure = treasure as Treasure
+		the_treasure.post_ready_prepare(the_treasure.position)
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
 	# Now we properly start the game
@@ -171,14 +172,10 @@ func _on_mob_destroyed(mob: Mob) -> void:
 	else:
 		powerup = ProjectilePowerUpScn.instantiate()
 	
-	powerup.modulate = Color.TRANSPARENT
 	powerup.post_ready_prepare(mob.position)
 	powerup.picked_up.connect(func (player): _on_treasure_picked(player, powerup))
 	add_child(powerup)
 	
-	var tween = powerup.create_tween()
-	tween.tween_property(powerup, "modulate", Color.WHITE, 0.2)
-		
 	score += 1
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 		

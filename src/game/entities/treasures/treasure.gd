@@ -11,6 +11,10 @@ func _ready() -> void:
 func post_ready_prepare(init_position: Vector2) -> void:
 	position = init_position
 	
+	modulate = Color.TRANSPARENT
+	var tween = self.create_tween()
+	tween.tween_property(self, "modulate", Color.WHITE, 0.2)
+
 #endregion
 
 #region Game logic
