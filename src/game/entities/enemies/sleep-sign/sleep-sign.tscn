@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7oumdiop3f2t"]
+
+[ext_resource type="Texture2D" uid="uid://g8vrg1taufgq" path="res://entities/enemies/sleep-sign/zzz.png" id="1_lcag2"]
+
+[node name="SleepSign" type="Sprite2D"]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_lcag2")
