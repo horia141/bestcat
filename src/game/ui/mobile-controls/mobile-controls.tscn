@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://ekthc074lca3"]
+
+[ext_resource type="Script" path="res://ui/mobile-controls/mobile_controls.gd" id="1_limjc"]
+[ext_resource type="Texture2D" uid="uid://ct3db03wm57tu" path="res://common/ui.tres" id="1_lmuh0"]
+[ext_resource type="Texture2D" uid="uid://ciae6wmiyfmox" path="res://ui/mobile-controls/move-button.tres" id="3_atwwm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kd0u"]
+atlas = ExtResource("1_lmuh0")
+region = Rect2(160, 224, 16, 16)
+
+[node name="MobileControls" type="Node2D"]
+script = ExtResource("1_limjc")
+
+[node name="Shoot" type="TextureButton" parent="."]
+texture_filter = 5
+custom_minimum_size = Vector2(154, 154)
+offset_left = 8.0
+offset_right = 152.0
+offset_bottom = 144.0
+texture_normal = SubResource("AtlasTexture_1kd0u")
+stretch_mode = 0
+
+[node name="MoveUp" type="TextureButton" parent="."]
+texture_filter = 5
+offset_left = 712.0
+offset_right = 784.0
+offset_bottom = 72.0
+rotation = 1.5708
+texture_normal = ExtResource("3_atwwm")
+stretch_mode = 0
+
+[node name="MoveRight" type="TextureButton" parent="."]
+texture_filter = 5
+offset_left = 792.0
+offset_top = 112.0
+offset_right = 864.0
+offset_bottom = 184.0
+rotation = 3.14159
+texture_normal = ExtResource("3_atwwm")
+stretch_mode = 0
+
+[node name="MoveDown" type="TextureButton" parent="."]
+texture_filter = 5
+offset_left = 640.0
+offset_top = 150.0
+offset_right = 712.0
+offset_bottom = 222.0
+rotation = 4.71239
+texture_normal = ExtResource("3_atwwm")
+stretch_mode = 0
+
+[node name="MoveLeft" type="TextureButton" parent="."]
+texture_filter = 5
+offset_left = 559.0
+offset_top = 40.0
+offset_right = 631.0
+offset_bottom = 112.0
+texture_normal = ExtResource("3_atwwm")
+stretch_mode = 1
+
+[connection signal="button_up" from="Shoot" to="." method="_on_shoot_press"]
+[connection signal="button_up" from="MoveUp" to="." method="_on_move_up_press"]
+[connection signal="button_up" from="MoveRight" to="." method="_on_move_right_press"]
+[connection signal="button_up" from="MoveDown" to="." method="_on_move_down_press"]
+[connection signal="button_up" from="MoveLeft" to="." method="_on_move_left_press"]

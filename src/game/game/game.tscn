@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://h7pvg8ftvk3y"]
+[gd_scene load_steps=13 format=3 uid="uid://h7pvg8ftvk3y"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_23vru"]
 [ext_resource type="PackedScene" uid="uid://dhwvixbfdo05r" path="res://entities/players/bestcat/bestcat.tscn" id="1_tgonu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://wx2bcejhq5n1" path="res://missions/hunt-for-zorn/hunt-for-zorn.tscn" id="6_jcgf0"]
 [ext_resource type="PackedScene" uid="uid://buprk1jqqnl8k" path="res://ui/start-countdown/start-countdown.tscn" id="9_lq6f7"]
 [ext_resource type="PackedScene" uid="uid://buj5n3syk56dv" path="res://ui/game-time-left-timer/game-time-left-timer.tscn" id="11_iwd7n"]
+[ext_resource type="PackedScene" uid="uid://ekthc074lca3" path="res://ui/mobile-controls/mobile-controls.tscn" id="12_f5uj6"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_23vru")
@@ -48,6 +49,10 @@ visible = false
 
 [node name="GameTimeLeftTimer" parent="." instance=ExtResource("11_iwd7n")]
 visible = false
+
+[node name="MobileControls" parent="." instance=ExtResource("12_f5uj6")]
+z_index = 100
+position = Vector2(2, 440)
 
 [connection signal="done" from="HelpDialog" to="." method="_resume_mission"]
 [connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]
