@@ -3,7 +3,6 @@ extends Enemy
 
 const SleepSignScn = preload("res://entities/enemies/sleep-sign/sleep-sign.tscn")
 
-var activation_tween: Tween = null
 var sleep_sign = null
 
 #region Construction
@@ -15,11 +14,6 @@ func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, diffic
 	sleep_sign.scale = sleep_sign.scale / self.scale
 	sleep_sign.position = Vector2($Collision.shape.get_rect().position + Vector2($Collision.shape.get_rect().size.x, 0))
 	
-	
-	add_child(sleep_sign)
-	$Sprite.stop()
-	init_tween.chain().tween_property(self, "modulate", Color.GRAY, 0.2)
-	
 	var immediate_activation = true
 	for child in get_children():
 		if child is EnemyActivationArea:
@@ -27,6 +21,12 @@ func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, diffic
 			child.player_exited.connect(_player_exited_activation_area)
 			immediate_activation = false
 			break
+			
+	var initial_color = Color.WHITE if immediate_activation else Color.GRAY
+			
+	add_child(sleep_sign)
+	$Sprite.pause()
+	init_tween.chain().tween_property(self, "modulate", initial_color, 0.2)
 		
 	if immediate_activation:
 		_player_entered_activation_area(null)
@@ -43,10 +43,11 @@ func _player_entered_activation_area(player: Player) -> void:
 	$ShootTimer.start()
 	$Sprite.play("idle")
 	
-	activation_tween = create_tween()
+	var activation_tween = create_tween()
 	activation_tween.tween_property(self, "modulate", Color.WHITE, 0.2)
 	
-	remove_child(sleep_sign)
+	if is_ancestor_of(sleep_sign):
+		remove_child(sleep_sign)
 	
 func _player_exited_activation_area(player: Player) -> void:
 	if state == EnemyState.Hidden or state == EnemyState.Dead:
@@ -54,8 +55,8 @@ func _player_exited_activation_area(player: Player) -> void:
 	state = EnemyState.Inactive
 	
 	add_child(sleep_sign)
-	$Sprite.stop()
-	activation_tween = create_tween()
+	$Sprite.pause()
+	var activation_tween = create_tween()
 	activation_tween.tween_property(self, "modulate", Color.GRAY, 0.2)
 
 func on_hit_by_projectile() -> void:
@@ -66,6 +67,8 @@ func on_hit_by_projectile() -> void:
 	
 func destroy() -> void:
 	super.destroy()
+	if is_ancestor_of(sleep_sign):
+		remove_child(sleep_sign)
 	state = EnemyState.Dead
 	$ShootTimer.stop()
 	$Sprite.play("explosion")
@@ -73,8 +76,6 @@ func destroy() -> void:
 	set_deferred("freeze", true)
 	await $Sprite.animation_finished
 	destroyed.emit()
-	if activation_tween != null:
-		activation_tween.kill()
 	
 func is_bound_to_dark_tower() -> bool:
 	return true

@@ -150,7 +150,6 @@ clip_children = 2
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_riel7")
 animation = &"idle"
-autoplay = "idle"
 frame_progress = 0.542413
 
 [node name="WhiteMask" type="Sprite2D" parent="Sprite"]

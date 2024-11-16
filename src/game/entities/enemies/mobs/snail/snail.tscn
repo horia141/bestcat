@@ -193,7 +193,6 @@ script = ExtResource("1_7251s")
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_ys0ef")
 animation = &"idle"
-autoplay = "idle"
 
 [node name="WhiteMask" type="Sprite2D" parent="Sprite"]
 modulate = Color(1, 1, 1, 0)

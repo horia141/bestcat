@@ -110,7 +110,6 @@ metadata/_edit_group_ = true
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_ux2hi")
 animation = &"idle"
-autoplay = "idle"
 frame_progress = 0.347969
 
 [node name="WhiteMask" type="Sprite2D" parent="Sprite"]
