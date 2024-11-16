@@ -24,13 +24,7 @@ script = ExtResource("1_asb3i")
 [node name="Header" parent="." instance=ExtResource("1_wc2wj")]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Header"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 28
-text = "Controls"
+label = "The Controls"
 
 [node name="Content" parent="." instance=ExtResource("2_ddjhj")]
 layout_mode = 2

@@ -101,7 +101,7 @@ var all_players_desc: Array[PlayerDesc] = [
 		"""
 			BestDog is BestCat's competitor for Kenny's affection (and food)!
 			
-			BestDog is fast, but he's all bark no bite!
+			He's very fast, but low bite!
 		""",
 		preload("res://entities/players/bestdog/bestdog.tscn"),
 		4,

@@ -23,13 +23,7 @@ script = ExtResource("1_pomqh")
 [node name="Header" parent="." instance=ExtResource("2_8ovqq")]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Header"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 28
-text = "Choose The Difficulty"
+label = "Choose The Difficulty"
 
 [node name="Selector" type="HBoxContainer" parent="."]
 layout_mode = 2

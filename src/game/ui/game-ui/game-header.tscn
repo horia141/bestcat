@@ -1,5 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://desy7wwqh5j8x"]
+[gd_scene load_steps=5 format=3 uid="uid://desy7wwqh5j8x"]
 
+[ext_resource type="Theme" uid="uid://g3jsuxjubnsj" path="res://common/theme.tres" id="1_beinj"]
+[ext_resource type="Script" path="res://ui/game-ui/game_header.gd" id="1_pastd"]
 [ext_resource type="Texture2D" uid="uid://ct3db03wm57tu" path="res://common/ui.tres" id="1_r4w16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imu3q"]
@@ -8,12 +10,21 @@ region = Rect2(1056, 1088, 128, 32)
 
 [node name="GameHeader" type="MarginContainer"]
 texture_filter = 5
+custom_minimum_size = Vector2(282, 70)
 offset_right = 128.0
 offset_bottom = 36.0
 size_flags_vertical = 4
+theme = ExtResource("1_beinj")
+script = ExtResource("1_pastd")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 2
 texture = SubResource("AtlasTexture_imu3q")
 patch_margin_left = 20
 patch_margin_right = 20
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Say Something"

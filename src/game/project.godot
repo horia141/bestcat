@@ -39,6 +39,10 @@ Bosses=""
 Mobs=""
 Dialogs=""
 
+[gui]
+
+theme/custom="res://common/theme.tres"
+
 [input]
 
 ui_accept={
