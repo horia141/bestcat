@@ -96,54 +96,10 @@ class MissionAttempt:
 		self.all_bosses_desc = all_bosses_desc
 		
 var all_players_desc: Array[PlayerDesc] = [
-	PlayerDesc.new(
-		"BestCat",
-		"""
-			BestCat is the main character in the game and in some comics that will appear.
-			
-			He is an all around fighter.
-		""",
-		preload("res://entities/players/bestcat/bestcat.tscn"),
-		5,
-		5,
-		5
-	),
-	PlayerDesc.new(
-		"Kenny",
-		"""
-			Kenny is BestCat's human.
-			
-			He's slower than the other players, but packs a punch.
-		""",
-		preload("res://entities/players/kenny/kenny.tscn"),
-		5,
-		3,
-		7
-	),
-	PlayerDesc.new(
-		"BestDog",
-		"""
-			BestDog is BestCat's competitor for Kenny's affection (and food)!
-			
-			He's very fast, but low bite!
-		""",
-		preload("res://entities/players/bestdog/bestdog.tscn"),
-		4,
-		7,
-		4
-	),
-	PlayerDesc.new(
-		"Macky",
-		"""
-			Macky was bought by Kenny when he started farming.
-			
-			Macky is a bit tougher, but can't do as much damage.
-		""",
-		preload("res://entities/players/macky/macky.tscn"),
-		6,
-		5,
-		4
-	)
+	BestCat.Desc,
+	Kenny.Desc,
+	BestDog.Desc,
+	Macky.Desc
 ]
 
 var all_mobs_desc: Array[EnemyDesc] = [
@@ -158,19 +114,9 @@ var all_bosses_desc: Array[EnemyDesc] = [
 ]
 
 var all_missions_desc: Array[MissionDesc] = [
-	MissionDesc.new(
-		"Tutorial",
-		[MissionDifficulty.Novice],
-		preload("res://missions/tutorial/tutorial.tscn")
-	),
-	MissionDesc.new(
-		"Hunt for Zorn", 
-		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
-		preload("res://missions/hunt-for-zorn/hunt-for-zorn.tscn")),
-	MissionDesc.new(
-		"Plain of Koh",
-		[MissionDifficulty.Novice, MissionDifficulty.Apprentice, MissionDifficulty.Expert],
-		preload("res://missions/plain-of-koh/plain-of-koh.tscn"))
+	Tutorial.Desc,
+	HuntForZorn.Desc,
+	PlainOfKoh.Desc
 ]
 
 var all_mission_difficulties_desc: Array[MissionDifficultyDesc] = [
