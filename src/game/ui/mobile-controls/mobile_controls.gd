@@ -1,6 +1,8 @@
 class_name MobileControls
 extends Node2D
 
+const MOBILE_WINDOW_WIDTH = 700
+
 #region Construction
 
 func _ready() -> void:
@@ -8,7 +10,11 @@ func _ready() -> void:
 		["Android", "iOS"]:
 			show()
 		"Web":
-			hide()
+			var windowWidth = JavaScriptBridge.eval("window.innerWidth")
+			if windowWidth < MOBILE_WINDOW_WIDTH:
+				show()
+			else:
+				hide()
 		_:
 			hide()
 	

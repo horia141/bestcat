@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcl7odhamp0v8"]
+[gd_scene load_steps=19 format=3 uid="uid://bcl7odhamp0v8"]
 
 [ext_resource type="Texture2D" uid="uid://bpojpiwt37r7o" path="res://entities/enemies/mobs/ogre/ogre.png" id="1_2c0mc"]
 [ext_resource type="Script" path="res://entities/enemies/mobs/ogre/ogre.gd" id="1_t6i1p"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="1_xey12"]
+[ext_resource type="PackedScene" uid="uid://b42o4ohq54i" path="res://ui/health-bar/health-bar.tscn" id="4_m6svg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urvpd"]
 atlas = ExtResource("1_xey12")
@@ -123,5 +124,10 @@ shape = SubResource("CircleShape2D_jho5w")
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="HealthBar" parent="." instance=ExtResource("4_m6svg")]
+position = Vector2(-6, 10)
+scale = Vector2(0.25, 0.25)
+life = 10
 
 [connection signal="timeout" from="ShootTimer" to="." method="_shoot"]

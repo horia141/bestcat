@@ -32,7 +32,7 @@ const SPEED_REGEN_CUTOFF = 10
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
 const PROJECTILES_CNT_REGEN_CUTOFF = 10
 
-const PlayerProjectileScn = preload("res://entities/player-projectile/player-projectile.tscn")
+const PlayerProjectileScn = preload("res://entities/players/projectile/player-projectile.tscn")
 
 @export var in_game_scale: float = 1
 

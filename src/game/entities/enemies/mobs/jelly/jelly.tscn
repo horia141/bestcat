@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://dc30rmyd7dqwg"]
+[gd_scene load_steps=25 format=3 uid="uid://dc30rmyd7dqwg"]
 
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="1_4ced3"]
 [ext_resource type="Script" path="res://entities/enemies/mobs/jelly/jelly.gd" id="1_73qje"]
 [ext_resource type="Texture2D" uid="uid://bs6fpvph0ny5p" path="res://entities/enemies/mobs/jelly/jelly.idle.png" id="1_th3cb"]
+[ext_resource type="PackedScene" uid="uid://b42o4ohq54i" path="res://ui/health-bar/health-bar.tscn" id="4_u0wxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86os4"]
 atlas = ExtResource("1_4ced3")
@@ -163,5 +164,10 @@ shape = SubResource("CircleShape2D_8lup2")
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HealthBar" parent="." instance=ExtResource("4_u0wxr")]
+position = Vector2(-13, 15)
+scale = Vector2(0.5, 0.5)
+life = 10
 
 [connection signal="timeout" from="ShootTimer" to="." method="_shoot"]

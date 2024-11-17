@@ -35,7 +35,24 @@ class PlayerDesc:
 		self.max_life = max_life
 		self.max_speed = max_speed
 		self.max_projectiles_cnt = max_projectiles_cnt
-			
+		
+		
+class EnemyDesc:
+	var ui_name: String
+	var ui_description: String
+	var scene: PackedScene
+	var max_life: DifficultyValue
+	
+	func _init(
+		ui_name: String,
+		ui_description: String,
+		scene: PackedScene,
+		max_life: DifficultyValue
+	) -> void:
+		self.ui_name = ui_name
+		self.ui_description = ui_description
+		self.scene = scene
+		self.max_life = max_life
 
 class MissionDesc:
 	var title: String
@@ -65,11 +82,18 @@ class MissionAttempt:
 	var player: PlayerDesc
 	var mission: MissionDesc
 	var difficulty: MissionDifficultyDesc
+	var all_mobs_desc: Array[EnemyDesc]
+	var all_bosses_desc: Array[EnemyDesc]
 	
-	func _init(player: PlayerDesc, mission: MissionDesc, difficulty: MissionDifficultyDesc) -> void:
+	func _init(
+		player: PlayerDesc, mission: MissionDesc, 
+		difficulty: MissionDifficultyDesc, all_mobs_desc: Array[EnemyDesc], 
+		all_bosses_desc: Array[EnemyDesc]) -> void:
 		self.player = player
 		self.mission = mission
 		self.difficulty = difficulty
+		self.all_mobs_desc = all_mobs_desc
+		self.all_bosses_desc = all_bosses_desc
 		
 var all_players_desc: Array[PlayerDesc] = [
 	PlayerDesc.new(
@@ -120,6 +144,16 @@ var all_players_desc: Array[PlayerDesc] = [
 		5,
 		4
 	)
+]
+
+var all_mobs_desc: Array[EnemyDesc] = [
+	Jelly.Desc,
+	Ogre.Desc,
+	Snail.Desc
+]
+
+var all_bosses_desc: Array[EnemyDesc] = [
+	StoneKiller.Desc
 ]
 
 var all_missions_desc: Array[MissionDesc] = [
@@ -185,7 +219,7 @@ var current_game: Game = null
 #region Construction
 
 func _ready() -> void:
-	$MainMenu.post_ready_process(all_players_desc, all_missions_desc, all_mission_difficulties_desc)
+	$MainMenu.post_ready_process(all_players_desc, all_missions_desc, all_mission_difficulties_desc, all_mobs_desc, all_bosses_desc)
 	
 #endregion
 
@@ -221,10 +255,10 @@ func quit_game() -> void:
 	get_tree().quit()
 	
 static func __clean_ui_description(desc: String) -> String:
-		var elements = desc.split("\n")
-		var new_elements: Array[String] = []
-		for element in elements:
-			new_elements.append(element.strip_edges())
-		return "\n".join(new_elements).strip_edges()
+	var elements = desc.split("\n")
+	var new_elements: Array[String] = []
+	for element in elements:
+		new_elements.append(element.strip_edges())
+	return "\n".join(new_elements).strip_edges()
 
 #endregion

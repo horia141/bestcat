@@ -63,9 +63,9 @@ func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void
 	
 	add_child(player)
 	add_child(mission)
-	_wire_up_everything(false)
+	_wire_up_everything(new_mission_attempt)
 	
-func _wire_up_everything(_in_ready: bool) -> void:
+func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	
 	# Here we just initialise the player!
@@ -73,7 +73,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	 
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
-	player.post_ready_prepare(mission_attempt.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+	player.post_ready_prepare(mission_attempt.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty)
 	
 	# And all the other players now.
 	for player in get_tree().get_nodes_in_group("Players"):
@@ -85,13 +85,13 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_structure = structure as Structure
 		if the_structure is DarkTower:
 			dark_towers_left_cnt += 1
-			the_structure.post_ready_prepare(PlayerProxy.new(player), mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY, mission.terrain_map)
+			the_structure.post_ready_prepare(mission_attempt.all_mobs_desc, PlayerProxy.new(player), mission_attempt.difficulty.difficulty, mission.terrain_map)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 	
 	for mob in get_tree().get_nodes_in_group("Mobs"):
 		var the_mob = mob as Mob
-		the_mob.post_ready_prepare(PlayerProxy.new(player), the_mob.position, mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+		the_mob.post_ready_prepare(mob.Desc, PlayerProxy.new(player), the_mob.position, mission_attempt.difficulty.difficulty)
 		the_mob.shoot.connect(_on_enemy_shoot)
 		the_mob.destroyed.connect(func (): _on_mob_destroyed(the_mob))
 		
@@ -99,7 +99,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 		var the_boss = boss as Boss
 		bosses_left_cnt += 1
 		the_boss.hide()
-		the_boss.post_ready_prepare(PlayerProxy.new(player), the_boss.position, mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+		the_boss.post_ready_prepare(boss.Desc, PlayerProxy.new(player), the_boss.position, mission_attempt.difficulty.difficulty)
 		the_boss.shoot.connect(_on_enemy_shoot)
 		the_boss.state_change.connect(func (): _on_boss_change_state(the_boss))
 		the_boss.destroyed.connect(func (): _on_boss_destroyed(the_boss))
@@ -114,7 +114,7 @@ func _wire_up_everything(_in_ready: bool) -> void:
 	$HUD.update_player(player, Player.PlayerEffect.NONE)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	
-	$GameTimeLeftTimer.post_ready_prepare(mission_attempt.difficulty.difficulty if mission_attempt else DEFAULT_DIFFICULTY)
+	$GameTimeLeftTimer.post_ready_prepare(mission_attempt.difficulty.difficulty)
 	
 	__hide_dialogs() # TODO: this should be some big interaction manager
 	

@@ -7,8 +7,8 @@ var sleep_sign = null
 
 #region Construction
 
-func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
-	super.post_ready_prepare(player, init_position, difficulty)
+func post_ready_prepare(enemy_desc: Application.EnemyDesc, player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	super.post_ready_prepare(enemy_desc, player, init_position, difficulty)
 	
 	sleep_sign = SleepSignScn.instantiate()
 	sleep_sign.scale = sleep_sign.scale / self.scale
@@ -58,18 +58,11 @@ func _player_exited_activation_area(player: Player) -> void:
 	$Sprite.pause()
 	var activation_tween = create_tween()
 	activation_tween.tween_property(self, "modulate", Color.GRAY, 0.2)
-
-func on_hit_by_projectile() -> void:
-	super.on_hit_by_projectile()
-	if state == EnemyState.Hidden or state == EnemyState.Dead:
-		return
-	destroy()
 	
 func destroy() -> void:
 	super.destroy()
 	if is_ancestor_of(sleep_sign):
 		remove_child(sleep_sign)
-	state = EnemyState.Dead
 	$ShootTimer.stop()
 	$Sprite.play("explosion")
 	$Collision.set_deferred("disabled", true)

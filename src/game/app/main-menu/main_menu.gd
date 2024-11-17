@@ -17,6 +17,8 @@ var view = View.Main
 var selected_player: Application.PlayerDesc = null
 var selected_mission: Application.MissionDesc = null
 var selected_difficulty: Application.MissionDifficultyDesc = null
+var all_mobs_desc: Array[Application.EnemyDesc] = []
+var all_bosses_desc: Array[Application.EnemyDesc] = []
 
 #region Construction
 
@@ -26,10 +28,14 @@ func _ready() -> void:
 func post_ready_process(
 		all_players_desc: Array[Application.PlayerDesc],
 		all_missions_desc: Array[Application.MissionDesc],
-		all_mission_difficulties_desc: Array[Application.MissionDifficultyDesc]) -> void:
+		all_mission_difficulties_desc: Array[Application.MissionDifficultyDesc],
+		all_mobs_desc: Array[Application.EnemyDesc],
+		all_bosses_desc: Array[Application.EnemyDesc]) -> void:
 	$SelectMission.post_ready_prepare(all_missions_desc)
 	$SelectPlayer.post_ready_prepare(all_players_desc)
 	$SelectDifficulty.post_ready_prepare(all_mission_difficulties_desc)
+	self.all_mobs_desc = all_mobs_desc
+	self.all_bosses_desc = all_bosses_desc
 	
 	_show()
 
@@ -65,7 +71,8 @@ func _select_player_go_to_select_mission() -> void:
 	_show()
 	
 func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficultyDesc) -> void:
-	var mission_attempt = Application.MissionAttempt.new(selected_player, selected_mission, difficulty)
+	var mission_attempt = Application.MissionAttempt.new(
+		selected_player, selected_mission, difficulty, all_mobs_desc, all_bosses_desc)
 	new_game.emit(mission_attempt)
 	view = View.Main
 	_show()

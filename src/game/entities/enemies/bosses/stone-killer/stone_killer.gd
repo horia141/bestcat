@@ -1,12 +1,20 @@
-class_name Golem
+class_name StoneKiller
 extends Boss
 
 const BulletScn = preload("res://entities/enemies/projectile/bullet/bullet.tscn")
 
-static var SHOOT_PERIOD_SEC = DifficultyValue.new(3, 2, 1.5)
-static var MAX_LIFE = DifficultyValue.new(5, 10, 15)
+static var Desc:
+	get:
+		return Application.EnemyDesc.new(
+			"Stone Killer",
+			"""
+				A giant from the olden times. Hard to beat, and with powerful shots!
+			""",
+			preload("res://entities/enemies/bosses/stone-killer/stone-killer.tscn"),
+			DifficultyValue.new(5, 10, 15)
+		)
 
-var life = MAX_LIFE.get_for(difficulty)
+static var SHOOT_PERIOD_SEC = DifficultyValue.new(3, 2, 1.5)
 
 #region Construction
 
@@ -14,15 +22,6 @@ func _ready() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_deferred("freeze", true)
 	state = EnemyState.Hidden
-	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
-	$HealthBar.life = life
-	
-func post_ready_prepare(player: Game.PlayerProxy, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
-	super.post_ready_prepare(player, init_position, difficulty)
-	life = MAX_LIFE.get_for(difficulty)
-	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
-	$HealthBar.life = life
-	
 
 #endregion
 
@@ -70,23 +69,9 @@ func __shoot_one_round() -> void:
 	var enemy_projectile_down = BulletScn.instantiate()
 	enemy_projectile_down.post_ready_prepare(position, scale, Vector2(0, 1).rotated(randf_range(-0.5, 0.5)), difficulty)
 	shoot.emit(enemy_projectile_down)
-
-func on_hit_by_projectile() -> void:
-	super.on_hit_by_projectile()
-	if state == EnemyState.Hidden or state == EnemyState.Dead:
-		return
-	
-	life = life - 1
-	state_change.emit()
-	
-	$HealthBar.life = life
-	
-	if life == 0:
-		destroy()
 		
 func destroy() -> void:
 	super.destroy()
-	state = EnemyState.Dead
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_deferred("freeze", true)
 	$ShootTimer.stop()

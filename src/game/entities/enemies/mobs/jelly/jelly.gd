@@ -3,6 +3,18 @@ extends Mob
 
 const BulletScn = preload("res://entities/enemies/projectile/bullet/bullet.tscn")
 
+static var Desc:
+	get:
+		return Application.EnemyDesc.new(
+			"Jelly",
+			"""
+				Jellies are a relatively weak enemy. They shoot in a random
+				direction, and are easy to take out.
+			""",
+			preload("res://entities/enemies/mobs/jelly/jelly.tscn"),
+			DifficultyValue.new(1, 1, 1)
+		)
+
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(1, 0.9, 0.8)
 
 #region Game logic

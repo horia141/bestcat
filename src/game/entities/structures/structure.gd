@@ -13,7 +13,7 @@ var damage_tween: Tween = null
 
 #region Constructors
 
-func post_ready_prepare(player: Game.PlayerProxy, difficulty: Application.MissionDifficulty, terrain_map: Mission.TerrainMap) -> void:
+func post_ready_prepare(all_mobs_desc: Array[Application.EnemyDesc], player: Game.PlayerProxy, difficulty: Application.MissionDifficulty, terrain_map: Mission.TerrainMap) -> void:
 	self.player = player
 	self.difficulty = difficulty
 

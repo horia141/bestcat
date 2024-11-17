@@ -15,6 +15,7 @@ static var SPAWN_PERIOD_SEC = DifficultyValue.new(5, 4, 3)
 static var MAX_MOBS_TO_SPAWN = DifficultyValue.new(3, 5, 7)
 static var MAX_LIFE = DifficultyValue.new(2, 3, 4)
 
+var all_mobs_desc: Array[Application.EnemyDesc] = []
 var life = MAX_LIFE.get_for(difficulty)
 var my_mobs = {}
 var ok_cell_pos_for_gen: Array[Vector2] = []
@@ -25,8 +26,9 @@ func _ready() -> void:
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
 	
-func post_ready_prepare(player: Game.PlayerProxy, difficulty: Application.MissionDifficulty, terrain_map: Mission.TerrainMap) -> void:
-	super.post_ready_prepare(player, difficulty, terrain_map)
+func post_ready_prepare(all_mobs_desc: Array[Application.EnemyDesc], player: Game.PlayerProxy, difficulty: Application.MissionDifficulty, terrain_map: Mission.TerrainMap) -> void:
+	super.post_ready_prepare(all_mobs_desc, player, difficulty, terrain_map)
+	self.all_mobs_desc = all_mobs_desc
 	life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.max_life = MAX_LIFE.get_for(difficulty)
 	$HealthBar.life = life
@@ -101,25 +103,12 @@ func _spawn_mob() -> void:
 	var activation_area = ActivationAreaScn.instantiate()
 	activation_area.scale = Vector2(2, 2)
 	
-	var choice = randf_range(0, 1)
-	if choice < 0.33:
-		var jelly = JellyScn.instantiate()
-		jelly.add_child(activation_area)
-		jelly.post_ready_prepare(player, _random_position_in_disc(), difficulty)
-		spawned_mob.emit(jelly)
-		my_mobs[jelly.get_instance_id()] = jelly
-	elif choice < 0.66:
-		var snail = SnailScn.instantiate()
-		snail.add_child(activation_area)
-		snail.post_ready_prepare(player, _random_position_in_disc(), difficulty)
-		spawned_mob.emit(snail)
-		my_mobs[snail.get_instance_id()] = snail
-	else:
-		var ogre = OgreScn.instantiate()
-		ogre.add_child(activation_area)
-		ogre.post_ready_prepare(player, _random_position_in_disc(), difficulty)
-		spawned_mob.emit(ogre)
-		my_mobs[ogre.get_instance_id()] = ogre
+	var random_mob_desc = all_mobs_desc.pick_random()
+	var random_mob = random_mob_desc.scene.instantiate()
+	random_mob.add_child(activation_area)
+	random_mob.post_ready_prepare(random_mob.Desc, player, _random_position_in_disc(), difficulty)
+	spawned_mob.emit(random_mob)
+	my_mobs[random_mob.get_instance_id()] = random_mob
 		
 	$SpawnTimer.wait_time = SPAWN_PERIOD_SEC.get_for(difficulty) + randf_range(-0.5, 0.5)
 	$SpawnTimer.start()

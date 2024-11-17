@@ -3,6 +3,17 @@ extends Mob
 
 const BulletScn = preload("res://entities/enemies/projectile/bullet/bullet.tscn")
 
+static var Desc:
+	get: 
+		return Application.EnemyDesc.new(
+			"Ogre",
+			"""
+				Ogres are tough to crack. They shoot many projectiles.
+			""",
+			preload("res://entities/enemies/mobs/ogre/ogre.tscn"),
+			DifficultyValue.new(1, 1, 1)
+		)
+
 static var SHOOT_PERIOD_SEC = DifficultyValue.new(1.5, 1.25, 1.00)
 
 #region Game logic
