@@ -149,7 +149,8 @@ var all_players_desc: Array[PlayerDesc] = [
 var all_mobs_desc: Array[EnemyDesc] = [
 	Jelly.Desc,
 	Ogre.Desc,
-	Snail.Desc
+	Snail.Desc,
+	Rocker.Desc
 ]
 
 var all_bosses_desc: Array[EnemyDesc] = [
