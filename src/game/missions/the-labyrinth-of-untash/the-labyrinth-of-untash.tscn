@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://dmnhpm7gi4p37"]
+[gd_scene load_steps=6 format=4 uid="uid://dmnhpm7gi4p37"]
 
 [ext_resource type="Script" path="res://missions/the-labyrinth-of-untash/the_labyrinth_of_untash.gd" id="1_swrof"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="1_yqkgd"]
 [ext_resource type="PackedScene" uid="uid://c85v65pucek1o" path="res://story/story.tscn" id="2_bgp6r"]
 [ext_resource type="PackedScene" uid="uid://bl2kfjfbn2sie" path="res://entities/structures/dark-tower/dark-tower.tscn" id="4_nqf2p"]
+[ext_resource type="PackedScene" uid="uid://ctfd1db6sdb6t" path="res://entities/treasures/powerup-chest/powerup-chest.tscn" id="5_o142y"]
 
 [node name="TheLabyrinthOfUntash" type="Node2D"]
 script = ExtResource("1_swrof")
@@ -61,3 +62,15 @@ position = Vector2(1431, 53)
 
 [node name="DarkTower10" parent="." instance=ExtResource("4_nqf2p")]
 position = Vector2(662, 535)
+
+[node name="PowerUpChest1" parent="." instance=ExtResource("5_o142y")]
+position = Vector2(460, 1167)
+
+[node name="PowerUpChest2" parent="." instance=ExtResource("5_o142y")]
+position = Vector2(434, 381)
+
+[node name="PowerUpChest3" parent="." instance=ExtResource("5_o142y")]
+position = Vector2(903, 751)
+
+[node name="PowerUpChest4" parent="." instance=ExtResource("5_o142y")]
+position = Vector2(1253, 170)
