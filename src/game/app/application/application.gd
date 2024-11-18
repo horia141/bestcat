@@ -117,7 +117,8 @@ var all_bosses_desc: Array[EnemyDesc] = [
 var all_missions_desc: Array[MissionDesc] = [
 	Tutorial.Desc,
 	HuntForZorn.Desc,
-	PlainOfKoh.Desc
+	PlainOfKoh.Desc,
+	TheLabyrinthOfUntash.Desc
 ]
 
 var all_mission_difficulties_desc: Array[MissionDifficultyDesc] = [
