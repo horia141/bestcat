@@ -69,7 +69,7 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	
 	# Here we just initialise the player!
-	mission.post_ready_prepare(Application.ConceptMode.InGame)
+	mission.post_ready_prepare()
 	 
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
@@ -94,6 +94,11 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 		the_mob.post_ready_prepare(mob.Desc, PlayerProxy.new(player), the_mob.position, mission_attempt.difficulty.difficulty)
 		the_mob.shoot.connect(_on_enemy_shoot)
 		the_mob.destroyed.connect(func (): _on_mob_destroyed(the_mob))
+		
+	if mission.has_node("BossPosition"):
+		var boss = mission_attempt.all_bosses_desc.pick_random().scene.instantiate()
+		boss.position = mission.get_node("BossPosition").position
+		add_child(boss)
 		
 	for boss in get_tree().get_nodes_in_group("Bosses"):
 		var the_boss = boss as Boss

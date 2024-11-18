@@ -79,7 +79,6 @@ class TerrainMap:
 				
 		return TerrainMap.new(rows_cnt, cols_cnt, cells, terrain.tile_set.tile_size)
 
-var mode = Application.ConceptMode.InGame
 var terrain_map: TerrainMap = null
 
 var size_in_px: Vector2:
@@ -93,11 +92,7 @@ var size_in_px: Vector2:
 func _ready() -> void:
 	$Story.story_checkpoint_processed.connect(_story_checkpoint_processed)
 	
-func post_ready_prepare(mode: Application.ConceptMode) -> void:
-	self.mode = mode
-	if mode == Application.ConceptMode.InMainMenu:
-		$Boss.hide()
-		
+func post_ready_prepare() -> void:
 	terrain_map = TerrainMap.from_level($Level/Terrain, $Level/Obstacles, $Level/Decorations)
 		
 	#for row_idx in range(0, terrain_map.rows_cnt):
@@ -122,13 +117,9 @@ func post_ready_prepare(mode: Application.ConceptMode) -> void:
 #region Game logic
 
 func advance_to_story_checkpoint(checkpoint: Story.StoryCheckpoint) -> void:
-	if mode != Application.ConceptMode.InGame:
-		return
 	$Story.advance_to_story_checkpoint(checkpoint)
 	
 func _story_checkpoint_processed(checkpoint: Story.StoryCheckpoint) -> void:
-	if mode != Application.ConceptMode.InGame:
-		return
 	story_checkpoint_processed.emit(checkpoint)
 
 #endregion

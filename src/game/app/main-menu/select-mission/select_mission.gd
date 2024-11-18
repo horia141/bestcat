@@ -22,7 +22,7 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 	
 	for mission_desc in all_missions_desc:
 		var mission = mission_desc.scene.instantiate() as Mission
-		mission.post_ready_prepare(Application.ConceptMode.InMainMenu)
+		mission.post_ready_prepare()
 		all_missions.append(mission)
 		
 		var mission_button = GameButtonScn.instantiate()

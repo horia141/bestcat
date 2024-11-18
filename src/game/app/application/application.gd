@@ -110,7 +110,8 @@ var all_mobs_desc: Array[EnemyDesc] = [
 ]
 
 var all_bosses_desc: Array[EnemyDesc] = [
-	StoneKiller.Desc
+	StoneKiller.Desc,
+	Zorax.Desc
 ]
 
 var all_missions_desc: Array[MissionDesc] = [

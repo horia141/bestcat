@@ -14,10 +14,10 @@ static var Desc:
 				He'll slow you down and then cut you up!
 			""",
 			preload("res://entities/enemies/bosses/zorax/zorax.tscn"),
-			DifficultyValue.new(4, 8, 12)
+			DifficultyValue.new(5, 10, 15)
 		)
 
-static var SHOOT_PERIOD_SEC = DifficultyValue.new(2, 1.5, 1)
+static var SHOOT_PERIOD_SEC = DifficultyValue.new(1, 0.75, 0.5)
 
 #region Construction
 

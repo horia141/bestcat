@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://wx2bcejhq5n1"]
+[gd_scene load_steps=9 format=4 uid="uid://wx2bcejhq5n1"]
 
 [ext_resource type="Script" path="res://missions/hunt-for-zorn/hunt_for_zorn.gd" id="1_fneyk"]
 [ext_resource type="TileSet" uid="uid://dxcu07l8aetax" path="res://common/world/world.tres" id="2_lhb7m"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bcl7odhamp0v8" path="res://entities/enemies/mobs/ogre/ogre.tscn" id="6_w41jo"]
 [ext_resource type="PackedScene" uid="uid://b2lnb1ahqf46g" path="res://entities/enemies/activation-area/enemy-activation-area.tscn" id="7_wm6c0"]
 [ext_resource type="PackedScene" uid="uid://btfd6swkb4dx5" path="res://entities/enemies/mobs/snail/snail.tscn" id="8_mwdbn"]
-[ext_resource type="PackedScene" uid="uid://cdr4bj2wox21m" path="res://entities/enemies/bosses/zorax/zorax.tscn" id="9_r4uk7"]
 [ext_resource type="PackedScene" uid="uid://ctfd1db6sdb6t" path="res://entities/treasures/powerup-chest/powerup-chest.tscn" id="9_uspxx"]
 
 [node name="HuntForZorn" type="Node2D"]
@@ -42,6 +41,9 @@ The island is safe once more."])
 [node name="PlayerStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 112)
 
+[node name="BossPosition" type="Marker2D" parent="."]
+position = Vector2(451, 97)
+
 [node name="DarkTower1" parent="." instance=ExtResource("5_gg1sv")]
 position = Vector2(280, 56)
 
@@ -67,6 +69,3 @@ position = Vector2(656, 469)
 
 [node name="PowerUpChest3" parent="." instance=ExtResource("9_uspxx")]
 position = Vector2(683, 94)
-
-[node name="Boss" parent="." instance=ExtResource("9_r4uk7")]
-position = Vector2(456, 83)
