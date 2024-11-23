@@ -43,7 +43,27 @@ func activate() -> void:
 	
 func deactivate() -> void:
 	hide()
-
+	
+func _select_random_map() -> void:
+	if $Selector/View/Margin/Layout/SubViewport.get_child_count() > 1:
+		var last_mission = $Selector/View/Margin/Layout/SubViewport.get_child(1)
+		$Selector/View/Margin/Layout/SubViewport.remove_child(last_mission)
+		
+	var vp_x = $Selector/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Selector/View/Margin/Layout/SubViewport.size.y	
+		
+	var desc_node = Label.new()
+	desc_node.text = "?"
+	desc_node.add_theme_font_size_override("font_size", 100)
+	var font: Font = desc_node.get_theme_font("font")
+	var size_in_px = font.get_multiline_string_size("?", 0, -1, 100)
+	desc_node.position = Vector2((vp_x - size_in_px.x) / 2, (vp_y - size_in_px.y) / 2)
+		
+	$Selector/View/Margin/Layout/SubViewport.add_child(desc_node)
+	
+	selected_mission = all_missions_desc.pick_random()
+	$Controls/Margin/Layout/Continue.label = "Continue with Random"
+	
 func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) -> void:
 	if $Selector/View/Margin/Layout/SubViewport.get_child_count() > 1:
 		var last_mission = $Selector/View/Margin/Layout/SubViewport.get_child(1)
@@ -81,6 +101,13 @@ func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) ->
 	$Selector/View/Margin/Layout/SubViewport.add_child(map_node)		
 	selected_mission = mission_desc
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
+	
+func _continue_to_explicit_random(event: InputEvent) -> void:
+	if not event.is_action_released("ui_accept"):
+		return
+	var last_mission = $Selector/View/Margin/Layout/SubViewport.get_child(1)
+	$Selector/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	mission_selected.emit(all_missions_desc.pick_random())
 	
 func _continue_to_explicit(event: InputEvent, mission: Mission, mission_desc: Application.MissionDesc) -> void:
 	if not event.is_action_released("ui_accept"):

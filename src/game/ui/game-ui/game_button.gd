@@ -5,7 +5,7 @@ extends TextureButton
 	set (new_label):
 		label = new_label
 		__setup_everything(new_label, font_size)
-@export var font_size: int = 28:
+@export var font_size: int = 20:
 	set (new_font_size):
 		font_size = new_font_size
 		__setup_everything(label, new_font_size)

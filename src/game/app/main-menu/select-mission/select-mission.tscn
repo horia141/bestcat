@@ -38,11 +38,21 @@ theme_override_constants/margin_bottom = 8
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
+[node name="SurpriseMe" parent="Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
+custom_minimum_size = Vector2(185, 50)
+layout_mode = 2
+label = "Pick Randomly"
+
+[node name="Divider" type="Panel" parent="Selector/List/Margin/Layout"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="View" parent="Selector" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="Selector/View"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -77,16 +87,17 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Return" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
-custom_minimum_size = Vector2(87, 48)
+custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
 label = "Return"
-font_size = 20
 
 [node name="Continue" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
-custom_minimum_size = Vector2(108, 48)
+custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 label = "Continue"
-font_size = 20
 
+[connection signal="button_down" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
+[connection signal="focus_entered" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
+[connection signal="gui_input" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_continue_to_explicit_random"]
 [connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
 [connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]

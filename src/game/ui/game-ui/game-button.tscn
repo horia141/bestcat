@@ -16,7 +16,6 @@ texture_focused = ExtResource("2_f884l")
 stretch_mode = 0
 script = ExtResource("3_h5fha")
 label = "Press Me Please!"
-font_size = 34
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(17, 17)

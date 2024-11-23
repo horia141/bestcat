@@ -80,21 +80,22 @@ theme_override_constants/margin_bottom = 64
 layout_mode = 2
 
 [node name="NewGame" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
-custom_minimum_size = Vector2(238, 91)
+custom_minimum_size = Vector2(272, 94)
 layout_mode = 2
 label = "New Game"
 font_size = 38
 
 [node name="Controls" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
-custom_minimum_size = Vector2(193, 91)
+custom_minimum_size = Vector2(245, 94)
 layout_mode = 2
 label = "Controls"
 font_size = 38
 
 [node name="Quit" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
-custom_minimum_size = Vector2(105, 81)
+custom_minimum_size = Vector2(74, 50)
 layout_mode = 2
 label = "Quit"
+font_size = 38
 
 [node name="SelectMission" parent="." instance=ExtResource("2_w05gh")]
 visible = false
