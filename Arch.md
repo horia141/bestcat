@@ -1,5 +1,11 @@
 # Architecture
 
+## Development
+
+You need to have the JDK and the Android JDK installed. Follow [these instructions](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html).
+
+## Architecture
+
 BestCat uses [Godot](https://godot.org) as the game engine and this determines the architecture of the system to a large degree. The game application consists of a number of scenes and scripts that work to make the game.
 
 ## Components
@@ -40,3 +46,7 @@ The manager scene is in charge of instantiating a new object in the scene. For e
 The manager scene is also in charge of removing a child object from the scene. An object should not call `queue_free` on itself.
 
 The `Game` should be the only one pausing and unpausing the game. Not always followed!
+
+Many entities have a `Desc` field on them. This is a `static var Desc` with a getter on it that returns an object that gives some info on the entity type
+(say paramters for a particular type of enemy, or for a mission). These are usually accessed by other entities, and usually outside the _scene_ itself.
+Like in game menus, or by other entities for various paramterisations. If we had scenes and scripts more unified these would have been consts on the script classes.
