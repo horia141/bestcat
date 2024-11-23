@@ -3,6 +3,26 @@ extends Node2D
 
 signal story_checkpoint_processed(checkpoint: Story.StoryCheckpoint)
 
+enum MapSize {
+	Small,
+	Medium,
+	Large,
+	Custom
+}
+
+static func map_size_to_text(size: MapSize) -> String:
+	match size:
+		MapSize.Small:
+			return "Small"
+		MapSize.Medium:
+			return "Medium"
+		MapSize.Large:
+			return "Large"
+		MapSize.Custom:
+			return "Custom"
+	assert(1 != 0, "Unkown map size %s" % size)
+	return "Unknown"
+
 const WATER_TERRAIN_SET = 0
 const WATER_TERRAIN = 4
 

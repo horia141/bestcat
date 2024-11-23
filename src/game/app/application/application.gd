@@ -50,17 +50,21 @@ class EnemyDesc:
 		max_life: DifficultyValue
 	) -> void:
 		self.ui_name = ui_name
-		self.ui_description = ui_description
+		self.ui_description = Application.__clean_ui_description(ui_description)
 		self.scene = scene
 		self.max_life = max_life
 
 class MissionDesc:
 	var title: String
+	var ui_description: String
+	var size: Mission.MapSize
 	var allowed_difficulties: Array[MissionDifficulty]
 	var scene: PackedScene
 	
-	func _init(title: String, allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
+	func _init(title: String, ui_description: String, size: Mission.MapSize, allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
 		self.title = title
+		self.ui_description = Application.__clean_ui_description(ui_description)
+		self.size = size
 		self.allowed_difficulties = allowed_difficulties
 		self.scene = scene
 		

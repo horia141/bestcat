@@ -25,7 +25,9 @@ tile_set = ExtResource("1_yqkgd")
 [node name="Story" parent="." instance=ExtResource("2_bgp6r")]
 mission_start_messages = Array[String](["The witch Untash has raised this island from the sea and shaped it like the labyrinth from the stories she loved as a child.
 
-She has also filled it with monsters and demons! And treasures without number!"])
+She has also filled it with monsters and demons! And treasures without number!
+
+Defeat her and her minions to claim a great prize"])
 
 [node name="PlayerStartPosition" type="Marker2D" parent="."]
 position = Vector2(114, 138)

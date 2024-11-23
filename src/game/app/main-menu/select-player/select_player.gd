@@ -60,6 +60,7 @@ func _select_player(player: Player, player_desc: Application.PlayerDesc) -> void
 	player.show()
 	selected_player = player_desc
 	$Selector/PlayerDetails/Stats/Margin/Layout/Description.text = player_desc.ui_description
+	$Selector/PlayerDetails/Stats/Margin/Layout/Description.scroll_to_line(0)
 	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/Life/Value.text = str(player_desc.max_life)
 	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/Speed/Value.text = str(player_desc.max_speed)
 	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/ProjectilesCnt/Value.text = str(player_desc.max_projectiles_cnt)

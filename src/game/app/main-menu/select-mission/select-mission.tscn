@@ -47,10 +47,13 @@ label = "Pick Randomly"
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="View" parent="Selector" instance=ExtResource("3_qqy1o")]
+[node name="Details" type="VBoxContainer" parent="Selector"]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Selector/View"]
+[node name="View" parent="Selector/Details" instance=ExtResource("3_qqy1o")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/Details/View"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/margin_left = 4
@@ -58,18 +61,49 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Layout" type="SubViewportContainer" parent="Selector/View/Margin"]
+[node name="Layout" type="SubViewportContainer" parent="Selector/Details/View/Margin"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Selector/View/Margin/Layout"]
+[node name="SubViewport" type="SubViewport" parent="Selector/Details/View/Margin/Layout"]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(256, 256)
 render_target_update_mode = 4
 
-[node name="Background" type="Sprite2D" parent="Selector/View/Margin/Layout/SubViewport"]
+[node name="Background" type="Sprite2D" parent="Selector/Details/View/Margin/Layout/SubViewport"]
 position = Vector2(128, 128)
 texture = ExtResource("2_rtqcv")
+
+[node name="Stats" parent="Selector/Details" instance=ExtResource("3_qqy1o")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/Details/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Selector/Details/Stats/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Description" type="RichTextLabel" parent="Selector/Details/Stats/Margin/Layout"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "This is some info on the mission"
+
+[node name="Stats" type="HBoxContainer" parent="Selector/Details/Stats/Margin/Layout"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Selector/Details/Stats/Margin/Layout/Stats"]
+layout_mode = 2
+text = "Size"
+
+[node name="Size" type="Label" parent="Selector/Details/Stats/Margin/Layout/Stats"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Medium"
 
 [node name="Controls" parent="." instance=ExtResource("3_qqy1o")]
 layout_mode = 2
