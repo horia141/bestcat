@@ -43,6 +43,10 @@ custom_minimum_size = Vector2(185, 50)
 layout_mode = 2
 label = "Pick Randomly"
 
+[node name="GenerateMap" parent="Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
+layout_mode = 2
+label = "Generate Map"
+
 [node name="Divider" type="Panel" parent="Selector/List/Margin/Layout"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
@@ -133,5 +137,8 @@ label = "Continue"
 [connection signal="button_down" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
 [connection signal="focus_entered" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
 [connection signal="gui_input" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_continue_to_explicit_random"]
+[connection signal="button_down" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
+[connection signal="focus_entered" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
+[connection signal="gui_input" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_continue_to_explicit_generated"]
 [connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
 [connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]

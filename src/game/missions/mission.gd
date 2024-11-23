@@ -112,9 +112,8 @@ var size_in_px: Vector2:
 func _ready() -> void:
 	$Story.story_checkpoint_processed.connect(_story_checkpoint_processed)
 	
-func post_ready_prepare() -> void:
+func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 	terrain_map = TerrainMap.from_level($Level/Terrain, $Level/Obstacles, $Level/Decorations)
-		
 	#for row_idx in range(0, terrain_map.rows_cnt):
 		#for col_idx in range(0, terrain_map.cols_cnt):
 			#var new_disp = TextureRect.new()

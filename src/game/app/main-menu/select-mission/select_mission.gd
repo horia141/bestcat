@@ -22,7 +22,7 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 	
 	for mission_desc in all_missions_desc:
 		var mission = mission_desc.scene.instantiate() as Mission
-		mission.post_ready_prepare()
+		mission.post_ready_prepare(mission_desc)
 		all_missions.append(mission)
 		
 		var mission_button = GameButtonScn.instantiate()
@@ -66,6 +66,29 @@ func _select_random_map() -> void:
 	
 	selected_mission = all_missions_desc.pick_random()
 	$Controls/Margin/Layout/Continue.label = "Continue with Random"
+	
+func _select_generated_map() -> void:
+	if $Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
+		var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+		$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+		
+	var vp_x = $Selector/Details/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Selector/Details/View/Margin/Layout/SubViewport.size.y	
+		
+	var desc_node = Label.new()
+	desc_node.text = "?"
+	desc_node.add_theme_font_size_override("font_size", 100)
+	var font: Font = desc_node.get_theme_font("font")
+	var size_in_px = font.get_multiline_string_size("?", 0, -1, 100)
+	desc_node.position = Vector2((vp_x - size_in_px.x) / 2, (vp_y - size_in_px.y) / 2)
+		
+	$Selector/Details/View/Margin/Layout/SubViewport.add_child(desc_node)
+	
+	$Selector/Details/Stats/Margin/Layout/Description.text = "Generate a map randomly"
+	$Selector/Details/Stats/Margin/Layout/Stats/Size.text = "Unknown"
+	
+	selected_mission = Generated.Desc
+	$Controls/Margin/Layout/Continue.label = "Continue with Generated"
 	
 func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) -> void:
 	if $Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
@@ -111,6 +134,13 @@ func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) ->
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
 	
 func _continue_to_explicit_random(event: InputEvent) -> void:
+	if not event.is_action_released("ui_accept"):
+		return
+	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	mission_selected.emit(Generated.Desc)
+	
+func _continue_to_explicit_generated(event: InputEvent) -> void:
 	if not event.is_action_released("ui_accept"):
 		return
 	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)

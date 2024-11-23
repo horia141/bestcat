@@ -66,11 +66,11 @@ func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void
 	_wire_up_everything(new_mission_attempt)
 	
 func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
+	# Here we just initialise the player!
+	mission.post_ready_prepare(mission_attempt.mission)
+	 
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	
-	# Here we just initialise the player!
-	mission.post_ready_prepare()
-	 
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
 	player.post_ready_prepare(mission_attempt.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty)
