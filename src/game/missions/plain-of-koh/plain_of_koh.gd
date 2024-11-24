@@ -13,6 +13,7 @@ static var Desc:
 				It's up to you to push them out and restore order to the land of Koh!
 			""",
 			Mission.MapSize.Custom,
+			Mission.Challenge.Punishing,
 			[Application.MissionDifficulty.Novice, Application.MissionDifficulty.Apprentice, Application.MissionDifficulty.Expert],
 			preload("res://missions/plain-of-koh/plain-of-koh.tscn")
 		)

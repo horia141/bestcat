@@ -57,13 +57,11 @@ alignment = 1
 custom_minimum_size = Vector2(72, 48)
 layout_mode = 2
 label = "Retry"
-font_size = 20
 
 [node name="Continue" parent="Frame/Margin/Contents/Controls" instance=ExtResource("4_uyurt")]
 custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
 label = "Continue"
-font_size = 20
 
 [connection signal="button_up" from="Frame/Margin/Contents/Controls/Retry" to="." method="_retry"]
 [connection signal="button_up" from="Frame/Margin/Contents/Controls/Continue" to="." method="_continue"]

@@ -4,7 +4,14 @@ extends VBoxContainer
 signal mission_selected(mission: Application.MissionDesc)
 signal return_from()
 
+enum View {
+	Main,
+	ConfigureGenerate
+}
+
 const GameButtonScn = preload("res://ui/game-ui/game-button.tscn")
+
+var view = View.Main
 
 var selected_mission: Application.MissionDesc = null
 var all_missions: Array[Mission] = []
@@ -13,7 +20,8 @@ var all_missions_desc: Array[Application.MissionDesc] = []
 #region Constructor
 
 func _ready() -> void:
-	pass
+	view = View.Main
+	_show()
 	
 func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> void:	
 	selected_mission = null
@@ -31,7 +39,7 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 		mission_button.button_down.connect(func (): _select_mission(mission, mission_desc))
 		mission_button.focus_entered.connect(func (): _select_mission(mission, mission_desc))
 		mission_button.gui_input.connect(func (event): _continue_to_explicit(event, mission, mission_desc))
-		$Selector/List/Margin/Layout.add_child(mission_button)
+		$Main/Selector/List/Margin/Layout.add_child(mission_button)
 		
 #endregion
 
@@ -39,18 +47,19 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 
 func activate() -> void:
 	show()
-	$Selector/List/Margin/Layout.get_child(0).grab_focus()
+	view = View.Main
+	_show()
 	
 func deactivate() -> void:
 	hide()
 	
 func _select_random_map() -> void:
-	if $Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
-		var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-		$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	if $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
+		var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+		$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
 		
-	var vp_x = $Selector/Details/View/Margin/Layout/SubViewport.size.x
-	var vp_y = $Selector/Details/View/Margin/Layout/SubViewport.size.y	
+	var vp_x = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.y	
 		
 	var desc_node = Label.new()
 	desc_node.text = "?"
@@ -59,21 +68,22 @@ func _select_random_map() -> void:
 	var size_in_px = font.get_multiline_string_size("?", 0, -1, 100)
 	desc_node.position = Vector2((vp_x - size_in_px.x) / 2, (vp_y - size_in_px.y) / 2)
 		
-	$Selector/Details/View/Margin/Layout/SubViewport.add_child(desc_node)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.add_child(desc_node)
 	
-	$Selector/Details/Stats/Margin/Layout/Description.text = "Chose a mission randomly from all the available ones"
-	$Selector/Details/Stats/Margin/Layout/Stats/Size.text = "Unknown"
+	$Main/Selector/Details/Stats/Margin/Layout/Description.text = "Chose a mission randomly from all the available ones"
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Size/Value.text = "Unknown"
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge/Value.text = "Unknown"
 	
-	selected_mission = all_missions_desc.pick_random()
-	$Controls/Margin/Layout/Continue.label = "Continue with Random"
+	selected_mission = all_missions_desc.pick_random() if len(all_missions_desc) > 0 else Generated.Desc
+	$Main/Controls/Margin/Layout/Continue.label = "Continue with Random"
 	
 func _select_generated_map() -> void:
-	if $Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
-		var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-		$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	if $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
+		var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+		$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
 		
-	var vp_x = $Selector/Details/View/Margin/Layout/SubViewport.size.x
-	var vp_y = $Selector/Details/View/Margin/Layout/SubViewport.size.y	
+	var vp_x = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.y	
 		
 	var desc_node = Label.new()
 	desc_node.text = "?"
@@ -82,21 +92,22 @@ func _select_generated_map() -> void:
 	var size_in_px = font.get_multiline_string_size("?", 0, -1, 100)
 	desc_node.position = Vector2((vp_x - size_in_px.x) / 2, (vp_y - size_in_px.y) / 2)
 		
-	$Selector/Details/View/Margin/Layout/SubViewport.add_child(desc_node)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.add_child(desc_node)
 	
-	$Selector/Details/Stats/Margin/Layout/Description.text = "Generate a map randomly"
-	$Selector/Details/Stats/Margin/Layout/Stats/Size.text = "Unknown"
+	$Main/Selector/Details/Stats/Margin/Layout/Description.text = "Generate a map randomly"
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Size/Value.text = "Unknown"
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge/Value.text = "Unknown"
 	
-	selected_mission = Generated.Desc
-	$Controls/Margin/Layout/Continue.label = "Continue with Generated"
+	selected_mission = null
+	$Main/Controls/Margin/Layout/Continue.label = "Continue with Generated"
 	
 func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) -> void:
-	if $Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
-		var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-		$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	if $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child_count() > 1:
+		var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+		$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
 		
-	var vp_x = $Selector/Details/View/Margin/Layout/SubViewport.size.x
-	var vp_y = $Selector/Details/View/Margin/Layout/SubViewport.size.y
+	var vp_x = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.x
+	var vp_y = $Main/Selector/Details/View/Margin/Layout/SubViewport.size.y
 		
 	var terrain_map = mission.terrain_map
 	
@@ -124,44 +135,68 @@ func _select_mission(mission: Mission, mission_desc: Application.MissionDesc) ->
 	map_node.position = Vector2((vp_x - size_in_px.x * scale) / 2, (vp_y - size_in_px.y * scale) / 2)
 	map_node.scale = Vector2(scale, scale)
 		
-	$Selector/Details/View/Margin/Layout/SubViewport.add_child(map_node)		
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.add_child(map_node)		
 	
-	$Selector/Details/Stats/Margin/Layout/Description.text = mission_desc.ui_description
-	$Selector/Details/Stats/Margin/Layout/Description.scroll_to_line(0)
-	$Selector/Details/Stats/Margin/Layout/Stats/Size.text = Mission.map_size_to_text(mission_desc.size)
-	
+	$Main/Selector/Details/Stats/Margin/Layout/Description.text = mission_desc.ui_description
+	$Main/Selector/Details/Stats/Margin/Layout/Description.scroll_to_line(0)
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Size/Value.text = Mission.map_size_to_text(mission_desc.size)
+	$Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge/Value.text = Mission.challenge_to_text(mission_desc.challenge)
+
 	selected_mission = mission_desc
-	$Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
+	$Main/Controls/Margin/Layout/Continue.label = "Continue with %s" % mission_desc.title
 	
 func _continue_to_explicit_random(event: InputEvent) -> void:
 	if not event.is_action_released("ui_accept"):
 		return
-	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
-	mission_selected.emit(Generated.Desc)
+	var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	mission_selected.emit(all_missions_desc.pick_random())
 	
 func _continue_to_explicit_generated(event: InputEvent) -> void:
 	if not event.is_action_released("ui_accept"):
 		return
-	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
-	mission_selected.emit(all_missions_desc.pick_random())
+	var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	view = View.ConfigureGenerate
+	_show()
 	
 func _continue_to_explicit(event: InputEvent, mission: Mission, mission_desc: Application.MissionDesc) -> void:
 	if not event.is_action_released("ui_accept"):
 		return
-	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
 	mission_selected.emit(mission_desc)
 	
 func _return_from() -> void:
-	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
 	return_from.emit()
 	
 func _continue_to() -> void:
-	var last_mission = $Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
-	$Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
-	mission_selected.emit(selected_mission)
+	var last_mission = $Main/Selector/Details/View/Margin/Layout/SubViewport.get_child(1)
+	$Main/Selector/Details/View/Margin/Layout/SubViewport.remove_child(last_mission)
+	if selected_mission != null:
+		mission_selected.emit(selected_mission)
+	else:
+		view = View.ConfigureGenerate
+		_show()
+		
+func _continue_to_from_generated(generated_mission_desc: Application.MissionDesc) -> void:
+	mission_selected.emit(generated_mission_desc)
+	
+func _return_from_generated() -> void:
+	view = View.Main
+	_show()
+	
+func _show() -> void:
+	match view:
+		View.Main:
+			$Main.show()
+			$Main/Selector/List/Margin/Layout.get_child(0).grab_focus()
+			$ConfigureGenerate.deactivate()
+		View.ConfigureGenerate:
+			$Main.hide()
+			$ConfigureGenerate.activate()
+			
 	
 #endregion

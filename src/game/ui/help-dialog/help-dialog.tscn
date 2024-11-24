@@ -52,6 +52,5 @@ custom_minimum_size = Vector2(108, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 label = "Continue"
-font_size = 20
 
 [connection signal="button_up" from="Frame/Margin/Layout/Continue" to="." method="_continue"]

@@ -12,6 +12,7 @@ static var Desc:
 			"A Generated Map", 
 			"Nobody knows what terrors await you in this mission!",
 			Mission.MapSize.Custom,
+			Mission.Challenge.Forgiving,
 			[Application.MissionDifficulty.Novice, Application.MissionDifficulty.Apprentice, Application.MissionDifficulty.Expert],
 			preload("res://missions/generated/generated.tscn")
 		)

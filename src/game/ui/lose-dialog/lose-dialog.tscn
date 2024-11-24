@@ -61,13 +61,11 @@ alignment = 1
 custom_minimum_size = Vector2(72, 48)
 layout_mode = 2
 label = "Retry"
-font_size = 20
 
 [node name="Quit" parent="Frame/Margin/Layout/Layout" instance=ExtResource("3_2cejd")]
 custom_minimum_size = Vector2(62, 48)
 layout_mode = 2
 label = "Quit"
-font_size = 20
 
 [connection signal="button_up" from="Frame/Margin/Layout/Layout/Retry" to="." method="_retry"]
 [connection signal="button_up" from="Frame/Margin/Layout/Layout/Quit" to="." method="_quit"]

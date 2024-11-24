@@ -58,13 +58,17 @@ class MissionDesc:
 	var title: String
 	var ui_description: String
 	var size: Mission.MapSize
+	var challenge: Mission.Challenge
 	var allowed_difficulties: Array[MissionDifficulty]
 	var scene: PackedScene
 	
-	func _init(title: String, ui_description: String, size: Mission.MapSize, allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
+	func _init(
+		title: String, ui_description: String, size: Mission.MapSize, challenge: Mission.Challenge,
+		allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
 		self.title = title
 		self.ui_description = Application.__clean_ui_description(ui_description)
 		self.size = size
+		self.challenge = challenge
 		self.allowed_difficulties = allowed_difficulties
 		self.scene = scene
 		
@@ -156,7 +160,7 @@ var all_mission_difficulties_desc: Array[MissionDifficultyDesc] = [
 		MissionDifficulty.Expert,
 		"Expert",
 		"""
-			Expert difficulty is for those that want a real challange.
+			Expert difficulty is for those that want a real challenge.
 			
 			Try this for an uphill battle against the game.
 			

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1exnpsw62d4q"]
+[gd_scene load_steps=7 format=3 uid="uid://d1exnpsw62d4q"]
 
 [ext_resource type="Script" path="res://app/main-menu/select-mission/select_mission.gd" id="1_fhncj"]
 [ext_resource type="Texture2D" uid="uid://cpcey5vrxd20" path="res://common/scroll.jpg" id="2_rtqcv"]
 [ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_vmjyh"]
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="3_qqy1o"]
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_4r0x3"]
+[ext_resource type="PackedScene" uid="uid://3ecl8p6jym3v" path="res://app/main-menu/configure-generate/configure-generate.tscn" id="6_a1ikt"]
 
 [node name="MainMenuSelectMission" type="VBoxContainer"]
 anchors_preset = 8
@@ -14,50 +15,55 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 script = ExtResource("1_fhncj")
 
-[node name="Header" parent="." instance=ExtResource("2_vmjyh")]
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" parent="Main" instance=ExtResource("2_vmjyh")]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 label = "Choose A Mission"
 
-[node name="Selector" type="HBoxContainer" parent="."]
+[node name="Selector" type="HBoxContainer" parent="Main"]
 layout_mode = 2
 
-[node name="List" parent="Selector" instance=ExtResource("3_qqy1o")]
+[node name="List" parent="Main/Selector" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Selector/List"]
+[node name="Margin" type="MarginContainer" parent="Main/Selector/List"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Layout" type="VBoxContainer" parent="Selector/List/Margin"]
+[node name="Layout" type="VBoxContainer" parent="Main/Selector/List/Margin"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
-[node name="SurpriseMe" parent="Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
+[node name="SurpriseMe" parent="Main/Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
 custom_minimum_size = Vector2(185, 50)
 layout_mode = 2
 label = "Pick Randomly"
 
-[node name="GenerateMap" parent="Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
+[node name="GenerateMap" parent="Main/Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
 layout_mode = 2
 label = "Generate Map"
 
-[node name="Divider" type="Panel" parent="Selector/List/Margin/Layout"]
+[node name="Divider" type="Panel" parent="Main/Selector/List/Margin/Layout"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Details" type="VBoxContainer" parent="Selector"]
+[node name="Details" type="VBoxContainer" parent="Main/Selector"]
 layout_mode = 2
 
-[node name="View" parent="Selector/Details" instance=ExtResource("3_qqy1o")]
+[node name="View" parent="Main/Selector/Details" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Selector/Details/View"]
+[node name="Margin" type="MarginContainer" parent="Main/Selector/Details/View"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/margin_left = 4
@@ -65,80 +71,108 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Layout" type="SubViewportContainer" parent="Selector/Details/View/Margin"]
+[node name="Layout" type="SubViewportContainer" parent="Main/Selector/Details/View/Margin"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="SubViewport" type="SubViewport" parent="Selector/Details/View/Margin/Layout"]
+[node name="SubViewport" type="SubViewport" parent="Main/Selector/Details/View/Margin/Layout"]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(256, 256)
+size = Vector2i(350, 256)
 render_target_update_mode = 4
 
-[node name="Background" type="Sprite2D" parent="Selector/Details/View/Margin/Layout/SubViewport"]
-position = Vector2(128, 128)
+[node name="Background" type="Sprite2D" parent="Main/Selector/Details/View/Margin/Layout/SubViewport"]
+position = Vector2(176, 128)
+scale = Vector2(1.375, 1)
 texture = ExtResource("2_rtqcv")
 
-[node name="Stats" parent="Selector/Details" instance=ExtResource("3_qqy1o")]
+[node name="Stats" parent="Main/Selector/Details" instance=ExtResource("3_qqy1o")]
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Selector/Details/Stats"]
+[node name="Margin" type="MarginContainer" parent="Main/Selector/Details/Stats"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Layout" type="VBoxContainer" parent="Selector/Details/Stats/Margin"]
+[node name="Layout" type="VBoxContainer" parent="Main/Selector/Details/Stats/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Description" type="RichTextLabel" parent="Selector/Details/Stats/Margin/Layout"]
+[node name="Description" type="RichTextLabel" parent="Main/Selector/Details/Stats/Margin/Layout"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "This is some info on the mission"
 
-[node name="Stats" type="HBoxContainer" parent="Selector/Details/Stats/Margin/Layout"]
+[node name="Stats" type="GridContainer" parent="Main/Selector/Details/Stats/Margin/Layout"]
 layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
 
-[node name="Label" type="Label" parent="Selector/Details/Stats/Margin/Layout/Stats"]
+[node name="Size" type="HBoxContainer" parent="Main/Selector/Details/Stats/Margin/Layout/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Main/Selector/Details/Stats/Margin/Layout/Stats/Size"]
 layout_mode = 2
 text = "Size"
 
-[node name="Size" type="Label" parent="Selector/Details/Stats/Margin/Layout/Stats"]
+[node name="Value" type="Label" parent="Main/Selector/Details/Stats/Margin/Layout/Stats/Size"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Medium"
 
-[node name="Controls" parent="." instance=ExtResource("3_qqy1o")]
+[node name="Challenge" type="HBoxContainer" parent="Main/Selector/Details/Stats/Margin/Layout/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge"]
+layout_mode = 2
+text = "Challenge"
+
+[node name="Value" type="Label" parent="Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge"]
+layout_mode = 2
+text = "Easy"
+
+[node name="Controls" parent="Main" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Controls"]
+[node name="Margin" type="MarginContainer" parent="Main/Controls"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Layout" type="HBoxContainer" parent="Controls/Margin"]
+[node name="Layout" type="HBoxContainer" parent="Main/Controls/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Return" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
+[node name="Return" parent="Main/Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
 custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
 label = "Return"
 
-[node name="Continue" parent="Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
+[node name="Continue" parent="Main/Controls/Margin/Layout" instance=ExtResource("4_4r0x3")]
 custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 label = "Continue"
 
-[connection signal="button_down" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
-[connection signal="focus_entered" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
-[connection signal="gui_input" from="Selector/List/Margin/Layout/SurpriseMe" to="." method="_continue_to_explicit_random"]
-[connection signal="button_down" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
-[connection signal="focus_entered" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
-[connection signal="gui_input" from="Selector/List/Margin/Layout/GenerateMap" to="." method="_continue_to_explicit_generated"]
-[connection signal="button_up" from="Controls/Margin/Layout/Return" to="." method="_return_from"]
-[connection signal="button_up" from="Controls/Margin/Layout/Continue" to="." method="_continue_to"]
+[node name="ConfigureGenerate" parent="." instance=ExtResource("6_a1ikt")]
+visible = false
+layout_mode = 2
+
+[connection signal="button_down" from="Main/Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
+[connection signal="focus_entered" from="Main/Selector/List/Margin/Layout/SurpriseMe" to="." method="_select_random_map"]
+[connection signal="gui_input" from="Main/Selector/List/Margin/Layout/SurpriseMe" to="." method="_continue_to_explicit_random"]
+[connection signal="button_down" from="Main/Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
+[connection signal="focus_entered" from="Main/Selector/List/Margin/Layout/GenerateMap" to="." method="_select_generated_map"]
+[connection signal="gui_input" from="Main/Selector/List/Margin/Layout/GenerateMap" to="." method="_continue_to_explicit_generated"]
+[connection signal="button_up" from="Main/Controls/Margin/Layout/Return" to="." method="_return_from"]
+[connection signal="button_up" from="Main/Controls/Margin/Layout/Continue" to="." method="_continue_to"]
+[connection signal="got_configured_mission" from="ConfigureGenerate" to="." method="_continue_to_from_generated"]
+[connection signal="return_from" from="ConfigureGenerate" to="." method="_return_from_generated"]

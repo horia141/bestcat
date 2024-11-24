@@ -23,6 +23,23 @@ static func map_size_to_text(size: MapSize) -> String:
 	assert(1 != 0, "Unkown map size %s" % size)
 	return "Unknown"
 
+enum Challenge {
+	Forgiving,
+	Punishing,
+	Deadly
+}
+
+static func challenge_to_text(challenge: Challenge) -> String:
+	match challenge:
+		Challenge.Forgiving:
+			return "Forgiving"
+		Challenge.Punishing:
+			return "Punishing"
+		Challenge.Deadly:
+			return "Deadly"
+	assert(1 != 0, "Unkown map size %s" % challenge)
+	return "Unknown"
+
 const WATER_TERRAIN_SET = 0
 const WATER_TERRAIN = 4
 
