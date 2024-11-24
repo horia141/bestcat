@@ -6,17 +6,19 @@ signal structure_hit (structure: Structure)
 signal otherwise_destroyed ()
 
 const BUFFER = 32
+const MAX_DISTANCE = 200
 static var SPEED = DifficultyValue.new(1000, 900, 800)
 
 var difficulty = Application.MissionDifficulty.Apprentice
+var init_position: Vector2 = Vector2.ZERO
 
 #region Construction
 
 func _ready() -> void:
 	pass
-	
 
 func post_ready_prepare(init_position: Vector2, init_direction: Vector2, difficulty: Application.MissionDifficulty) -> void:
+	self.init_position = init_position
 	position = init_position + BUFFER * init_direction
 	self.difficulty = difficulty
 	add_constant_central_force(SPEED.get_for(difficulty) * init_direction)
@@ -53,5 +55,10 @@ func _on_body_entered(body: Node) -> void:
 		_hit_structure(body as Structure)
 	elif body.is_in_group("Enemies"):
 		_hit_enemy(body as Enemy)
+		
+func _process(delta: float) -> void:
+	var distance_travelled = position.distance_to(init_position)
+	if distance_travelled > MAX_DISTANCE:
+		_destroy()
 
 #endregion
