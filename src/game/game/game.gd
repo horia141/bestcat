@@ -57,7 +57,7 @@ func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void
 		score = 0
 		# Wait till the next frame so everything is freed
 		await get_tree().process_frame
-	player = new_mission_attempt.player.scene.instantiate()
+	player = new_mission_attempt.player_in_mission.player.scene.instantiate()
 	mission = new_mission_attempt.mission.scene.instantiate()
 	mission_attempt = new_mission_attempt
 	
@@ -73,7 +73,7 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 	
 	# Here we just initialise the one player!
 	player.state_change.connect(func (effect): $HUD.update_player(player, effect))
-	player.post_ready_prepare(mission_attempt.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty)
+	player.post_ready_prepare(mission_attempt.player_in_mission.player, Application.ConceptMode.InGame, mission.get_node("PlayerStartPosition").global_position, mission_attempt.difficulty.difficulty)
 	
 	# And all the other players now.
 	for player in get_tree().get_nodes_in_group("Players"):

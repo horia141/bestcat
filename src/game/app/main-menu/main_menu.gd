@@ -71,8 +71,12 @@ func _select_player_go_to_select_mission() -> void:
 	_show()
 	
 func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficultyDesc) -> void:
+	var player_in_mission = Application.PlayerInMission.new(
+		selected_player,
+		null,
+	)
 	var mission_attempt = Application.MissionAttempt.new(
-		selected_player, selected_mission, difficulty, all_mobs_desc, all_bosses_desc)
+		player_in_mission, selected_mission, difficulty, all_mobs_desc, all_bosses_desc)
 	new_game.emit(mission_attempt)
 	view = View.Main
 	_show()

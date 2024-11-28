@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b23ekrvfmlyyx"]
+
+[ext_resource type="Texture2D" uid="uid://enboomf0x8au" path="res://entities/players/weapons/topaz-staff/topaz-staff.png" id="1_xguhq"]
+[ext_resource type="Script" path="res://entities/players/weapons/topaz-staff/topaz_staff.gd" id="2_5nu5m"]
+
+[node name="TopazStaff" type="Sprite2D"]
+texture = ExtResource("1_xguhq")
+script = ExtResource("2_5nu5m")

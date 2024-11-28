@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5pte2gtrv0eh"]
+
+[ext_resource type="Texture2D" uid="uid://dexsyiaxfjcld" path="res://entities/players/weapons/sapphire-staff/sapphire-staff.png" id="1_cunjk"]
+[ext_resource type="Script" path="res://entities/players/weapons/sapphire-staff/sapphire_staff.gd" id="2_3xd53"]
+
+[node name="SapphireStaff" type="Sprite2D"]
+texture = ExtResource("1_cunjk")
+script = ExtResource("2_3xd53")

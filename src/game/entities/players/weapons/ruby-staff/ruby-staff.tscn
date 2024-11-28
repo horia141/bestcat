@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://btjesakx17jk3"]
+
+[ext_resource type="Texture2D" uid="uid://156qavq8twwj" path="res://entities/players/weapons/ruby-staff/ruby-staff.png" id="1_d6sam"]
+[ext_resource type="Script" path="res://entities/players/weapons/ruby-staff/ruby_staff.gd" id="2_ow4wx"]
+
+[node name="RubyStaff" type="Sprite2D"]
+texture = ExtResource("1_d6sam")
+script = ExtResource("2_ow4wx")

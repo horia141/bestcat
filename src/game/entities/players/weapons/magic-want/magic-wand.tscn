@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://poofut476ad0"]
+
+[ext_resource type="Texture2D" uid="uid://b4fv4p51ck43" path="res://entities/players/weapons/magic-want/magic-wand.png" id="1_auem6"]
+
+[node name="MagicWant" type="Sprite2D"]
+texture = ExtResource("1_auem6")

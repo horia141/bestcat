@@ -37,6 +37,37 @@ class PlayerDesc:
 		self.max_projectiles_cnt = max_projectiles_cnt
 		
 		
+class PlayerWeaponDesc:
+	var ui_name: String
+	var ui_description: String
+	var scene: PackedScene
+	var max_ammo: int
+	var damage: int
+	var range: float
+	var speed: float
+	var accuracy: float
+	var reload: float
+	
+	func _init(
+		ui_name: String,
+		ui_description: String,
+		scene: PackedScene,
+		max_ammo: int,
+		damage: int,
+		range: float,
+		speed: float,
+		accuracy: float,
+		reload: float
+	) -> void:
+		self.ui_name = ui_name
+		self.ui_description = Application.__clean_ui_description(ui_description)
+		self.scene = scene
+		self.max_ammo = max_ammo
+		self.damage = damage
+		self.range = range
+		self.accuracy = accuracy
+		self.reload = reload
+		
 class EnemyDesc:
 	var ui_name: String
 	var ui_description: String
@@ -84,20 +115,30 @@ class MissionDifficultyDesc:
 		self.difficulty = difficulty
 		self.ui_name = ui_name
 		self.ui_description = Application.__clean_ui_description(ui_description)
-			
+
+class PlayerInMission:
+	var player: PlayerDesc
+	var weapon: PlayerWeaponDesc
+	
+	func _init(
+		player: PlayerDesc,
+		weapon: PlayerWeaponDesc,
+	) -> void:
+		self.player = player
+		self.weapon = weapon
 
 class MissionAttempt:
-	var player: PlayerDesc
+	var player_in_mission: PlayerInMission
 	var mission: MissionDesc
 	var difficulty: MissionDifficultyDesc
 	var all_mobs_desc: Array[EnemyDesc]
 	var all_bosses_desc: Array[EnemyDesc]
 	
 	func _init(
-		player: PlayerDesc, mission: MissionDesc, 
+		player_in_mission: PlayerInMission, mission: MissionDesc, 
 		difficulty: MissionDifficultyDesc, all_mobs_desc: Array[EnemyDesc], 
 		all_bosses_desc: Array[EnemyDesc]) -> void:
-		self.player = player
+		self.player_in_mission = player_in_mission
 		self.mission = mission
 		self.difficulty = difficulty
 		self.all_mobs_desc = all_mobs_desc
