@@ -27,7 +27,9 @@ func post_ready_prepare(all_players_desc: Array[Application.PlayerDesc]) -> void
 		var player = player_desc.scene.instantiate() as Player
 		var init_position = Vector2(vp_x / 2, vp_y / 2)
 		var scale = min(vp_x / player.size_px.x * 0.75, vp_y / player.size_px.y * 0.75)
-		player.post_ready_prepare(player_desc, Application.ConceptMode.InMainMenu, init_position, Application.MissionDifficulty.Apprentice)
+		player.post_ready_prepare(
+			Application.PlayerInMission.new(player_desc, MagicWand.Desc), 
+			Application.ConceptMode.InMainMenu, init_position, Application.MissionDifficulty.Apprentice)
 		player.scale.x = scale
 		player.scale.y = scale
 		player.hide()

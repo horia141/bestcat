@@ -32,14 +32,18 @@ const SPEED_REGEN_CUTOFF = 10
 const PROJECTILES_CNT_REGEN_INCREMENT = 1
 const PROJECTILES_CNT_REGEN_CUTOFF = 10
 
+const WEAPON_POS_LOOK_RIGHT = Vector2(8, -1)
+const WEAPON_POS_LOOK_LEFT = Vector2(-8, -1)
+
 const PlayerProjectileScn = preload("res://entities/players/projectile/player-projectile.tscn")
 
 @export var in_game_scale: float = 1
 
-var desc: Application.PlayerDesc = null
+var in_mission: Application.PlayerInMission = null
 var mode = Application.ConceptMode.InGame
 var state = PlayerState.Active
 var difficulty = Application.MissionDifficulty.Apprentice
+var weapon: PlayerWeapon = null
 var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
 var life = 5
@@ -56,20 +60,27 @@ func _ready() -> void:
 	$SpeedRegenTimer.timeout.connect(_regen_speed)
 	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
 	
-func post_ready_prepare(player_desc: Application.PlayerDesc, mode: Application.ConceptMode, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
+func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Application.ConceptMode, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	self.z_index = 100
 	self.z_as_relative = true
 	self.scale = Vector2(in_game_scale, in_game_scale)
 	self.position = init_position
-	self.desc = player_desc
+	self.in_mission = in_mission
 	self.mode = mode
 	self.state = PlayerState.Active
 	self.difficulty = difficulty
-	self.life = player_desc.max_life
-	self.speed = player_desc.max_speed
+	self.life = in_mission.player.max_life
+	self.speed = in_mission.player.max_speed
 	self.speed_regen_factor = 0
-	self.projectiles_cnt = player_desc.max_projectiles_cnt
+	self.projectiles_cnt = in_mission.player.max_projectiles_cnt
 	self.projectiles_cnt_regen_factor = 0
+	
+	if mode == Application.ConceptMode.InGame:
+		weapon = in_mission.weapon.scene.instantiate() as PlayerWeapon
+		weapon.post_ready_prepare(mode)
+		weapon.position = WEAPON_POS_LOOK_RIGHT
+		weapon.scale = Vector2(0.2, 0.2)
+		add_child(weapon)
 
 #endregion
 
@@ -106,7 +117,7 @@ func _regen_speed() -> void:
 	if state == PlayerState.Dead:
 		return
 		
-	if speed == desc.max_speed:
+	if speed == in_mission.player.max_speed:
 		return
 		
 	speed_regen_factor += SPEED_REGEN_INCREMENT
@@ -122,7 +133,7 @@ func _regen_projectile() -> void:
 	if state == PlayerState.Dead:
 		return
 
-	if projectiles_cnt == desc.max_projectiles_cnt:
+	if projectiles_cnt == in_mission.player.max_projectiles_cnt:
 		return
 
 	projectiles_cnt_regen_factor += PROJECTILES_CNT_REGEN_INCREMENT
@@ -143,9 +154,9 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	destroy_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
 
 	enemy_projectile.apply_effect_to_player(self)
-	life = clamp(life, 0, desc.max_life)
-	speed = clamp(speed, 1, desc.max_speed)
-	projectiles_cnt = clamp(projectiles_cnt, 0, desc.max_projectiles_cnt)
+	life = clamp(life, 0, in_mission.player.max_life)
+	speed = clamp(speed, 1, in_mission.player.max_speed)
+	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.player.max_projectiles_cnt)
 	
 	if life == 0:
 		state = PlayerState.Dead
@@ -174,9 +185,9 @@ func apply_treasure(treasure: Treasure) -> void:
 		powerup_scale_tween.chain().tween_property(self, "scale", initial_scale, 0.15).set_trans(Tween.TRANS_SINE)
 		
 	var effect = treasure.apply_effect_to_player(self)
-	life = clamp(life, 0, desc.max_life)
-	speed = clamp(speed, 1, desc.max_speed)
-	projectiles_cnt = clamp(projectiles_cnt, 0, desc.max_projectiles_cnt)
+	life = clamp(life, 0, in_mission.player.max_life)
+	speed = clamp(speed, 1, in_mission.player.max_speed)
+	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.player.max_projectiles_cnt)
 
 	state_change.emit(PlayerEffect.new(effect))
 	
@@ -202,9 +213,12 @@ func _look_at(new_look_axis: LookAxis) -> void:
 	match new_look_axis:
 		LookAxis.Right:
 			look_right = true
+			weapon.position = WEAPON_POS_LOOK_RIGHT
 		LookAxis.Left:
 			look_right = false
+			weapon.position = WEAPON_POS_LOOK_LEFT
 	$AnimatedSprite2D.flip_h = !look_right
+	weapon.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
 	if mode != Application.ConceptMode.InGame:
