@@ -21,7 +21,7 @@ func post_ready_prepare(all_mobs_desc: Array[Application.EnemyDesc], player: Gam
 
 #region Game logic
 
-func on_hit_by_player_projectile() -> void:
+func on_hit_by_player_projectile(projectile: PlayerProjectile) -> void:
 	damage_tween = create_tween()
 	damage_tween.tween_property(self, "modulate", Color.RED, 0.2)
 	damage_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)

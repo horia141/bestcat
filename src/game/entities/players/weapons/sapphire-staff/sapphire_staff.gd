@@ -7,10 +7,10 @@ static var Desc:
 			"Sapphire Staff",
 			"Description",
 			preload("res://entities/players/weapons/sapphire-staff/sapphire-staff.tscn"),
-			5,
+			7,
 			1,
 			200,
-			4,
+			1000,
 			10,
-			0.2
+			7
 		)

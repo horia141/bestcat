@@ -21,53 +21,51 @@ class PlayerDesc:
 	var scene: PackedScene
 	var max_life: int
 	var max_speed: int
-	var max_projectiles_cnt: int
 	
 	func _init(
 			ui_name: String, 
 			ui_description: String,
 			scene: PackedScene,
 			max_life: int,
-			max_speed: int,
-			max_projectiles_cnt: int) -> void:
+			max_speed: int) -> void:
 		self.ui_name = ui_name
 		self.ui_description = Application.__clean_ui_description(ui_description)
 		self.scene = scene
 		self.max_life = max_life
 		self.max_speed = max_speed
-		self.max_projectiles_cnt = max_projectiles_cnt
 		
 		
 class PlayerWeaponDesc:
 	var ui_name: String
 	var ui_description: String
 	var scene: PackedScene
-	var max_ammo: int
+	var max_projectiles_cnt: int
 	var damage: int
 	var range: float
 	var speed: float
 	var accuracy: float
-	var reload_speed: float
+	var reload_duration: float
 	
 	func _init(
 		ui_name: String,
 		ui_description: String,
 		scene: PackedScene,
-		max_ammo: int,
+		max_projectiles_cnt: int,
 		damage: int,
 		range: float,
 		speed: float,
 		accuracy: float,
-		reload_speed: float
+		reload_duration: float
 	) -> void:
 		self.ui_name = ui_name
 		self.ui_description = Application.__clean_ui_description(ui_description)
 		self.scene = scene
-		self.max_ammo = max_ammo
+		self.max_projectiles_cnt = max_projectiles_cnt
 		self.damage = damage
 		self.range = range
+		self.speed = speed
 		self.accuracy = accuracy
-		self.reload_speed = reload_speed
+		self.reload_duration = reload_duration
 		
 class EnemyDesc:
 	var ui_name: String

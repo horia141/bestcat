@@ -11,7 +11,6 @@ static var Desc:
 				Macky is a bit tougher, but can't do as much damage.
 			""",
 			preload("res://entities/players/macky/macky.tscn"),
-			6,
-			5,
+			8,
 			4
 		)

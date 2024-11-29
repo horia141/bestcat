@@ -102,16 +102,16 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 columns = 2
 
-[node name="MaxAmmo" type="HBoxContainer" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats"]
+[node name="MaxProjectilesCnt" type="HBoxContainer" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxAmmo"]
+[node name="Label" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxProjectilesCnt"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Max Ammo"
 
-[node name="Value" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxAmmo"]
+[node name="Value" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxProjectilesCnt"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -176,15 +176,15 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "0.2"
 
-[node name="ReloadSpeed" type="HBoxContainer" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats"]
+[node name="ReloadDuration" type="HBoxContainer" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadSpeed"]
+[node name="Label" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadDuration"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reload"
 
-[node name="Value" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadSpeed"]
+[node name="Value" type="Label" parent="Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadDuration"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "0.2"

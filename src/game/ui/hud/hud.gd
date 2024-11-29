@@ -21,6 +21,7 @@ func post_ready_prepare(player_in_mission: Application.PlayerInMission) -> void:
 	weapon.post_ready_prepare(Application.ConceptMode.InHud)
 	weapon.position = Vector2(16, 16)
 	$PlayerInfo/Layout/Weapon/SubViewport.add_child(weapon)
+	$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.max_value = player_in_mission.weapon.max_projectiles_cnt
 
 #endregion
 
@@ -35,7 +36,7 @@ func update_player(player: Player, effect: Player.PlayerEffect) -> void:
 		$PlayerInfo/Layout/Speed/Regen/Factor.value = 0
 	$PlayerInfo/Layout/ProjectilesCnt/Text.text = str(player.projectiles_cnt)
 	if player.projectiles_cnt_regen_factor > 0:
-		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor / player.PROJECTILES_CNT_REGEN_CUTOFF * 100
+		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor
 	else:
 		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = 0
 		

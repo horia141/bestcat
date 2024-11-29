@@ -7,10 +7,10 @@ static var Desc:
 			"Magic Wand",
 			"Description",
 			preload("res://entities/players/weapons/magic-want/magic-wand.tscn"),
-			5,
+			3,
 			1,
 			200,
-			4,
+			1000,
 			10,
-			0.2
+			5
 		)

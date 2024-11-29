@@ -120,13 +120,13 @@ func on_own_spawn_destroyed(mob: Mob) -> void:
 		
 	my_mobs.erase(mob.get_instance_id())
 
-func on_hit_by_player_projectile() -> void:
-	super.on_hit_by_player_projectile()
+func on_hit_by_player_projectile(projectile: PlayerProjectile) -> void:
+	super.on_hit_by_player_projectile(projectile)
 
 	if state == StructureState.Destroyed:
 		return
 		
-	life = max(life - 1, 0)
+	life = max(life - projectile.damage, 0)
 	$HealthBar.life = life
 	
 	if life == 0:

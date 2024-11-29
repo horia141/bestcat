@@ -7,10 +7,10 @@ static var Desc:
 			"Topaz Staff",
 			"Description",
 			preload("res://entities/players/weapons/topaz-staff/topaz-staff.tscn"),
-			5,
+			10,
 			1,
 			200,
-			4,
+			1000,
 			10,
-			0.2
+			10
 		)

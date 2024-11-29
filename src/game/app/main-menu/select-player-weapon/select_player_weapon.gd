@@ -60,12 +60,12 @@ func _select_player_weapon(player_weapon: PlayerWeapon, player_weapon_desc: Appl
 	selected_player_weapon = player_weapon_desc
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Description.text = player_weapon_desc.ui_description
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Description.scroll_to_line(0)
-	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxAmmo/Value.text = str(player_weapon_desc.max_ammo)
+	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/MaxProjectilesCnt/Value.text = str(player_weapon_desc.max_projectiles_cnt)
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/Damage/Value.text = str(player_weapon_desc.damage)
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/Range/Value.text = str(player_weapon_desc.range)
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/Speed/Value.text = str(player_weapon_desc.speed)
 	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/Accuracy/Value.text = str(player_weapon_desc.accuracy)
-	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadSpeed/Value.text = str(player_weapon_desc.reload_speed)
+	$Selector/PlayerWeaponDetails/Stats/Margin/Layout/Stats/ReloadDuration/Value.text = str(player_weapon_desc.reload_duration)
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % player_weapon_desc.ui_name
 	
 func _continue_to_explicit(event: InputEvent, player_weapon: PlayerWeapon, player_weapon_desc: Application.PlayerWeaponDesc) -> void:

@@ -66,7 +66,6 @@ func _select_player(player: Player, player_desc: Application.PlayerDesc) -> void
 	$Selector/PlayerDetails/Stats/Margin/Layout/Description.scroll_to_line(0)
 	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/Life/Value.text = str(player_desc.max_life)
 	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/Speed/Value.text = str(player_desc.max_speed)
-	$Selector/PlayerDetails/Stats/Margin/Layout/Stats/ProjectilesCnt/Value.text = str(player_desc.max_projectiles_cnt)
 	$Controls/Margin/Layout/Continue.label = "Continue with %s" % player_desc.ui_name
 	
 func _continue_to_explicit(event: InputEvent, player: Player, player_desc: Application.PlayerDesc) -> void:

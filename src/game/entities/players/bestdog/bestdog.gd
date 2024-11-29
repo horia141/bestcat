@@ -11,7 +11,6 @@ static var Desc:
 				He's very fast, but low bite!
 			""",
 			preload("res://entities/players/bestdog/bestdog.tscn"),
-			4,
-			7,
-			4
+			5,
+			7
 		)

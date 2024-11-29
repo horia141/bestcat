@@ -29,8 +29,6 @@ enum LookAxis {
 const SPEED_MULTIPLIER = 50.0
 const SPEED_REGEN_INCREMENT = 1
 const SPEED_REGEN_CUTOFF = 10
-const PROJECTILES_CNT_REGEN_INCREMENT = 1
-const PROJECTILES_CNT_REGEN_CUTOFF = 10
 
 const WEAPON_POS_LOOK_RIGHT = Vector2(8, -1)
 const WEAPON_POS_LOOK_LEFT = Vector2(-8, -1)
@@ -72,7 +70,7 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 	self.life = in_mission.player.max_life
 	self.speed = in_mission.player.max_speed
 	self.speed_regen_factor = 0
-	self.projectiles_cnt = in_mission.player.max_projectiles_cnt
+	self.projectiles_cnt = in_mission.weapon.max_projectiles_cnt
 	self.projectiles_cnt_regen_factor = 0
 	
 	if mode == Application.ConceptMode.InGame:
@@ -106,7 +104,11 @@ func _shoot_projectile() -> void:
 		LookAxis.Left:
 			look_direction = Vector2(-1, 0)
 	player_projectile.post_ready_prepare(
-		position, look_direction.rotated(randf_range(-0.1, 0.1)), difficulty)
+		position, 
+		look_direction.rotated(randf_range(-1 / in_mission.weapon.accuracy, 1 / in_mission.weapon.accuracy)), 
+		in_mission.weapon.damage,
+		in_mission.weapon.speed,
+		in_mission.weapon.range)
 	shoot.emit(player_projectile)
 	projectiles_cnt -= 1
 	state_change.emit(PlayerEffect.NONE)
@@ -133,11 +135,11 @@ func _regen_projectile() -> void:
 	if state == PlayerState.Dead:
 		return
 
-	if projectiles_cnt == in_mission.player.max_projectiles_cnt:
+	if projectiles_cnt == in_mission.weapon.max_projectiles_cnt:
 		return
 
-	projectiles_cnt_regen_factor += PROJECTILES_CNT_REGEN_INCREMENT
-	if projectiles_cnt_regen_factor > PROJECTILES_CNT_REGEN_CUTOFF:
+	projectiles_cnt_regen_factor += 1
+	if projectiles_cnt_regen_factor > in_mission.weapon.reload_duration:
 		projectiles_cnt = projectiles_cnt + 1
 		projectiles_cnt_regen_factor = 0.0
 	
@@ -156,7 +158,7 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	enemy_projectile.apply_effect_to_player(self)
 	life = clamp(life, 0, in_mission.player.max_life)
 	speed = clamp(speed, 1, in_mission.player.max_speed)
-	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.player.max_projectiles_cnt)
+	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.weapon.max_projectiles_cnt)
 	
 	if life == 0:
 		state = PlayerState.Dead
@@ -187,7 +189,7 @@ func apply_treasure(treasure: Treasure) -> void:
 	var effect = treasure.apply_effect_to_player(self)
 	life = clamp(life, 0, in_mission.player.max_life)
 	speed = clamp(speed, 1, in_mission.player.max_speed)
-	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.player.max_projectiles_cnt)
+	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.weapon.max_projectiles_cnt)
 
 	state_change.emit(PlayerEffect.new(effect))
 	

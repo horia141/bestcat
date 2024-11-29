@@ -149,8 +149,8 @@ func _got_ready() -> void:
 
 func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	add_child(player_projectile)
-	player_projectile.enemy_hit.connect(_on_projectile_hit_enemy)
-	player_projectile.structure_hit.connect(_on_player_projectile_hit_structure)
+	player_projectile.enemy_hit.connect(func (enemy: Enemy): _on_projectile_hit_enemy(enemy, player_projectile))
+	player_projectile.structure_hit.connect(func (structure: Structure): _on_player_projectile_hit_structure(structure, player_projectile))
 	player_projectile.otherwise_destroyed.connect(func (): _on_player_projectile_destroyed(player_projectile))
 	
 func _on_player_destroyed() -> void:
@@ -215,14 +215,14 @@ func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
 	treasure.queue_free()
 	
-func _on_player_projectile_hit_structure(structure: Structure) -> void:
-	structure.on_hit_by_player_projectile()
+func _on_player_projectile_hit_structure(structure: Structure, player_projectile: PlayerProjectile) -> void:
+	structure.on_hit_by_player_projectile(player_projectile)
 	
 func _on_player_projectile_destroyed(player_projectile: PlayerProjectile) -> void:
 	player_projectile.queue_free()
 
-func _on_projectile_hit_enemy(enemy: Enemy) -> void:
-	enemy.on_hit_by_projectile()
+func _on_projectile_hit_enemy(enemy: Enemy, player_projectile: PlayerProjectile) -> void:
+	enemy.on_hit_by_projectile(player_projectile)
 	
 func _on_projectile_hit_player(player: Player, enemy_projectile: EnemyProjectile) -> void:
 	player.on_hit_by_projectile(enemy_projectile)

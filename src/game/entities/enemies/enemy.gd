@@ -42,11 +42,11 @@ func post_ready_prepare(enemy_desc: Application.EnemyDesc, player: Game.PlayerPr
 
 #region Game logic
 
-func on_hit_by_projectile() -> void:
+func on_hit_by_projectile(projectile: PlayerProjectile) -> void:
 	if state == EnemyState.Hidden or state == EnemyState.Dead:
 		return
 	
-	life = life - 1
+	life = max(0, life - projectile.damage)
 	state_change.emit()
 	
 	$HealthBar.life = life

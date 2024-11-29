@@ -7,10 +7,10 @@ static var Desc:
 			"Ruby Staff",
 			"Description",
 			preload("res://entities/players/weapons/ruby-staff/ruby-staff.tscn"),
-			5,
+			6,
 			1,
 			200,
-			4,
+			1000,
 			10,
-			0.2
+			6
 		)

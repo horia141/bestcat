@@ -11,7 +11,6 @@ static var Desc:
 				He's slower than the other players, but packs a punch.
 			""",
 			preload("res://entities/players/kenny/kenny.tscn"),
-			5,
-			3,
-			7
+			7,
+			5
 		)

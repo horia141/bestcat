@@ -11,7 +11,6 @@ static var Desc:
 				He is an all around fighter.
 			""",
 			preload("res://entities/players/bestcat/bestcat.tscn"),
-			5,
-			5,
-			5
+			6,
+			6
 		)
