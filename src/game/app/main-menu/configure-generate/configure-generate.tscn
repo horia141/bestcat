@@ -6,7 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_anarx"]
 
 [node name="MainMenuConfigureGenerate" type="VBoxContainer"]
-theme_override_constants/separation = 8
+custom_minimum_size = Vector2(540, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = 10.0
+offset_right = 161.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
 script = ExtResource("1_awdic")
 
 [node name="GameHeader" parent="." instance=ExtResource("1_s6l6v")]
@@ -15,6 +26,7 @@ label = "Generate A Mission"
 
 [node name="Options" parent="." instance=ExtResource("3_xom7u")]
 layout_mode = 2
+size_flags_vertical = 2
 
 [node name="Margin" type="MarginContainer" parent="Options"]
 layout_mode = 2

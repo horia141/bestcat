@@ -6,28 +6,28 @@
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_qb813"]
 
 [node name="MainMenuSelectDifficulty" type="VBoxContainer"]
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -143.0
-offset_top = -143.5
-offset_right = 143.0
-offset_bottom = 143.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = 10.0
+offset_right = 270.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 script = ExtResource("1_pomqh")
 
 [node name="Header" parent="." instance=ExtResource("2_8ovqq")]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(540, 70)
 layout_mode = 2
 label = "Choose The Difficulty"
 
 [node name="Selector" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(540, 0)
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
 [node name="List" parent="Selector" instance=ExtResource("2_qb813")]
 layout_mode = 2
@@ -54,7 +54,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="RichTextLabel" parent="Selector/Difficulty/Margin"]
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(250, 256)
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 14
 theme_override_font_sizes/italics_font_size = 14
@@ -68,6 +68,7 @@ text = "Here is some description of the difficulty
 
 [node name="Controls" parent="." instance=ExtResource("2_qb813")]
 layout_mode = 2
+size_flags_vertical = 10
 
 [node name="Margin" type="MarginContainer" parent="Controls"]
 layout_mode = 2

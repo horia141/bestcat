@@ -7,20 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_4r0x3"]
 [ext_resource type="PackedScene" uid="uid://3ecl8p6jym3v" path="res://app/main-menu/configure-generate/configure-generate.tscn" id="6_a1ikt"]
 
-[node name="MainMenuSelectMission" type="VBoxContainer"]
-anchors_preset = 8
+[node name="MainMenuSelectMission" type="MarginContainer"]
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = 10.0
+offset_right = 270.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
 script = ExtResource("1_fhncj")
 
 [node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 8
+size_flags_vertical = 3
+theme_override_constants/separation = 4
 
 [node name="Header" parent="Main" instance=ExtResource("2_vmjyh")]
 custom_minimum_size = Vector2(0, 70)
@@ -29,6 +32,8 @@ label = "Choose A Mission"
 
 [node name="Selector" type="HBoxContainer" parent="Main"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 
 [node name="List" parent="Main/Selector" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
@@ -45,12 +50,15 @@ custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
 [node name="SurpriseMe" parent="Main/Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
-custom_minimum_size = Vector2(185, 50)
+custom_minimum_size = Vector2(199, 50)
 layout_mode = 2
+max_width = true
 label = "Pick Randomly"
 
 [node name="GenerateMap" parent="Main/Selector/List/Margin/Layout" instance=ExtResource("4_4r0x3")]
+custom_minimum_size = Vector2(194, 50)
 layout_mode = 2
+max_width = true
 label = "Generate Map"
 
 [node name="Divider" type="Panel" parent="Main/Selector/List/Margin/Layout"]
@@ -59,12 +67,15 @@ layout_mode = 2
 
 [node name="Details" type="VBoxContainer" parent="Main/Selector"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="View" parent="Main/Selector/Details" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Margin" type="MarginContainer" parent="Main/Selector/Details/View"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
@@ -79,16 +90,15 @@ size_flags_vertical = 4
 [node name="SubViewport" type="SubViewport" parent="Main/Selector/Details/View/Margin/Layout"]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(350, 256)
+size = Vector2i(256, 200)
 render_target_update_mode = 4
 
 [node name="Background" type="Sprite2D" parent="Main/Selector/Details/View/Margin/Layout/SubViewport"]
-position = Vector2(176, 128)
-scale = Vector2(1.375, 1)
+position = Vector2(128, 100)
+scale = Vector2(1, 0.78)
 texture = ExtResource("2_rtqcv")
 
 [node name="Stats" parent="Main/Selector/Details" instance=ExtResource("3_qqy1o")]
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="Main/Selector/Details/Stats"]
@@ -110,7 +120,6 @@ text = "This is some info on the mission"
 [node name="Stats" type="GridContainer" parent="Main/Selector/Details/Stats/Margin/Layout"]
 layout_mode = 2
 theme_override_constants/h_separation = 16
-columns = 2
 
 [node name="Size" type="HBoxContainer" parent="Main/Selector/Details/Stats/Margin/Layout/Stats"]
 layout_mode = 2
@@ -139,6 +148,7 @@ text = "Easy"
 
 [node name="Controls" parent="Main" instance=ExtResource("3_qqy1o")]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="Margin" type="MarginContainer" parent="Main/Controls"]
 layout_mode = 2

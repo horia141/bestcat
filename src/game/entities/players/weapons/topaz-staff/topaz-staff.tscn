@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://entities/players/weapons/topaz-staff/topaz_staff.gd" id="2_5nu5m"]
 
 [node name="TopazStaff" type="Sprite2D"]
+texture_filter = 1
 texture = ExtResource("1_xguhq")
 script = ExtResource("2_5nu5m")

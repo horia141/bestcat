@@ -20,6 +20,7 @@ func post_ready_prepare(all_mission_difficulties_desc: Array[Application.Mission
 
 	for mission_difficulty_desc in all_mission_difficulties_desc:
 		var difficulty_button = GameButtonScn.instantiate()
+		difficulty_button.max_width = true
 		difficulty_button.label = mission_difficulty_desc.ui_name
 		difficulty_button.font_size = 20
 		difficulty_button.pressed.connect(func (): _select_difficulty(mission_difficulty_desc))

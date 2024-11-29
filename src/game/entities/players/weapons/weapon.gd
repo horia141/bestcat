@@ -1,8 +1,2 @@
-class_name Weapon
+class_name PlayerWeapon
 extends Sprite2D
-
-var desc: Application.WeaponDesc = null
-
-#region Construction
-
-#endregion

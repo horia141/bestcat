@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=15 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
 [ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_ej781"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lpuqutgh2h0y" path="res://app/main-menu/select-difficulty/select-difficulty.tscn" id="4_qcdqa"]
 [ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="6_7kr4e"]
 [ext_resource type="PackedScene" uid="uid://bnxude3glaqa5" path="res://app/main-menu/show-controls/show-controls.tscn" id="8_olo7c"]
+[ext_resource type="PackedScene" uid="uid://dhfywm5mrjx77" path="res://app/main-menu/select-player-weapon/select-player-weapon.tscn" id="10_7n7ka"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_atguf"]
 shader = ExtResource("2_xpbev")
@@ -99,25 +100,20 @@ font_size = 38
 
 [node name="SelectMission" parent="." instance=ExtResource("2_w05gh")]
 visible = false
-offset_left = -230.0
-offset_top = -169.5
-offset_right = 230.0
-offset_bottom = 169.5
+anchors_preset = 13
 
 [node name="SelectPlayer" parent="." instance=ExtResource("2_eo256")]
 visible = false
-offset_top = -100.0
-offset_bottom = 100.0
+
+[node name="SelectPlayerWeapon" parent="." instance=ExtResource("10_7n7ka")]
+visible = false
 
 [node name="SelectDifficulty" parent="." instance=ExtResource("4_qcdqa")]
 visible = false
-offset_left = -258.0
-offset_top = -169.5
-offset_right = 258.0
-offset_bottom = 169.5
 
 [node name="ShowControls" parent="." instance=ExtResource("8_olo7c")]
 visible = false
+anchors_preset = 13
 offset_left = -250.0
 offset_right = 250.0
 
@@ -127,8 +123,10 @@ offset_right = 250.0
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Quit" to="." method="_main_go_to_quit_game"]
 [connection signal="mission_selected" from="SelectMission" to="." method="_select_mission_go_to_select_player"]
 [connection signal="return_from" from="SelectMission" to="." method="_select_mission_to_main"]
-[connection signal="player_selected" from="SelectPlayer" to="." method="_select_player_go_to_select_difficulty"]
+[connection signal="player_selected" from="SelectPlayer" to="." method="_select_player_go_to_select_player_weapon"]
 [connection signal="return_from" from="SelectPlayer" to="." method="_select_player_go_to_select_mission"]
+[connection signal="player_weapon_selected" from="SelectPlayerWeapon" to="." method="_select_player_weapon_go_to_select_difficulty"]
+[connection signal="return_from" from="SelectPlayerWeapon" to="." method="_select_player_weapon_go_to_select_player"]
 [connection signal="difficulty_selected" from="SelectDifficulty" to="." method="_select_difficulty_go_to_new_game"]
-[connection signal="return_from" from="SelectDifficulty" to="." method="_select_difficulty_go_to_select_player"]
+[connection signal="return_from" from="SelectDifficulty" to="." method="_select_difficulty_go_to_select_player_weapon"]
 [connection signal="return_from" from="ShowControls" to="." method="_controls_to_main"]

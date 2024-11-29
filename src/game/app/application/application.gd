@@ -46,7 +46,7 @@ class PlayerWeaponDesc:
 	var range: float
 	var speed: float
 	var accuracy: float
-	var reload: float
+	var reload_speed: float
 	
 	func _init(
 		ui_name: String,
@@ -57,7 +57,7 @@ class PlayerWeaponDesc:
 		range: float,
 		speed: float,
 		accuracy: float,
-		reload: float
+		reload_speed: float
 	) -> void:
 		self.ui_name = ui_name
 		self.ui_description = Application.__clean_ui_description(ui_description)
@@ -66,7 +66,7 @@ class PlayerWeaponDesc:
 		self.damage = damage
 		self.range = range
 		self.accuracy = accuracy
-		self.reload = reload
+		self.reload_speed = reload_speed
 		
 class EnemyDesc:
 	var ui_name: String
@@ -151,6 +151,14 @@ var all_players_desc: Array[PlayerDesc] = [
 	Macky.Desc
 ]
 
+var all_player_weapons_desc: Array[PlayerWeaponDesc] = [
+	MagicWand.Desc,
+	RubyStaff.Desc,
+	TopazStaff.Desc,
+	SapphireStaff.Desc,
+	EmeraldStaff.Desc
+]
+
 var all_mobs_desc: Array[EnemyDesc] = [
 	Jelly.Desc,
 	Ogre.Desc,
@@ -217,7 +225,7 @@ var current_game: Game = null
 #region Construction
 
 func _ready() -> void:
-	$MainMenu.post_ready_process(all_players_desc, all_missions_desc, all_mission_difficulties_desc, all_mobs_desc, all_bosses_desc)
+	$MainMenu.post_ready_process(all_players_desc, all_player_weapons_desc, all_missions_desc, all_mission_difficulties_desc, all_mobs_desc, all_bosses_desc)
 	
 #endregion
 

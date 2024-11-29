@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://entities/players/weapons/sapphire-staff/sapphire_staff.gd" id="2_3xd53"]
 
 [node name="SapphireStaff" type="Sprite2D"]
+texture_filter = 1
 texture = ExtResource("1_cunjk")
 script = ExtResource("2_3xd53")

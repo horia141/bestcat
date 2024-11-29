@@ -1,5 +1,5 @@
 class_name MainMenuSelectMission
-extends VBoxContainer
+extends MarginContainer
 
 signal mission_selected(mission: Application.MissionDesc)
 signal return_from()
@@ -34,6 +34,7 @@ func post_ready_prepare(all_missions_desc: Array[Application.MissionDesc]) -> vo
 		all_missions.append(mission)
 		
 		var mission_button = GameButtonScn.instantiate()
+		mission_button.max_width = true
 		mission_button.label = mission_desc.title
 		mission_button.font_size = 20
 		mission_button.button_down.connect(func (): _select_mission(mission, mission_desc))

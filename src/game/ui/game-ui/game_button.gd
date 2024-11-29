@@ -1,6 +1,7 @@
 class_name GameButton
 extends TextureButton
 
+@export var max_width: bool = false
 @export var label: String = "Say Something":
 	set (new_label):
 		label = new_label
@@ -26,9 +27,11 @@ func __setup_everything(new_label: String, new_font_size: int) -> void:
 	if not has_node("Label"):
 		return
 	var font: Font = $Label.get_theme_font("font")
-	$Label.text = new_label
+	$Label.text = new_label.substr(0, 12) if max_width else new_label
 	$Label.add_theme_font_size_override("font_size", new_font_size)
-	$Label.size = font.get_multiline_string_size(label)
+	var the_size = font.get_multiline_string_size(label)
+	the_size.x = min(200, the_size.x) if max_width else the_size.x
+	$Label.size = the_size
 	custom_minimum_size = $Label.size + Vector2(new_font_size, new_font_size)
 	$Label.position = (size - $Label.size) / 2
 

@@ -1,5 +1,5 @@
 class_name SapphireStaff
-extends Weapon
+extends PlayerWeapon
 
 static var Desc:
 	get:

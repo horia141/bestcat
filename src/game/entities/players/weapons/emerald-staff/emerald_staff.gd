@@ -1,12 +1,12 @@
-class_name EmeraldWand
-extends Weapon
+class_name EmeraldStaff
+extends PlayerWeapon
 
 static var Desc:
 	get:
 		return Application.PlayerWeaponDesc.new(
 			"Emerald Staff",
 			"Description",
-			preload("res://entities/players/weapons/emerald-staff/emerald-wand.tscn"),
+			preload("res://entities/players/weapons/emerald-staff/emerald-staff.tscn"),
 			5,
 			1,
 			200,

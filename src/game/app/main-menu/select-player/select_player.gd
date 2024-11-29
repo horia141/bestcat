@@ -35,6 +35,7 @@ func post_ready_prepare(all_players_desc: Array[Application.PlayerDesc]) -> void
 		all_players.append(player)
 		
 		var player_button = GameButtonScn.instantiate()
+		player_button.max_width = true
 		player_button.label = player_desc.ui_name
 		player_button.font_size = 20
 		player_button.button_up.connect(func (): _select_player(player, player_desc))
