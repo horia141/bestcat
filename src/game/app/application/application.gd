@@ -5,7 +5,8 @@ const GameScn = preload("res://game/game.tscn")
 
 enum ConceptMode {
 	InGame,
-	InMainMenu
+	InMainMenu,
+	InHud
 }
 
 enum MissionDifficulty {

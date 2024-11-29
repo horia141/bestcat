@@ -115,7 +115,8 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
 	# Now we properly start the game
-		
+	
+	$HUD.post_ready_prepare(mission_attempt.player_in_mission)
 	$HUD.update_player(player, Player.PlayerEffect.NONE)
 	$HUD.update_mission(mission_state, dark_towers_left_cnt, bosses_left_cnt, score)
 	

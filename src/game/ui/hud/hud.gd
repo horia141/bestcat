@@ -12,6 +12,15 @@ func _ready() -> void:
 	effects_log = []
 	effects_log_timer = []
 	update_mission(Game.MissionState.GetReady, 0, 0, 0)
+	
+func post_ready_prepare(player_in_mission: Application.PlayerInMission) -> void:
+	var player = player_in_mission.player.scene.instantiate() as Player
+	player.post_ready_prepare(player_in_mission.player, Application.ConceptMode.InHud, Vector2(16, 16), Application.MissionDifficulty.Novice)
+	$PlayerInfo/Layout/Avatar/SubViewport.add_child(player)
+	var weapon = player_in_mission.weapon.scene.instantiate() as PlayerWeapon
+	weapon.post_ready_prepare(Application.ConceptMode.InHud)
+	weapon.position = Vector2(16, 16)
+	$PlayerInfo/Layout/Weapon/SubViewport.add_child(weapon)
 
 #endregion
 
