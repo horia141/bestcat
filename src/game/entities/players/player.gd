@@ -33,6 +33,9 @@ const SPEED_REGEN_CUTOFF = 10
 const WEAPON_POS_LOOK_RIGHT = Vector2(8, -1)
 const WEAPON_POS_LOOK_LEFT = Vector2(-8, -1)
 
+const SHIELD_POS_LOOK_RIGHT = Vector2(-4, 3)
+const SHIELD_POS_LOOK_LEFT = Vector2(4, 3)
+
 const PlayerProjectileScn = preload("res://entities/players/projectile/player-projectile.tscn")
 
 @export var in_game_scale: float = 1
@@ -42,6 +45,7 @@ var mode = Application.ConceptMode.InGame
 var state = PlayerState.Active
 var difficulty = Application.MissionDifficulty.Apprentice
 var weapon: PlayerWeapon = null
+var shield: PlayerShield = null
 var look_axis: LookAxis = LookAxis.Right
 var look_right: bool = true
 var life = 5
@@ -78,6 +82,12 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 		weapon.position = WEAPON_POS_LOOK_RIGHT
 		weapon.scale = Vector2(0.2, 0.2)
 		add_child(weapon)
+		
+		shield = in_mission.shield.scene.instantiate() as PlayerShield
+		shield.post_ready_prepare(mode)
+		shield.position = SHIELD_POS_LOOK_RIGHT
+		shield.scale = Vector2(0.2, 0.2)
+		add_child(shield)
 		
 	$SpeedRegenTimer.timeout.connect(_regen_speed)
 	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
@@ -218,11 +228,14 @@ func _look_at(new_look_axis: LookAxis) -> void:
 		LookAxis.Right:
 			look_right = true
 			weapon.position = WEAPON_POS_LOOK_RIGHT
+			shield.position = SHIELD_POS_LOOK_RIGHT
 		LookAxis.Left:
 			look_right = false
 			weapon.position = WEAPON_POS_LOOK_LEFT
+			shield.position = SHIELD_POS_LOOK_LEFT
 	$AnimatedSprite2D.flip_h = !look_right
 	weapon.flip_h = !look_right
+	shield.flip_h = !look_right
 	
 func _move_with_velocity(new_velocity: Vector2) -> void:
 	if mode != Application.ConceptMode.InGame:
