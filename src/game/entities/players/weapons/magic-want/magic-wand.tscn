@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://poofut476ad0"]
-
-[ext_resource type="Texture2D" uid="uid://b4fv4p51ck43" path="res://entities/players/weapons/magic-want/magic-wand.png" id="1_auem6"]
-[ext_resource type="Script" path="res://entities/players/weapons/magic-want/magic_wand.gd" id="2_b4hxl"]
-
-[node name="MagicWand" type="Sprite2D"]
-texture_filter = 1
-texture = ExtResource("1_auem6")
-script = ExtResource("2_b4hxl")

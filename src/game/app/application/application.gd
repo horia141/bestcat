@@ -67,6 +67,26 @@ class PlayerWeaponDesc:
 		self.accuracy = accuracy
 		self.reload_duration = reload_duration
 		
+class PlayerShieldDesc:
+	var ui_name: String
+	var ui_description: String
+	var scene: PackedScene
+	var max_defends_cnt: int
+	var reload_duration: int
+	
+	func _init(
+		ui_name: String,
+		ui_description: String,
+		scene: PackedScene,
+		max_defends_cnt: int,
+		reload_duration: int
+	) -> void:
+		self.ui_name = ui_name
+		self.ui_description = Application.__clean_ui_description(ui_description)
+		self.scene = scene
+		self.max_defends_cnt = max_defends_cnt
+		self.reload_duration = reload_duration
+		
 class EnemyDesc:
 	var ui_name: String
 	var ui_description: String
@@ -158,6 +178,11 @@ var all_player_weapons_desc: Array[PlayerWeaponDesc] = [
 	TopazStaff.Desc,
 	SapphireStaff.Desc,
 	EmeraldStaff.Desc
+]
+
+var all_player_shields_desc: Array[PlayerShieldDesc] = [
+	WoodenShield.Desc,
+	IronShield.Desc
 ]
 
 var all_mobs_desc: Array[EnemyDesc] = [

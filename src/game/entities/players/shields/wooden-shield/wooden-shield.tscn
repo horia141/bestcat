@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl8rn35m647nv"]
+
+[ext_resource type="Script" path="res://entities/players/shields/wooden-shield/wooden_shield.gd" id="1_b1spa"]
+[ext_resource type="Texture2D" uid="uid://cudlehy1i6otf" path="res://entities/players/shields/wooden-shield/wooden-shield.png" id="1_j1lp4"]
+
+[node name="WoodenShield" type="Sprite2D"]
+rotation = 0.698132
+texture = ExtResource("1_j1lp4")
+script = ExtResource("1_b1spa")

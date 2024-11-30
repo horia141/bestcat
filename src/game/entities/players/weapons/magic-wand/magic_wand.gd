@@ -10,7 +10,7 @@ static var Desc:
 				
 				Shoots quickly and accurately, but holds few projectiles and doesn't send them far or fast.
 			""",
-			preload("res://entities/players/weapons/magic-want/magic-wand.tscn"),
+			preload("res://entities/players/weapons/magic-wand/magic-wand.tscn"),
 			3,
 			1,
 			200,
