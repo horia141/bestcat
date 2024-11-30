@@ -40,8 +40,8 @@ static func challenge_to_text(challenge: Challenge) -> String:
 	assert(1 != 0, "Unkown map size %s" % challenge)
 	return "Unknown"
 
-const WATER_TERRAIN_SET = 0
-const WATER_TERRAIN = 4
+const WATER_TILE_COORDS = Vector2i(5, 6)
+const GRASS_MAIN_TILE_COORDS = Vector2i(5, 0)
 
 enum TerrainType {
 	Water,
@@ -80,13 +80,14 @@ class TerrainMap:
 		
 		for row_idx in range(0, rows_cnt):
 			for col_idx in range(0, cols_cnt):
-				var terrain_cell = terrain.get_cell_tile_data(Vector2i(col_idx, row_idx))
-				var obstacle_cell = obstacles.get_cell_tile_data(Vector2i(col_idx, row_idx))
-				var decoration_cell = decorations.get_cell_tile_data(Vector2i(col_idx, row_idx))
+				var coords = Vector2i(col_idx, row_idx)
+				var terrain_cell = terrain.get_cell_tile_data(coords)
+				var obstacle_cell = obstacles.get_cell_tile_data(coords)
+				var decoration_cell = decorations.get_cell_tile_data(coords)
 				
 				var type = TerrainType.Land
 				var is_blocked = false
-				if terrain_cell.terrain_set == WATER_TERRAIN_SET and terrain_cell.terrain == WATER_TERRAIN:
+				if terrain.get_cell_atlas_coords(coords) == WATER_TILE_COORDS:
 					type = TerrainType.Water
 					is_blocked = true
 				elif obstacle_cell != null:

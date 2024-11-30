@@ -3,9 +3,6 @@ extends Mission
 
 const DarkTowerScn = preload("res://entities/structures/dark-tower/dark-tower.tscn")
 
-const WATER_TILE_COORDS = Vector2i(5, 6)
-const GRASS_MAIN_TILE_COORDS = Vector2i(5, 0)
-
 static var Desc:
 	get:
 		return Application.MissionDesc.new(
@@ -29,10 +26,17 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 			# set the tile here with water
 			$Level/Terrain.set_cell(Vector2i(map_x, map_y), world_source_id, WATER_TILE_COORDS)
 			
+	
+	var modified_cells = []
+			
 	for map_x in range(2, size_to_gen.x - 2):
 		for map_y in range(2, size_to_gen.y - 2):
 			# set the tile here with water
-			$Level/Terrain.set_cell(Vector2i(map_x, map_y), world_source_id, GRASS_MAIN_TILE_COORDS)			
+			var the_cell = Vector2i(map_x, map_y)
+			$Level/Terrain.set_cell(the_cell, world_source_id, GRASS_MAIN_TILE_COORDS)			
+			modified_cells.append(the_cell)
+			
+	$Level/Terrain.set_cells_terrain_connect(modified_cells, 0, 0)
 			
 	$Level/Terrain.update_internals()
 	
