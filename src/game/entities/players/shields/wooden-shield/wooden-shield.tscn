@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cudlehy1i6otf" path="res://entities/players/shields/wooden-shield/wooden-shield.png" id="1_j1lp4"]
 
 [node name="WoodenShield" type="Sprite2D"]
+texture_filter = 1
 rotation = 0.698132
 texture = ExtResource("1_j1lp4")
 script = ExtResource("1_b1spa")

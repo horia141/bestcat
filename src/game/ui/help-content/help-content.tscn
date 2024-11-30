@@ -12,6 +12,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Space: Shoot"
 
+[node name="Defend" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "A: Defend"
+
 [node name="Escape" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28

@@ -162,4 +162,4 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("4_iojys")
 animation = &"defense"
 autoplay = "defense"
-frame_progress = 0.135445
+frame_progress = 0.479619

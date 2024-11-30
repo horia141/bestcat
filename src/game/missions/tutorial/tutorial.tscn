@@ -49,14 +49,14 @@ Ammo regenerates, unlike life, but it takes a while.
 
 Monsters leave behind treasure that you can use later.", "There's another enemy up ahead. This one is tougher, so watch out! 
 
-There's some extra life and ammo lying around to help you.
+Press A to defend yourself. This blocks all damage for a short while. You have a limited run and they get consumed!
 
-The treasure chest contains a random bonus!", "Up ahead there's a Dark Tower!
+There's some extra life and ammo lying around to help you. The treasure chest contains a random bonus!", "Up ahead there's a Dark Tower!
 
 These constantly spawn enemies around them that protect it and attack you!
 
 You must destroy it. But watch out! It'll take more than a shot!"])
-player_enters_region_nodes = Array[NodePath]([NodePath("LearnToShoot"), NodePath("AJelly"), NodePath("Ammo"), NodePath("ToughEnemy"), NodePath("DarkTower")])
+player_enters_region_nodes = Array[NodePath]([NodePath("LearnToShoot"), NodePath("AJelly"), NodePath("Ammo"), NodePath("ToughEnemyLearnDefend"), NodePath("DarkTower")])
 mission_start_messages = Array[String](["Welcome to the tutorial to BestCat - The Game!
 
 This will teach you the basics of playing!
@@ -97,7 +97,7 @@ scale = Vector2(2, 8)
 position = Vector2(536, 320)
 scale = Vector2(2, 8)
 
-[node name="ToughEnemy" parent="Story" instance=ExtResource("4_3w6nv")]
+[node name="ToughEnemyLearnDefend" parent="Story" instance=ExtResource("4_3w6nv")]
 position = Vector2(656, 312)
 scale = Vector2(2, 8)
 
