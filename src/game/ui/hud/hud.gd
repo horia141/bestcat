@@ -21,6 +21,10 @@ func post_ready_prepare(player_in_mission: Application.PlayerInMission) -> void:
 	weapon.post_ready_prepare(Application.ConceptMode.InHud)
 	weapon.position = Vector2(16, 16)
 	$PlayerInfo/Layout/Weapon/SubViewport.add_child(weapon)
+	var shield = player_in_mission.shield.scene.instantiate() as PlayerShield
+	shield.post_ready_prepare(Application.ConceptMode.InHud)
+	shield.position = Vector2(16, 16)
+	$PlayerInfo/Layout/Shield/SubViewport.add_child(shield)
 	$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.max_value = player_in_mission.weapon.max_projectiles_cnt
 
 #endregion
