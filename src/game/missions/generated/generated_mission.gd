@@ -27,10 +27,13 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 			# Something about the interaction between regular objects and this
 			# one means that the noise textur needs to be generated outside
 			# the generator.
+			var the_noise = FastNoiseLite.new()
+			the_noise.noise_type = FastNoiseLite.NoiseType.TYPE_PERLIN
+			the_noise.frequency = 0.03
 			var noise_texture = NoiseTexture2D.new()
 			noise_texture.width = size_to_gen.x
 			noise_texture.height = size_to_gen.y
-			noise_texture.noise = FastNoiseLite.new()
+			noise_texture.noise = the_noise
 			await noise_texture.changed
 			#var noise_node = TextureRect.new()
 			#noise_node.position = Vector2(0, 0)
@@ -90,6 +93,7 @@ class GenerationAlgorithm:
 
 class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 	const LAND_THRESHOLD = 0.5
+	
 	var noise_texture: NoiseTexture2D
 	
 	func _init(
@@ -113,8 +117,6 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 				
 		var modified_cells = []
 		var noise_image = noise_texture.get_image()
-		print(noise_image.get_format())
-		print(noise_image.get_pixel(0, 0))
 				
 		for map_x in range(2, size_to_gen.x - 2):
 			for map_y in range(2, size_to_gen.y - 2):
@@ -126,7 +128,18 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 					modified_cells.append(the_cell)
 				
 		terrain.set_cells_terrain_connect(modified_cells, 0, 0)
-				
+					
+		for modified_cell in modified_cells:
+			var tile_test = randf_range(0, 1)
+			if tile_test < 0.85:
+				pass
+			elif tile_test < 0.95:
+				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT0_TILE_COORDS)	
+			elif tile_test < 0.98:
+				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT1_TILE_COORDS)
+			else:
+				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT2_TILE_COORDS)
+			
 		terrain.update_internals()
 		
 
