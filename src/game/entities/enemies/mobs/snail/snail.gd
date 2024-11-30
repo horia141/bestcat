@@ -2,6 +2,7 @@ class_name Snail
 extends Mob
 
 const TranquilizerScn = preload("res://entities/enemies/projectile/tranquilizer/tranqulizer.tscn")
+const ShieldBreakerScn = preload("res://entities/enemies/projectile/shield-breaker/shield-breaker.tscn")
 
 static var Desc:
 	get:
@@ -23,7 +24,11 @@ func _shoot() -> void:
 	if state != EnemyState.Active:
 		return
 		
-	var enemy_projectile = TranquilizerScn.instantiate()
+	var enemy_projectile: EnemyProjectile = null
+	if randf_range(0, 1) < 0.5:
+		enemy_projectile = TranquilizerScn.instantiate()
+	else:
+		enemy_projectile = ShieldBreakerScn.instantiate()
 	enemy_projectile.post_ready_prepare(
 		position, 
 		scale, 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://78d6mlxhfo3w"]
+
+[ext_resource type="Script" path="res://entities/enemies/projectile/shield-breaker/shield_breaker.gd" id="1_33los"]
+[ext_resource type="SpriteFrames" uid="uid://obbc21skj6hr" path="res://common/projectile/projectile.tres" id="1_ke56n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6e60o"]
+
+[node name="ShieldBreaker" type="RigidBody2D" groups=["Projectiles"]]
+collision_layer = 32
+collision_mask = 7
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_33los")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.434283, 0.989718, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("1_ke56n")
+animation = &"idle"
+frame_progress = 0.972585
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_6e60o")
