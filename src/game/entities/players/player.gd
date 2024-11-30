@@ -130,6 +130,18 @@ func _shoot_projectile() -> void:
 	projectiles_cnt -= 1
 	state_change.emit(PlayerEffect.NONE)
 	
+func _defend() -> void:
+	if mode != Application.ConceptMode.InGame:
+		return
+	if state == PlayerState.Dead:
+		return
+
+	if defends_cnt == 0:
+		return
+		
+	defends_cnt -= 1
+	state_change.emit(PlayerEffect.NONE)
+	
 func _regen_speed() -> void:
 	if mode != Application.ConceptMode.InGame:
 		return
@@ -280,6 +292,8 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Shoot"):
 		_shoot_projectile()
+	elif event.is_action_pressed("Defend"):
+		_defend()
 
 func _process(delta: float) -> void:
 	if mode != Application.ConceptMode.InGame:
