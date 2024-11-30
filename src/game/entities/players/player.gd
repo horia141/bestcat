@@ -55,8 +55,7 @@ var destroy_tween: Tween = null
 #region Construction
 
 func _ready() -> void:
-	$SpeedRegenTimer.timeout.connect(_regen_speed)
-	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
+	pass
 	
 func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Application.ConceptMode, init_position: Vector2, difficulty: Application.MissionDifficulty) -> void:
 	self.z_index = 100
@@ -79,6 +78,9 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 		weapon.position = WEAPON_POS_LOOK_RIGHT
 		weapon.scale = Vector2(0.2, 0.2)
 		add_child(weapon)
+		
+	$SpeedRegenTimer.timeout.connect(_regen_speed)
+	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
 
 #endregion
 

@@ -75,7 +75,7 @@ func _select_random_map() -> void:
 	$Main/Selector/Details/Stats/Margin/Layout/Stats/Size/Value.text = "Unknown"
 	$Main/Selector/Details/Stats/Margin/Layout/Stats/Challenge/Value.text = "Unknown"
 	
-	selected_mission = all_missions_desc.pick_random() if len(all_missions_desc) > 0 else Generated.Desc
+	selected_mission = all_missions_desc.pick_random() if len(all_missions_desc) > 0 else GeneratedMission.Desc
 	$Main/Controls/Margin/Layout/Continue.label = "Continue with Random"
 	
 func _select_generated_map() -> void:
