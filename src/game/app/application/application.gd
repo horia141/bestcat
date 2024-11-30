@@ -140,13 +140,16 @@ class MissionDifficultyDesc:
 class PlayerInMission:
 	var player: PlayerDesc
 	var weapon: PlayerWeaponDesc
+	var shield: PlayerShieldDesc
 	
 	func _init(
 		player: PlayerDesc,
 		weapon: PlayerWeaponDesc,
+		shield: PlayerShieldDesc
 	) -> void:
 		self.player = player
 		self.weapon = weapon
+		self.shield = shield
 
 class MissionAttempt:
 	var player_in_mission: PlayerInMission
@@ -251,7 +254,7 @@ var current_game: Game = null
 #region Construction
 
 func _ready() -> void:
-	$MainMenu.post_ready_process(all_players_desc, all_player_weapons_desc, all_missions_desc, all_mission_difficulties_desc, all_mobs_desc, all_bosses_desc)
+	$MainMenu.post_ready_process(all_players_desc, all_player_weapons_desc, all_player_shields_desc, all_missions_desc, all_mission_difficulties_desc, all_mobs_desc, all_bosses_desc)
 	
 #endregion
 

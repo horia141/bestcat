@@ -9,6 +9,7 @@ enum View {
 	SelectMission,
 	SelectPlayer,
 	SelectPlayerWeapon,
+	SelectPlayerShield,
 	SelectDifficulty,
 	Controls
 }
@@ -17,6 +18,7 @@ var view = View.Main
 
 var selected_player: Application.PlayerDesc = null
 var selected_player_weapon: Application.PlayerWeaponDesc = null
+var selected_player_shield: Application.PlayerShieldDesc = null
 var selected_mission: Application.MissionDesc = null
 var selected_difficulty: Application.MissionDifficultyDesc = null
 var all_mobs_desc: Array[Application.EnemyDesc] = []
@@ -30,6 +32,7 @@ func _ready() -> void:
 func post_ready_process(
 		all_players_desc: Array[Application.PlayerDesc],
 		all_player_weapons_desc: Array[Application.PlayerWeaponDesc],
+		all_player_shields_desc: Array[Application.PlayerShieldDesc],
 		all_missions_desc: Array[Application.MissionDesc],
 		all_mission_difficulties_desc: Array[Application.MissionDifficultyDesc],
 		all_mobs_desc: Array[Application.EnemyDesc],
@@ -37,6 +40,7 @@ func post_ready_process(
 	$SelectMission.post_ready_prepare(all_missions_desc)
 	$SelectPlayer.post_ready_prepare(all_players_desc)
 	$SelectPlayerWeapon.post_ready_prepare(all_player_weapons_desc)
+	$SelectPlayerShield.post_ready_prepare(all_player_shields_desc)
 	$SelectDifficulty.post_ready_prepare(all_mission_difficulties_desc)
 	self.all_mobs_desc = all_mobs_desc
 	self.all_bosses_desc = all_bosses_desc
@@ -74,19 +78,29 @@ func _select_player_go_to_select_mission() -> void:
 	view = View.SelectMission
 	_show()
 
-func _select_player_weapon_go_to_select_difficulty(player_weapon_desc: Application.PlayerWeaponDesc) -> void:
+func _select_player_weapon_go_to_select_player_shield(player_weapon_desc: Application.PlayerWeaponDesc) -> void:
 	selected_player_weapon = player_weapon_desc
-	view = View.SelectDifficulty	
+	view = View.SelectPlayerShield
 	_show()
 	
 func _select_player_weapon_go_to_select_player() -> void:
 	view = View.SelectPlayer
 	_show()
 	
+func _select_player_shield_go_to_select_difficulty(player_shield_desc: Application.PlayerShieldDesc) -> void:
+	selected_player_shield = player_shield_desc
+	view = View.SelectDifficulty
+	_show()
+	
+func _select_player_shield_go_to_select_player_weapon() -> void:
+	view = View.SelectPlayerWeapon
+	_show()
+	
 func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficultyDesc) -> void:
 	var player_in_mission = Application.PlayerInMission.new(
 		selected_player,
 		selected_player_weapon,
+		selected_player_shield
 	)
 	var mission_attempt = Application.MissionAttempt.new(
 		player_in_mission, selected_mission, difficulty, all_mobs_desc, all_bosses_desc)
@@ -94,8 +108,8 @@ func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficulty
 	view = View.Main
 	_show()
 	
-func _select_difficulty_go_to_select_player_weapon() -> void:
-	view = View.SelectPlayerWeapon
+func _select_difficulty_go_to_select_player_shield() -> void:
+	view = View.SelectPlayerShield
 	_show()
 	
 func _main_to_controls() -> void:
@@ -113,6 +127,7 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
 			$Main/Commands/Margin/Layout/NewGame.grab_focus()
@@ -121,6 +136,7 @@ func _show() -> void:
 			$SelectMission.activate()
 			$SelectPlayer.deactivate()
 			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
 		View.SelectPlayer:
@@ -128,6 +144,7 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.activate()
 			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
 		View.SelectPlayerWeapon:
@@ -135,6 +152,15 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectPlayerWeapon.activate()
+			$SelectPlayerShield.deactivate()
+			$SelectDifficulty.deactivate()
+			$ShowControls.deactivate()
+		View.SelectPlayerShield:
+			$Main.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
+			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.activate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
 		View.SelectDifficulty:
@@ -142,6 +168,7 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.activate(selected_mission)
 			$ShowControls.deactivate()
 		View.Controls:
@@ -149,6 +176,7 @@ func _show() -> void:
 			$SelectMission.deactivate()
 			$SelectPlayer.deactivate()
 			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.hide()
 			$ShowControls.activate()
 			
