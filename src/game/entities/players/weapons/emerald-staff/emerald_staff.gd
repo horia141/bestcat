@@ -5,12 +5,16 @@ static var Desc:
 	get:
 		return Application.PlayerWeaponDesc.new(
 			"Emerald Staff",
-			"Description",
+			"""
+				A rare staff preferred by the witches of the forests of mount Alpi.
+				
+				Shoots fast over a great distance, but has low charge.
+			""",
 			preload("res://entities/players/weapons/emerald-staff/emerald-staff.tscn"),
-			5,
+			3,
 			1,
-			200,
+			500,
 			1000,
-			10,
-			5
+			8,
+			4
 		)

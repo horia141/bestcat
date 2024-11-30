@@ -5,12 +5,16 @@ static var Desc:
 	get:
 		return Application.PlayerWeaponDesc.new(
 			"Sapphire Staff",
-			"Description",
+			"""
+				This staff is for mages that like to get in the thick of it.
+				
+				It has great energy, but trades off range and accuracy for it.
+			""",
 			preload("res://entities/players/weapons/sapphire-staff/sapphire-staff.tscn"),
-			7,
+			10,
 			1,
 			200,
-			1000,
-			10,
-			7
+			400,
+			6,
+			10
 		)

@@ -5,12 +5,16 @@ static var Desc:
 	get:
 		return Application.PlayerWeaponDesc.new(
 			"Magic Wand",
-			"Description",
+			"""
+				A versatile weapon for any mage. 
+				
+				Shoots quickly and accurately, but holds few projectiles and doesn't send them far or fast.
+			""",
 			preload("res://entities/players/weapons/magic-want/magic-wand.tscn"),
 			3,
 			1,
 			200,
-			1000,
+			500,
 			10,
 			5
 		)
