@@ -101,7 +101,7 @@ func _spawn_mob() -> void:
 	$BaseSprite.play("idle")
 
 	var activation_area = ActivationAreaScn.instantiate()
-	activation_area.scale = Vector2(2, 2)
+	activation_area.scale = Vector2(3, 3)
 	
 	var random_mob_desc = all_mobs_desc.pick_random()
 	var random_mob = random_mob_desc.scene.instantiate()

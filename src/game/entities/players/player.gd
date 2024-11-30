@@ -27,8 +27,9 @@ enum LookAxis {
 }
 
 const SPEED_MULTIPLIER = 50.0
-const SPEED_REGEN_INCREMENT = 1
 const SPEED_REGEN_CUTOFF = 10
+
+const DEFENCE_MODE_DURATION_SEC = 0.4
 
 const WEAPON_POS_LOOK_RIGHT = Vector2(8, -1)
 const WEAPON_POS_LOOK_LEFT = Vector2(-8, -1)
@@ -55,6 +56,8 @@ var projectiles_cnt = 5
 var projectiles_cnt_regen_factor = 0.0
 var defends_cnt = 3
 var defends_cnt_regen_factor = 0.0
+var in_defense_mode = false
+var defend_tween: Tween = null
 var powerup_tween: Tween = null
 var destroy_tween: Tween = null
 
@@ -93,6 +96,7 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 		shield.scale = Vector2(0.2, 0.2)
 		add_child(shield)
 		
+	$DefenceSprite.modulate = Color.TRANSPARENT
 	$SpeedRegenTimer.timeout.connect(_regen_speed)
 	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
 	$DefendsCntRegenTimer.timeout.connect(_regen_defends)
@@ -138,9 +142,23 @@ func _defend() -> void:
 
 	if defends_cnt == 0:
 		return
+	if in_defense_mode:
+		return
 		
 	defends_cnt -= 1
+	in_defense_mode = true
 	state_change.emit(PlayerEffect.NONE)
+	
+	defend_tween = create_tween()
+	$DefenceSprite.modulate = Color.TRANSPARENT
+	defend_tween.tween_property($DefenceSprite, "modulate", Color.WHITE, 0.2)
+	
+	await get_tree().create_timer(DEFENCE_MODE_DURATION_SEC).timeout
+	
+	defend_tween = create_tween()
+	defend_tween.tween_property($DefenceSprite, "modulate", Color.TRANSPARENT, 0.1)
+	await defend_tween.finished
+	in_defense_mode = false
 	
 func _regen_speed() -> void:
 	if mode != Application.ConceptMode.InGame:
@@ -151,7 +169,7 @@ func _regen_speed() -> void:
 	if speed == in_mission.player.max_speed:
 		return
 		
-	speed_regen_factor += SPEED_REGEN_INCREMENT
+	speed_regen_factor += 1
 	if speed_regen_factor > SPEED_REGEN_CUTOFF:
 		speed = speed + 1
 		speed_regen_factor = 0.0
@@ -196,6 +214,9 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	if state == PlayerState.Dead:
 		return
 		
+	if in_defense_mode:
+		return
+		
 	destroy_tween = create_tween()
 	destroy_tween.tween_property(self, "modulate", Color.RED, 0.2)
 	destroy_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.1)
@@ -204,11 +225,14 @@ func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
 	life = clamp(life, 0, in_mission.player.max_life)
 	speed = clamp(speed, 1, in_mission.player.max_speed)
 	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.weapon.max_projectiles_cnt)
+	defends_cnt = clamp(defends_cnt, 0, in_mission.shield.max_defends_cnt)
 	
 	if life == 0:
 		state = PlayerState.Dead
 		projectiles_cnt = 0
 		projectiles_cnt_regen_factor = 0.0
+		defends_cnt = 0
+		defends_cnt_regen_factor = 0.0
 	
 	state_change.emit(PlayerEffect.NONE)
 	
@@ -235,10 +259,13 @@ func apply_treasure(treasure: Treasure) -> void:
 	life = clamp(life, 0, in_mission.player.max_life)
 	speed = clamp(speed, 1, in_mission.player.max_speed)
 	projectiles_cnt = clamp(projectiles_cnt, 0, in_mission.weapon.max_projectiles_cnt)
+	defends_cnt = clamp(defends_cnt, 0, in_mission.shield.max_defends_cnt)
 
 	state_change.emit(PlayerEffect.new(effect))
 	
 func destroy() -> void:
+	if defend_tween != null:
+		defend_tween.kill()
 	if powerup_tween != null:
 		powerup_tween.kill()
 	if destroy_tween != null:

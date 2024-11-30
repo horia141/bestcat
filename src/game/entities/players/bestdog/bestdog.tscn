@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://00a4me02rntl"]
+[gd_scene load_steps=19 format=3 uid="uid://00a4me02rntl"]
 
 [ext_resource type="Script" path="res://entities/players/bestdog/bestdog.gd" id="1_txdnw"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="2_6kw8u"]
 [ext_resource type="Texture2D" uid="uid://bo5jgv52d5q4" path="res://entities/players/bestdog/bestdog.png" id="3_fa1hr"]
+[ext_resource type="SpriteFrames" uid="uid://es6eo1dy58sr" path="res://entities/players/defence.tres" id="4_6x4xf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06tns"]
 atlas = ExtResource("2_6kw8u")
@@ -132,3 +133,11 @@ wait_time = 0.15
 autostart = true
 
 [node name="Follow" type="RemoteTransform2D" parent="."]
+
+[node name="DefenceSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("4_6x4xf")
+animation = &"defense"
+autoplay = "defense"
+frame = 11
+frame_progress = 0.310853

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://br63623tfy5it"]
+[gd_scene load_steps=22 format=3 uid="uid://br63623tfy5it"]
 
 [ext_resource type="Script" path="res://entities/players/kenny/kenny.gd" id="1_kcpw2"]
 [ext_resource type="Texture2D" uid="uid://cg8kfji2yf4if" path="res://entities/players/kenny/kenny.png" id="2_87560"]
 [ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="2_aps1j"]
+[ext_resource type="SpriteFrames" uid="uid://es6eo1dy58sr" path="res://entities/players/defence.tres" id="4_mitt5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wt77y"]
 atlas = ExtResource("2_aps1j")
@@ -152,3 +153,11 @@ wait_time = 0.15
 autostart = true
 
 [node name="Follow" type="RemoteTransform2D" parent="."]
+
+[node name="DefenceSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("4_mitt5")
+animation = &"defense"
+autoplay = "defense"
+frame = 11
+frame_progress = 0.310853
