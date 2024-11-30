@@ -25,6 +25,7 @@ class PlayerProxy extends RefCounted:
 const LifePowerUpScn = preload("res://entities/treasures/life-powerup/life-powerup.tscn")
 const SpeedPowerUpScn = preload("res://entities/treasures/speed-powerup/speed-powerup.tscn")
 const ProjectilePowerUpScn = preload("res://entities/treasures/projectile-powerup/projectile-powerup.tscn")
+const DefendPowerUpScn = preload("res://entities/treasures/defend-powerup/defend-powerup.tscn")
 
 const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
 
@@ -172,12 +173,14 @@ func _on_mob_destroyed(mob: Mob) -> void:
 	
 	var choice = randf_range(0, 1)
 	var powerup = null
-	if choice < 0.33:
+	if choice < 0.25:
 		powerup = LifePowerUpScn.instantiate()
-	elif choice < 0.66:
+	elif choice < 0.50:
 		powerup = SpeedPowerUpScn.instantiate()
-	else:
+	elif choice < 0.75:
 		powerup = ProjectilePowerUpScn.instantiate()
+	else:
+		powerup = DefendPowerUpScn.instantiate()
 	
 	powerup.post_ready_prepare(mob.position)
 	powerup.picked_up.connect(func (player): _on_treasure_picked(player, powerup))

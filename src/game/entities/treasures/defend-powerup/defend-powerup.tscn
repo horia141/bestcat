@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ekuptnocwqw"]
+
+[ext_resource type="Texture2D" uid="uid://c2xgb10rsu0aw" path="res://common/defence.png" id="1_o07ll"]
+[ext_resource type="Script" path="res://entities/treasures/defend-powerup/defend_powerup.gd" id="1_uuhx6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fh7a5"]
+
+[node name="DefendPowerUp" type="Area2D" groups=["Treasures"]]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("1_uuhx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o07ll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fh7a5")
