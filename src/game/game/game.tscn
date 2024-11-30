@@ -51,8 +51,6 @@ visible = false
 visible = false
 
 [node name="MobileControls" parent="." instance=ExtResource("12_f5uj6")]
-z_index = 100
-position = Vector2(2, 440)
 
 [connection signal="done" from="HelpDialog" to="." method="_resume_mission"]
 [connection signal="quit_mission" from="PauseDialog" to="." method="_quit_mission"]

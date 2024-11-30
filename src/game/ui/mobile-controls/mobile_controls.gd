@@ -1,5 +1,5 @@
 class_name MobileControls
-extends Node2D
+extends CanvasLayer
 
 const MOBILE_WINDOW_WIDTH = 700
 
@@ -25,6 +25,12 @@ func _ready() -> void:
 func _on_shoot_press() -> void:
 	var input_event = InputEventAction.new()
 	input_event.action = "Shoot"
+	input_event.pressed = true
+	Input.parse_input_event(input_event)
+	
+func _on_defend_press() -> void:
+	var input_event = InputEventAction.new()
+	input_event.action = "Defend"
 	input_event.pressed = true
 	Input.parse_input_event(input_event)
 
