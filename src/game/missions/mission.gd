@@ -1,7 +1,13 @@
 class_name Mission
 extends Node2D
 
+signal init_completed()
 signal story_checkpoint_processed(checkpoint: Story.StoryCheckpoint)
+
+enum GenerationMethod {
+	HumanMade,
+	Islands
+}
 
 enum MapSize {
 	Small,
@@ -130,7 +136,13 @@ var size_in_px: Vector2:
 func _ready() -> void:
 	$Story.story_checkpoint_processed.connect(_story_checkpoint_processed)
 	
+func in_game_menu_prepare() -> void:
+	terrain_map = TerrainMap.from_level($Level/Terrain, $Level/Obstacles, $Level/Decorations)
+	
 func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
+	pass
+	
+func _compute_terain_map() -> void:
 	terrain_map = TerrainMap.from_level($Level/Terrain, $Level/Obstacles, $Level/Decorations)
 	#for row_idx in range(0, terrain_map.rows_cnt):
 		#for col_idx in range(0, terrain_map.cols_cnt):
@@ -148,6 +160,7 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 			#new_disp.size.y = 8
 			#new_disp.z_index = 10
 			#add_child(new_disp)
+	
 
 #endregion
 

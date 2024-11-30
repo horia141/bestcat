@@ -1,5 +1,5 @@
 class_name TheLabyrinthOfUntash
-extends Mission
+extends HumanMadeMission
 
 static var Desc:
 	get:
@@ -12,6 +12,7 @@ static var Desc:
 				
 				Defeat her and her minions to claim a great prize
 			""",
+			Mission.GenerationMethod.HumanMade,
 			Mission.MapSize.Medium,
 			Mission.Challenge.Forgiving,
 			[Application.MissionDifficulty.Novice, Application.MissionDifficulty.Apprentice, Application.MissionDifficulty.Expert],

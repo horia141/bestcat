@@ -100,7 +100,6 @@ font_size = 38
 
 [node name="SelectMission" parent="." instance=ExtResource("2_w05gh")]
 visible = false
-anchors_preset = 13
 
 [node name="SelectPlayer" parent="." instance=ExtResource("2_eo256")]
 visible = false
@@ -113,7 +112,6 @@ visible = false
 
 [node name="ShowControls" parent="." instance=ExtResource("8_olo7c")]
 visible = false
-anchors_preset = 13
 offset_left = -250.0
 offset_right = 250.0
 

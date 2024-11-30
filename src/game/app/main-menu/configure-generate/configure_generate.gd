@@ -47,6 +47,7 @@ func _continue_to() -> void:
 	var new_mission_desc = Application.MissionDesc.new(
 		Generated.Desc.title,
 		Generated.Desc.ui_description,
+		Mission.GenerationMethod.Islands,
 		selected_map_size,
 		selected_challenge,
 		Generated.Desc.allowed_difficulties,

@@ -68,6 +68,7 @@ func post_ready_prepare(new_mission_attempt: Application.MissionAttempt) -> void
 func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 	# Here we just initialise the player!
 	mission.post_ready_prepare(mission_attempt.mission)
+	await mission.init_completed
 	 
 	$GameCamera.post_ready_prepare(player.get_node("Follow"), mission.size_in_px)
 	

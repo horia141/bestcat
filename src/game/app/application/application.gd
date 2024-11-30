@@ -87,16 +87,18 @@ class EnemyDesc:
 class MissionDesc:
 	var title: String
 	var ui_description: String
+	var method: Mission.GenerationMethod
 	var size: Mission.MapSize
 	var challenge: Mission.Challenge
 	var allowed_difficulties: Array[MissionDifficulty]
 	var scene: PackedScene
 	
 	func _init(
-		title: String, ui_description: String, size: Mission.MapSize, challenge: Mission.Challenge,
+		title: String, ui_description: String, method: Mission.GenerationMethod, size: Mission.MapSize, challenge: Mission.Challenge,
 		allowed_difficulties: Array[MissionDifficulty], scene: PackedScene) -> void:
 		self.title = title
 		self.ui_description = Application.__clean_ui_description(ui_description)
+		self.method = method
 		self.size = size
 		self.challenge = challenge
 		self.allowed_difficulties = allowed_difficulties

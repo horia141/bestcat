@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_v4dpi"]
 
 [node name="MainMenuShowControls" type="VBoxContainer"]
-anchors_preset = -1
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0

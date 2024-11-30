@@ -149,7 +149,7 @@ func destroy():
 	for mob in my_mobs.values():
 		if not mob.is_bound_to_dark_tower():
 			continue
-		mob.on_hit_by_projectile()
+		mob.destroy()
 		
 	destroyed.emit()
 

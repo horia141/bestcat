@@ -1,5 +1,5 @@
 class_name PlainOfKoh
-extends Mission
+extends HumanMadeMission
 
 static var Desc:
 	get:
@@ -12,6 +12,7 @@ static var Desc:
 				
 				It's up to you to push them out and restore order to the land of Koh!
 			""",
+			Mission.GenerationMethod.HumanMade,
 			Mission.MapSize.Custom,
 			Mission.Challenge.Punishing,
 			[Application.MissionDifficulty.Novice, Application.MissionDifficulty.Apprentice, Application.MissionDifficulty.Expert],
