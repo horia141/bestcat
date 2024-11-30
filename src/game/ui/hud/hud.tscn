@@ -152,27 +152,27 @@ handle_input_locally = false
 size = Vector2i(32, 32)
 render_target_update_mode = 4
 
-[node name="DefensesCnt" type="HBoxContainer" parent="PlayerInfo/Layout"]
+[node name="DefendsCnt" type="HBoxContainer" parent="PlayerInfo/Layout"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Icon" type="TextureRect" parent="PlayerInfo/Layout/DefensesCnt"]
+[node name="Icon" type="TextureRect" parent="PlayerInfo/Layout/DefendsCnt"]
 clip_contents = true
 layout_mode = 2
 texture = ExtResource("7_q3viv")
 expand_mode = 3
 
-[node name="Text" type="Label" parent="PlayerInfo/Layout/DefensesCnt"]
+[node name="Text" type="Label" parent="PlayerInfo/Layout/DefendsCnt"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="Regen" type="Control" parent="PlayerInfo/Layout/DefensesCnt"]
+[node name="Regen" type="Control" parent="PlayerInfo/Layout/DefendsCnt"]
 custom_minimum_size = Vector2(4.7, 0)
 layout_mode = 2
 
-[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/Layout/DefensesCnt/Regen"]
+[node name="Factor" type="TextureProgressBar" parent="PlayerInfo/Layout/DefendsCnt/Regen"]
 layout_mode = 0
 offset_top = 2.0
 offset_right = 41.0

@@ -26,6 +26,7 @@ func post_ready_prepare(player_in_mission: Application.PlayerInMission) -> void:
 	shield.position = Vector2(16, 16)
 	$PlayerInfo/Layout/Shield/SubViewport.add_child(shield)
 	$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.max_value = player_in_mission.weapon.max_projectiles_cnt
+	$PlayerInfo/Layout/DefendsCnt/Regen/Factor.max_value = player_in_mission.shield.max_defends_cnt
 
 #endregion
 
@@ -43,6 +44,11 @@ func update_player(player: Player, effect: Player.PlayerEffect) -> void:
 		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = player.projectiles_cnt_regen_factor
 	else:
 		$PlayerInfo/Layout/ProjectilesCnt/Regen/Factor.value = 0
+	$PlayerInfo/Layout/DefendsCnt/Text.text = str(player.defends_cnt)
+	if player.defends_cnt_regen_factor > 0:
+		$PlayerInfo/Layout/DefendsCnt/Regen/Factor.value = player.defends_cnt_regen_factor
+	else:
+		$PlayerInfo/Layout/DefendsCnt/Regen/Factor.value = 0
 		
 	_enqueue_effect_log(effect)
 		

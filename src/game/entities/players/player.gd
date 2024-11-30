@@ -53,6 +53,8 @@ var speed = 5
 var speed_regen_factor = 0.0
 var projectiles_cnt = 5
 var projectiles_cnt_regen_factor = 0.0
+var defends_cnt = 3
+var defends_cnt_regen_factor = 0.0
 var powerup_tween: Tween = null
 var destroy_tween: Tween = null
 
@@ -75,6 +77,8 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 	self.speed_regen_factor = 0
 	self.projectiles_cnt = in_mission.weapon.max_projectiles_cnt
 	self.projectiles_cnt_regen_factor = 0
+	self.defends_cnt = in_mission.shield.max_defends_cnt
+	self.defends_cnt_regen_factor = 0
 	
 	if mode == Application.ConceptMode.InGame:
 		weapon = in_mission.weapon.scene.instantiate() as PlayerWeapon
@@ -91,6 +95,7 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 		
 	$SpeedRegenTimer.timeout.connect(_regen_speed)
 	$ProjectilesCntRegenTimer.timeout.connect(_regen_projectile)
+	$DefendsCntRegenTimer.timeout.connect(_regen_defends)
 
 #endregion
 
@@ -155,6 +160,22 @@ func _regen_projectile() -> void:
 		projectiles_cnt = projectiles_cnt + 1
 		projectiles_cnt_regen_factor = 0.0
 	
+	state_change.emit(PlayerEffect.NONE)
+	
+func _regen_defends() -> void:
+	if mode != Application.ConceptMode.InGame:
+		return
+	if state == PlayerState.Dead:
+		return
+		
+	if defends_cnt == in_mission.shield.max_defends_cnt:
+		return
+		
+	defends_cnt_regen_factor += 1
+	if defends_cnt_regen_factor > in_mission.shield.reload_duration:
+		defends_cnt = defends_cnt + 1
+		defends_cnt_regen_factor = 0.0
+		
 	state_change.emit(PlayerEffect.NONE)
 
 func on_hit_by_projectile(enemy_projectile: EnemyProjectile) -> void:
