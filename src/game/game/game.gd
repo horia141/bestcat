@@ -34,6 +34,7 @@ const DEFAULT_DIFFICULTY = Application.MissionDifficulty.Apprentice
 var mission_attempt: Application.MissionAttempt = null
 var mission_state = MissionState.Start
 var dark_towers_left_cnt = 0
+var portals_links = {}
 var bosses_left_cnt = 0
 var score = 0
 
@@ -81,7 +82,10 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 	for player in get_tree().get_nodes_in_group("Players"):
 		var the_player = player as Player
 		the_player.shoot.connect(_on_player_shoot)
+		the_player.enter_portal.connect(_on_player_enters_portal)
 		the_player.destroyed.connect(_on_player_destroyed)
+		
+	var all_portals: Array[Portal] = []
 	
 	for structure in get_tree().get_nodes_in_group("Structures"):
 		var the_structure = structure as Structure
@@ -90,6 +94,11 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 			the_structure.post_ready_prepare(mission_attempt.all_mobs_desc, PlayerProxy.new(player), mission_attempt.difficulty.difficulty, mission.terrain_map)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
+		elif the_structure is Portal:
+			all_portals.append(the_structure)
+			
+	for idx in range(all_portals.size()):
+		portals_links[all_portals[idx].get_instance_id()] = all_portals[(idx + 1)  % all_portals.size()]
 	
 	for mob in get_tree().get_nodes_in_group("Mobs"):
 		var the_mob = mob as Mob
@@ -155,6 +164,16 @@ func _on_player_shoot(player_projectile: PlayerProjectile) -> void:
 	player_projectile.structure_hit.connect(func (structure: Structure): _on_player_projectile_hit_structure(structure, player_projectile))
 	player_projectile.otherwise_destroyed.connect(func (): _on_player_projectile_destroyed(player_projectile))
 	
+
+func _on_player_enters_portal(portal: Portal) -> void:
+	var next_portal: Portal = portals_links[portal.get_instance_id()]
+	if next_portal == portal:
+		return
+	if portal.can_initiate_teleport:
+		player.teleport_to(next_portal)
+		portal.begin_cooldown()
+		next_portal.begin_cooldown()
+	
 func _on_player_destroyed() -> void:
 	player.queue_free()
 	get_tree().paused = true
@@ -162,6 +181,7 @@ func _on_player_destroyed() -> void:
 	await mission.story_checkpoint_processed
 	__hide_dialogs()
 	$LoseDialog.activate()
+	
 	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)

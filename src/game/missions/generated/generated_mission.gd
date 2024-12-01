@@ -30,6 +30,7 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 			var the_noise = FastNoiseLite.new()
 			the_noise.noise_type = FastNoiseLite.NoiseType.TYPE_PERLIN
 			the_noise.frequency = 0.03
+			the_noise.seed = randi()
 			var noise_texture = NoiseTexture2D.new()
 			noise_texture.width = size_to_gen.x
 			noise_texture.height = size_to_gen.y

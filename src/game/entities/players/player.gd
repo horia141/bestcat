@@ -1,9 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-signal shoot (projectile: PlayerProjectile)
-signal state_change (effect: PlayerEffect)
-signal destroyed ()
+signal shoot(projectile: PlayerProjectile)
+signal state_change(effect: PlayerEffect)
+signal enter_portal(portal: Portal)
+signal destroyed()
 
 
 enum PlayerState {
@@ -104,6 +105,14 @@ func post_ready_prepare(in_mission: Application.PlayerInMission, mode: Applicati
 #endregion
 
 #region Game logic
+
+func teleport_to(portal: Portal) -> void:
+	if mode != Application.ConceptMode.InGame:
+		return
+	if state == PlayerState.Dead:
+		return
+		
+	position = portal.teleport_position
 
 func _shoot_projectile() -> void:
 	if mode != Application.ConceptMode.InGame:
@@ -341,5 +350,9 @@ func _physics_process(delta: float) -> void:
 	
 	_move_with_velocity(Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down"))
 	move_and_slide()
+	var collided_with = get_last_slide_collision()
+	if collided_with != null:
+		if is_instance_of(collided_with.get_collider(), Portal):
+			enter_portal.emit(collided_with.get_collider())
 
 #endregion
