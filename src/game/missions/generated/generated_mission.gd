@@ -45,11 +45,11 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 		_:
 			assert(1 != 0, "Invalid generation algorithm %s" % mission_desc.method)
 			
-	algorithm.generate()
+	var result = algorithm.generate()
 	_compute_terain_map()
 	
-	$PlayerStartPosition.position = Vector2(100, 100)
-	$BossPosition.position = Vector2(300, 300)
+	$PlayerStartPosition.position = result.player_position
+	$BossPosition.position = result.boss_position
 	
 	var dark_tower = DarkTowerScn.instantiate()
 	dark_tower.position = Vector2(200, 200)
@@ -57,12 +57,20 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 	add_child(dark_tower)
 	
 	init_completed.emit()
+	
+	
+class GenerationAlgorithmResult extends RefCounted:
+	var player_position: Vector2
+	var boss_position: Vector2
+	var dark_towers_positions: Array[Vector2]
+	var portals_positions: Array[Vector2]
 
-class GenerationAlgorithm:
+class GenerationAlgorithm extends RefCounted:
 	var desc: Application.MissionDesc
 	var terrain: TileMapLayer
 	var obstacles: TileMapLayer
 	var decorations: TileMapLayer
+	var size_to_gen: Vector2i
 	
 	func _init(
 		desc: Application.MissionDesc,
@@ -74,9 +82,11 @@ class GenerationAlgorithm:
 		self.terrain = terrain
 		self.obstacles = obstacles
 		self.decorations = decorations
+		self.size_to_gen = __map_size_to_cells(desc.size)
 		
-	func generate() -> void:
-		pass
+	func generate() -> GenerationAlgorithmResult:
+		assert(1 != 0, "Shouldn't use abstract base classes")
+		return null
 		
 	static func __map_size_to_cells(size: MapSize) -> Vector2i:
 		match size:
@@ -93,6 +103,14 @@ class GenerationAlgorithm:
 		
 
 class IslandsGenerationAlgorithm extends GenerationAlgorithm:
+	class Island:
+		var idx: int
+		var cells: Array[Vector2i]
+		
+		func _init(idx: int) -> void:
+			self.idx = idx
+			self.cells = []
+	
 	const LAND_THRESHOLD = 0.5
 	
 	var noise_texture: NoiseTexture2D
@@ -107,16 +125,24 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 		super(desc, terrain, obstacles, decorations)
 		self.noise_texture = noise_texture
 
-	func generate() -> void:
-		var size_to_gen = __map_size_to_cells(desc.size)
-		var world_source_id = terrain.tile_set.get_source_id(0)
+	func generate() -> GenerationAlgorithmResult:
+		var modified_cells = _create_baseline_water_and_land()
+		var islands = _compute_islands(modified_cells)
 		
-		for map_x in range(0, size_to_gen.x):
-			for map_y in range(0, size_to_gen.y):
-				# set the tile here with water
-				terrain.set_cell(Vector2i(map_x, map_y), world_source_id, WATER_TILE_COORDS)
-				
-		var modified_cells = []
+		print(islands.size())
+		_apply_to_terrain(modified_cells)
+		
+		var dark_tower_positions: Array[Vector2] = []
+		var portals_positions: Array[Vector2] = []
+		var result = GenerationAlgorithmResult.new()
+		result.player_position = Vector2(100, 100)
+		result.boss_position = Vector2(300, 300)
+		result.dark_towers_positions = dark_tower_positions
+		result.portals_positions = portals_positions
+		return result
+		
+	func _create_baseline_water_and_land() -> Dictionary:
+		var modified_cells = {}
 		var noise_image = noise_texture.get_image()
 				
 		for map_x in range(2, size_to_gen.x - 2):
@@ -125,23 +151,92 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 				var the_cell = Vector2i(map_x, map_y)
 				var is_land_test = noise_image.get_pixel(map_x, map_y).r
 				if is_land_test > LAND_THRESHOLD:
-					terrain.set_cell(the_cell, world_source_id, GRASS_MAIN_TILE_COORDS)			
-					modified_cells.append(the_cell)
-				
-		terrain.set_cells_terrain_connect(modified_cells, 0, 0)
+					modified_cells[the_cell] = true
+		
+		return modified_cells
+		
+	func _compute_islands(modified_cells: Dictionary) -> Array[Island]:
+		var islands: Array[Island] = []
+		var visited = {}
+		
+		for pos in modified_cells:
+			if pos not in visited:
+				islands.append(_flood_fill(pos, visited, islands.size(), modified_cells))
+
+		return islands
+		
+	func _flood_fill(start: Vector2i, visited: Dictionary, next_idx: int, modified_cells: Dictionary) -> Island:
+		var stack = [start]
+		visited[start] = true
+		
+		var island = Island.new(next_idx)
+
+		while stack.size() > 0:
+			var current = stack.pop_back()
+			island.cells.append(current)
+
+			for neighbor in _get_neighbors(current):
+				if neighbor not in visited and neighbor in modified_cells:
+					visited[neighbor] = true
+					stack.append(neighbor)
 					
-		for modified_cell in modified_cells:
+		return island
+		
+	func _apply_to_terrain(modified_cells: Dictionary) -> void:
+		var world_source_id = terrain.tile_set.get_source_id(0)
+		
+		for map_x in range(0, size_to_gen.x):
+			for map_y in range(0, size_to_gen.y):
+				# set the tile here with water
+				var pos = Vector2i(map_x, map_y)
+				if pos not in modified_cells:
+					terrain.set_cell(pos, world_source_id, WATER_TILE_COORDS)
+				else:
+					terrain.set_cell(pos, world_source_id, GRASS_MAIN_TILE_COORDS)
+					
+		var cells_to_apply: Array[Vector2i]
+		for cel in modified_cells:
+			cells_to_apply.append(cel)
+					
+		terrain.set_cells_terrain_connect(cells_to_apply, 0, 0)
+		# terrain.update_internals()
+
+		for pos in modified_cells:
 			var tile_test = randf_range(0, 1)
+			# This was turned into something else by the connect
+			if terrain.get_cell_atlas_coords(pos) != GRASS_MAIN_TILE_COORDS and terrain.get_cell_atlas_coords(pos) != GRASS_ALTX_TILE_COORDS:
+				continue
+					
 			if tile_test < 0.85:
 				pass
 			elif tile_test < 0.95:
-				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT0_TILE_COORDS)	
+				terrain.set_cell(pos, world_source_id, GRASS_ALT0_TILE_COORDS)	
 			elif tile_test < 0.98:
-				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT1_TILE_COORDS)
+				terrain.set_cell(pos, world_source_id, GRASS_ALT1_TILE_COORDS)
 			else:
-				terrain.set_cell(modified_cell, world_source_id, GRASS_ALT2_TILE_COORDS)
-			
-		terrain.update_internals()
-		
+				terrain.set_cell(pos, world_source_id, GRASS_ALT2_TILE_COORDS)
+					
+	func _get_neighbors(pos: Vector2i) -> Array[Vector2i]:
+		var neighbors: Array[Vector2i] = []
+
+		if pos.x > 0:
+			neighbors.append(pos + Vector2i(-1, 0))  # Left
+		if pos.x < size_to_gen.x - 1:
+			neighbors.append(pos + Vector2i(1, 0))   # Right
+		if pos.y > 0:
+			neighbors.append(pos + Vector2i(0, -1))  # Up
+		if pos.y < size_to_gen.y - 1:
+			neighbors.append(pos + Vector2i(0, 1))   # Down
+
+		if pos.x > 0 and pos.y > 0:
+			neighbors.append(pos + Vector2i(-1, -1))  # Top-left diagonal
+		if pos.x < size_to_gen.x - 1 and pos.y > 0:
+			neighbors.append(pos + Vector2i(1, -1))   # Top-right diagonal
+		if pos.x > 0 and pos.y < size_to_gen.y - 1:
+			neighbors.append(pos + Vector2i(-1, 1))   # Bottom-left diagonal
+		if pos.x < size_to_gen.x - 1 and pos.y < size_to_gen.y - 1:
+			neighbors.append(pos + Vector2i(1, 1))    # Bottom-right diagonal
+
+		return neighbors
 
 #endregion

@@ -48,6 +48,7 @@ static func challenge_to_text(challenge: Challenge) -> String:
 
 const WATER_TILE_COORDS = Vector2i(5, 6)
 const GRASS_MAIN_TILE_COORDS = Vector2i(5, 0)
+const GRASS_ALTX_TILE_COORDS = Vector2i(1, 7)
 const GRASS_ALT0_TILE_COORDS = Vector2i(6, 0)
 const GRASS_ALT1_TILE_COORDS = Vector2i(5, 1)
 const GRASS_ALT2_TILE_COORDS = Vector2i(6, 1)
