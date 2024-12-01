@@ -2,6 +2,7 @@ class_name GeneratedMission
 extends Mission
 
 const DarkTowerScn = preload("res://entities/structures/dark-tower/dark-tower.tscn")
+const PortalScn = preload("res://entities/structures/portal/portal.tscn")
 
 static var Desc:
 	get:
@@ -51,10 +52,15 @@ func post_ready_prepare(mission_desc: Application.MissionDesc) -> void:
 	$PlayerStartPosition.position = result.player_position
 	$BossPosition.position = result.boss_position
 	
-	var dark_tower = DarkTowerScn.instantiate()
-	dark_tower.position = Vector2(200, 200)
-	# We don't call ppost_ready_prepare here as the game will do so
-	add_child(dark_tower)
+	for dark_tower_position in result.dark_towers_positions:
+		var dark_tower = DarkTowerScn.instantiate()
+		dark_tower.position = dark_tower_position
+		add_child(dark_tower)
+	
+	for portal_position in result.portals_positions:
+		var portal = PortalScn.instantiate()
+		portal.position = portal_position
+		add_child(portal)
 	
 	init_completed.emit()
 	
@@ -88,6 +94,36 @@ class GenerationAlgorithm extends RefCounted:
 		assert(1 != 0, "Shouldn't use abstract base classes")
 		return null
 		
+	var dark_towers_cnt: int:
+		get:
+			match desc.size:
+				Mission.MapSize.Small:
+					match desc.challenge:
+						Mission.Challenge.Forgiving:
+							return 4
+						Mission.Challenge.Punishing:
+							return 6
+						Mission.Challenge.Deadly:
+							return 8
+				Mission.MapSize.Medium:
+					match desc.challenge:
+						Mission.Challenge.Forgiving:
+							return 8
+						Mission.Challenge.Punishing:
+							return 12
+						Mission.Challenge.Deadly:
+							return 16
+				Mission.MapSize.Large:
+					match desc.challenge:
+						Mission.Challenge.Forgiving:
+							return 16
+						Mission.Challenge.Punishing:
+							return 24
+						Mission.Challenge.Deadly:
+							return 32
+			assert(1 != 0, "Unknown size %d and challenge %d" % [desc.size, desc.challenge])
+			return 1
+		
 	static func __map_size_to_cells(size: MapSize) -> Vector2i:
 		match size:
 			MapSize.Small:
@@ -112,7 +148,7 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 			self.cells = []
 	
 	const LAND_THRESHOLD = 0.5
-	const SMALL_ISLAND_CELL_THRESHOLD = 50
+	const SMALL_ISLAND_CELL_THRESHOLD = 150
 	
 	var noise_texture: NoiseTexture2D
 	
@@ -138,10 +174,10 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 		var dark_tower_positions: Array[Vector2] = []
 		var portals_positions: Array[Vector2] = []
 		var result = GenerationAlgorithmResult.new()
-		result.player_position = Vector2(100, 100)
-		result.boss_position = Vector2(300, 300)
-		result.dark_towers_positions = dark_tower_positions
-		result.portals_positions = _build_portals_for_islands(islands)
+		result.player_position = _place_player(islands, modified_cells)
+		result.boss_position = _place_player(islands, modified_cells)
+		result.dark_towers_positions = _build_dark_towers_for_islands(islands, modified_cells)
+		result.portals_positions = _build_portals_for_islands(islands, modified_cells)
 		return result
 		
 	func _create_baseline_water_and_land() -> Dictionary:
@@ -168,14 +204,6 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 
 		return islands
 		
-	func _eliminate_small_islands(islands: Array[Island]) -> Array[Island]:
-		var new_islands: Array[Island] = []
-		for island in islands:
-			if island.cells.size() > SMALL_ISLAND_CELL_THRESHOLD:
-				island.idx = new_islands.size()
-				new_islands.append(island)
-		return new_islands
-		
 	func _dilate_islands(modified_cells: Dictionary) -> Dictionary:
 		var new_modified_cells: Dictionary = {}
 		
@@ -186,6 +214,14 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 			new_modified_cells[pos] = true
 					
 		return new_modified_cells
+		
+	func _eliminate_small_islands(islands: Array[Island]) -> Array[Island]:
+		var new_islands: Array[Island] = []
+		for island in islands:
+			if island.cells.size() > SMALL_ISLAND_CELL_THRESHOLD:
+				island.idx = new_islands.size()
+				new_islands.append(island)
+		return new_islands
 		
 	func _flood_fill(start: Vector2i, visited: Dictionary, next_idx: int, modified_cells: Dictionary) -> Island:
 		var stack = [start]
@@ -204,6 +240,47 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 					
 		return island
 		
+	func _place_player(islands: Array[Island], modified_cells: Dictionary) -> Vector2:
+		var island = _chose_random_island(islands)
+		while true:
+			var random_pos = island.cells.pick_random()
+			if _is_sufficiencly_bufferd(random_pos, modified_cells):
+				return Vector2(random_pos * terrain.tile_set.tile_size)
+		assert(1 != 0, "Should not happen")
+		return Vector2.ZERO
+		
+	func _build_dark_towers_for_islands(islands: Array[Island], modified_cells: Dictionary) -> Array[Vector2]:
+		var dark_tower_positions: Array[Vector2] = []
+		
+		var total_mass: int = 0
+		for island in islands:
+			total_mass += island.cells.size()
+		
+		for idx in range(0, dark_towers_cnt):
+			var island = _chose_random_island(islands)
+			while true:
+				var random_pos = island.cells.pick_random()
+				if _is_sufficiencly_bufferd(random_pos, modified_cells):
+					dark_tower_positions.append(Vector2(random_pos * terrain.tile_set.tile_size))
+					break
+				
+		return dark_tower_positions
+		
+	func _build_portals_for_islands(islands: Array[Island], modified_cells: Dictionary) -> Array[Vector2]:
+		var portal_positions: Array[Vector2] = []
+		
+		if islands.size() < 2:
+			return portal_positions
+			
+		for island in islands:
+			while true:
+				var random_pos = island.cells.pick_random()
+				if _is_sufficiencly_bufferd(random_pos, modified_cells):
+					portal_positions.append(Vector2(random_pos * terrain.tile_set.tile_size))
+					break
+			
+		return portal_positions
+		
 	func _apply_to_terrain(islands: Array[Island]) -> void:
 		var world_source_id = terrain.tile_set.get_source_id(0)
 		
@@ -218,7 +295,6 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 				terrain.set_cell(pos, world_source_id, GRASS_MAIN_TILE_COORDS)
 					
 			terrain.set_cells_terrain_connect(island.cells, 0, 0)
-		# terrain.update_internals()
 
 			for pos in island.cells:
 				var tile_test = randf_range(0, 1)
@@ -234,6 +310,29 @@ class IslandsGenerationAlgorithm extends GenerationAlgorithm:
 					terrain.set_cell(pos, world_source_id, GRASS_ALT1_TILE_COORDS)
 				else:
 					terrain.set_cell(pos, world_source_id, GRASS_ALT2_TILE_COORDS)
+
+		terrain.update_internals()
+		
+	static func _chose_random_island(islands: Array[Island]) -> Island:
+		var total_mass: int = 0
+		for island in islands:
+			total_mass += island.cells.size()
+		var choice = randi_range(0, total_mass)
+		var curr_mass: int = 0
+		for island in islands:
+			curr_mass += island.cells.size()
+			if choice < curr_mass:
+				return island
+		assert(1 != 0, "This setup should never happen")
+		return null
+		
+	static func _is_sufficiencly_bufferd(pos: Vector2i, modified_cells: Dictionary) -> bool:
+		for pos_x in range(pos.x - 2, pos.x + 2):
+			for pos_y in range(pos.y - 2, pos.y + 2):
+				if Vector2i(pos_x, pos_y) not in modified_cells:
+					return false
+					
+		return true
 				
 	static func _get_neighbors(pos: Vector2i) -> Array[Vector2i]:
 		return [
