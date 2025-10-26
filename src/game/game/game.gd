@@ -93,6 +93,7 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 			dark_towers_left_cnt += 1
 			the_structure.post_ready_prepare(mission_attempt.all_mobs_desc, PlayerProxy.new(player), mission_attempt.difficulty.difficulty, mission.terrain_map)
 			the_structure.spawned_mob.connect(_on_dark_tower_spawns_mob)
+			the_structure.awaken_guardian_mob.connect(_on_dark_tower_awaken_guardian_mob)
 			the_structure.destroyed.connect(func (): _on_dark_tower_destroyed(the_structure))
 		elif the_structure is Portal:
 			all_portals.append(the_structure)
@@ -182,7 +183,6 @@ func _on_player_destroyed() -> void:
 	__hide_dialogs()
 	$LoseDialog.activate()
 	
-	
 func _on_enemy_shoot(enemy_projectile: EnemyProjectile) -> void:
 	add_child(enemy_projectile)
 	enemy_projectile.player_hit.connect(func (player): _on_projectile_hit_player(player, enemy_projectile))
@@ -259,6 +259,11 @@ func _on_enemy_projectile_destroyed(enemy_projectile: EnemyProjectile) -> void:
 func _on_dark_tower_spawns_mob(mob: Mob) -> void:
 	# We'll do some adjustments to the enemy position so it's not
 	# in an inaccessible place.
+	add_child(mob)
+	mob.shoot.connect(_on_enemy_shoot)
+	mob.destroyed.connect(func (): _on_mob_destroyed(mob))
+	
+func _on_dark_tower_awaken_guardian_mob(mob: Mob) -> void:
 	add_child(mob)
 	mob.shoot.connect(_on_enemy_shoot)
 	mob.destroyed.connect(func (): _on_mob_destroyed(mob))

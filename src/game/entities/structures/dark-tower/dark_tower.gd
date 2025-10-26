@@ -1,12 +1,11 @@
 class_name DarkTower
 extends Structure
 
-const JellyScn = preload("res://entities/enemies/mobs/jelly/jelly.tscn")
-const SnailScn = preload("res://entities/enemies/mobs/snail/snail.tscn")
-const OgreScn = preload("res://entities/enemies/mobs/ogre/ogre.tscn")
+const BatScn = preload("res://entities/enemies/mobs/bat/bat.tscn")
 const ActivationAreaScn = preload("res://entities/enemies/activation-area/enemy-activation-area.tscn")
 
 signal spawned_mob (mob: Mob)
+signal awaken_guardian_mob (mob: Mob)
 signal destroyed ()
 
 const SPAWN_DISTANCE_MIN = 32.0
@@ -151,6 +150,15 @@ func destroy():
 			continue
 		mob.destroy()
 		
+	# Awaken the guardian mob!
+	var activation_area = ActivationAreaScn.instantiate()
+	activation_area.scale = Vector2(3, 3)
+		
+	var guardian_mob = BatScn.instantiate()
+	guardian_mob.add_child(activation_area)
+	guardian_mob.post_ready_prepare(Bat.Desc, player, _almost_closest_position_in_disc(global_position), difficulty)
+	awaken_guardian_mob.emit(guardian_mob)
+
 	destroyed.emit()
 
 #endregion
@@ -159,5 +167,29 @@ func destroy():
 
 func _random_position_in_disc() -> Vector2:
 	return ok_cell_pos_for_gen.pick_random()
+	
+func _almost_closest_position_in_disc(position: Vector2) -> Vector2:
+	return _pick_inverse_distance(position, ok_cell_pos_for_gen, 4)
+	
+func _pick_inverse_distance(position: Vector2, cells: Array[Vector2], alpha: float = 2.0, eps: float = 1e-6) -> Vector2:
+	var weights := PackedFloat32Array()
+	weights.resize(cells.size())
+	var sumw := 0.0
+
+	for i in cells.size():
+		var d2 := position.distance_squared_to(cells[i])
+		# (d^2 + eps) ^ (-alpha/2) == d^(-alpha), but safe at d=0
+		var w := pow(d2 + eps, -alpha * 0.5)
+		weights[i] = w
+		sumw += w
+
+	var r := randf() * sumw
+	var acc := 0.0
+	for i in cells.size():
+		acc += weights[i]
+		if r <= acc:
+			return cells[i]
+
+	return cells.back()
 
 #endregion

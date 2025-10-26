@@ -1,0 +1,166 @@
+[gd_scene load_steps=24 format=3 uid="uid://bl1n1bgqciwvv"]
+
+[ext_resource type="Texture2D" uid="uid://c12f5wk8xxu0d" path="res://entities/enemies/mobs/bat/idle.png" id="1_mnuaa"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="1_pek0j"]
+[ext_resource type="Script" path="res://entities/enemies/mobs/bat/bat.gd" id="1_tb28t"]
+[ext_resource type="PackedScene" uid="uid://b42o4ohq54i" path="res://ui/health-bar/health-bar.tscn" id="3_yao71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjety"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5m5r"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c2ga"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0cr8"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fqee"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hexl4"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsxrx"]
+atlas = ExtResource("1_pek0j")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35e7p"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01y10"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayjjv"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww1ns"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmxyj"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umg45"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yptj"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4log"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ampe2"]
+atlas = ExtResource("1_mnuaa")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rm673"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjety")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5m5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c2ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0cr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fqee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hexl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsxrx")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35e7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01y10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayjjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww1ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmxyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umg45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yptj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4log")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ampe2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7aeqx"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdk6e"]
+
+[node name="Bat" type="CharacterBody2D" groups=["Enemies", "Mobs"]]
+collision_layer = 16
+collision_mask = 31
+script = ExtResource("1_tb28t")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+sprite_frames = SubResource("SpriteFrames_rm673")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="WhiteMask" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(9.53674e-07, 2.5)
+scale = Vector2(44, 33)
+texture = SubResource("CanvasTexture_7aeqx")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bdk6e")
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HealthBar" parent="." instance=ExtResource("3_yao71")]
+position = Vector2(-13, 15)
+scale = Vector2(0.5, 0.5)
+life = 10
+
+[connection signal="timeout" from="ShootTimer" to="." method="_shoot"]
