@@ -10,7 +10,7 @@ static var Desc:
 				awaken they make terrible enemies.
 			""",
 			preload("res://entities/enemies/mobs/bat/bat.tscn"),
-			DifficultyValue.new(1, 1, 2)
+			DifficultyValue.new(2, 3, 4)
 		)
 
 const BulletScn = preload("res://entities/enemies/projectile/bullet/bullet.tscn")
