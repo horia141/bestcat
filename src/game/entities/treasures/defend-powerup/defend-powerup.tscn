@@ -1,7 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2ekuptnocwqw"]
+[gd_scene load_steps=13 format=3 uid="uid://b2ekuptnocwqw"]
 
 [ext_resource type="Texture2D" uid="uid://c2xgb10rsu0aw" path="res://common/defence.png" id="1_o07ll"]
 [ext_resource type="Script" path="res://entities/treasures/defend-powerup/defend_powerup.gd" id="1_uuhx6"]
+[ext_resource type="Texture2D" uid="uid://dv3i6g6j7o26d" path="res://common/explosion.png" id="3_lq851"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kirp"]
+atlas = ExtResource("3_lq851")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t63y0"]
+atlas = ExtResource("3_lq851")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1v8l"]
+atlas = ExtResource("3_lq851")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knpqc"]
+atlas = ExtResource("3_lq851")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_881dq"]
+atlas = ExtResource("3_lq851")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksrnk"]
+atlas = ExtResource("3_lq851")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c8el"]
+atlas = ExtResource("3_lq851")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsa1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o07ll")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kirp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t63y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1v8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knpqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_881dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksrnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c8el")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fh7a5"]
 
@@ -10,8 +76,10 @@ collision_layer = 64
 collision_mask = 4
 script = ExtResource("1_uuhx6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_o07ll")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tsa1d")
+animation = &"explosion"
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fh7a5")

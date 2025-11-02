@@ -36,7 +36,10 @@ func _treasure_picked_up(body: Node) -> void:
 		set_deferred("freeze", true)
 		
 func _on_expires() -> void:
+	$Sprite.play("explosion")
+	$Collision.set_deferred("disabled", true)
 	set_deferred("freeze", true)
+	await $Sprite.animation_finished
 	expired.emit()
 		
 func apply_effect_to_player(player: Player) -> String:
