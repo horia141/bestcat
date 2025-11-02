@@ -123,7 +123,7 @@ func _wire_up_everything(mission_attempt: Application.MissionAttempt) -> void:
 		
 	for treasure in get_tree().get_nodes_in_group("Treasures"):
 		var the_treasure = treasure as Treasure
-		the_treasure.post_ready_prepare(the_treasure.position)
+		the_treasure.post_ready_prepare(the_treasure.position, mission_attempt.difficulty.difficulty, false)
 		the_treasure.picked_up.connect(func (player): _on_treasure_picked(player, the_treasure))
 		
 	# Now we properly start the game
@@ -202,8 +202,9 @@ func _on_mob_destroyed(mob: Mob) -> void:
 	else:
 		powerup = DefendPowerUpScn.instantiate()
 	
-	powerup.post_ready_prepare(mob.position)
+	powerup.post_ready_prepare(mob.position, self.mission_attempt.difficulty.difficulty, true)
 	powerup.picked_up.connect(func (player): _on_treasure_picked(player, powerup))
+	powerup.expired.connect(func (): _on_powerup_expired(powerup))
 	add_child(powerup)
 	
 	score += 1
@@ -238,6 +239,9 @@ func _on_boss_destroyed(boss: Boss) -> void:
 func _on_treasure_picked(player: Player, treasure: Treasure) -> void:
 	player.apply_treasure(treasure)
 	treasure.queue_free()
+	
+func _on_powerup_expired(powerup: Treasure) -> void:
+	powerup.queue_free()
 	
 func _on_player_projectile_hit_structure(structure: Structure, player_projectile: PlayerProjectile) -> void:
 	structure.on_hit_by_player_projectile(player_projectile)
