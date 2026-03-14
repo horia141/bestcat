@@ -54,7 +54,12 @@ func activate() -> void:
 	_select_player(all_players[0], all_players_desc[0])
 	$Selector/List/Margin/Layout.get_child(0).grab_focus()
 	
+func activate_for_encyclopedia() -> void:
+	activate()
+	$Controls/Margin/Layout/Continue.hide()
+	
 func deactivate() -> void:
+	$Controls/Margin/Layout/Continue.show()
 	hide()
 
 func _select_player(player: Player, player_desc: Application.PlayerDesc) -> void:

@@ -13,10 +13,11 @@ enum View {
 	SelectDifficulty,
 	Controls,
 	EncyclopediaMain,
+	EncyclopediaPlayers,
 	EncyclopediaWeapons,
-	EncyclopediaEnemies,
 	EncyclopediaShields,
-	EncyclopediaAvatars
+	EncyclopediaEnemies,
+	EncyclopediaLore
 }
 
 var view = View.Main
@@ -80,7 +81,12 @@ func _select_player_go_to_select_player_weapon(player_desc: Application.PlayerDe
 	_show()
 	
 func _select_player_go_to_select_mission() -> void:
-	view = View.SelectMission
+	if view == View.SelectPlayer:
+		view = View.SelectMission
+	elif view == View.EncyclopediaPlayers:
+		view = View.EncyclopediaMain
+	else:
+		assert(1 == 0, "View is invalid state")
 	_show()
 
 func _select_player_weapon_go_to_select_player_shield(player_weapon_desc: Application.PlayerWeaponDesc) -> void:
@@ -89,7 +95,12 @@ func _select_player_weapon_go_to_select_player_shield(player_weapon_desc: Applic
 	_show()
 	
 func _select_player_weapon_go_to_select_player() -> void:
-	view = View.SelectPlayer
+	if view == View.SelectPlayerWeapon:
+		view = View.SelectPlayer
+	elif view == View.EncyclopediaWeapons:
+		view = View.EncyclopediaMain
+	else:
+		assert(1 == 0, "View is invalid state")
 	_show()
 	
 func _select_player_shield_go_to_select_difficulty(player_shield_desc: Application.PlayerShieldDesc) -> void:
@@ -98,7 +109,12 @@ func _select_player_shield_go_to_select_difficulty(player_shield_desc: Applicati
 	_show()
 	
 func _select_player_shield_go_to_select_player_weapon() -> void:
-	view = View.SelectPlayerWeapon
+	if view == View.SelectPlayerShield:
+		view = View.SelectPlayerWeapon
+	elif view == View.EncyclopediaShields:
+		view = View.EncyclopediaMain
+	else:
+		assert(1 == 0, "View is invalid state")
 	_show()
 	
 func _select_difficulty_go_to_new_game(difficulty: Application.MissionDifficultyDesc) -> void:
@@ -131,6 +147,26 @@ func _main_to_encyclopedia_main() -> void:
 	
 func _encyclopedia_main_to_main() -> void:
 	view = View.Main
+	_show()
+	
+func _encyclopedia_main_to_player() -> void:
+	view = View.EncyclopediaPlayers
+	_show()
+	
+func _encyclopedia_main_to_weapons() -> void:
+	view = View.EncyclopediaWeapons
+	_show()
+	
+func _encyclopedia_main_to_shields() -> void:
+	view = View.EncyclopediaShields
+	_show()
+	
+func _encyclopedia_main_to_enemies() -> void:
+	view = View.EncyclopediaEnemies
+	_show()
+	
+func _encyclopedia_main_to_lore() -> void:
+	view = View.EncyclopediaLore
 	_show()
 	
 func _show() -> void:
@@ -208,6 +244,37 @@ func _show() -> void:
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
 			$EncyclopediaMain.activate()
+		View.EncyclopediaPlayers:
+			$Main.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.activate_for_encyclopedia()
+			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
+			$SelectDifficulty.deactivate()
+			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
+		View.EncyclopediaWeapons:
+			$Main.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
+			$SelectPlayerWeapon.activate_for_encyclopedia()
+			$SelectPlayerShield.deactivate()
+			$SelectDifficulty.deactivate()
+			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
+		View.EncyclopediaShields:
+			$Main.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
+			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.activate_for_encyclopedia()
+			$SelectDifficulty.deactivate()
+			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
+		View.EncyclopediaEnemies:
+			assert(1 == 0, "Not implemented yet")
+		View.EncyclopediaLore:
+			assert(1 == 0, "Not implemented yet")
 			
 func _background_move() -> void:
 	$Background/Path/Follow.progress += 5

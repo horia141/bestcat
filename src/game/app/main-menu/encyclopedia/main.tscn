@@ -101,4 +101,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 label = "Return"
 
+[connection signal="button_up" from="Selector/List/Margin/List/Players" to="." method="_select_players"]
+[connection signal="button_up" from="Selector/List/Margin/List/Weapons" to="." method="_select_weapons"]
+[connection signal="button_up" from="Selector/List/Margin/List/Shields" to="." method="_select_shields"]
+[connection signal="button_up" from="Selector/List/Margin/List/Enemies" to="." method="_select_enemies"]
+[connection signal="button_up" from="Selector/List/Margin/List/Lore" to="." method="_select_lore"]
 [connection signal="button_up" from="Controls/Margin/Return" to="." method="_return_from"]

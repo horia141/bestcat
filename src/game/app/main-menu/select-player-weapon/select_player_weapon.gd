@@ -50,7 +50,12 @@ func activate() -> void:
 	_select_player_weapon(all_player_weapons[0], all_player_weapons_desc[0])
 	$Selector/List/Margin/Layout.get_child(0).grab_focus()
 	
+func activate_for_encyclopedia() -> void:
+	activate()
+	$Controls/Margin/Layout/Continue.hide()
+	
 func deactivate() -> void:
+	$Controls/Margin/Layout/Continue.show()
 	hide()
 
 func _select_player_weapon(player_weapon: PlayerWeapon, player_weapon_desc: Application.PlayerWeaponDesc) -> void:

@@ -161,3 +161,8 @@ offset_right = 271.0
 [connection signal="return_from" from="SelectDifficulty" to="." method="_select_difficulty_go_to_select_player_shield"]
 [connection signal="return_from" from="ShowControls" to="." method="_controls_to_main"]
 [connection signal="return_from" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_main"]
+[connection signal="select_section_enemies" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_enemies"]
+[connection signal="select_section_lore" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_lore"]
+[connection signal="select_section_players" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_player"]
+[connection signal="select_section_shields" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_shields"]
+[connection signal="select_section_weapons" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_weapons"]

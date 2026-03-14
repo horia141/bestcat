@@ -51,7 +51,12 @@ func activate() -> void:
 	_select_player_shield(all_player_shields[0], all_player_shields_desc[0])
 	$Selector/List/Margin/Layout.get_child(0).grab_focus()
 	
+func activate_for_encyclopedia() -> void:
+	activate()
+	$Controls/Margin/Layout/Continue.hide()
+	
 func deactivate() -> void:
+	$Controls/Margin/Layout/Continue.show()
 	hide()
 
 func _select_player_shield(player_shield: PlayerShield, player_shield_desc: Application.PlayerShieldDesc) -> void:
