@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://djfcqu3hhl7p"]
+
+[ext_resource type="Script" path="res://app/main-menu/encyclopedia/main.gd" id="1_blr1w"]
+[ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="1_qdotd"]
+[ext_resource type="PackedScene" uid="uid://d1q1oo6dpavt8" path="res://ui/game-ui/game-panel.tscn" id="2_glne2"]
+[ext_resource type="PackedScene" uid="uid://l4g7jgfosw2v" path="res://ui/game-ui/game-button.tscn" id="4_w126o"]
+
+[node name="EncyclopediaMain" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blr1w")
+
+[node name="Header" parent="." instance=ExtResource("1_qdotd")]
+custom_minimum_size = Vector2(540, 70)
+layout_mode = 2
+label = "Choose The Difficulty"
+
+[node name="Selector" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="List" parent="Selector" instance=ExtResource("2_glne2")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/List"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="List" type="VBoxContainer" parent="Selector/List/Margin"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="Difficulty" parent="Selector" instance=ExtResource("2_glne2")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Selector/Difficulty"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="RichTextLabel" parent="Selector/Difficulty/Margin"]
+custom_minimum_size = Vector2(250, 256)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+text = "Here is some description of the difficulty
+
+* In rich text
+* So rich text"
+
+[node name="Controls" parent="." instance=ExtResource("2_glne2")]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Margin" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Return" parent="Controls/Margin" instance=ExtResource("4_w126o")]
+custom_minimum_size = Vector2(100, 81)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+label = "Return"
+
+[connection signal="button_up" from="Controls/Margin/Return" to="." method="_return_from"]

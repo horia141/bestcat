@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://beqa2jii05ekd"]
+[gd_scene load_steps=17 format=3 uid="uid://beqa2jii05ekd"]
 
 [ext_resource type="Script" path="res://app/main-menu/main_menu.gd" id="1_ilhsy"]
 [ext_resource type="PackedScene" uid="uid://desy7wwqh5j8x" path="res://ui/game-ui/game-header.tscn" id="2_ej781"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnxude3glaqa5" path="res://app/main-menu/show-controls/show-controls.tscn" id="8_olo7c"]
 [ext_resource type="PackedScene" uid="uid://dhfywm5mrjx77" path="res://app/main-menu/select-player-weapon/select-player-weapon.tscn" id="10_7n7ka"]
 [ext_resource type="PackedScene" uid="uid://b0hs7cg85pwwx" path="res://app/main-menu/select-player-shield/select-player-shield.tscn" id="11_6s55p"]
+[ext_resource type="PackedScene" uid="uid://djfcqu3hhl7p" path="res://app/main-menu/encyclopedia/main.tscn" id="14_5en5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_atguf"]
 shader = ExtResource("2_xpbev")
@@ -93,6 +94,12 @@ layout_mode = 2
 label = "Controls"
 font_size = 38
 
+[node name="Encyclopedia" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
+custom_minimum_size = Vector2(245, 94)
+layout_mode = 2
+label = "Encyclopedia"
+font_size = 38
+
 [node name="Quit" parent="Main/Commands/Margin/Layout" instance=ExtResource("3_u8p1n")]
 custom_minimum_size = Vector2(74, 50)
 layout_mode = 2
@@ -110,7 +117,7 @@ visible = false
 
 [node name="SelectPlayerShield" parent="." instance=ExtResource("11_6s55p")]
 visible = false
-anchors_preset = -1
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -129,9 +136,13 @@ visible = false
 offset_left = -250.0
 offset_right = 250.0
 
+[node name="EncyclopediaMain" parent="." instance=ExtResource("14_5en5i")]
+visible = false
+
 [connection signal="timeout" from="Background/MoveBackground" to="." method="_background_move"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Controls" to="." method="_main_to_controls"]
+[connection signal="button_up" from="Main/Commands/Margin/Layout/Encyclopedia" to="." method="_main_to_encyclopedia_main"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/Quit" to="." method="_main_go_to_quit_game"]
 [connection signal="mission_selected" from="SelectMission" to="." method="_select_mission_go_to_select_player"]
 [connection signal="return_from" from="SelectMission" to="." method="_select_mission_to_main"]
@@ -144,3 +155,4 @@ offset_right = 250.0
 [connection signal="difficulty_selected" from="SelectDifficulty" to="." method="_select_difficulty_go_to_new_game"]
 [connection signal="return_from" from="SelectDifficulty" to="." method="_select_difficulty_go_to_select_player_shield"]
 [connection signal="return_from" from="ShowControls" to="." method="_controls_to_main"]
+[connection signal="return_from" from="EncyclopediaMain" to="." method="_encyclopedia_main_to_main"]

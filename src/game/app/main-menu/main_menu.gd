@@ -11,7 +11,12 @@ enum View {
 	SelectPlayerWeapon,
 	SelectPlayerShield,
 	SelectDifficulty,
-	Controls
+	Controls,
+	EncyclopediaMain,
+	EncyclopediaWeapons,
+	EncyclopediaEnemies,
+	EncyclopediaShields,
+	EncyclopediaAvatars
 }
 
 var view = View.Main
@@ -120,6 +125,14 @@ func _controls_to_main() -> void:
 	view = View.Main
 	_show()
 	
+func _main_to_encyclopedia_main() -> void:
+	view = View.EncyclopediaMain
+	_show()
+	
+func _encyclopedia_main_to_main() -> void:
+	view = View.Main
+	_show()
+	
 func _show() -> void:
 	match view:
 		View.Main:
@@ -130,6 +143,7 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 			$Main/Commands/Margin/Layout/NewGame.grab_focus()
 		View.SelectMission:
 			$Main.hide()
@@ -139,6 +153,7 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 		View.SelectPlayer:
 			$Main.hide()
 			$SelectMission.deactivate()
@@ -147,6 +162,7 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 		View.SelectPlayerWeapon:
 			$Main.hide()
 			$SelectMission.deactivate()
@@ -155,6 +171,7 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 		View.SelectPlayerShield:
 			$Main.hide()
 			$SelectMission.deactivate()
@@ -163,6 +180,7 @@ func _show() -> void:
 			$SelectPlayerShield.activate()
 			$SelectDifficulty.deactivate()
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 		View.SelectDifficulty:
 			$Main.hide()
 			$SelectMission.deactivate()
@@ -171,6 +189,7 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.activate(selected_mission)
 			$ShowControls.deactivate()
+			$EncyclopediaMain.deactivate()
 		View.Controls:
 			$Main.hide()
 			$SelectMission.deactivate()
@@ -179,6 +198,16 @@ func _show() -> void:
 			$SelectPlayerShield.deactivate()
 			$SelectDifficulty.hide()
 			$ShowControls.activate()
+			$EncyclopediaMain.deactivate()
+		View.EncyclopediaMain:
+			$Main.hide()
+			$SelectMission.deactivate()
+			$SelectPlayer.deactivate()
+			$SelectPlayerWeapon.deactivate()
+			$SelectPlayerShield.deactivate()
+			$SelectDifficulty.deactivate()
+			$ShowControls.deactivate()
+			$EncyclopediaMain.activate()
 			
 func _background_move() -> void:
 	$Background/Path/Follow.progress += 5
