@@ -138,6 +138,11 @@ offset_right = 250.0
 
 [node name="EncyclopediaMain" parent="." instance=ExtResource("14_5en5i")]
 visible = false
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -271.0
+offset_right = 271.0
 
 [connection signal="timeout" from="Background/MoveBackground" to="." method="_background_move"]
 [connection signal="button_up" from="Main/Commands/Margin/Layout/NewGame" to="." method="_main_go_to_select_mission"]

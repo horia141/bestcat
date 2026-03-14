@@ -37,6 +37,26 @@ theme_override_constants/margin_bottom = 8
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 
+[node name="Players" parent="Selector/List/Margin/List" instance=ExtResource("4_w126o")]
+layout_mode = 2
+label = "Players"
+
+[node name="Weapons" parent="Selector/List/Margin/List" instance=ExtResource("4_w126o")]
+layout_mode = 2
+label = "Weapons"
+
+[node name="Shields" parent="Selector/List/Margin/List" instance=ExtResource("4_w126o")]
+layout_mode = 2
+label = "Shields"
+
+[node name="Enemies" parent="Selector/List/Margin/List" instance=ExtResource("4_w126o")]
+layout_mode = 2
+label = "Enemies"
+
+[node name="Lore" parent="Selector/List/Margin/List" instance=ExtResource("4_w126o")]
+layout_mode = 2
+label = "Lore"
+
 [node name="Difficulty" parent="Selector" instance=ExtResource("2_glne2")]
 layout_mode = 2
 
@@ -55,10 +75,13 @@ theme_override_font_sizes/italics_font_size = 14
 theme_override_font_sizes/mono_font_size = 14
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 14
-text = "Here is some description of the difficulty
+text = "The encyclopedia gives you information about the game.
 
-* In rich text
-* So rich text"
+Press one of the buttons to learn more about a particular aspect of the game.
+
+Knowledge is power, and here you can learn about the various players, weapons, shields, and enemies in BestCat.
+
+You can also delve deeper into the BestCat universe, in the lore section - short stories about BestCat and his friends."
 
 [node name="Controls" parent="." instance=ExtResource("2_glne2")]
 layout_mode = 2
